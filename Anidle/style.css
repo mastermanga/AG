@@ -1,87 +1,218 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #121212;
   color: #f0f0f0;
-  padding: 20px;
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
-h1 {
+
+header {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 2.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1rem 0.2rem 1rem;
+}
+
+header h1 {
+  font-size: 2.1rem;
+  font-weight: bold;
   text-align: center;
+  flex-grow: 1;
+  margin: 0 1rem;
+  letter-spacing: 1px;
 }
-.input-container {
-  margin-bottom: 20px;
-  text-align: center;
-}
-input[type="text"] {
-  padding: 10px;
-  font-size: 16px;
-  width: 300px;
-  border-radius: 5px;
+
+.menu-btn,
+.toggle-btn {
+  background-color: #00bcd4;
+  color: #121212;
   border: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  flex-shrink: 0;
 }
+.menu-btn:hover,
+.toggle-btn:hover {
+  background-color: #0097a7;
+  color: white;
+}
+
+body.light {
+  background-color: #f5f5f5;
+  color: #222;
+}
+body.light .menu-btn,
+body.light .toggle-btn {
+  background-color: #1565c0;
+  color: white;
+}
+body.light .menu-btn:hover,
+body.light .toggle-btn:hover {
+  background-color: #0d47a1;
+}
+
+/* Container central */
+#container {
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+  max-width: 1150px;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 540px;
+}
+
+@media (max-width: 900px) {
+  #container > div {
+    flex-direction: column;
+    gap: 10px !important;
+  }
+  #aideContainer {
+    width: 100% !important;
+    max-width: 98vw;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Suggestions et autocomplete */
 .suggestions {
   background: #1e1e1e;
   border: 1px solid #333;
-  max-width: 300px;
+  max-width: 320px;
   margin: 0 auto 10px;
   text-align: left;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 6px 18px #111a;
+  position: absolute;
+  z-index: 2;
 }
 .suggestions div {
-  padding: 8px;
+  padding: 9px 13px;
   cursor: pointer;
+  transition: background 0.2s;
 }
 .suggestions div:hover {
-  background-color: #333;
+  background-color: #00bcd4;
+  color: #121212;
 }
+
+/* Input central */
+.input-container {
+  margin-bottom: 18px;
+  text-align: center;
+  position: relative;
+}
+input[type="text"] {
+  padding: 12px;
+  font-size: 1rem;
+  width: 310px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background: #222;
+  color: #eee;
+  margin-bottom: 8px;
+  box-shadow: 0 0 5px #1116;
+}
+input[type="text"]:focus {
+  box-shadow: 0 0 12px #00bcd488;
+}
+body.light input[type="text"] {
+  background: #f8faff;
+  color: #333;
+}
+
+/* Grille résultats */
 .row {
   display: flex;
   justify-content: center;
   margin-bottom: 5px;
 }
 .cell {
-  padding: 8px;
+  padding: 9px;
   margin: 2px;
   border-radius: 4px;
   background-color: #2a2a2a;
   border: 1px solid #444;
   white-space: normal;
   overflow-wrap: break-word;
+  text-align: center;
 }
 .cell-image { min-width: 100px; max-width: 100px; }
 .cell-title { min-width: 250px; max-width: 280px; }
-.cell-genre, .cell-theme { min-width: 200px; max-width: 220px; text-align: left; }
-.cell-studio { min-width: 150px; max-width: 160px; }
-.cell-season { min-width: 120px; max-width: 130px; }
-.cell-score { min-width: 90px; max-width: 100px; }
+.cell-genre, .cell-theme { min-width: 170px; max-width: 200px; text-align: left; }
+.cell-studio { min-width: 120px; max-width: 160px; }
+.cell-season { min-width: 110px; max-width: 130px; }
+.cell-score { min-width: 80px; max-width: 100px; }
 .green { background-color: #4caf50 !important; color: white; }
 .red { background-color: #f44336 !important; color: white; }
 .orange { background-color: #ff9800 !important; color: white; }
-#winMessage { margin-top: 20px; font-size: 20px; text-align: center; }
+#winMessage { margin-top: 22px; font-size: 22px; text-align: center; font-weight: bold; }
+
 #fireworks {
-  position: fixed; top: 0; left: 0; height: 100vh; width: 100vw;
+  position: fixed;
+  top: 0; left: 0; height: 100vh; width: 100vw;
   pointer-events: none; z-index: 1000;
 }
+
 #indicesContainer {
-  margin: 20px auto;
+  margin: 22px auto;
   max-width: 600px;
   text-align: left;
   background: #222;
-  padding: 15px;
-  border-radius: 8px;
+  padding: 15px 22px 12px 22px;
+  border-radius: 10px;
   border: 1px solid #444;
 }
-button {
-  margin-top: 10px;
-  padding: 10px 15px;
-  font-size: 16px;
+body.light #indicesContainer {
+  background: #f4f8fa;
+  border: 1px solid #bbb;
+  color: #222;
+}
+#indicesContainer img {
   border-radius: 6px;
+  margin-top: 5px;
+}
+
+button,
+#resetBtn {
+  margin-top: 13px;
+  padding: 12px 19px;
+  font-size: 1.05rem;
+  border-radius: 7px;
   border: none;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #00bcd4;
+  color: #121212;
+  font-weight: bold;
+  transition: background 0.2s;
+  box-shadow: 0 1px 5px #1113;
+}
+button:hover,
+#resetBtn:hover {
+  background-color: #0097a7;
   color: white;
 }
-button:hover {
-  background-color: #0056b3;
+body.light button, body.light #resetBtn {
+  background-color: #1565c0;
+  color: white;
 }
+body.light button:hover, body.light #resetBtn:hover {
+  background-color: #0d47a1;
+}
+
+/* Sidebar suggestions */
 #aideContainer {
   background: #1b1b1b;
   padding: 10px;
@@ -89,15 +220,36 @@ button:hover {
   border: 1px solid #444;
   max-height: 600px;
   overflow-y: auto;
+  min-width: 240px;
 }
 #aideContainer ul {
-  padding-left: 0;
+  padding-left: 15px;
+  margin: 0;
 }
 #aideContainer li {
   margin-bottom: 6px;
   cursor: pointer;
+  list-style-type: disc;
+  font-size: 1rem;
 }
 #aideContainer li:hover {
   text-decoration: underline;
-  color: #00c3ff;
+  color: #00bcd4;
+}
+
+footer {
+  margin-top: auto;
+  padding: 1.2rem 0 0.4rem 0;
+  color: #555;
+  font-size: 0.95rem;
+  text-align: center;
+  user-select: none;
+  width: 100%;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: color 0.3s;
+}
+body.light footer {
+  color: #888;
 }
