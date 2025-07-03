@@ -214,7 +214,7 @@
   }
 
   async function loadDataAndStart() {
-    const url = mode === 'anime' ? 'animes.json' : 'openings.json';
+    const url = mode === 'anime' ? 'data/animes.json' : 'data/openings.json';
     try {
       const res = await fetch(url);
       if(!res.ok) throw new Error("Erreur chargement " + url);
