@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blind Ranking</title>
-  <link rel="icon" type="image/png" href="favicon-32x32.png">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <div class="header-group">
-    <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
-    <h1>Blind Ranking</h1>
-    <button id="themeToggle" class="toggle-btn">🌓</button>
-    </div>
-  </header> 
-  <!-- === CLASSEMENT DES ANIMES === -->
-  <div id="ranking-game">
-    <div class="ranking-container">
-      <h2>Récapitulatif du Ranking</h2>
-      <ul id="ranking-list" class="anime-list"></ul>
-    </div>
-    <button id="back-btn" onclick="backToMenu()">Retour</button>
-    <h1 id="ranking-title">Blind Ranking</h1>
-
-    <div class="anime-container" id="anime-container">
-      <div class="anime-item" id="anime-item">
-        <img id="anime-img" src="" alt="Anime">
-        <p id="anime-name">Nom de l'Anime</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blind Ranking</title>
+    <link rel="icon" type="image/png" href="favicon-32x32.png">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-group">
+      <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
+      <h1>Blind Ranking</h1>
+      <button id="themeToggle" class="toggle-btn">🌓</button>
       </div>
-
-      <div id="rank-section">
+    </header> 
+    <!-- === CLASSEMENT DES ANIMES === -->
+    <div id="ranking-game">
+      <div class="ranking-container">
+        <h2>Récapitulatif du Ranking</h2>
+        <ul id="ranking-list" class="anime-list"></ul>
+      </div>
+      <button id="back-btn" onclick="backToMenu()">Retour</button>
+      <h1 id="ranking-title">Blind Ranking</h1>
+  
+      <div class="anime-container" id="anime-container">
+        <div class="anime-item" id="anime-item">
+          <img id="anime-img" src="" alt="Anime">
+          <p id="anime-name">Nom de l'Anime</p>
+        </div>
+  
+        <div id="rank-section">
+          <div class="rank-button">
+            <button id="rank-1" onclick="assignRank(1)">1</button>
+            <button id="rank-2" onclick="assignRank(2)">2</button>
+            <button id="rank-3" onclick="assignRank(3)">3</button>
+            <button id="rank-4" onclick="assignRank(4)">4</button>
+            <button id="rank-5" onclick="assignRank(5)">5</button>
+            <button id="rank-6" onclick="assignRank(6)">6</button>
+            <button id="rank-7" onclick="assignRank(7)">7</button>
+            <button id="rank-8" onclick="assignRank(8)">8</button>
+            <button id="rank-9" onclick="assignRank(9)">9</button>
+            <button id="rank-10" onclick="assignRank(10)">10</button>
+          </div>
+        </div>
+  
         <div class="rank-button">
-          <button id="rank-1" onclick="assignRank(1)">1</button>
-          <button id="rank-2" onclick="assignRank(2)">2</button>
-          <button id="rank-3" onclick="assignRank(3)">3</button>
-          <button id="rank-4" onclick="assignRank(4)">4</button>
-          <button id="rank-5" onclick="assignRank(5)">5</button>
-          <button id="rank-6" onclick="assignRank(6)">6</button>
-          <button id="rank-7" onclick="assignRank(7)">7</button>
-          <button id="rank-8" onclick="assignRank(8)">8</button>
-          <button id="rank-9" onclick="assignRank(9)">9</button>
-          <button id="rank-10" onclick="assignRank(10)">10</button>
+          <button id="new-ranking-btn" onclick="startNewRanking()" style="display: none;">Nouveau classement</button>
         </div>
       </div>
-
-      <div class="rank-button">
-        <button id="new-ranking-btn" onclick="startNewRanking()" style="display: none;">Nouveau classement</button>
-      </div>
     </div>
-  </div>
-  <footer>
-    © 2025 mastermanga
-  </footer>
-  <script src="script.js"></script>
-</body>
+    <footer>
+      © 2025 mastermanga
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
