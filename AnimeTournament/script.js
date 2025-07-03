@@ -107,7 +107,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function generateSwissRoundMatches() {
     const groups = {};
     for(let i=0; i<items.length; i++){
-      const key = `${swissStats[i].wins}-${swissStats[i].losses}`;
+      const key = ${swissStats[i].wins}-${swissStats[i].losses};
       if(!groups[key]) groups[key] = [];
       groups[key].push(i);
     }
@@ -140,29 +140,29 @@ window.addEventListener("DOMContentLoaded", () => {
   function setupUI() {
     duelContainer.innerHTML = '';
     duelContainer.style.display = 'flex';
-  
-    // On crée les 2 cartes du duel (toujours class "duel-card")
-    const card1 = document.createElement('div');
-    const card2 = document.createElement('div');
-    card1.className = 'duel-card';
-    card2.className = 'duel-card';
-  
-    card1.innerHTML = `
-      <div class="duel-card-inner">
-        ${mode === 'anime' ?
-          `<img class="duel-img" src="" alt=""><div class="duel-title"></div>`
-          :
-          `<div class="duel-video"><iframe src="" frameborder="0" allowfullscreen></iframe></div><div class="duel-title"></div>`
-        }
-      </div>
-    `;
-    card2.innerHTML = card1.innerHTML;
-  
-    card1.onclick = () => recordWin(1);
-    card2.onclick = () => recordWin(2);
-  
-    duelContainer.appendChild(card1);
-    duelContainer.appendChild(card2);
+
+    const div1 = document.createElement('div');
+    const div2 = document.createElement('div');
+
+    if(mode === 'anime'){
+      div1.className = 'anime';
+      div2.className = 'anime';
+
+      div1.innerHTML = <img src="" alt="" /><h3></h3>;
+      div2.innerHTML = <img src="" alt="" /><h3></h3>;
+    } else {
+      div1.className = 'opening';
+      div2.className = 'opening';
+
+      div1.innerHTML = <iframe src="" frameborder="0" allowfullscreen></iframe><h3></h3>;
+      div2.innerHTML = <iframe src="" frameborder="0" allowfullscreen></iframe><h3></h3>;
+    }
+
+    duelContainer.appendChild(div1);
+    duelContainer.appendChild(div2);
+
+    div1.onclick = () => recordWin(1);
+    div2.onclick = () => recordWin(2);
   }
 
   function getYouTubeEmbedUrl(youtubeUrl) {
@@ -175,7 +175,7 @@ window.addEventListener("DOMContentLoaded", () => {
         videoId = urlObj.pathname.slice(1);
       }
     } catch {}
-    if(videoId) return `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=0`;
+    if(videoId) return https://www.youtube.com/embed/${videoId}?rel=0&autoplay=0;
     return null;
   }
 
@@ -216,35 +216,28 @@ window.addEventListener("DOMContentLoaded", () => {
   function showMatch(match) {
     const i1 = match.i1;
     const i2 = match.i2;
-    const cards = duelContainer.querySelectorAll('.duel-card');
-  
+    const divs = duelContainer.children;
+
     if(mode === 'anime'){
-      // Carte 1
-      const img1 = cards[0].querySelector('.duel-img');
-      img1.src = items[i1].image;
-      img1.alt = items[i1].title;
-      cards[0].querySelector('.duel-title').textContent = items[i1].title;
-  
-      // Carte 2
-      const img2 = cards[1].querySelector('.duel-img');
-      img2.src = items[i2].image;
-      img2.alt = items[i2].title;
-      cards[1].querySelector('.duel-title').textContent = items[i2].title;
+      divs[0].querySelector('img').src = items[i1].image;
+      divs[0].querySelector('img').alt = items[i1].title;
+      divs[0].querySelector('h3').textContent = items[i1].title;
+
+      divs[1].querySelector('img').src = items[i2].image;
+      divs[1].querySelector('img').alt = items[i2].title;
+      divs[1].querySelector('h3').textContent = items[i2].title;
     } else {
-      // Carte 1
-      const iframe1 = cards[0].querySelector('iframe');
-      iframe1.src = getYouTubeEmbedUrl(items[i1].youtubeUrls?.[0] || '') || '';
-      cards[0].querySelector('.duel-title').textContent = items[i1].title;
-  
-      // Carte 2
-      const iframe2 = cards[1].querySelector('iframe');
-      iframe2.src = getYouTubeEmbedUrl(items[i2].youtubeUrls?.[0] || '') || '';
-      cards[1].querySelector('.duel-title').textContent = items[i2].title;
+      const url1 = getYouTubeEmbedUrl(items[i1].youtubeUrls?.[0] || '') || '';
+      const url2 = getYouTubeEmbedUrl(items[i2].youtubeUrls?.[0] || '') || '';
+
+      divs[0].querySelector('iframe').src = url1;
+      divs[1].querySelector('iframe').src = url2;
+
+      divs[0].querySelector('h3').textContent = items[i1].title;
+      divs[1].querySelector('h3').textContent = items[i2].title;
     }
-  
     currentMatch = match;
   }
-
 
   let currentMatch = null;
 
@@ -446,11 +439,11 @@ window.addEventListener("DOMContentLoaded", () => {
     if(rank === 2) div.classList.add('top2');
     if(rank === 3) div.classList.add('top3');
     div.setAttribute('tabindex', '0');
-    div.setAttribute('aria-label', `Rang ${rank} - ${item.title}`);
+    div.setAttribute('aria-label', Rang ${rank} - ${item.title});
 
     const rankDiv = document.createElement('div');
     rankDiv.className = 'rank';
-    rankDiv.textContent = `#${rank}`;
+    rankDiv.textContent = #${rank};
 
     const titleDiv = document.createElement('div');
     titleDiv.className = 'title';
@@ -467,7 +460,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const thumb = document.createElement('img');
       const ytid = getYouTubeId(item.youtubeUrls?.[0] || '');
       if(ytid)
-        thumb.src = `https://img.youtube.com/vi/${ytid}/hqdefault.jpg`;
+        thumb.src = https://img.youtube.com/vi/${ytid}/hqdefault.jpg;
       else
         thumb.src = 'default-opening.png';
       thumb.alt = item.title;
