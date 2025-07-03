@@ -49,11 +49,13 @@ function displayAnime() {
       const anime = selectedAnimes[currentIndex];
       document.getElementById("anime-name").textContent = anime.title;
       document.getElementById("anime-img").src = anime.image;
+      document.getElementById("anime-item").style.display = "flex";
+      document.getElementById("rank-section").style.display = "block";
+      document.getElementById("new-ranking-btn").style.display = "none";
     } else {
       document.getElementById("rank-section").style.display = "none";
       document.getElementById("anime-item").style.display = "none";
       document.getElementById("new-ranking-btn").style.display = "block";
-      document.body.classList.add("final-view");
     }
   }, 150); // délai léger pour plus de fluidité
 }
@@ -63,7 +65,6 @@ function assignRank(rank) {
     alert("Ce rang a déjà été attribué !");
     return;
   }
-
   rankings[rank - 1] = selectedAnimes[currentIndex].title;
   document.getElementById(`rank-${rank}`).disabled = true;
   updateRankingList();
@@ -75,23 +76,39 @@ function updateRankingList() {
   const rankingList = document.getElementById("ranking-list");
   rankingList.innerHTML = '';
 
-  rankings.forEach((animeTitle, index) => {
-    if (animeTitle) {
-      const anime = selectedAnimes.find(a => a.title === animeTitle);
-      rankingList.innerHTML += `
+  // Générer deux lignes de 5
+  let rows = [[], []];
+  for (let i = 0; i < 10; i++) {
+    if (rankings[i]) {
+      const anime = selectedAnimes.find(a => a.title === rankings[i]);
+      if (anime) {
+        rows[Math.floor(i / 5)].push(`
+          <li>
+            <img src="${anime.image}" alt="${anime.title}">
+            <span>Rang ${i + 1}: ${anime.title}</span>
+          </li>
+        `);
+      } else {
+        rows[Math.floor(i / 5)].push(`<li><span>Rang ${i + 1}: </span></li>`);
+      }
+    } else {
+      // Case vide
+      rows[Math.floor(i / 5)].push(`
         <li>
-          <img src="${anime.image}" alt="${anime.title}">
-          <span>Rang ${index + 1}: ${anime.title}</span>
-        </li>`;
+          <div style="width:100px;height:100px;opacity:0.1;background:#ccc;display:inline-block;border-radius:10px"></div>
+          <span>Rang ${i + 1}</span>
+        </li>
+      `);
     }
-  });
+  }
+  // Affichage dans une seule grille avec grid CSS (le CSS s'occupe du layout)
+  rankingList.innerHTML = rows[0].join('') + rows[1].join('');
 }
 
 function startNewRanking() {
   getRandomAnimes();
   currentIndex = 0;
   rankings = new Array(10).fill(null);
-  document.body.classList.remove("final-view");
 
   for (let i = 1; i <= 10; i++) {
     document.getElementById(`rank-${i}`).disabled = false;
@@ -108,7 +125,7 @@ function startNewRanking() {
 }
 
 function launchGame(gameId) {
-  document.getElementById("menu-screen").style.display = "none";
+  document.getElementById("menu-screen") && (document.getElementById("menu-screen").style.display = "none");
 
   const allGames = ['ranking-game']; // ajouter plus tard d'autres IDs ici
   allGames.forEach(id => {
@@ -120,23 +137,22 @@ function launchGame(gameId) {
   if (selectedGame) selectedGame.style.display = "flex";
 
   if (gameId === 'ranking-game') {
-    document.querySelector(".ranking-container").style.display = "block"; // Afficher le récapitulatif
+    document.querySelector(".ranking-container").style.display = "block";
     document.getElementById("anime-container").style.display = "flex";
     startNewRanking();
   } else {
-    document.querySelector(".ranking-container").style.display = "none"; // Masquer pour autres jeux
+    document.querySelector(".ranking-container").style.display = "none";
   }
 }
 
 function backToMenu() {
   document.getElementById("ranking-game").style.display = "none";
-  document.getElementById("menu-screen").style.display = "flex";
-  document.querySelector(".ranking-container").style.display = "none"; // Masquer le récapitulatif
-  document.body.classList.remove("final-view"); // Réinitialiser la vue finale
+  document.getElementById("menu-screen") && (document.getElementById("menu-screen").style.display = "flex");
 }
 
-// ======== LIGNE CORRIGÉE ICI ========
+// ======== ON LOAD ========
 window.onload = async function () {
   await loadAnimes();
-  if (animeList.length > 0) startNewRanking(); // <-- On lance le jeu uniquement si chargement OK
+  if (animeList.length > 0) startNewRanking();
 };
+
