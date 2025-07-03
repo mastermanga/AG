@@ -3,13 +3,18 @@ document.getElementById("back-to-menu").addEventListener("click", function() {
   window.location.href = "../index.html";
 });
 
-// Thème clair/sombre persistant
+// Bouton changer de thème + persistance
 document.getElementById("themeToggle").addEventListener("click", () => {
   document.body.classList.toggle("light");
-  localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+  const isLight = document.body.classList.contains("light");
+  localStorage.setItem("theme", isLight ? "light" : "dark");
 });
+
 window.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("theme") === "light") document.body.classList.add("light");
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    document.body.classList.add("light");
+  }
 });
 
 (() => {
@@ -22,12 +27,16 @@ window.addEventListener("DOMContentLoaded", () => {
   let data = [];
   let items = [];
 
-  let swissStats = [];
+  // Round Suisse data
+  let swissStats = []; // {wins: 0, losses: 0, playedOpponents: Set}
   let swissMatches = [];
+
+  // Bracket data
   let bracketMatches = [];
   let bracketRound = 0;
   let bracketMatchIndex = 0;
 
+  // UI Elements
   const duelContainer = document.querySelector('#duel-container');
   const classementDiv = document.querySelector('#classement');
   const modeAnimeBtn = document.getElementById('mode-anime');
@@ -78,12 +87,14 @@ window.addEventListener("DOMContentLoaded", () => {
       shuffle(data);
       items = data.slice(0, TOTAL_ITEMS);
 
+      // Init swiss stats for each item
       swissStats = items.map(() => ({
         wins: 0,
         losses: 0,
         playedOpponents: new Set()
       }));
 
+      // Generate swiss matches for round 1 (random pairs)
       swissMatches = generateSwissRoundMatches();
 
       setupUI();
@@ -132,17 +143,21 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const div1 = document.createElement('div');
     const div2 = document.createElement('div');
+
     if(mode === 'anime'){
-      div1.className = 'anime-card';
-      div2.className = 'anime-card';
-      div1.innerHTML = `<img src="" alt="" /><div class="title"></div>`;
-      div2.innerHTML = `<img src="" alt="" /><div class="title"></div>`;
+      div1.className = 'anime';
+      div2.className = 'anime';
+
+      div1.innerHTML = `<img src="" alt="" /><h3></h3>`;
+      div2.innerHTML = `<img src="" alt="" /><h3></h3>`;
     } else {
-      div1.className = 'opening-card';
-      div2.className = 'opening-card';
-      div1.innerHTML = `<iframe src="" frameborder="0" allowfullscreen></iframe><div class="title"></div>`;
-      div2.innerHTML = `<iframe src="" frameborder="0" allowfullscreen></iframe><div class="title"></div>`;
+      div1.className = 'opening';
+      div2.className = 'opening';
+
+      div1.innerHTML = `<iframe src="" frameborder="0" allowfullscreen></iframe><h3></h3>`;
+      div2.innerHTML = `<iframe src="" frameborder="0" allowfullscreen></iframe><h3></h3>`;
     }
+
     duelContainer.appendChild(div1);
     duelContainer.appendChild(div2);
 
@@ -163,6 +178,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if(videoId) return `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=0`;
     return null;
   }
+
   function getYouTubeId(youtubeUrl) {
     try {
       const urlObj = new URL(youtubeUrl);
@@ -205,19 +221,20 @@ window.addEventListener("DOMContentLoaded", () => {
     if(mode === 'anime'){
       divs[0].querySelector('img').src = items[i1].image;
       divs[0].querySelector('img').alt = items[i1].title;
-      divs[0].querySelector('.title').textContent = items[i1].title;
+      divs[0].querySelector('h3').textContent = items[i1].title;
 
       divs[1].querySelector('img').src = items[i2].image;
       divs[1].querySelector('img').alt = items[i2].title;
-      divs[1].querySelector('.title').textContent = items[i2].title;
+      divs[1].querySelector('h3').textContent = items[i2].title;
     } else {
       const url1 = getYouTubeEmbedUrl(items[i1].youtubeUrls?.[0] || '') || '';
       const url2 = getYouTubeEmbedUrl(items[i2].youtubeUrls?.[0] || '') || '';
-      divs[0].querySelector('iframe').src = url1;
-      divs[0].querySelector('.title').textContent = items[i1].title;
 
+      divs[0].querySelector('iframe').src = url1;
       divs[1].querySelector('iframe').src = url2;
-      divs[1].querySelector('.title').textContent = items[i2].title;
+
+      divs[0].querySelector('h3').textContent = items[i1].title;
+      divs[1].querySelector('h3').textContent = items[i2].title;
     }
     currentMatch = match;
   }
@@ -226,14 +243,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function recordWin(winner) {
     if(!currentMatch) return;
+
     if(bracketRound === 0){
       const winnerIndex = (winner === 1) ? currentMatch.i1 : currentMatch.i2;
       const loserIndex = (winner === 1) ? currentMatch.i2 : currentMatch.i1;
+
       swissStats[winnerIndex].wins++;
       swissStats[loserIndex].losses++;
+
       swissStats[winnerIndex].playedOpponents.add(loserIndex);
       swissStats[loserIndex].playedOpponents.add(winnerIndex);
+
       const swissDone = swissStats.every(s => s.wins >= MAX_WINS || s.losses >= MAX_LOSSES);
+
       if(swissDone){
         startBracket();
       } else {
@@ -262,19 +284,24 @@ window.addEventListener("DOMContentLoaded", () => {
     let qualified = swissStats
       .map((s, i) => ({index: i, wins: s.wins, losses: s.losses}))
       .filter(p => p.wins >= MAX_WINS && p.losses < MAX_LOSSES);
+
     qualified.sort((a,b) => {
       if(b.wins !== a.wins) return b.wins - a.wins;
       return a.losses - b.losses;
     });
+
     qualified = qualified.slice(0, QUALIFIED_TO_BRACKET);
+
     if(qualified.length < QUALIFIED_TO_BRACKET){
       alert("Pas assez de qualifiés pour le bracket.");
       showClassement();
       return;
     }
+
     bracketRound = 1;
     bracketMatchIndex = 0;
     bracketMatches = [];
+
     for(let i=0; i<QUALIFIED_TO_BRACKET/2; i++){
       bracketMatches.push({
         i1: qualified[i].index,
@@ -282,6 +309,7 @@ window.addEventListener("DOMContentLoaded", () => {
         winner: null
       });
     }
+
     alert("Phase bracket 1v1 éliminatoire commencée !");
     duelContainer.style.display = 'flex';
     showBracketMatch(bracketMatches[bracketMatchIndex]);
@@ -291,27 +319,31 @@ window.addEventListener("DOMContentLoaded", () => {
     const divs = duelContainer.children;
     const i1 = match.i1;
     const i2 = match.i2;
+
     if(mode === 'anime'){
       divs[0].querySelector('img').src = items[i1].image;
       divs[0].querySelector('img').alt = items[i1].title;
-      divs[0].querySelector('.title').textContent = items[i1].title;
+      divs[0].querySelector('h3').textContent = items[i1].title;
 
       divs[1].querySelector('img').src = items[i2].image;
       divs[1].querySelector('img').alt = items[i2].title;
-      divs[1].querySelector('.title').textContent = items[i2].title;
+      divs[1].querySelector('h3').textContent = items[i2].title;
     } else {
       const url1 = getYouTubeEmbedUrl(items[i1].youtubeUrls?.[0] || '') || '';
       const url2 = getYouTubeEmbedUrl(items[i2].youtubeUrls?.[0] || '') || '';
+
       divs[0].querySelector('iframe').src = url1;
-      divs[0].querySelector('.title').textContent = items[i1].title;
       divs[1].querySelector('iframe').src = url2;
-      divs[1].querySelector('.title').textContent = items[i2].title;
+
+      divs[0].querySelector('h3').textContent = items[i1].title;
+      divs[1].querySelector('h3').textContent = items[i2].title;
     }
     currentMatch = match;
   }
 
   function setupNextBracketRound() {
     const winners = bracketMatches.map(m => m.winner);
+
     if(winners.length === 1){
       showClassement();
       return;
@@ -332,38 +364,50 @@ window.addEventListener("DOMContentLoaded", () => {
   function showClassement() {
     duelContainer.style.display = 'none';
     classementDiv.innerHTML = '';
+
+    // Prepare classement data
+
     if(bracketRound > 0){
       const ranks = new Array(items.length).fill(null);
       const winnerIndex = bracketMatches.length === 1 && bracketMatches[0].winner != null ? bracketMatches[0].winner : null;
+
       if(!winnerIndex){
         alert("Classement non disponible");
         return;
       }
+
       if(bracketRound === 3){
         const finalMatch = bracketMatches[0];
         const finalLoser = finalMatch.i1 === finalMatch.winner ? finalMatch.i2 : finalMatch.i1;
+
         ranks[winnerIndex] = 1;
         ranks[finalLoser] = 2;
+
         const qualified = swissStats
           .map((s, i) => ({index: i, wins: s.wins, losses: s.losses}))
           .filter(p => p.wins >= MAX_WINS && p.losses < MAX_LOSSES)
           .slice(0, QUALIFIED_TO_BRACKET)
           .map(p => p.index);
+
         const otherQualified = qualified.filter(i => i !== winnerIndex && i !== finalLoser);
+
         for(let j=0; j<otherQualified.length; j++){
           ranks[otherQualified[j]] = (j < 2) ? 3 + j : 5 + (j - 2);
         }
+
         for(let i=0; i<items.length; i++){
           if(ranks[i] === null){
             ranks[i] = 9 + i;
           }
         }
+
       } else {
         ranks.fill(null);
         swissStats.forEach((s,i) => {
           ranks[i] = 9 + i;
         });
       }
+
       const rankedItems = items.map((item,i) => ({
         index: i,
         rank: ranks[i],
@@ -374,6 +418,7 @@ window.addEventListener("DOMContentLoaded", () => {
       for(const entry of rankedItems){
         displayClassementItem(entry.index, entry.rank);
       }
+
     } else {
       const classement = swissStats
         .map((s,i) => ({index: i, wins: s.wins, losses: s.losses}))
@@ -381,74 +426,50 @@ window.addEventListener("DOMContentLoaded", () => {
           if(b.wins !== a.wins) return b.wins - a.wins;
           return a.losses - b.losses;
         });
+
       classement.forEach((c,i) => displayClassementItem(c.index, i+1));
     }
   }
 
   function displayClassementItem(idx, rank) {
     const item = items[idx];
-    let card;
-    if(rank <= 3) {
-      card = document.createElement('div');
-      card.className = `classement-item podium-flip top${rank}`;
-      card.style.opacity = 0;
+    const div = document.createElement('div');
+    div.className = 'classement-item';
+    if(rank === 1) div.classList.add('top1');
+    if(rank === 2) div.classList.add('top2');
+    if(rank === 3) div.classList.add('top3');
+    div.setAttribute('tabindex', '0');
+    div.setAttribute('aria-label', `Rang ${rank} - ${item.title}`);
 
-      const front = document.createElement('div');
-      front.className = 'front';
-      if(mode === 'anime'){
-        front.innerHTML = `<img src="${item.image}" alt="${item.title}" /><div class="title">${item.title}</div>`;
-      } else {
-        const ytid = getYouTubeId(item.youtubeUrls?.[0] || '');
-        let iframeOrThumb;
-        if(ytid)
-          iframeOrThumb = `<iframe src="https://www.youtube.com/embed/${ytid}?rel=0&autoplay=0" frameborder="0" allowfullscreen></iframe>`;
-        else
-          iframeOrThumb = `<div style="width:100%;height:210px;background:#444;border-radius:9px;"></div>`;
-        front.innerHTML = `${iframeOrThumb}<div class="title">${item.title}</div>`;
-      }
-      const rankDiv = document.createElement('div');
-      rankDiv.className = 'rank';
-      rankDiv.textContent = `#${rank}`;
-      front.appendChild(rankDiv);
+    const rankDiv = document.createElement('div');
+    rankDiv.className = 'rank';
+    rankDiv.textContent = `#${rank}`;
 
-      const back = document.createElement('div');
-      back.className = 'back';
-      back.innerHTML = `<span>TOP ${rank}</span>`;
+    const titleDiv = document.createElement('div');
+    titleDiv.className = 'title';
+    titleDiv.textContent = item.title;
 
-      card.appendChild(front);
-      card.appendChild(back);
+    div.appendChild(rankDiv);
 
-      classementDiv.appendChild(card);
-
-      setTimeout(() => {
-        card.style.opacity = 1;
-        setTimeout(() => {
-          card.classList.add('flipped');
-        }, 350 + (4 - rank) * 500);
-      }, rank * 120);
-
+    if(mode === 'anime'){
+      const img = document.createElement('img');
+      img.src = item.image;
+      img.alt = item.title;
+      div.appendChild(img);
     } else {
-      card = document.createElement('div');
-      card.className = `classement-item`;
-      if(mode === 'anime'){
-        card.innerHTML = `<img src="${item.image}" alt="${item.title}" /><div class="title">${item.title}</div>`;
-      } else {
-        const ytid = getYouTubeId(item.youtubeUrls?.[0] || '');
-        let iframeOrThumb;
-        if(ytid)
-          iframeOrThumb = `<iframe src="https://www.youtube.com/embed/${ytid}?rel=0&autoplay=0" frameborder="0" allowfullscreen></iframe>`;
-        else
-          iframeOrThumb = `<div style="width:100%;height:210px;background:#444;border-radius:9px;"></div>`;
-        card.innerHTML = `${iframeOrThumb}<div class="title">${item.title}</div>`;
-      }
-      const rankDiv = document.createElement('div');
-      rankDiv.className = 'rank';
-      rankDiv.textContent = `#${rank}`;
-      card.appendChild(rankDiv);
-
-      classementDiv.appendChild(card);
+      const thumb = document.createElement('img');
+      const ytid = getYouTubeId(item.youtubeUrls?.[0] || '');
+      if(ytid)
+        thumb.src = `https://img.youtube.com/vi/${ytid}/hqdefault.jpg`;
+      else
+        thumb.src = 'default-opening.png';
+      thumb.alt = item.title;
+      div.appendChild(thumb);
     }
+    div.appendChild(titleDiv);
+    classementDiv.appendChild(div);
   }
 
+  // Init first load
   loadDataAndStart();
 })();
