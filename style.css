@@ -34,7 +34,7 @@ header h1 {
   margin-right: 1rem;
 }
 
-/* Le bouton plus à droite */
+/* Le bouton */
 .toggle-btn {
   background-color: #00bcd4;
   color: #121212;
@@ -51,17 +51,31 @@ header h1 {
   background-color: #0097a7;
 }
 
-/* Conteneur centré avec margin auto */
+/* Conteneur sombre avec glow bleu */
 #container {
-  background-color: #1e88e5; /* bleu plus clair */
+  background-color: #121212; /* fond sombre */
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 1.5rem 2rem;
   width: 350px;
-  box-shadow: 0 0 15px #1565c0;
+  box-shadow: 0 0 15px 3px #00bcd4; /* glow bleu */
   transition: background-color 0.3s;
   margin-left: auto;
   margin-right: auto;
-  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem; /* espace entre éléments */
+}
+
+/* Ajuster les marges des titres et textes */
+#container h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+#container p {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
 }
 
 /* Menu des jeux */
@@ -92,7 +106,7 @@ header h1 {
 
 /* Footer bien en bas */
 footer {
-  margin-top: auto;
+  margin-top: 2rem;
   padding: 1rem 0;
   color: #555;
   font-size: 0.9rem;
@@ -112,7 +126,7 @@ body.light {
 }
 
 body.light #container {
-  background-color: #90caf9;
+  background-color: #ffffff; /* fond clair */
   box-shadow: 0 0 15px #42a5f5;
 }
 
