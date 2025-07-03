@@ -1,121 +1,119 @@
+/* Body en flex colonne */
 body {
   background-color: #121212;
   color: #eee;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0; padding: 20px;
-  display: flex; flex-direction: column; align-items: center;
-}
-h1 {
-  margin-bottom: 10px;
-}
-#mode-select {
-  margin-bottom: 20px;
-}
-#mode-select button {
-  background-color: #333;
-  color: #eee;
-  border: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-}
-#mode-select button.active {
-  background-color: #555;
-}
-
-#duel-container {
-  display: flex; gap: 40px; margin: 20px 0;
-  max-width: 700px;
-  justify-content: center;
-}
-.anime, .opening {
-  background: #222;
-  padding: 10px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 0 10px #333;
-  cursor: pointer;
-  user-select: none;
-  transition: transform 0.2s;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.anime:hover, .opening:hover {
-  transform: scale(1.05);
-}
-.anime img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-.opening iframe {
-  width: 100%;
-  height: 300px;
-  border-radius: 10px;
-  pointer-events: auto;
-}
-#buttons {
-  margin-top: 10px;
-  display: flex;
-  gap: 20px;
-  max-width: 700px;
-}
-#buttons button {
-  background-color: #444;
-  color: #eee;
-  border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s;
-  flex: 1;
-}
-#buttons button:hover {
-  background-color: #666;
+  padding: 2rem 1rem;
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-#classement {
-  margin-top: 30px;
-  max-width: 700px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-}
-.classement-item {
-  background-color: #222;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #333;
-  text-align: center;
-  color: #eee;
+/* Header avec titre centré et boutons */
+header {
+  width: 100%;
+  max-width: 350px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
 }
-.classement-item img {
-  width: 100%;
-  max-width: 160px;
-  border-radius: 12px;
-  margin-bottom: 10px;
-  user-select: none;
-  pointer-events: none;
+
+/* Titre centré */
+header h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  flex-grow: 1;
+  margin: 0 1rem;
 }
-.classement-item iframe {
-  width: 100%;
-  height: 150px;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-.classement-item .rank {
-  font-size: 18px;
+
+/* Bouton retour menu et changer de thème */
+.menu-btn,
+.toggle-btn {
+  background-color: #00bcd4;
+  color: #121212;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
   font-weight: bold;
-  margin-bottom: 6px;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
 }
-.classement-item .title {
-  font-size: 16px;
+
+/* Hover effets */
+.menu-btn:hover,
+.toggle-btn:hover {
+  background-color: #0097a7;
+  color: white;
+}
+
+/* Mode clair */
+body.light {
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+body.light .menu-btn,
+body.light .toggle-btn {
+  background-color: #1565c0;
+  color: white;
+}
+
+body.light .menu-btn:hover,
+body.light .toggle-btn:hover {
+  background-color: #0d47a1;
+}
+
+/* Mode select boutons */
+#mode-select {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+#mode-select button {
+  background-color: #00bcd4;
+  color: #121212;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#mode-select button:hover {
+  background-color: #0097a7;
+  color: white;
+}
+
+#mode-select button.active {
+  background-color: #0097a7;
+  color: white;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  padding: 1rem 0;
+  color: #555;
+  font-size: 0.9rem;
+  text-align: center;
+  user-select: none;
+  width: 100%;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: color 0.3s ease;
+}
+
+body.light footer {
+  color: #888;
 }
