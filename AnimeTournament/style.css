@@ -49,10 +49,30 @@ header h1 {
 
 #duel-container {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+#duel-container .anime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 330px; /* même largeur pour chaque carte */
+}
+
+#duel-container .anime img {
+  width: 100%;
+  height: 440px;   /* hauteur identique pour toutes */
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 18px #1116;
+}
+
+#duel-container .anime h3 {
+  text-align: center;
+  font-weight: bold;
+  margin: 1rem 0 0 0;
 }
 
 /* Hover effets */
