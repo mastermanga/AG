@@ -135,6 +135,8 @@ function backToMenu() {
   document.body.classList.remove("final-view"); // Réinitialiser la vue finale
 }
 
+// ======== LIGNE CORRIGÉE ICI ========
 window.onload = async function () {
   await loadAnimes();
+  if (animeList.length > 0) startNewRanking(); // <-- On lance le jeu uniquement si chargement OK
 };
