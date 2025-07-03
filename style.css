@@ -1,75 +1,86 @@
 :root {
-  --bg-color: #121212;
-  --text-color: #f0f0f0;
-  --card-bg: #1e1e1e;
-  --card-hover: #333333;
+  --bg: #121212;
+  --text: #eee;
+  --box-bg: #1e1e1e;
+  --primary: #00bcd4;
+  --hover: #0097a7;
+  --link-bg: #2c2c2c;
+  --link-hover: #00bcd4;
+  --link-text: #121212;
 }
 
 body.light {
-  --bg-color: #f0f0f0;
-  --text-color: #121212;
-  --card-bg: #ffffff;
-  --card-hover: #e0e0e0;
+  --bg: #f0f0f0;
+  --text: #121212;
+  --box-bg: #ffffff;
+  --primary: #00bcd4;
+  --hover: #00acc1;
+  --link-bg: #e0e0e0;
+  --link-hover: #00acc1;
+  --link-text: #000;
 }
 
 body {
-  font-family: sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  text-align: center;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1 {
-  margin-top: 50px;
-  font-size: 2em;
+#container {
+  background-color: var(--box-bg);
+  border-radius: 10px;
+  padding: 2rem;
+  width: 350px;
+  box-shadow: 0 0 15px var(--primary);
+  text-align: center;
 }
 
-.menu {
-  margin-top: 60px;
+.menu-links {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  gap: 1rem;
+  margin: 2rem 0;
 }
 
-.menu a {
+.menu-links a {
+  background-color: var(--link-bg);
+  color: var(--text);
+  padding: 0.8rem;
+  border-radius: 5px;
   text-decoration: none;
-  color: var(--text-color);
-  background-color: var(--card-bg);
-  border: 1px solid #444;
-  padding: 15px 40px;
-  border-radius: 10px;
-  font-size: 18px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
-.menu a:hover {
-  background-color: var(--card-hover);
-  transform: scale(1.05);
+.menu-links a:hover {
+  background-color: var(--link-hover);
+  color: var(--link-text);
 }
 
-.toggle-btn {
-  margin-top: 30px;
-  padding: 10px 20px;
-  font-size: 16px;
+#themeToggle {
+  background-color: var(--primary);
   border: none;
-  border-radius: 8px;
-  background-color: var(--card-bg);
-  color: var(--text-color);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.toggle-btn:hover {
-  background-color: var(--card-hover);
+#themeToggle:hover {
+  background-color: var(--hover);
 }
 
 footer {
-  margin-top: 80px;
-  font-size: 14px;
-  color: #888;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #999;
 }
