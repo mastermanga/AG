@@ -5,33 +5,30 @@
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background: #121212;
   color: #f0f0f0;
+  padding: 20px;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
 }
 
-/* === HEADER harmonisé === */
+/* HEADER */
 header {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 2rem;
-  margin-bottom: 0;
-  background: none;
-  border: none;
 }
+
 .header-group {
   display: flex;
   align-items: center;
   gap: 1.3rem;
 }
+
 header h1 {
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin: 0;
   white-space: nowrap;
@@ -49,212 +46,169 @@ header h1 {
   font-size: 1rem;
   transition: background-color 0.3s;
 }
+
 .menu-btn:hover,
 .toggle-btn:hover {
   background-color: #0097a7;
   color: #fff;
 }
 
-/* === CONTAINER CENTRAL === */
-#container, #ranking-game {
-  margin: 0 auto;
-  margin-top: 3.5rem;
-  margin-bottom: 2rem;
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #00bcd4;
-  padding: 2rem;
-  width: 430px;
-  max-width: 98vw;
-  min-width: 300px;
-  text-align: center;
+/* === CLASSEMENT DES ANIMES === */
+#ranking-game {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  transition: background 0.3s;
+  width: 100%;
+  min-height: 80vh;
+  margin: 0 auto;
 }
 
-/* === TITRES === */
-h1, h2, #ranking-title {
-  color: #fff;
-  font-family: inherit;
-}
-#ranking-title {
-  font-size: 2rem;
-  text-align: center;
-  position: static;
-  margin-bottom: 1.1rem;
-  margin-top: 0.2rem;
-  transform: none;
-}
-
-/* === BOUTON RETOUR === */
-#back-btn {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  padding: 0.5rem 1.1rem;
-  font-size: 1.01rem;
-  background-color: #00bcd4;
-  color: #121212;
-  border: none;
-  border-radius: 7px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.25s;
-  z-index: 10;
-}
-#back-btn:hover {
-  background-color: #0097a7;
-  color: #fff;
-}
-
-/* === CLASSEMENT LISTE === */
 .ranking-container {
   width: 100%;
-  margin-bottom: 1.2rem;
-}
-.anime-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  font-size: 1.1rem;
-}
-.anime-list li {
-  padding: 10px;
-  background-color: #191a1b;
-  border-radius: 8px;
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 8px #0002;
-}
-.anime-list img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-right: 15px;
+  max-width: 900px;
+  margin: 0 auto 1rem auto;
+  display: block;
 }
 
-/* === ANIME DISPLAY === */
+.ranking-container h2 {
+  text-align: center;
+  margin-bottom: 1.3rem;
+  font-size: 2rem;
+}
+
+.anime-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);  /* 5 colonnes */
+  grid-template-rows: repeat(2, 1fr);     /* 2 lignes */
+  gap: 30px 30px;
+  justify-items: center;
+  max-width: 100%;
+  padding: 40px 10px;
+  list-style-type: none;
+}
+
+.anime-list li {
+  font-size: 20px;
+  padding: 20px;
+  flex-direction: column;
+  text-align: center;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  margin: 0;
+  min-width: 170px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anime-list img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 1000px) {
+  .anime-list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 15px 15px;
+    padding: 20px 2px;
+  }
+}
+
 .anime-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
+
 .anime-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #222;
-  padding: 25px;
-  margin: 12px 0 22px 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px #1118;
-  width: 100%;
-  max-width: 330px;
-}
-.anime-item img {
-  max-width: 100%;
-  width: 120px;
-  height: 120px;
-  border-radius: 10px;
-  margin-bottom: 18px;
-  object-fit: cover;
-  border: 2px solid #00bcd4;
-}
-.anime-item p {
-  font-size: 1.2rem;
-  text-align: center;
-  font-weight: bold;
-  margin: 0;
+  background: #1e1e1e;
+  padding: 30px;
+  margin: 10px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  width: 340px;
+  max-width: 94vw;
 }
 
-/* === BOUTONS DE RANG === */
+.anime-item img {
+  max-width: 180px;
+  max-height: 180px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.anime-item p {
+  font-size: 26px;
+  text-align: center;
+  font-weight: bold;
+}
+
 .rank-button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 18px 0 14px 0;
-  gap: 0.4rem;
+  margin: 20px 0;
+  gap: 10px;
 }
+
 .rank-button button {
-  margin: 6px 3px;
-  padding: 10px 16px;
-  font-size: 1.07rem;
+  margin: 8px 4px;
+  padding: 12px 24px;
+  font-size: 18px;
   border: none;
   background-color: #00bcd4;
   color: #121212;
-  border-radius: 7px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.2s;
+  transition: background 0.3s;
 }
+
 .rank-button button:hover {
   background-color: #0097a7;
   color: #fff;
 }
+
 .rank-button button:disabled {
-  background-color: #444;
-  color: #ccc;
+  background-color: #555;
+  color: #999;
   cursor: not-allowed;
 }
 
-/* === NOUVEAU CLASSEMENT === */
+/* === DIVERS === */
+#ranking-title {
+  font-size: 2.4rem;
+  color: #fff;
+  text-align: center;
+  margin: 2rem 0 1.5rem 0;
+}
+
 #new-ranking-btn {
   background-color: #444;
   border: none;
   border-radius: 8px;
   padding: 12px 24px;
-  font-size: 1.1rem;
+  font-size: 18px;
   color: white;
   cursor: pointer;
   margin-top: 20px;
-  transition: background 0.2s;
 }
+
 #new-ranking-btn:hover {
   background-color: #666;
 }
 
-/* === FINAL VIEW STYLE === */
-.final-view {
-  flex-direction: column;
-  align-items: center;
-}
-.final-view .ranking-container {
-  width: 100%;
-  margin: 0 auto;
-  overflow: visible;
-  display: block;
-}
-.final-view #ranking-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;
-  justify-content: center;
-  max-width: 100%;
-  padding: 40px 0;
-}
-.final-view .anime-list li {
-  font-size: 1.09rem;
-  padding: 17px;
-  flex-direction: column;
-  text-align: center;
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px #0006;
-  margin: 0;
-}
-.final-view .anime-list img {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 7px;
-}
-
-/* === FOOTER === */
+/* Footer */
 footer {
   margin-top: auto;
   padding: 1.2rem 0 0.4rem 0;
@@ -263,47 +217,44 @@ footer {
   text-align: center;
   user-select: none;
   width: 100%;
-  max-width: 430px;
+  max-width: 350px;
   margin-left: auto;
   margin-right: auto;
   transition: color 0.3s;
 }
 
-/* === MODE CLAIR === */
+/* Mode clair */
 body.light {
-  background: #f5f5f5;
+  background-color: #f5f5f5;
   color: #222;
 }
-body.light #container,
-body.light #ranking-game {
+body.light .anime-list li,
+body.light .anime-item {
   background: #fff;
-  box-shadow: 0 0 15px #42a5f5;
+  color: #222;
 }
+body.light .ranking-container {
+  background: #fafafa;
+}
+body.light .rank-button button,
 body.light .menu-btn,
-body.light .toggle-btn,
-body.light .rank-button button {
-  background-color: #1565c0;
+body.light .toggle-btn {
+  background-color: #42a5f5;
+  color: #f5f5f5;
+}
+body.light .rank-button button:hover,
+body.light .menu-btn:hover,
+body.light .toggle-btn:hover {
+  background-color: #1e88e5;
   color: #fff;
 }
-body.light .menu-btn:hover,
-body.light .toggle-btn:hover,
-body.light .rank-button button:hover {
-  background-color: #0d47a1;
-}
-body.light .anime-item,
-body.light .anime-list li,
-body.light .final-view .anime-list li {
-  background: #f2f4fb;
-  color: #222;
-  box-shadow: 0 2px 8px #a0c0f044;
-}
 body.light #new-ranking-btn {
-  background: #bbb;
+  background-color: #bbb;
   color: #222;
 }
 body.light #new-ranking-btn:hover {
-  background: #888;
-  color: #fff;
+  background-color: #aaa;
+  color: #111;
 }
 body.light footer {
   color: #888;
