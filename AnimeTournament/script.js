@@ -1,3 +1,13 @@
+// Bouton retour au menu
+document.getElementById("back-to-menu").addEventListener("click", function() {
+  window.location.href = "index.html"; // Remplace par ton URL du menu
+});
+
+// Bouton changer de thème
+document.getElementById("toggle-theme").addEventListener("click", function() {
+  document.body.classList.toggle("light");
+});
+
 (() => {
   const TOTAL_ITEMS = 16;
   const QUALIFIED_TO_BRACKET = 8;
