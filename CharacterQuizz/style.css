@@ -1,98 +1,220 @@
-/* --- Header : bouton gauche, titre centré, bouton droite --- */
+body {
+  background-color: #121212;
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0; padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* HEADER centré, boutons à gauche/droite, titre centré */
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 700px;
-  margin: 0 auto 2.3rem auto;
   width: 100%;
-  padding-top: 1.2rem;
-}
-header h1 {
-  flex: 1;
-  margin: 0;
-  font-size: 2.8rem;
-  font-weight: bold;
-  text-align: center;
-  letter-spacing: 1px;
-  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  margin-top: 2rem;
+  background: none;
+  border: none;
 }
 
-.menu-btn, .toggle-btn {
-  background: #3a7afe;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: 0.7rem 1.2rem;
-  font-weight: bold;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-  min-width: 60px;
-  min-height: 40px;
+.header-group {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.3rem;
 }
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* BOUTONS HEADER */
+.menu-btn, .toggle-btn {
+  background-color: #00bcd4;
+  color: #121212;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 .menu-btn:hover, .toggle-btn:hover {
-  background: #2a5edb;
+  background-color: #0097a7;
+  color: #fff;
 }
 
-/* Pour placer menu à gauche et thème à droite */
-.menu-btn { margin-right: auto; }
-.toggle-btn { margin-left: auto; }
+/* CONTENEUR PRINCIPAL */
+#character-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
 
-/* --- Thème clair --- */
+.character-img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid #444;
+  display: none;
+  background-color: #222;
+  margin: 0 6px 8px 6px;
+}
+
+#controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 320px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  margin-top: 20px;
+  background-color: #222;
+  color: #e0e0e0;
+  outline: none;
+}
+input[type="text"]:focus {
+  border-color: #00bcd4;
+}
+
+/* AUTOCOMPLETE DATLIST style via browser */
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00bcd4;
+  color: #121212;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+button:disabled {
+  background-color: #555;
+  color: #ccc;
+  cursor: not-allowed;
+}
+button:hover:enabled {
+  background-color: #0097a7;
+  color: #fff;
+}
+
+/* FEEDBACK */
+#feedback {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  min-height: 24px;
+}
+.success {
+  color: #4caf50;
+}
+.error {
+  color: #e03e3e;
+}
+
+#timer {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #00bcd4;
+}
+
+/* FOOTER OPTIONNEL */
+footer {
+  margin-top: auto;
+  padding: 1.2rem 0 0.4rem 0;
+  color: #555;
+  font-size: 0.95rem;
+  text-align: center;
+  user-select: none;
+  width: 100%;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: color 0.3s;
+}
+
+/* MODE CLAIR */
 body.light {
-  background: #f6f6f7;
-  color: #181818;
+  background-color: #f5f5f5;
+  color: #222;
 }
-body.light header h1 { color: #202244; }
+body.light header h1 { color: #234; }
 body.light .menu-btn,
 body.light .toggle-btn {
-  background: #f5f5f5;
-  color: #234;
-  border: 1px solid #c8d4ff;
+  background-color: #1565c0;
+  color: #fff;
 }
 body.light .menu-btn:hover,
 body.light .toggle-btn:hover {
-  background: #c8d4ff;
-  color: #181818;
+  background-color: #0d47a1;
+  color: #fff;
 }
 
 body.light input[type="text"] {
-  background: #fff;
+  background-color: #fff;
   color: #222;
-  border-color: #b6cdfc;
+  border: 1px solid #b6cdfc;
 }
 body.light input[type="text"]:focus {
-  border-color: #2a5edb;
+  border-color: #1565c0;
 }
+
 body.light .character-img {
   background: #f6f6f7;
   border-color: #b6cdfc;
 }
+
 body.light button {
-  background: #c8d4ff;
-  color: #181818;
+  background: #42a5f5;
+  color: #fff;
 }
 body.light button:disabled {
-  background: #ccc;
+  background: #b0b6c6;
   color: #888;
 }
 body.light button:hover:enabled {
-  background: #a7c0ff;
+  background: #1565c0;
+  color: #fff;
 }
 
 body.light #feedback.success {
-  color: #36b153;
+  color: #388e3c;
 }
 body.light #feedback.error {
-  color: #c93030;
+  color: #b71c1c;
+}
+body.light #timer {
+  color: #1565c0;
+}
+body.light footer {
+  color: #888;
 }
 
-/* Optional: transition douce entre les thèmes */
+/* Transition douce */
 body, input, button, .character-img {
-  transition: background 0.35s, color 0.25s, border 0.3s;
+  transition: background 0.3s, color 0.2s, border 0.2s;
 }
 
