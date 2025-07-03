@@ -55,7 +55,7 @@ header h1 {
 #container {
   margin: 0 auto;
   margin-bottom: 2rem;
-  margin-top: 4.5rem;
+  margin-top: 8rem;
   background-color: #1e1e1e;
   border-radius: 10px;
   padding: 2rem;
@@ -178,7 +178,7 @@ body.light .toggle-btn:hover {
 }
 
 footer {
-  margin-top: 10rem;
+  margin-top: 15rem;
   padding: 1rem 0;
   color: #555;
   font-size: 0.9rem;
