@@ -1,179 +1,98 @@
-/* ----- Variables couleurs ----- */
-:root {
-  --color-bg: #121212;
-  --color-txt: #e0e0e0;
-  --color-main: #3a7afe;
-  --color-main-dark: #2a5edb;
-  --color-input-bg: #222;
-  --color-border: #444;
-}
-
-/* ----- Reset général ----- */
-body {
-  font-family: Arial, sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-txt);
-  min-height: 100vh;
-  margin: 0;
-  text-align: center;
-  padding: 0 0 24px 0;
-}
-
-/* ----- HEADER MODERNE CENTRÉ ----- */
+/* --- Header : bouton gauche, titre centré, bouton droite --- */
 header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
+  justify-content: space-between;
+  max-width: 700px;
+  margin: 0 auto 2.3rem auto;
   width: 100%;
-  max-width: 500px;
-  margin: 0 auto 2.2rem auto;
-  padding-top: 1.5rem;
+  padding-top: 1.2rem;
 }
 header h1 {
   flex: 1;
   margin: 0;
-  font-size: 2.1rem;
-  color: #fff;
+  font-size: 2.8rem;
+  font-weight: bold;
+  text-align: center;
   letter-spacing: 1px;
+  color: #fff;
 }
 
 .menu-btn, .toggle-btn {
-  background: var(--color-main);
+  background: #3a7afe;
   color: #fff;
   border: none;
-  border-radius: 8px;
-  padding: 0.6rem 1.1rem;
+  border-radius: 12px;
+  padding: 0.7rem 1.2rem;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.3s;
-  flex-shrink: 0;
+  min-width: 60px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .menu-btn:hover, .toggle-btn:hover {
-  background: var(--color-main-dark);
+  background: #2a5edb;
 }
 
-#character-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 18px;
-  margin-bottom: 12px;
+/* Pour placer menu à gauche et thème à droite */
+.menu-btn { margin-right: auto; }
+.toggle-btn { margin-left: auto; }
+
+/* --- Thème clair --- */
+body.light {
+  background: #f6f6f7;
+  color: #181818;
 }
-.character-img {
-  width: 180px;
-  height: 180px;
-  object-fit: contain;
-  border-radius: 10px;
-  border: 2px solid var(--color-border);
-  display: none;
-  background-color: var(--color-input-bg);
+body.light header h1 { color: #202244; }
+body.light .menu-btn,
+body.light .toggle-btn {
+  background: #f5f5f5;
+  color: #234;
+  border: 1px solid #c8d4ff;
+}
+body.light .menu-btn:hover,
+body.light .toggle-btn:hover {
+  background: #c8d4ff;
+  color: #181818;
 }
 
-/* ----- Zone des contrôles ----- */
-#controls {
-  margin-top: 18px;
+body.light input[type="text"] {
+  background: #fff;
+  color: #222;
+  border-color: #b6cdfc;
 }
-
-input[type="text"], input[list] {
-  padding: 10px;
-  width: 320px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #555;
-  background-color: var(--color-input-bg);
-  color: var(--color-txt);
-  margin-top: 12px;
-  outline: none;
-  transition: border 0.3s;
+body.light input[type="text"]:focus {
+  border-color: #2a5edb;
 }
-input[type="text"]:focus {
-  border-color: var(--color-main);
+body.light .character-img {
+  background: #f6f6f7;
+  border-color: #b6cdfc;
 }
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-left: 10px;
-  border: none;
-  border-radius: 8px;
-  background-color: var(--color-main);
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+body.light button {
+  background: #c8d4ff;
+  color: #181818;
 }
-button:disabled {
-  background-color: #555;
-  cursor: not-allowed;
-}
-button:hover:enabled {
-  background-color: var(--color-main-dark);
-}
-
-#feedback {
-  margin-top: 22px;
-  font-size: 1.13rem;
-  font-weight: bold;
-  min-height: 26px;
-  transition: color 0.2s;
-}
-.success {
-  color: #4caf50;
-}
-.error {
-  color: #e03e3e;
-}
-#timer {
-  margin-top: 13px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #bbb;
-}
-
-/* ----- Responsive pour mobile ----- */
-@media (max-width: 600px) {
-  header {
-    max-width: 98vw;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-top: 1rem;
-  }
-  header h1 {
-    font-size: 1.25rem;
-    margin-bottom: 0.2rem;
-  }
-  #character-container {
-    gap: 7px;
-    margin-bottom: 10px;
-  }
-  .character-img {
-    width: 90px;
-    height: 90px;
-  }
-  #controls {
-    margin-top: 14px;
-  }
-  input[type="text"], input[list] {
-    width: 92vw;
-    min-width: 120px;
-    max-width: 98vw;
-    font-size: 1rem;
-  }
-  button {
-    margin-left: 4px;
-    padding: 8px 10px;
-    font-size: 0.98rem;
-  }
-}
-
-/* ----- Optionnel : footer stylé ----- */
-footer {
-  margin-top: 3rem;
+body.light button:disabled {
+  background: #ccc;
   color: #888;
-  font-size: 0.92rem;
-  text-align: center;
-  opacity: 0.72;
-  user-select: none;
 }
+body.light button:hover:enabled {
+  background: #a7c0ff;
+}
+
+body.light #feedback.success {
+  color: #36b153;
+}
+body.light #feedback.error {
+  color: #c93030;
+}
+
+/* Optional: transition douce entre les thèmes */
+body, input, button, .character-img {
+  transition: background 0.35s, color 0.25s, border 0.3s;
+}
+
