@@ -140,7 +140,7 @@
     let gameOver = false;
     let indiceStep = 0;
 
-    fetch('animes.json')
+    fetch('../data/animes.json')
       .then(response => response.json())
       .then(data => {
         animeData = data;
