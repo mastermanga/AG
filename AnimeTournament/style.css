@@ -47,6 +47,14 @@ header h1 {
   flex-shrink: 0;
 }
 
+#duel-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
 /* Hover effets */
 .menu-btn:hover,
 .toggle-btn:hover {
