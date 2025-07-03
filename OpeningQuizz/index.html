@@ -7,8 +7,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div id="container">
+<header>
+  <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
   <h1>Guess The Anime Opening</h1>
+  <button id="themeToggle" class="toggle-btn">🌓</button>
+</header>  
+<div id="container">
   <div class="autocomplete" style="position:relative;">
     <input id="guessInput" placeholder="Devinez le nom de l'anime" autocomplete="off" />
     <div id="autocomplete-list" class="autocomplete-items"></div>
