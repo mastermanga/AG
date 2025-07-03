@@ -257,19 +257,18 @@ body.light .toggle-btn:hover {
 }
 
 footer {
-  margin-top: 6rem;
-  padding: 1rem 0;
+  margin-top: auto;
+  padding: 1.2rem 0 0.4rem 0;
   color: #555;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   text-align: center;
   user-select: none;
   width: 100%;
   max-width: 350px;
   margin-left: auto;
   margin-right: auto;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
-
 body.light footer {
   color: #888;
-} 
+}
