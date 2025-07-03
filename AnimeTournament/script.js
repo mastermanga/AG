@@ -440,35 +440,46 @@ window.addEventListener("DOMContentLoaded", () => {
     if(rank === 3) div.classList.add('top3');
     div.setAttribute('tabindex', '0');
     div.setAttribute('aria-label', `Rang ${rank} - ${item.title}`);
-
+  
     const rankDiv = document.createElement('div');
     rankDiv.className = 'rank';
     rankDiv.textContent = `#${rank}`;
-
+  
     const titleDiv = document.createElement('div');
     titleDiv.className = 'title';
     titleDiv.textContent = item.title;
-
+  
     div.appendChild(rankDiv);
-
+  
     if(mode === 'anime'){
+      // --- Affiche une image
       const img = document.createElement('img');
       img.src = item.image;
       img.alt = item.title;
       div.appendChild(img);
     } else {
-      const thumb = document.createElement('img');
-      const ytid = getYouTubeId(item.youtubeUrls?.[0] || '');
-      if(ytid)
-        thumb.src = `https://img.youtube.com/vi/${ytid}/hqdefault.jpg`;
-      else
+      // --- Affiche l’opening YouTube directement dans un iframe
+      const iframe = document.createElement('iframe');
+      const embedUrl = getYouTubeEmbedUrl(item.youtubeUrls?.[0] || '');
+      if(embedUrl) {
+        iframe.src = embedUrl;
+        iframe.width = "100%";
+        iframe.height = "210"; // ou 210px comme l'image, adapte si tu veux
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allowfullscreen', '');
+        div.appendChild(iframe);
+      } else {
+        // fallback image
+        const thumb = document.createElement('img');
         thumb.src = 'default-opening.png';
-      thumb.alt = item.title;
-      div.appendChild(thumb);
+        thumb.alt = item.title;
+        div.appendChild(thumb);
+      }
     }
     div.appendChild(titleDiv);
     classementDiv.appendChild(div);
   }
+
 
   // Init first load
   loadDataAndStart();
