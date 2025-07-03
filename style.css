@@ -143,10 +143,6 @@ body.light .menu a:hover {
   color: white;
 }
 
-body.light footer {
-  color: #888;
-}
-
 body.light .toggle-btn {
   background-color: #1565c0;
   color: white;
