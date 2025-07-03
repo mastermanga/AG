@@ -60,9 +60,8 @@ header h1 {
   box-shadow: 0 0 15px #1565c0;
   transition: background-color 0.3s;
   margin-left: auto;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
   margin-right: auto;
+  margin-top: auto;
   flex-shrink: 0;
 }
 
