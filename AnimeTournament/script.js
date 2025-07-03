@@ -107,7 +107,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function generateSwissRoundMatches() {
     const groups = {};
     for(let i=0; i<items.length; i++){
-      const key = ${swissStats[i].wins}-${swissStats[i].losses};
+      const key = `${swissStats[i].wins}-${swissStats[i].losses}`;
       if(!groups[key]) groups[key] = [];
       groups[key].push(i);
     }
@@ -148,14 +148,14 @@ window.addEventListener("DOMContentLoaded", () => {
       div1.className = 'anime';
       div2.className = 'anime';
 
-      div1.innerHTML = <img src="" alt="" /><h3></h3>;
-      div2.innerHTML = <img src="" alt="" /><h3></h3>;
+      div1.innerHTML = `<img src="" alt="" /><h3></h3>`;
+      div2.innerHTML = `<img src="" alt="" /><h3></h3>`;
     } else {
       div1.className = 'opening';
       div2.className = 'opening';
 
-      div1.innerHTML = <iframe src="" frameborder="0" allowfullscreen></iframe><h3></h3>;
-      div2.innerHTML = <iframe src="" frameborder="0" allowfullscreen></iframe><h3></h3>;
+      div1.innerHTML = `<iframe src="" frameborder="0" allowfullscreen></iframe><h3></h3>`;
+      div2.innerHTML = `<iframe src="" frameborder="0" allowfullscreen></iframe><h3></h3>`;
     }
 
     duelContainer.appendChild(div1);
@@ -175,7 +175,7 @@ window.addEventListener("DOMContentLoaded", () => {
         videoId = urlObj.pathname.slice(1);
       }
     } catch {}
-    if(videoId) return https://www.youtube.com/embed/${videoId}?rel=0&autoplay=0;
+    if(videoId) return `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=0`;
     return null;
   }
 
@@ -439,11 +439,11 @@ window.addEventListener("DOMContentLoaded", () => {
     if(rank === 2) div.classList.add('top2');
     if(rank === 3) div.classList.add('top3');
     div.setAttribute('tabindex', '0');
-    div.setAttribute('aria-label', Rang ${rank} - ${item.title});
+    div.setAttribute('aria-label', `Rang ${rank} - ${item.title}`);
 
     const rankDiv = document.createElement('div');
     rankDiv.className = 'rank';
-    rankDiv.textContent = #${rank};
+    rankDiv.textContent = `#${rank}`;
 
     const titleDiv = document.createElement('div');
     titleDiv.className = 'title';
@@ -460,7 +460,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const thumb = document.createElement('img');
       const ytid = getYouTubeId(item.youtubeUrls?.[0] || '');
       if(ytid)
-        thumb.src = https://img.youtube.com/vi/${ytid}/hqdefault.jpg;
+        thumb.src = `https://img.youtube.com/vi/${ytid}/hqdefault.jpg`;
       else
         thumb.src = 'default-opening.png';
       thumb.alt = item.title;
