@@ -1,4 +1,3 @@
-/* Body en flex colonne */
 body {
   background-color: #121212;
   color: #eee;
@@ -12,7 +11,6 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header avec titre centré et boutons */
 header {
   width: 100%;
   max-width: 350px;
@@ -25,7 +23,6 @@ header {
   padding: 0 1rem;
 }
 
-/* Titre centré */
 header h1 {
   font-size: 1.8rem;
   text-align: center;
@@ -33,7 +30,6 @@ header h1 {
   margin: 0 1rem;
 }
 
-/* Bouton retour menu et changer de thème */
 .menu-btn,
 .toggle-btn {
   background-color: #00bcd4;
@@ -47,35 +43,6 @@ header h1 {
   flex-shrink: 0;
 }
 
-#duel-container {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-#duel-container .anime {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 330px; /* même largeur pour chaque carte */
-}
-
-#duel-container .anime img {
-  width: 100%;
-  height: 440px;   /* hauteur identique pour toutes */
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 0 18px #1116;
-}
-
-#duel-container .anime h3 {
-  text-align: center;
-  font-weight: bold;
-  margin: 1rem 0 0 0;
-}
-
-/* Hover effets */
 .menu-btn:hover,
 .toggle-btn:hover {
   background-color: #0097a7;
@@ -99,7 +66,6 @@ body.light .toggle-btn:hover {
   background-color: #0d47a1;
 }
 
-/* Mode select boutons */
 #mode-select {
   display: flex;
   gap: 1rem;
@@ -127,7 +93,173 @@ body.light .toggle-btn:hover {
   color: white;
 }
 
-/* Footer */
+#duel-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 850px;
+}
+#duel-container .anime,
+#duel-container .opening {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 330px;
+}
+
+#duel-container .anime img,
+#duel-container .opening iframe {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 18px #1116;
+}
+
+#duel-container .anime h3,
+#duel-container .opening h3 {
+  text-align: center;
+  font-weight: bold;
+  margin: 1rem 0 0 0;
+}
+
+/* Classement style - podium */
+#classement {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 2rem 1.5rem;
+  justify-items: center;
+  align-items: start;
+  margin: 2rem 0 3rem 0;
+  width: 100%;
+  max-width: 850px;
+}
+
+.classement-item {
+  background: #222;
+  border-radius: 14px;
+  box-shadow: 0 2px 18px #1118;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.1rem 0.7rem 0.8rem 0.7rem;
+  width: 180px;
+  transition: transform 0.18s, box-shadow 0.18s;
+  position: relative;
+  border: 3px solid transparent;
+}
+.classement-item:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 6px 28px #00bcd4cc;
+}
+
+/* Numéro 1 : couronne et effet or */
+.classement-item.top1 {
+  border-color: gold;
+  box-shadow: 0 4px 24px #ffd70099, 0 0 0 4px #fff2;
+  position: relative;
+  z-index: 2;
+}
+.classement-item.top1 .rank {
+  background: linear-gradient(90deg, gold, orange);
+  color: #222;
+  border: 2px solid #fff5;
+}
+.classement-item.top1::before {
+  content: "👑";
+  font-size: 2rem;
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  filter: drop-shadow(0 2px 6px #ffd700cc);
+}
+
+/* Numéro 2 : effet argent */
+.classement-item.top2 {
+  border-color: #bbb;
+  box-shadow: 0 2px 14px #bbb8;
+}
+.classement-item.top2 .rank {
+  background: linear-gradient(90deg, #eee, #bbb);
+  color: #333;
+}
+
+/* Numéro 3 : effet bronze */
+.classement-item.top3 {
+  border-color: #c96f29;
+  box-shadow: 0 2px 14px #c96f2977;
+}
+.classement-item.top3 .rank {
+  background: linear-gradient(90deg, #ffb47c, #c96f29);
+  color: #45250f;
+}
+
+.classement-item .rank {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  background: #00bcd4;
+  color: #111;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.03rem;
+  padding: 0.12em 0.75em;
+  box-shadow: 0 1px 5px #1113;
+}
+
+.classement-item img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.8em;
+}
+
+.classement-item .title {
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  margin-top: 0.1em;
+  font-size: 1.08rem;
+  min-height: 2.1em;
+}
+
+@media (max-width: 600px) {
+  #duel-container .anime,
+  #duel-container .opening {
+    width: 100%;
+  }
+  #duel-container .anime img,
+  #duel-container .opening iframe {
+    height: 180px;
+  }
+  #classement {
+    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+    gap: 1rem;
+    max-width: 100vw;
+  }
+  .classement-item {
+    width: 100%;
+    padding: 0.6rem 0.2rem 0.5rem 0.2rem;
+  }
+  .classement-item img {
+    height: 120px;
+  }
+  .classement-item .rank {
+    font-size: 0.97rem;
+    padding: 0.12em 0.65em;
+    left: 6px;
+    top: 5px;
+  }
+  .classement-item .title {
+    font-size: 0.92rem;
+  }
+}
+
 footer {
   margin-top: auto;
   padding: 1rem 0;
