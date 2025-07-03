@@ -1,17 +1,38 @@
+// ========== DARK/LIGHT MODE + MENU ==========
+document.getElementById("back-to-menu").addEventListener("click", function() {
+  window.location.href = "../index.html";
+});
+
+document.getElementById("themeToggle").addEventListener("click", () => {
+  document.body.classList.toggle("light");
+  const isLight = document.body.classList.contains("light");
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    document.body.classList.add("light");
+  }
+});
+
+// ========== ANIMEDLE GAME ==========
 let animeData = [];
 let targetAnime = null;
 let attemptCount = 0;
 let gameOver = false;
 let indiceStep = 0;
 
+// Chargement des données
 fetch('../data/animes.json')
   .then(response => response.json())
   .then(data => {
     animeData = data;
     targetAnime = animeData[Math.floor(Math.random() * animeData.length)];
-    console.log("Réponse secrète:", targetAnime);
+    // console.log("Réponse secrète:", targetAnime); // DEBUG
   });
 
+// Suggestions auto-complete
 document.getElementById("animeInput").addEventListener("input", function() {
   const input = this.value.toLowerCase();
   const matches = animeData.filter(a => a.title.toLowerCase().includes(input)).slice(0, 5);
@@ -29,6 +50,7 @@ document.getElementById("animeInput").addEventListener("input", function() {
   });
 });
 
+// Indices progressifs
 document.getElementById("indiceBtn").addEventListener("click", () => {
   if (!targetAnime) return;
   indiceStep++;
@@ -45,6 +67,7 @@ document.getElementById("indiceBtn").addEventListener("click", () => {
   }
 });
 
+// Fonction principale de jeu
 function guessAnime() {
   if (gameOver) return;
   const input = document.getElementById("animeInput").value.trim();
@@ -69,6 +92,7 @@ function guessAnime() {
     score: "cell-score"
   };
 
+  // Afficher le header au premier essai
   if (attemptCount === 1) {
     const header = document.createElement("div");
     header.classList.add("row");
@@ -160,12 +184,14 @@ function guessAnime() {
   }
   row.appendChild(cellScore);
 
+  // Affiche la ligne sous le header
   const header = results.querySelector(".row");
   results.insertBefore(row, header.nextSibling);
 
   document.getElementById("animeInput").value = "";
   document.getElementById("suggestions").innerHTML = "";
 
+  // Fin du jeu
   if (isTitleMatch) {
     gameOver = true;
     document.getElementById("animeInput").disabled = true;
@@ -178,6 +204,7 @@ function guessAnime() {
   }
 }
 
+// Suggestions "Aide" dynamiques
 function updateAideList() {
   const aideDiv = document.getElementById("aideContainer");
   if (attemptCount < 5) {
@@ -204,15 +231,19 @@ function updateAideList() {
     `</ul>`;
 }
 
+// Sélection aide (pour clic suggestion)
 function selectFromAide(title) {
   document.getElementById("animeInput").value = title;
   guessAnime();
 }
 
+// Reset du jeu
+document.getElementById("resetBtn").addEventListener("click", resetGame);
 function resetGame() {
   location.reload();
 }
 
+// Fireworks confetti
 function launchFireworks() {
   const canvas = document.getElementById("fireworks");
   const ctx = canvas.getContext("2d");
