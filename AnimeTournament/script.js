@@ -472,4 +472,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Init first load
   loadDataAndStart();
-})()
+})();
