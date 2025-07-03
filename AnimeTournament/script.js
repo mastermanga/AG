@@ -1,8 +1,9 @@
 // Bouton retour au menu
 document.getElementById("back-to-menu").addEventListener("click", function() {
-  window.location.href = "../index.html"; // Remplace par ton URL du menu
+  window.location.href = "../index.html";
 });
 
+// Bouton changer de thème + persistance
 document.getElementById("themeToggle").addEventListener("click", () => {
   document.body.classList.toggle("light");
   const isLight = document.body.classList.contains("light");
@@ -16,8 +17,6 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-
 (() => {
   const TOTAL_ITEMS = 16;
   const QUALIFIED_TO_BRACKET = 8;
@@ -30,17 +29,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Round Suisse data
   let swissStats = []; // {wins: 0, losses: 0, playedOpponents: Set}
-  let swissMatches = []; // matches queued for swiss round
+  let swissMatches = [];
 
   // Bracket data
   let bracketMatches = [];
-  let bracketRound = 0; // 0: not started, 1: quarters, 2: semis, 3: final
+  let bracketRound = 0;
   let bracketMatchIndex = 0;
 
   // UI Elements
   const duelContainer = document.querySelector('#duel-container');
   const classementDiv = document.querySelector('#classement');
-
   const modeAnimeBtn = document.getElementById('mode-anime');
   const modeOpeningBtn = document.getElementById('mode-opening');
 
@@ -54,7 +52,6 @@ window.addEventListener("DOMContentLoaded", () => {
     modeAnimeBtn.setAttribute('aria-pressed', mode === 'anime');
     modeOpeningBtn.classList.toggle('active', mode === 'opening');
     modeOpeningBtn.setAttribute('aria-pressed', mode === 'opening');
-
     reset();
     loadDataAndStart();
   }
@@ -107,28 +104,21 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Generate swiss round matches: pair players with same record and no rematch
   function generateSwissRoundMatches() {
-    // Group players by (wins, losses)
     const groups = {};
     for(let i=0; i<items.length; i++){
       const key = `${swissStats[i].wins}-${swissStats[i].losses}`;
       if(!groups[key]) groups[key] = [];
       groups[key].push(i);
     }
-
     const newMatches = [];
-
-    // For each group, try to pair players without rematch
     for(const key in groups){
       const players = groups[key];
       const paired = new Set();
-
       for(let i=0; i<players.length; i++){
         if(paired.has(players[i])) continue;
         for(let j=i+1; j<players.length; j++){
           if(paired.has(players[j])) continue;
-          // Check if players have already played each other
           if(!swissStats[players[i]].playedOpponents.has(players[j])){
             newMatches.push({i1: players[i], i2: players[j], winner: 0});
             paired.add(players[i]);
@@ -138,21 +128,18 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       }
     }
-
-    // Handle odd players without pairs (they get a bye - automatic win)
     const pairedPlayers = new Set(newMatches.flatMap(m => [m.i1, m.i2]));
     for(let i=0; i<items.length; i++){
       if(!pairedPlayers.has(i) && swissStats[i].wins < MAX_WINS && swissStats[i].losses < MAX_LOSSES){
-        // Bye = automatic win (simulate)
         swissStats[i].wins++;
       }
     }
-
     return newMatches;
   }
 
   function setupUI() {
     duelContainer.innerHTML = '';
+    duelContainer.style.display = 'flex';
 
     const div1 = document.createElement('div');
     const div2 = document.createElement('div');
@@ -174,7 +161,6 @@ window.addEventListener("DOMContentLoaded", () => {
     duelContainer.appendChild(div1);
     duelContainer.appendChild(div2);
 
-
     div1.onclick = () => recordWin(1);
     div2.onclick = () => recordWin(2);
   }
@@ -193,28 +179,32 @@ window.addEventListener("DOMContentLoaded", () => {
     return null;
   }
 
+  function getYouTubeId(youtubeUrl) {
+    try {
+      const urlObj = new URL(youtubeUrl);
+      if(urlObj.hostname.includes('youtube.com'))
+        return urlObj.searchParams.get('v');
+      if(urlObj.hostname.includes('youtu.be'))
+        return urlObj.pathname.replace('/', '');
+    } catch {}
+    return null;
+  }
+
   function showNextMatch() {
-    // Check if we are still in swiss rounds
     const swissOngoing = swissStats.some(s => s.wins < MAX_WINS && s.losses < MAX_LOSSES);
     if(swissOngoing && swissMatches.length > 0){
-      // Show next swiss match
       const match = swissMatches.shift();
       if(!match){
-        // No match: generate next swiss round matches
         swissMatches = generateSwissRoundMatches();
         if(swissMatches.length === 0) {
-          // Swiss done, start bracket
           startBracket();
           return;
         }
         showNextMatch();
         return;
       }
-
-      // Show the match
       showMatch(match);
     } else {
-      // Swiss finished or no matches left, start bracket or show classement
       if(bracketRound === 0){
         startBracket();
       } else {
@@ -226,7 +216,6 @@ window.addEventListener("DOMContentLoaded", () => {
   function showMatch(match) {
     const i1 = match.i1;
     const i2 = match.i2;
-
     const divs = duelContainer.children;
 
     if(mode === 'anime'){
@@ -247,8 +236,6 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[0].querySelector('h3').textContent = items[i1].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     }
-
-    // Store current match
     currentMatch = match;
   }
 
@@ -257,9 +244,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function recordWin(winner) {
     if(!currentMatch) return;
 
-    // Update stats depending on phase
     if(bracketRound === 0){
-      // Round suisse phase
       const winnerIndex = (winner === 1) ? currentMatch.i1 : currentMatch.i2;
       const loserIndex = (winner === 1) ? currentMatch.i2 : currentMatch.i1;
 
@@ -269,17 +254,14 @@ window.addEventListener("DOMContentLoaded", () => {
       swissStats[winnerIndex].playedOpponents.add(loserIndex);
       swissStats[loserIndex].playedOpponents.add(winnerIndex);
 
-      // Check if swiss done (all players have 3 wins or 3 losses)
       const swissDone = swissStats.every(s => s.wins >= MAX_WINS || s.losses >= MAX_LOSSES);
 
       if(swissDone){
         startBracket();
       } else {
-        // If current swiss matches empty, generate new round matches
         if(swissMatches.length === 0){
           swissMatches = generateSwissRoundMatches();
           if(swissMatches.length === 0){
-            // No matches left, start bracket
             startBracket();
             return;
           }
@@ -287,17 +269,10 @@ window.addEventListener("DOMContentLoaded", () => {
         showNextMatch();
       }
     } else {
-      // Bracket phase
-      // Winner goes to next round
-
       const winnerIndex = (winner === 1) ? bracketMatches[bracketMatchIndex].i1 : bracketMatches[bracketMatchIndex].i2;
-
       bracketMatches[bracketMatchIndex].winner = winnerIndex;
-
       bracketMatchIndex++;
-
       if(bracketMatchIndex >= bracketMatches.length){
-        // Round finished, setup next round or finish
         setupNextBracketRound();
       } else {
         showBracketMatch(bracketMatches[bracketMatchIndex]);
@@ -305,20 +280,16 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Start bracket elimination after swiss qualification
   function startBracket() {
-    // Filter qualified (wins >= 3 and losses < 3)
     let qualified = swissStats
       .map((s, i) => ({index: i, wins: s.wins, losses: s.losses}))
       .filter(p => p.wins >= MAX_WINS && p.losses < MAX_LOSSES);
 
-    // Sort by wins desc, then losses asc for seeding
     qualified.sort((a,b) => {
       if(b.wins !== a.wins) return b.wins - a.wins;
       return a.losses - b.losses;
     });
 
-    // Limit to 8 qualified
     qualified = qualified.slice(0, QUALIFIED_TO_BRACKET);
 
     if(qualified.length < QUALIFIED_TO_BRACKET){
@@ -327,10 +298,8 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Prepare bracket matches 1v1 éliminatoire: 1 vs 8, 2 vs 7, etc.
-    bracketRound = 1; // quarts de finale
+    bracketRound = 1;
     bracketMatchIndex = 0;
-
     bracketMatches = [];
 
     for(let i=0; i<QUALIFIED_TO_BRACKET/2; i++){
@@ -369,25 +338,18 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[0].querySelector('h3').textContent = items[i1].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     }
-
-
     currentMatch = match;
   }
 
   function setupNextBracketRound() {
-    // Collect winners of current round
     const winners = bracketMatches.map(m => m.winner);
 
     if(winners.length === 1){
-      // Finished tournament
       showClassement();
       return;
     }
-
-    // Next round setup
     bracketRound++;
     bracketMatchIndex = 0;
-
     bracketMatches = [];
     for(let i=0; i<winners.length; i+=2){
       bracketMatches.push({
@@ -396,64 +358,24 @@ window.addEventListener("DOMContentLoaded", () => {
         winner: null
       });
     }
-
     showBracketMatch(bracketMatches[bracketMatchIndex]);
   }
 
   function showClassement() {
-    // Hide duel UI
     duelContainer.style.display = 'none';
-
     classementDiv.innerHTML = '';
 
     // Prepare classement data
 
-    // Phase bracket winners have precedence (they won final)
     if(bracketRound > 0){
-      // Determine ranking from bracket
-      // Winner = rank 1
-      // Runner-up = rank 2
-      // Semi-final losers = rank 3-4
-      // Quarter-final losers = rank 5-8
-
-      // Collect bracket losers per round
-      // We'll assign ranks accordingly
-
-      // For simplicity:
-      // Last bracket round winners + losers
-      // Winner of final: 1
-      // Final loser: 2
-      // Semis losers: 3-4
-      // Quarters losers: 5-8
-
       const ranks = new Array(items.length).fill(null);
-
-      // Winner:
       const winnerIndex = bracketMatches.length === 1 && bracketMatches[0].winner != null ? bracketMatches[0].winner : null;
 
-      // We can reconstruct bracket rounds
-      // For simplicity, assign:
-
-      // Place winner 1st
-      // Final loser 2nd (other finalist)
-      // Semis losers 3-4
-      // Quarters losers 5-8
-      // Others based on swiss record
-
       if(!winnerIndex){
-        // Should not happen
         alert("Classement non disponible");
         return;
       }
 
-      // Find final match
-      // If bracketRound >=3 => final finished
-      // bracketRound=1: quarters, 2: semis, 3: final
-      // For now bracketRound max 3, so:
-
-      // Identify finalists
-      // bracketMatches at final round
-      // Final round matches length = 1
       if(bracketRound === 3){
         const finalMatch = bracketMatches[0];
         const finalLoser = finalMatch.i1 === finalMatch.winner ? finalMatch.i2 : finalMatch.i1;
@@ -461,53 +383,31 @@ window.addEventListener("DOMContentLoaded", () => {
         ranks[winnerIndex] = 1;
         ranks[finalLoser] = 2;
 
-        // Semi-finals losers = those who lost in semi-finals (round 2)
-        // Find semi-final matches (bracketRound 2)
-        // We can simulate semi-final losers from previous round winners
-
-        // To do this properly, need to store previous rounds (not currently stored)
-        // So approximate semi-final losers as those who lost in previous round
-
-        // We'll assign semi-final losers as those qualified for bracket but not finalists or winner, and played at least 2 bracket rounds
-
-        // We'll just assign semi-final losers ranks 3-4
-        // Quarter-final losers ranks 5-8
-
-        // Let's mark all qualified:
         const qualified = swissStats
           .map((s, i) => ({index: i, wins: s.wins, losses: s.losses}))
           .filter(p => p.wins >= MAX_WINS && p.losses < MAX_LOSSES)
           .slice(0, QUALIFIED_TO_BRACKET)
           .map(p => p.index);
 
-        // All qualified but not in final
         const otherQualified = qualified.filter(i => i !== winnerIndex && i !== finalLoser);
 
-        // Assume top half are semi-finalists, rest quarter-finalists
-        // We lack detail, so assign semi-final to first 2 others, quarter-final to last 4 others
-
-        // Assign 3-4 to first 2 others
         for(let j=0; j<otherQualified.length; j++){
           ranks[otherQualified[j]] = (j < 2) ? 3 + j : 5 + (j - 2);
         }
 
-        // Others (not qualified) rank 9+
         for(let i=0; i<items.length; i++){
           if(ranks[i] === null){
-            // Rank by swiss wins desc then losses asc
-            ranks[i] = 9 + i; // simple fallback
+            ranks[i] = 9 + i;
           }
         }
 
       } else {
-        // If bracket not finished, fallback classement by swiss record
         ranks.fill(null);
         swissStats.forEach((s,i) => {
           ranks[i] = 9 + i;
         });
       }
 
-      // Sort by rank ascending
       const rankedItems = items.map((item,i) => ({
         index: i,
         rank: ranks[i],
@@ -520,7 +420,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
 
     } else {
-      // No bracket played, classement by swiss record
       const classement = swissStats
         .map((s,i) => ({index: i, wins: s.wins, losses: s.losses}))
         .sort((a,b) => {
@@ -534,9 +433,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function displayClassementItem(idx, rank) {
     const item = items[idx];
-
     const div = document.createElement('div');
     div.className = 'classement-item';
+    if(rank === 1) div.classList.add('top1');
+    if(rank === 2) div.classList.add('top2');
+    if(rank === 3) div.classList.add('top3');
     div.setAttribute('tabindex', '0');
     div.setAttribute('aria-label', `Rang ${rank} - ${item.title}`);
 
@@ -556,18 +457,16 @@ window.addEventListener("DOMContentLoaded", () => {
       img.alt = item.title;
       div.appendChild(img);
     } else {
-      const iframe = document.createElement('iframe');
-      const embedUrl = getYouTubeEmbedUrl(item.youtubeUrls?.[0] || '');
-      if(embedUrl) {
-        iframe.src = embedUrl;
-        iframe.frameBorder = 0;
-        iframe.allowFullscreen = true;
-        div.appendChild(iframe);
-      }
+      const thumb = document.createElement('img');
+      const ytid = getYouTubeId(item.youtubeUrls?.[0] || '');
+      if(ytid)
+        thumb.src = `https://img.youtube.com/vi/${ytid}/hqdefault.jpg`;
+      else
+        thumb.src = 'default-opening.png';
+      thumb.alt = item.title;
+      div.appendChild(thumb);
     }
-
     div.appendChild(titleDiv);
-
     classementDiv.appendChild(div);
   }
 
