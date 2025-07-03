@@ -119,7 +119,7 @@
 
     async function loadAnimes() {
       try {
-        const response = await fetch('animes.json');
+        const response = await fetch('../data/animes.json');
         const animes = await response.json();
         allAnimes = animes;
 
