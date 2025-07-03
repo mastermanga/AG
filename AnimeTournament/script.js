@@ -70,8 +70,8 @@ window.addEventListener("DOMContentLoaded", () => {
     bracketMatchIndex = 0;
     duelContainer.innerHTML = '';
     buttonsDiv.innerHTML = '';
-    buttonsDiv.style.display = 'flex';
-    duelContainer.style.display = 'flex';
+    buttonsDiv.style.display = '';
+    duelContainer.style.display = '';
     classementDiv.innerHTML = '';
   }
 
