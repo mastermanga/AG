@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mini-Jeux</title>
+  <title>BlindRanking</title>
   <link rel="icon" type="image/png" href="favicon-32x32.png">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- === MENU PRINCIPAL === -->
-  <div id="menu-screen">
-    <h1>Bienvenue !</h1>
-    <button onclick="launchGame('ranking-game')">Anime Blind Ranking</button>
-    <button onclick="alert('À venir')">Autre jeu (bientôt)</button>
-  </div>
-
+  <header>
+    <div class="header-group">
+    <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
+    <h1>BlindRanking</h1>
+    <button id="themeToggle" class="toggle-btn">🌓</button>
+    </div>
+  </header> 
   <!-- === CLASSEMENT DES ANIMES === -->
   <div id="ranking-game">
     <div class="ranking-container">
