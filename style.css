@@ -1,43 +1,32 @@
+/* === Global === */
 body {
   background-color: #121212;
   color: #eee;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-}
-
-#container {
-  background-color: #1e1e1e;
-  border-radius: 10px;
-  padding: 2rem;
-  width: 350px;
-  text-align: center;
-  box-shadow: 0 0 15px #00bcd4;
-}
-
-.menu {
-  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
 }
 
-.menu a {
-  background-color: #2c2c2c;
-  color: #eee;
-  padding: 0.7rem;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s;
+/* === Header === */
+header {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-.menu a:hover {
-  background-color: #00bcd4;
-  color: #121212;
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  text-align: center;
+  flex: 1;
 }
 
 .toggle-btn {
@@ -45,23 +34,56 @@ body {
   color: #121212;
   border: none;
   padding: 0.5rem 1rem;
-  margin-top: 1rem;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  margin-left: auto;
 }
 
 .toggle-btn:hover {
   background-color: #0097a7;
 }
 
-footer {
-  margin-top: 2rem;
-  font-size: 0.8rem;
-  color: #888;
+/* === Container (box) === */
+#container {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 15px #00bcd4;
+  width: 350px;
+  text-align: center;
 }
 
-/* Thème clair */
+/* === Menu === */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.menu a {
+  background-color: #00bcd4;
+  color: #121212;
+  padding: 0.7rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.menu a:hover {
+  background-color: #00acc1;
+  color: white;
+}
+
+/* === Footer === */
+footer {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* === Light Mode === */
 body.light {
   background-color: #f2f2f2;
   color: #121212;
@@ -73,13 +95,12 @@ body.light #container {
 }
 
 body.light .menu a {
-  background-color: #e0e0e0;
-  color: #121212;
+  background-color: #00bcd4;
+  color: #fff;
 }
 
 body.light .menu a:hover {
-  background-color: #00bcd4;
-  color: #fff;
+  background-color: #008ba3;
 }
 
 body.light .toggle-btn {
