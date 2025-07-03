@@ -3,44 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Menu des Jeux</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      background-color: #f2f2f2;
-    }
-    h1 {
-      margin-top: 40px;
-    }
-    .menu {
-      margin-top: 50px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-    .menu a {
-      text-decoration: none;
-      color: white;
-      background-color: #3498db;
-      padding: 15px 30px;
-      border-radius: 8px;
-      font-size: 18px;
-      transition: background-color 0.3s;
-    }
-    .menu a:hover {
-      background-color: #2980b9;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Bienvenue dans le menu des jeux</h1>
+  <h1>🎮 Menu des Jeux</h1>
+
+  <button class="toggle-btn" onclick="toggleTheme()">🌓 Basculer le thème</button>
+
   <div class="menu">
     <a href="AnimeTournament/index.html">AnimeTournament</a>
-    <a href="jeu2/index.html">Jeu 2</a>
-    <a href="jeu3/index.html">Jeu 3</a>
-    <a href="jeu4/index.html">Jeu 4</a>
-    <a href="jeu5/index.html">Jeu 5</a>
+    <a href="AnimeTournament/index.html">AnimeTournament</a>
+    <a href="AnimeTournament/index.html">AnimeTournament</a>
+    <a href="AnimeTournament/index.html">AnimeTournament</a>
+    <a href="AnimeTournament/index.html">AnimeTournament</a>
   </div>
+
+  <footer>
+    © 2025 Ton Nom – Tous droits réservés
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
