@@ -2,88 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CharacterQuizz</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      color: #ffffff;
-    }
-    #character-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-    .character-img {
-      width: 180px;
-      height: 180px;
-      object-fit: contain; /* Changement ici */
-      border-radius: 10px;
-      border: 2px solid #444;
-      display: none;
-      background-color: #222;
-    }
-    input[type="text"] {
-      padding: 10px;
-      width: 320px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #555;
-      margin-top: 20px;
-      background-color: #222;
-      color: #e0e0e0;
-      outline: none;
-    }
-    input[type="text"]:focus {
-      border-color: #3a7afe;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-left: 10px;
-      border: none;
-      border-radius: 8px;
-      background-color: #3a7afe;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:disabled {
-      background-color: #555;
-      cursor: not-allowed;
-    }
-    button:hover:enabled {
-      background-color: #2a5edb;
-    }
-    #feedback {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
-      min-height: 24px;
-    }
-    .success {
-      color: #4caf50;
-    }
-    .error {
-      color: #e03e3e;
-    }
-    #timer {
-      margin-top: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #bbb;
-    }
-    #controls {
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>CharacterQuizz</h1>
