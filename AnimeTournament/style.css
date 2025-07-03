@@ -165,30 +165,6 @@ body.light .toggle-btn:hover {
   }
 }
 
-#duel-container .anime,
-#duel-container .opening {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 330px;
-}
-
-#duel-container .anime img,
-#duel-container .opening iframe {
-  width: 100%;
-  height: 440px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 0 18px #1116;
-}
-
-#duel-container .anime h3,
-#duel-container .opening h3 {
-  text-align: center;
-  font-weight: bold;
-  margin: 1rem 0 0 0;
-}
-
 /* Classement style - podium */
 #classement {
   display: grid;
