@@ -175,12 +175,6 @@ window.addEventListener("DOMContentLoaded", () => {
     duelContainer.appendChild(div2);
 
 
-    btn1.setAttribute('aria-label', 'Choisir premier ' + mode);
-    btn2.setAttribute('aria-label', 'Choisir second ' + mode);
-
-
-    btn1.onclick = () => recordWin(1);
-    btn2.onclick = () => recordWin(2);
     div1.onclick = () => recordWin(1);
     div2.onclick = () => recordWin(2);
   }
