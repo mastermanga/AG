@@ -39,7 +39,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // UI Elements
   const duelContainer = document.querySelector('#duel-container');
-  const buttonsDiv = document.querySelector('#buttons');
   const classementDiv = document.querySelector('#classement');
 
   const modeAnimeBtn = document.getElementById('mode-anime');
@@ -69,8 +68,6 @@ window.addEventListener("DOMContentLoaded", () => {
     bracketRound = 0;
     bracketMatchIndex = 0;
     duelContainer.innerHTML = '';
-    buttonsDiv.innerHTML = '';
-    buttonsDiv.style.display = '';
     duelContainer.style.display = '';
     classementDiv.innerHTML = '';
   }
@@ -156,7 +153,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function setupUI() {
     duelContainer.innerHTML = '';
-    buttonsDiv.innerHTML = '';
 
     const div1 = document.createElement('div');
     const div2 = document.createElement('div');
@@ -178,16 +174,10 @@ window.addEventListener("DOMContentLoaded", () => {
     duelContainer.appendChild(div1);
     duelContainer.appendChild(div2);
 
-    const btn1 = document.createElement('button');
-    const btn2 = document.createElement('button');
-    btn1.id = 'choose1';
-    btn2.id = 'choose2';
 
     btn1.setAttribute('aria-label', 'Choisir premier ' + mode);
     btn2.setAttribute('aria-label', 'Choisir second ' + mode);
 
-    buttonsDiv.appendChild(btn1);
-    buttonsDiv.appendChild(btn2);
 
     btn1.onclick = () => recordWin(1);
     btn2.onclick = () => recordWin(2);
@@ -263,9 +253,6 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[0].querySelector('h3').textContent = items[i1].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     }
-
-    buttonsDiv.children[0].textContent = items[i1].title;
-    buttonsDiv.children[1].textContent = items[i2].title;
 
     // Store current match
     currentMatch = match;
@@ -361,7 +348,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     alert("Phase bracket 1v1 éliminatoire commencée !");
-    buttonsDiv.style.display = 'flex';
     duelContainer.style.display = 'flex';
     showBracketMatch(bracketMatches[bracketMatchIndex]);
   }
@@ -390,8 +376,6 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[1].querySelector('h3').textContent = items[i2].title;
     }
 
-    buttonsDiv.children[0].textContent = items[i1].title;
-    buttonsDiv.children[1].textContent = items[i2].title;
 
     currentMatch = match;
   }
@@ -425,7 +409,6 @@ window.addEventListener("DOMContentLoaded", () => {
   function showClassement() {
     // Hide duel UI
     duelContainer.style.display = 'none';
-    buttonsDiv.style.display = 'none';
 
     classementDiv.innerHTML = '';
 
