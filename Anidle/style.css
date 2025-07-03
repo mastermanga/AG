@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #f0f0f0;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+}
+.input-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border-radius: 5px;
+  border: none;
+}
+.suggestions {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  max-width: 300px;
+  margin: 0 auto 10px;
+  text-align: left;
+}
+.suggestions div {
+  padding: 8px;
+  cursor: pointer;
+}
+.suggestions div:hover {
+  background-color: #333;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.cell {
+  padding: 8px;
+  margin: 2px;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+.cell-image { min-width: 100px; max-width: 100px; }
+.cell-title { min-width: 250px; max-width: 280px; }
+.cell-genre, .cell-theme { min-width: 200px; max-width: 220px; text-align: left; }
+.cell-studio { min-width: 150px; max-width: 160px; }
+.cell-season { min-width: 120px; max-width: 130px; }
+.cell-score { min-width: 90px; max-width: 100px; }
+.green { background-color: #4caf50 !important; color: white; }
+.red { background-color: #f44336 !important; color: white; }
+.orange { background-color: #ff9800 !important; color: white; }
+#winMessage { margin-top: 20px; font-size: 20px; text-align: center; }
+#fireworks {
+  position: fixed; top: 0; left: 0; height: 100vh; width: 100vw;
+  pointer-events: none; z-index: 1000;
+}
+#indicesContainer {
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: left;
+  background: #222;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #444;
+}
+button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+}
+button:hover {
+  background-color: #0056b3;
+}
+#aideContainer {
+  background: #1b1b1b;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  max-height: 600px;
+  overflow-y: auto;
+}
+#aideContainer ul {
+  padding-left: 0;
+}
+#aideContainer li {
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+#aideContainer li:hover {
+  text-decoration: underline;
+  color: #00c3ff;
+}
