@@ -1,22 +1,18 @@
-// Bouton retour au menu
+// ======= DARK/LIGHT MODE + MENU =======
 document.getElementById("back-to-menu").addEventListener("click", function() {
   window.location.href = "../index.html";
 });
-
-// Bouton changer de thème + persistance
 document.getElementById("themeToggle").addEventListener("click", () => {
   document.body.classList.toggle("light");
   const isLight = document.body.classList.contains("light");
   localStorage.setItem("theme", isLight ? "light" : "dark");
 });
-
 window.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") {
-    document.body.classList.add("light");
-  }
+  if (savedTheme === "light") document.body.classList.add("light");
 });
 
+// ====== OPENING QUIZZ LOGIC (UNIFORME ANIDLE) =======
 function extractVideoId(url) {
   const regExp = /^.*((youtu.be\/)|(v\/)|(watch\?))\??v?=?([^#&?]*).*/;
   const match = url.match(regExp);
@@ -69,9 +65,7 @@ function initPlayer() {
     videoId: currentAnime.videoId,
     playerVars: { autoplay: 0, controls: 0, modestbranding: 1, rel: 0, iv_load_policy: 3 },
     events: {
-      onReady: (event) => {
-        player.setVolume(50);
-      },
+      onReady: (event) => player.setVolume(50),
       onStateChange: onPlayerStateChange
     }
   });
@@ -99,18 +93,19 @@ function resetControls() {
   document.getElementById("result").className = "";
   document.getElementById("timer").style.display = "none";
   document.getElementById("timer").textContent = "";
-  document.getElementById("guessInput").value = "";
-  document.getElementById("guessInput").disabled = true;
+  document.getElementById("openingInput").value = "";
+  document.getElementById("openingInput").disabled = true;
   document.getElementById("playTry1").disabled = false;
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
   document.getElementById("nextBtn").style.display = "none";
+  document.getElementById("suggestions").innerHTML = "";
 }
 
 function playTry(n) {
   if (n !== tries + 1) return alert("Vous devez écouter les extraits dans l'ordre.");
   tries = n;
-  document.getElementById("guessInput").disabled = false;
+  document.getElementById("openingInput").disabled = false;
   document.getElementById("result").textContent = "";
   document.getElementById("result").className = "";
   clearInterval(stopInterval);
@@ -118,7 +113,6 @@ function playTry(n) {
   let start = 0;
   if (tries === 2) start = 3;
   if (tries === 3) start = 0;
-
   currentAnime.startTime = start;
 
   player.loadVideoById({
@@ -128,23 +122,13 @@ function playTry(n) {
   });
   player.playVideo();
 
-  if (tries === 1) {
-    document.getElementById("playTry1").disabled = true;
-    document.getElementById("playTry2").disabled = false;
-    document.getElementById("playTry3").disabled = true;
-  } else if (tries === 2) {
-    document.getElementById("playTry1").disabled = true;
-    document.getElementById("playTry2").disabled = true;
-    document.getElementById("playTry3").disabled = false;
-  } else if (tries === 3) {
-    document.getElementById("playTry1").disabled = true;
-    document.getElementById("playTry2").disabled = true;
-    document.getElementById("playTry3").disabled = true;
-  }
+  document.getElementById("playTry1").disabled = true;
+  document.getElementById("playTry2").disabled = (tries !== 1);
+  document.getElementById("playTry3").disabled = (tries !== 2);
 }
 
 function checkAnswer(selectedTitle) {
-  const inputVal = selectedTitle.toLowerCase();
+  const inputVal = selectedTitle.trim().toLowerCase();
   if (currentAnime.altTitles.includes(inputVal)) {
     document.getElementById("result").textContent = `✅ Bravo ! C’est ${currentAnime.title}`;
     document.getElementById("result").className = "correct";
@@ -156,7 +140,7 @@ function checkAnswer(selectedTitle) {
     if (tries >= maxTries) {
       revealAnswer();
     } else {
-      document.getElementById("guessInput").disabled = true;
+      document.getElementById("openingInput").disabled = true;
     }
   }
 }
@@ -174,21 +158,19 @@ function revealAnswer() {
 }
 
 function blockInputs() {
-  document.getElementById("guessInput").disabled = true;
+  document.getElementById("openingInput").disabled = true;
   document.getElementById("playTry1").disabled = true;
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
+  document.getElementById("suggestions").innerHTML = "";
 }
 
 function showNextButton() {
-  document.getElementById("nextBtn").style.display = "inline-block";
+  document.getElementById("nextBtn").style.display = "block";
 }
 
 function nextAnime() {
-  // Arrête la vidéo si elle est en cours
-  if(player && player.stopVideo) {
-    player.stopVideo();
-  }
+  if(player && player.stopVideo) player.stopVideo();
   currentIndex++;
   if (currentIndex >= animeList.length) {
     alert("Fin du quiz ! Merci d'avoir joué.");
@@ -203,30 +185,38 @@ document.getElementById("playTry2").addEventListener("click", () => playTry(2));
 document.getElementById("playTry3").addEventListener("click", () => playTry(3));
 document.getElementById("nextBtn").addEventListener("click", () => nextAnime());
 
-const input = document.getElementById("guessInput");
+// ===== UNIFORME ANIDLE — AUTOCOMPLETE & SUBMIT =====
+const input = document.getElementById("openingInput");
 input.addEventListener("input", function() {
-  closeAllLists();
-  if (!this.value) return false;
   const val = this.value.toLowerCase();
-  const list = document.getElementById("autocomplete-list");
+  const suggestionsDiv = document.getElementById("suggestions");
+  suggestionsDiv.innerHTML = "";
+  if (!val || document.getElementById("openingInput").disabled) return;
+  // Unique titres seulement
   const uniqueTitles = [...new Set(animeList.map(a => a.title))];
-  uniqueTitles.forEach(title => {
-    if (title.toLowerCase().startsWith(val)) {
-      const item = document.createElement("div");
-      item.innerHTML = "<strong>" + title.substr(0, val.length) + "</strong>" + title.substr(val.length);
-      item.addEventListener("click", function() {
-        input.value = title;
-        closeAllLists();
-        checkAnswer(title);
-      });
-      list.appendChild(item);
-    }
+  const matches = uniqueTitles.filter(title => title.toLowerCase().includes(val)).slice(0, 6);
+  matches.forEach(title => {
+    const div = document.createElement("div");
+    div.textContent = title;
+    div.onclick = () => {
+      input.value = title;
+      suggestionsDiv.innerHTML = "";
+      checkAnswer(title);
+    };
+    suggestionsDiv.appendChild(div);
   });
 });
-function closeAllLists() {
-  const list = document.getElementById("autocomplete-list");
-  while (list.firstChild) list.removeChild(list.firstChild);
-}
+
+// "Entrée" valide direct si suggestion unique ou titre exact
+input.addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && !input.disabled) {
+    const val = input.value.trim();
+    if (!val) return;
+    checkAnswer(val);
+    document.getElementById("suggestions").innerHTML = "";
+  }
+});
+
 document.addEventListener("click", (e) => {
-  if (e.target !== input) closeAllLists();
+  if (e.target !== input) document.getElementById("suggestions").innerHTML = "";
 });
