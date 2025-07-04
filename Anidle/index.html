@@ -18,6 +18,8 @@
     <div style="display:flex; gap:20px; justify-content:center;">
       <div id="aideContainer" style="width:300px;"></div>
       <div style="flex:1;">
+        <!-- MESSAGE DE WIN EN HAUT -->
+        <div id="successContainer" style="display:none;"></div>
         <div class="input-container">
           <input type="text" id="animeInput" placeholder="Entrez le nom d'un anime..." autocomplete="off" />
           <div id="suggestions" class="suggestions"></div>
@@ -32,8 +34,6 @@
           <p><strong>Indice 5 - Image :</strong><br /><img id="indice5" src="" alt="Indice Image" style="width:200px; filter: blur(8px);" /></p>
         </div>
         <div id="results"></div>
-        <!-- NOUVEAU BOUTON SUIVANT, CACHÉ PAR DÉFAUT -->
-        <button id="nextBtn" style="display:none;">Suivant</button>
       </div>
     </div>
     <canvas id="fireworks"></canvas>
@@ -42,6 +42,7 @@
   <footer>
     © 2025 mastermanga
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
