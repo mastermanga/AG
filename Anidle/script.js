@@ -16,24 +16,92 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ========== ANIMEDLE GAME ==========
+// ========== ANIMEDLE GAME (MODE DAILY INCLUS) ==========
 let animeData = [];
 let targetAnime = null;
 let attemptCount = 0;
 let gameOver = false;
 let indiceStep = 0;
 
+// -- Daily Logic --
+const IS_DAILY = true; // Passe à false pour revenir au mode libre (test)
+const DAILY_BANNER = document.getElementById("daily-banner");
+const DAILY_STATUS = document.getElementById("daily-status");
+const DAILY_SCORE = document.getElementById("daily-score");
+const todayKey = () => {
+  const d = new Date();
+  return `${d.getFullYear()}${(d.getMonth()+1).toString().padStart(2, "0")}${d.getDate().toString().padStart(2,"0")}`;
+};
+const SCORE_KEY = `daily_anidle_score_${todayKey()}`;
+const ANIME_KEY = `daily_anidle_id_${todayKey()}`;
+let dailyPlayed = false;
+
 // Chargement des données
 fetch('../data/animes.json')
   .then(response => response.json())
   .then(data => {
     animeData = data;
-    targetAnime = animeData[Math.floor(Math.random() * animeData.length)];
-    // console.log("Réponse secrète:", targetAnime); // DEBUG
+
+    // Sélection du daily de façon déterministe pour tous
+    if (IS_DAILY) {
+      let animeIdx;
+      // On essaye de garder le même daily pour tous (hash date % total)
+      if (!localStorage.getItem(ANIME_KEY)) {
+        // On "génère" le daily du jour
+        animeIdx = getDeterministicDailyIndex(animeData.length);
+        localStorage.setItem(ANIME_KEY, animeIdx);
+      } else {
+        animeIdx = parseInt(localStorage.getItem(ANIME_KEY));
+      }
+      targetAnime = animeData[animeIdx];
+
+      // Affichage bandeau daily
+      showDailyBanner();
+
+      // On bloque si déjà joué
+      if (localStorage.getItem(SCORE_KEY)) {
+        lockDailyInputs();
+        gameOver = true;
+        return;
+      }
+    } else {
+      targetAnime = animeData[Math.floor(Math.random() * animeData.length)];
+      if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
+    }
   });
+
+function getDeterministicDailyIndex(len) {
+  // Simple hash du jour (ne change pas sur reload) : anime différent chaque jour
+  const d = new Date();
+  const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
+  return seed % len;
+}
+
+function showDailyBanner() {
+  if (!DAILY_BANNER) return;
+  DAILY_BANNER.style.display = "block";
+  const score = localStorage.getItem(SCORE_KEY);
+  if (score) {
+    DAILY_STATUS.textContent = "✅ Daily du jour déjà jouée !";
+    DAILY_SCORE.textContent = `Score : ${score} pts`;
+  } else {
+    DAILY_STATUS.textContent = "🎲 Daily du jour :";
+    DAILY_SCORE.textContent = "";
+  }
+}
+
+function lockDailyInputs() {
+  document.getElementById("animeInput").disabled = true;
+  document.getElementById("indiceBtn").disabled = true;
+  if (DAILY_BANNER) {
+    DAILY_BANNER.style.display = "block";
+    showDailyBanner();
+  }
+}
 
 // Suggestions auto-complete
 document.getElementById("animeInput").addEventListener("input", function() {
+  if (IS_DAILY && localStorage.getItem(SCORE_KEY)) return;
   const input = this.value.toLowerCase();
   const matches = animeData.filter(a => a.title.toLowerCase().includes(input)).slice(0, 5);
   const suggestions = document.getElementById("suggestions");
@@ -53,6 +121,7 @@ document.getElementById("animeInput").addEventListener("input", function() {
 // Indices progressifs
 document.getElementById("indiceBtn").addEventListener("click", () => {
   if (!targetAnime) return;
+  if (IS_DAILY && localStorage.getItem(SCORE_KEY)) return;
   indiceStep++;
   if (indiceStep > 5) indiceStep = 5;
   document.getElementById("indicesContainer").style.display = "block";
@@ -69,7 +138,7 @@ document.getElementById("indiceBtn").addEventListener("click", () => {
 
 // Fonction principale de jeu
 function guessAnime() {
-  if (gameOver) return;
+  if (gameOver || (IS_DAILY && localStorage.getItem(SCORE_KEY))) return;
   const input = document.getElementById("animeInput").value.trim();
   const guessedAnime = animeData.find(a => a.title.toLowerCase() === input.toLowerCase());
   if (!guessedAnime) {
@@ -200,6 +269,16 @@ function guessAnime() {
     document.getElementById("indiceBtn").style.display = "none";
     // Affiche le message de win en haut
     showSuccessMessage();
+
+    // Sauvegarde daily score : 3000 pts de base, -100/tentative sup, -1000/indice utilisé
+    if (IS_DAILY && !localStorage.getItem(SCORE_KEY)) {
+      let score = 3000;
+      score -= (attemptCount - 1) * 100;
+      score -= (indiceStep) * 1000;
+      if (score < 0) score = 0;
+      localStorage.setItem(SCORE_KEY, score);
+      showDailyBanner();
+    }
     launchFireworks();
   }
 }
@@ -295,6 +374,11 @@ function showSuccessMessage() {
   container.scrollIntoView({behavior: "smooth", block: "start"});
 
   document.getElementById("nextBtn").onclick = () => {
-    location.reload();
+    // Mode daily : reload interdit si score déjà enregistré
+    if (IS_DAILY && localStorage.getItem(SCORE_KEY)) {
+      window.location.href = "../index.html";
+    } else {
+      location.reload();
+    }
   };
 }
