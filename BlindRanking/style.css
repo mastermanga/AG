@@ -350,17 +350,27 @@ body.light footer {
 }
 
 .suivant-btn {
+  display: block;
+  margin: 32px auto 0 auto;
   background: #00bcd4;
   color: #121212;
   border: none;
   border-radius: 12px;
-  padding: 15px 32px;
+  padding: 15px 38px;
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.18s, color 0.18s;
+  box-shadow: 0 1px 5px #1113;
 }
 .suivant-btn:hover {
   background: #0097a7;
   color: #fff;
+}
+body.light .suivant-btn {
+  background-color: #1565c0;
+  color: white;
+}
+body.light .suivant-btn:hover {
+  background-color: #0d47a1;
 }
