@@ -89,29 +89,28 @@ function getYouTubeEmbedUrl(youtubeUrl) {
 // Affichage principal de l’item en cours
 function displayCurrentItem() {
   setTimeout(() => {
-    // Nettoie zone image/vidéo à chaque passage
     const animeImg = document.getElementById("anime-img");
     const container = document.getElementById("anime-item");
-    const oldIframe = document.getElementById("anime-video");
-    if (oldIframe) oldIframe.remove();
+    document.getElementById("anime-video")?.remove();
 
     if (currentIndex < selectedAnimes.length) {
       const item = selectedAnimes[currentIndex];
       document.getElementById("anime-name").textContent = item.title;
-
       if (rankingMode === "anime") {
         animeImg.src = item.image;
         animeImg.style.display = "block";
       } else {
         animeImg.style.display = "none";
-        // Ajoute lecteur vidéo
         let iframe = document.createElement("iframe");
         iframe.id = "anime-video";
-        iframe.width = "180";
-        iframe.height = "180";
-        iframe.frameBorder = "0";
-        iframe.allowFullscreen = true;
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allowfullscreen", "");
         iframe.style.borderRadius = "15px";
+        iframe.style.width = "100%";
+        iframe.style.maxWidth = "440px";
+        iframe.style.height = "440px";
+        iframe.style.background = "#222";
+        iframe.style.boxShadow = "0 4px 18px #1116";
         iframe.src = getYouTubeEmbedUrl(item.youtubeUrls?.[0] || "");
         container.insertBefore(iframe, animeImg);
       }
@@ -159,7 +158,7 @@ function updateRankingList() {
         } else {
           html = `
             <li>
-              <iframe src="${getYouTubeEmbedUrl(item.youtubeUrls?.[0] || "")}" width="100" height="100" frameborder="0" allowfullscreen style="border-radius:10px"></iframe>
+              <iframe src="${getYouTubeEmbedUrl(item.youtubeUrls?.[0] || "")}" frameborder="0" allowfullscreen style="border-radius:10px;width:100%;height:210px;background:#222;box-shadow:0 2px 12px #1114;"></iframe>
               <span>Rang ${i + 1}: ${item.title}</span>
             </li>
           `;
@@ -170,7 +169,7 @@ function updateRankingList() {
     } else {
       html = `
         <li>
-          <div style="width:100px;height:100px;opacity:0.1;background:#ccc;display:inline-block;border-radius:10px"></div>
+          <div style="width:100%;height:210px;opacity:0.1;background:#ccc;display:inline-block;border-radius:10px"></div>
           <span>Rang ${i + 1}</span>
         </li>
       `;
