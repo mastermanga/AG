@@ -234,8 +234,8 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[0].querySelector('iframe').src = url1;
       divs[1].querySelector('iframe').src = url2;
 
-      divs[0].querySelector('h3').innerHTML = `${items[i1].title} <span style="font-size:1.15em; margin-left:0.28em; vertical-align:middle; opacity:.75;">🖱️</span>`;
-      divs[1].querySelector('h3').innerHTML = `${items[i2].title} <span style="font-size:1.15em; margin-left:0.28em; vertical-align:middle; opacity:.75;">🖱️</span>`;
+    divs[0].querySelector('h3').textContent = items[i1].title;
+    divs[1].querySelector('h3').textContent = items[i2].title;
 
     }
     currentMatch = match;
