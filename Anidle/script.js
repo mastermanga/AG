@@ -288,7 +288,7 @@ function showSuccessMessage() {
       <span style="font-size:2.3rem;">🎉</span>
     </div>
     <div style="text-align:center;">
-      <button id="nextBtn" style="font-size:1.1rem; margin: 0 auto;">Suivant</button>
+      <button id="nextBtn" style="font-size:1.1rem; margin: 0 auto;">Rejouer</button>
     </div>
   `;
   container.style.display = "block";
