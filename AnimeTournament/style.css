@@ -159,7 +159,7 @@ body.light .toggle-btn:hover {
   box-shadow: 0 4px 24px #ffd70099, 0 0 0 4px #fff2;
   position: relative;
   z-index: 2;
-  margin-top: 30px;
+  margin-top: -30px;
 }
 .classement-item.top1 .rank {
   position: absolute;
@@ -184,6 +184,7 @@ body.light .toggle-btn:hover {
 .classement-item.top2 {
   border-color: #bbb;
   box-shadow: 0 2px 14px #bbb8;
+  margin-top: 10px;
 }
 .classement-item.top2 .rank {
   background: linear-gradient(90deg, #eee, #bbb);
@@ -194,11 +195,17 @@ body.light .toggle-btn:hover {
 .classement-item.top3 {
   border-color: #c96f29;
   box-shadow: 0 2px 14px #c96f2977;
+  margin-top: 10px;
 }
 .classement-item.top3 .rank {
   background: linear-gradient(90deg, #ffb47c, #c96f29);
   color: #45250f;
 }
+
+.classement-item.top4 {
+margin-top: 10px;
+}
+
 
 .classement-item .rank {
   position: absolute;
