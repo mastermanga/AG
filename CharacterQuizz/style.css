@@ -10,7 +10,6 @@ body {
   justify-content: flex-start;
 }
 
-/* HEADER centré, boutons à gauche/droite, titre centré */
 header {
   width: 100%;
   display: flex;
@@ -35,7 +34,6 @@ header h1 {
   text-align: center;
 }
 
-/* BOUTONS HEADER */
 .menu-btn, .toggle-btn {
   background-color: #00bcd4;
   color: #121212;
@@ -76,39 +74,82 @@ header h1 {
   margin: 0 6px 8px 6px;
 }
 
+/* INPUT + BOUTON EN LIGNE */
 #controls {
   margin-top: 20px;
   text-align: center;
 }
 
-input[type="text"] {
-  padding: 10px;
-  width: 320px;
-  font-size: 16px;
+.input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 10px;
+  position: relative;
+  width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.input-container input[type="text"] {
+  flex: 1;
+  margin-top: 0;
+  padding: 12px;
+  font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #555;
-  margin-top: 20px;
   background-color: #222;
   color: #e0e0e0;
   outline: none;
 }
-input[type="text"]:focus {
+.input-container input[type="text"]:focus {
   border-color: #00bcd4;
 }
 
-/* AUTOCOMPLETE DATLIST style via browser */
+/* Suggestions personnalisées */
+.suggestions {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto 10px;
+  text-align: left;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 6px 18px #111a;
+  position: absolute;
+  z-index: 3;
+  left: 0; right: 0;
+  top: 44px;
+}
+.suggestions div {
+  padding: 9px 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.suggestions div:hover {
+  background-color: #00bcd4;
+  color: #121212;
+}
+body.light .suggestions {
+  background: #f8faff;
+  border: 1px solid #b6cdfc;
+}
+body.light .suggestions div:hover {
+  background-color: #1565c0;
+  color: #fff;
+}
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-left: 10px;
+  padding: 12px 19px;
+  font-size: 1.05rem;
+  border-radius: 7px;
   border: none;
-  border-radius: 8px;
   background-color: #00bcd4;
   color: #121212;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
+  box-shadow: 0 1px 5px #1113;
 }
 button:disabled {
   background-color: #555;
@@ -120,7 +161,6 @@ button:hover:enabled {
   color: #fff;
 }
 
-/* FEEDBACK */
 #feedback {
   margin-top: 20px;
   font-size: 18px;
@@ -141,7 +181,6 @@ button:hover:enabled {
   color: #00bcd4;
 }
 
-/* FOOTER OPTIONNEL */
 footer {
   margin-top: auto;
   padding: 1.2rem 0 0.4rem 0;
@@ -213,8 +252,6 @@ body.light footer {
   color: #888;
 }
 
-/* Transition douce */
 body, input, button, .character-img {
   transition: background 0.3s, color 0.2s, border 0.2s;
 }
-
