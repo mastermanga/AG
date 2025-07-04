@@ -348,3 +348,19 @@ body.light #new-ranking-btn:hover {
 body.light footer {
   color: #888;
 }
+
+.suivant-btn {
+  background: #00bcd4;
+  color: #121212;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 32px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.suivant-btn:hover {
+  background: #0097a7;
+  color: #fff;
+}
