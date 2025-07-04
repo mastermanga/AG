@@ -20,14 +20,14 @@ window.addEventListener("DOMContentLoaded", () => {
 (() => {
   const TOTAL_ITEMS = 16;
   const QUALIFIED_TO_BRACKET = 8;
-  const SWISS_ROUNDS = 5; // 5 duels fixes
+  const SWISS_ROUNDS = 5;
 
   let mode = 'anime';
   let data = [];
   let items = [];
 
   // Round suisse data
-  let swissStats = []; // {wins, losses, playedOpponents: Set, opponents: Array}
+  let swissStats = [];
   let swissMatches = [];
   let swissRound = 0;
 
@@ -41,6 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const classementDiv = document.querySelector('#classement');
   const modeAnimeBtn = document.getElementById('mode-anime');
   const modeOpeningBtn = document.getElementById('mode-opening');
+  const nextMatchBtn = document.getElementById('next-match-btn');
 
   modeAnimeBtn.onclick = () => switchMode('anime');
   modeOpeningBtn.onclick = () => switchMode('opening');
@@ -68,6 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
     duelContainer.innerHTML = '';
     duelContainer.style.display = '';
     classementDiv.innerHTML = '';
+    nextMatchBtn.style.display = "none";
     document.querySelectorAll('body > .rank').forEach(e => e.remove());
   }
 
@@ -89,7 +91,6 @@ window.addEventListener("DOMContentLoaded", () => {
       shuffle(data);
       items = data.slice(0, TOTAL_ITEMS);
 
-      // Init swiss stats for each item
       swissStats = items.map(() => ({
         wins: 0,
         losses: 0,
@@ -107,9 +108,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ----------- SUISSE ALGO 5 RONDES POUR TOUS -----------
   function generateSwissRoundMatches() {
-    // Pairing suisse: on groupe par score, puis on essaie de pairer sans doublons
     const indices = Array.from({length: items.length}, (_, i) => i);
     indices.sort((a, b) => {
       if (swissStats[b].wins !== swissStats[a].wins) return swissStats[b].wins - swissStats[a].wins;
@@ -121,7 +120,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     for (let i = 0; i < indices.length; i++) {
       if (used.has(indices[i])) continue;
-      // Cherche le 1er dispo qui n'a pas encore été affronté
       let found = false;
       for (let j = i+1; j < indices.length; j++) {
         if (used.has(indices[j])) continue;
@@ -133,7 +131,6 @@ window.addEventListener("DOMContentLoaded", () => {
           break;
         }
       }
-      // Si on n'a pas trouvé, pair au hasard
       if (!found) {
         for (let j = i+1; j < indices.length; j++) {
           if (!used.has(indices[j])) {
@@ -158,13 +155,11 @@ window.addEventListener("DOMContentLoaded", () => {
     if(mode === 'anime'){
       div1.className = 'anime';
       div2.className = 'anime';
-
       div1.innerHTML = `<img src="" alt="" /><h3></h3>`;
       div2.innerHTML = `<img src="" alt="" /><h3></h3>`;
     } else {
       div1.className = 'opening';
       div2.className = 'opening';
-
       div1.innerHTML = `<iframe src="" frameborder="0" allowfullscreen></iframe><h3></h3>`;
       div2.innerHTML = `<iframe src="" frameborder="0" allowfullscreen></iframe><h3></h3>`;
     }
@@ -172,8 +167,7 @@ window.addEventListener("DOMContentLoaded", () => {
     duelContainer.appendChild(div1);
     duelContainer.appendChild(div2);
 
-    div1.onclick = () => recordWin(1);
-    div2.onclick = () => recordWin(2);
+    // On ne fait rien ici : on gère le click via showMatch()
   }
 
   function getYouTubeEmbedUrl(youtubeUrl) {
@@ -190,18 +184,11 @@ window.addEventListener("DOMContentLoaded", () => {
     return null;
   }
 
-  function getYouTubeId(youtubeUrl) {
-    try {
-      const urlObj = new URL(youtubeUrl);
-      if(urlObj.hostname.includes('youtube.com'))
-        return urlObj.searchParams.get('v');
-      if(urlObj.hostname.includes('youtu.be'))
-        return urlObj.pathname.replace('/', '');
-    } catch {}
-    return null;
-  }
-
   function showNextMatch() {
+    nextMatchBtn.style.display = "none";
+    // (on supprime d'abord l'event listener au cas où)
+    Array.from(duelContainer.children).forEach(div => div.onclick = null);
+
     if (swissMatches.length === 0 && swissRound < SWISS_ROUNDS) {
       swissRound++;
       if (swissRound < SWISS_ROUNDS) {
@@ -227,63 +214,67 @@ window.addEventListener("DOMContentLoaded", () => {
     const i2 = match.i2;
     const divs = duelContainer.children;
 
+    // MAJ UI
     if(mode === 'anime'){
       divs[0].querySelector('img').src = items[i1].image;
       divs[0].querySelector('img').alt = items[i1].title;
       divs[0].querySelector('h3').textContent = items[i1].title;
-
       divs[1].querySelector('img').src = items[i2].image;
       divs[1].querySelector('img').alt = items[i2].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     } else {
       const url1 = getYouTubeEmbedUrl(items[i1].youtubeUrls?.[0] || '') || '';
       const url2 = getYouTubeEmbedUrl(items[i2].youtubeUrls?.[0] || '') || '';
-
       divs[0].querySelector('iframe').src = url1;
       divs[1].querySelector('iframe').src = url2;
-
       divs[0].querySelector('h3').textContent = items[i1].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     }
+
+    // Bloque les autres votes tant qu'on n'a pas cliqué sur Suivant
+    divs[0].onclick = () => handleVote(1);
+    divs[1].onclick = () => handleVote(2);
     currentMatch = match;
   }
 
-  function recordWin(winner) {
+  function handleVote(winner) {
+    // Désactive les clics jusqu'au prochain match
+    Array.from(duelContainer.children).forEach(div => div.onclick = null);
+
+    // Appelle l’ancienne recordWin, mais n'enchaîne PAS showNextMatch direct
     if(!currentMatch) return;
-    // Phase suisse
     if(bracketRound === 0){
       const winnerIndex = (winner === 1) ? currentMatch.i1 : currentMatch.i2;
       const loserIndex = (winner === 1) ? currentMatch.i2 : currentMatch.i1;
 
       swissStats[winnerIndex].wins++;
       swissStats[loserIndex].losses++;
-
       swissStats[winnerIndex].playedOpponents.add(loserIndex);
       swissStats[loserIndex].playedOpponents.add(winnerIndex);
       swissStats[winnerIndex].opponents.push(loserIndex);
       swissStats[loserIndex].opponents.push(winnerIndex);
 
-      showNextMatch();
+      // Affiche bouton suivant (pour passer au match suivant)
+      nextMatchBtn.style.display = "block";
+      nextMatchBtn.onclick = () => showNextMatch();
     } else {
       // Bracket
       const winnerIndex = (winner === 1) ? bracketMatches[bracketMatchIndex].i1 : bracketMatches[bracketMatchIndex].i2;
       bracketMatches[bracketMatchIndex].winner = winnerIndex;
-      bracketMatchIndex++;
-      if(bracketMatchIndex >= bracketMatches.length){
+      // Affiche bouton suivant
+      nextMatchBtn.style.display = "block";
+      nextMatchBtn.onclick = () => {
         setupNextBracketRound();
-      } else {
-        showBracketMatch(bracketMatches[bracketMatchIndex]);
-      }
+        nextMatchBtn.style.display = "none";
+      };
     }
   }
 
   function startBracket() {
-    // Calcule le Buchholz pour chaque joueur
     for (let i = 0; i < swissStats.length; i++) {
       swissStats[i].buchholz = swissStats[i].opponents.reduce((sum, idx) => sum + swissStats[idx].wins, 0);
     }
 
-    // Trie par victoires, puis buchholz, puis random
     let classement = swissStats.map((s, i) => ({
       index: i,
       wins: s.wins,
@@ -295,19 +286,16 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     let qualified = classement.slice(0, QUALIFIED_TO_BRACKET);
-
     if(qualified.length < QUALIFIED_TO_BRACKET){
       alert("Pas assez de qualifiés pour le bracket.");
       showClassement();
       return;
     }
 
-    // -- Génération bracket à 8 + demi + petite finale + finale
+    // Bracket: 4 quarts, 2 demis, petite finale, finale
     bracketRound = 1;
     bracketMatchIndex = 0;
     bracketMatches = [];
-
-    // Quarts
     for(let i=0; i<QUALIFIED_TO_BRACKET/2; i++){
       bracketMatches.push({
         i1: qualified[i].index,
@@ -315,12 +303,10 @@ window.addEventListener("DOMContentLoaded", () => {
         winner: null
       });
     }
-    // Demis
+    // Demis, petite finale, finale (prépare tout)
     bracketMatches.push({i1: null, i2: null, winner: null});
     bracketMatches.push({i1: null, i2: null, winner: null});
-    // Petite finale
     bracketMatches.push({i1: null, i2: null, winner: null});
-    // Finale
     bracketMatches.push({i1: null, i2: null, winner: null});
 
     alert("Phase bracket 1v1 éliminatoire commencée !");
@@ -333,26 +319,24 @@ window.addEventListener("DOMContentLoaded", () => {
     let i1 = match.i1;
     let i2 = match.i2;
 
-    // Pour les rounds suivants, il faut remplir i1/i2 selon gagnants précédents
-    if (bracketMatchIndex === 4) { // demi-finale 1
+    if (bracketMatchIndex === 4) {
       i1 = bracketMatches[0].winner;
       i2 = bracketMatches[1].winner;
       match.i1 = i1; match.i2 = i2;
     }
-    if (bracketMatchIndex === 5) { // demi-finale 2
+    if (bracketMatchIndex === 5) {
       i1 = bracketMatches[2].winner;
       i2 = bracketMatches[3].winner;
       match.i1 = i1; match.i2 = i2;
     }
-    if (bracketMatchIndex === 6) { // petite finale
-      // perdants des demis
+    if (bracketMatchIndex === 6) {
       const demi1Loser = bracketMatches[4].i1 === bracketMatches[4].winner ? bracketMatches[4].i2 : bracketMatches[4].i1;
       const demi2Loser = bracketMatches[5].i1 === bracketMatches[5].winner ? bracketMatches[5].i2 : bracketMatches[5].i1;
       i1 = demi1Loser;
       i2 = demi2Loser;
       match.i1 = i1; match.i2 = i2;
     }
-    if (bracketMatchIndex === 7) { // finale
+    if (bracketMatchIndex === 7) {
       i1 = bracketMatches[4].winner;
       i2 = bracketMatches[5].winner;
       match.i1 = i1; match.i2 = i2;
@@ -362,21 +346,23 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[0].querySelector('img').src = items[i1].image;
       divs[0].querySelector('img').alt = items[i1].title;
       divs[0].querySelector('h3').textContent = items[i1].title;
-
       divs[1].querySelector('img').src = items[i2].image;
       divs[1].querySelector('img').alt = items[i2].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     } else {
       const url1 = getYouTubeEmbedUrl(items[i1].youtubeUrls?.[0] || '') || '';
       const url2 = getYouTubeEmbedUrl(items[i2].youtubeUrls?.[0] || '') || '';
-
       divs[0].querySelector('iframe').src = url1;
       divs[1].querySelector('iframe').src = url2;
-
       divs[0].querySelector('h3').textContent = items[i1].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     }
+
+    // (réactive le click pour ce nouveau match)
+    divs[0].onclick = () => handleVote(1);
+    divs[1].onclick = () => handleVote(2);
     currentMatch = match;
+    nextMatchBtn.style.display = "none";
   }
 
   function setupNextBracketRound() {
@@ -392,7 +378,6 @@ window.addEventListener("DOMContentLoaded", () => {
     duelContainer.style.display = 'none';
     classementDiv.innerHTML = '';
 
-    // Calcul du classement suisse avec tiebreak
     let classementSuisse = swissStats.map((s, i) => ({
       index: i,
       wins: s.wins,
@@ -404,25 +389,19 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     let qualifiés = classementSuisse.slice(0, QUALIFIED_TO_BRACKET).map(c => c.index);
 
-    // Classement final (tout le monde 9e par défaut)
     let classementFinal = Array(items.length).fill(9);
 
-    // Si bracket complet (8 matchs : 4 quarts, 2 demis, petite finale, finale)
     if (bracketMatches.length === 8 && bracketMatches[7].winner != null) {
-      // 0-3 : quarts, 4-5 : demis, 6 : petite finale, 7 : finale
       let finale = bracketMatches[7];
       let petiteFinale = bracketMatches[6];
       let winner = finale.winner;
       let runnerup = finale.i1 === finale.winner ? finale.i2 : finale.i1;
       let third = petiteFinale.winner;
       let fourth = petiteFinale.i1 === petiteFinale.winner ? petiteFinale.i2 : petiteFinale.i1;
-
-      // Éliminés en quarts : 0,1,2,3
       let qfLosers = [0,1,2,3].map(i => {
         let m = bracketMatches[i];
         return m.i1 === m.winner ? m.i2 : m.i1;
       });
-      // Les classer selon classement suisse
       let qfSorted = qfLosers.map(idx => {
         let c = classementSuisse.find(c => c.index === idx);
         return { index: idx, wins: c ? c.wins : 0, buchholz: c ? c.buchholz : 0 };
@@ -441,26 +420,24 @@ window.addEventListener("DOMContentLoaded", () => {
       classementFinal[qfSorted[2].index] = 7;
       classementFinal[qfSorted[3].index] = 8;
 
-      // Le reste selon classement suisse (9+)
       let nonQualifiés = classementSuisse.filter(c => !qualifiés.includes(c.index));
       nonQualifiés.forEach((c, i) => {
         classementFinal[c.index] = 9 + i;
       });
 
     } else {
-      // Pas de bracket : classement suisse
       classementSuisse.forEach((c, i) => {
         classementFinal[c.index] = i + 1;
       });
     }
 
-    // Affichage : trié du 1er au dernier
     let classementSorted = items.map((item, i) => ({
       index: i,
       rank: classementFinal[i]
     })).sort((a, b) => a.rank - b.rank);
 
     classementSorted.forEach(entry => displayClassementItem(entry.index, entry.rank));
+    nextMatchBtn.style.display = "none"; // plus de bouton
   }
 
   function displayClassementItem(idx, rank) {
@@ -484,13 +461,11 @@ window.addEventListener("DOMContentLoaded", () => {
     div.appendChild(rankDiv);
 
     if(mode === 'anime'){
-      // --- Affiche une image
       const img = document.createElement('img');
       img.src = item.image;
       img.alt = item.title;
       div.appendChild(img);
     } else {
-      // --- Affiche l’opening YouTube directement dans un iframe
       const iframe = document.createElement('iframe');
       const embedUrl = getYouTubeEmbedUrl(item.youtubeUrls?.[0] || '');
       if(embedUrl) {
@@ -501,7 +476,6 @@ window.addEventListener("DOMContentLoaded", () => {
         iframe.setAttribute('allowfullscreen', '');
         div.appendChild(iframe);
       } else {
-        // fallback image
         const thumb = document.createElement('img');
         thumb.src = 'default-opening.png';
         thumb.alt = item.title;
