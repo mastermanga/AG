@@ -40,12 +40,38 @@ modeOpeningBtn.onclick = () => {
   }
 };
 
-// === Jeu Blind Ranking ===
+// === Blind Ranking Variables ===
 let animeList = [];
 let currentIndex = 0;
 let rankings = new Array(10).fill(null);
 let selectedAnimes = [];
 
+// ==== Double YouTube Player ====
+let ytPlayers = [null, null];
+let ytReady = [false, false];
+let usingPlayerIndex = 0; // 0 ou 1
+
+// Appelle l’API YouTube pour créer les deux players une fois qu'elle est prête
+window.onYouTubeIframeAPIReady = function () {
+  ytPlayers[0] = new YT.Player('yt-player-1', {
+    height: '225',
+    width: '100%',
+    playerVars: { autoplay: 0, controls: 1, modestbranding: 1, rel: 0 },
+    events: {
+      'onReady': () => { ytReady[0] = true; },
+    }
+  });
+  ytPlayers[1] = new YT.Player('yt-player-2', {
+    height: '225',
+    width: '100%',
+    playerVars: { autoplay: 0, controls: 1, modestbranding: 1, rel: 0 },
+    events: {
+      'onReady': () => { ytReady[1] = true; },
+    }
+  });
+};
+
+// ==== DATA ====
 async function loadRankingData() {
   try {
     const file = rankingMode === 'anime' ? '../data/animes.json' : '../data/openings.json';
@@ -70,7 +96,7 @@ function getRandomItems() {
   }
 }
 
-function getYouTubeEmbedUrl(youtubeUrl) {
+function getYouTubeVideoId(youtubeUrl) {
   let videoId = null;
   try {
     const urlObj = new URL(youtubeUrl);
@@ -80,36 +106,35 @@ function getYouTubeEmbedUrl(youtubeUrl) {
       videoId = urlObj.pathname.slice(1);
     }
   } catch {}
+  return videoId;
+}
+
+function getYouTubeEmbedUrl(youtubeUrl) {
+  const videoId = getYouTubeVideoId(youtubeUrl);
   return videoId ? `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=0` : "";
 }
 
+// ==== AFFICHAGE ====
 function displayCurrentItem() {
-  setTimeout(() => {
+  setTimeout(async () => {
     const animeImg = document.getElementById("anime-img");
     const container = document.getElementById("anime-item");
-    document.getElementById("anime-video")?.remove();
     const nextBtn = document.getElementById("next-btn");
+    // Masquer tous les players au début
+    document.getElementById('yt-player-1').style.display = "none";
+    document.getElementById('yt-player-2').style.display = "none";
+    document.getElementById('player-loader').style.display = "none";
 
     if (currentIndex < selectedAnimes.length) {
       const item = selectedAnimes[currentIndex];
       document.getElementById("anime-name").textContent = item.title;
+
       if (rankingMode === "anime") {
         animeImg.src = item.image;
         animeImg.style.display = "block";
       } else {
         animeImg.style.display = "none";
-        let iframe = document.createElement("iframe");
-        iframe.id = "anime-video";
-        iframe.setAttribute("frameborder", "0");
-        iframe.setAttribute("allowfullscreen", "");
-        iframe.style.borderRadius = "15px";
-        iframe.style.width = "100%";
-        iframe.style.maxWidth = "440px";
-        iframe.style.height = "440px";
-        iframe.style.background = "#222";
-        iframe.style.boxShadow = "0 4px 18px #1116";
-        iframe.src = getYouTubeEmbedUrl(item.youtubeUrls?.[0] || "");
-        container.insertBefore(iframe, animeImg);
+        await showCurrentOpeningPlayer();
       }
       container.style.display = "flex";
       document.getElementById("rank-section").style.display = "block";
@@ -119,10 +144,61 @@ function displayCurrentItem() {
       container.style.display = "none";
       nextBtn.style.display = "block";
       nextBtn.textContent = "Rejouer";
+      // Arrête tout son de YouTube à la fin
+      ytPlayers.forEach(p => p && p.stopVideo && p.stopVideo());
+      document.getElementById('player-loader').style.display = "none";
     }
   }, 120);
 }
 
+async function showCurrentOpeningPlayer() {
+  // Ne fait rien si YouTube API pas prête ou pas d’URL
+  if (!selectedAnimes[currentIndex] || !selectedAnimes[currentIndex].youtubeUrls?.[0]) return;
+
+  const currentVideoId = getYouTubeVideoId(selectedAnimes[currentIndex].youtubeUrls[0]);
+  const nextVideoId = (selectedAnimes[currentIndex + 1] && selectedAnimes[currentIndex + 1].youtubeUrls?.[0])
+    ? getYouTubeVideoId(selectedAnimes[currentIndex + 1].youtubeUrls[0])
+    : null;
+
+  // 1. Affiche loader si le player n'est pas prêt
+  document.getElementById('player-loader').style.display = "flex";
+
+  // 2. On attend que les players soient prêts
+  await waitForPlayerReady(usingPlayerIndex);
+  
+  // 3. Charge la vidéo du currentIndex dans le bon player et affiche-le
+  let mainPlayer = ytPlayers[usingPlayerIndex];
+  if (mainPlayer && mainPlayer.loadVideoById) {
+    mainPlayer.loadVideoById({ videoId: currentVideoId });
+    document.getElementById(`yt-player-${usingPlayerIndex + 1}`).style.display = "block";
+  }
+
+  // 4. Cache l'autre player (pour éviter écho)
+  document.getElementById(`yt-player-${((usingPlayerIndex + 1) % 2) + 1}`).style.display = "none";
+
+  // 5. Précharge la vidéo suivante dans le second player (si existe)
+  if (nextVideoId && ytPlayers[(usingPlayerIndex + 1) % 2] && ytPlayers[(usingPlayerIndex + 1) % 2].cueVideoById) {
+    await waitForPlayerReady((usingPlayerIndex + 1) % 2);
+    ytPlayers[(usingPlayerIndex + 1) % 2].cueVideoById({ videoId: nextVideoId });
+  }
+
+  document.getElementById('player-loader').style.display = "none";
+}
+
+// Attend que le player [i] soit prêt
+function waitForPlayerReady(i) {
+  return new Promise(res => {
+    if (ytReady[i]) return res();
+    const check = setInterval(() => {
+      if (ytReady[i]) {
+        clearInterval(check);
+        res();
+      }
+    }, 50);
+  });
+}
+
+// ==== ASSIGNATION RANG ====
 function assignRank(rank) {
   if (rankings[rank - 1] !== null) {
     alert("Ce rang a déjà été attribué !");
@@ -132,6 +208,12 @@ function assignRank(rank) {
   document.getElementById(`rank-${rank}`).disabled = true;
   updateRankingList();
   currentIndex++;
+
+  // On swap le player pour que le préchargé devienne l’actif
+  if (rankingMode === "opening") {
+    usingPlayerIndex = (usingPlayerIndex + 1) % 2;
+  }
+
   displayCurrentItem();
 }
 
@@ -175,7 +257,7 @@ function updateRankingList() {
   rankingList.innerHTML = rows[0].join('') + rows[1].join('');
 }
 
-// Bouton "Suivant" (relance une partie)
+// ==== BOUTON REJOUER ====
 document.getElementById("next-btn").onclick = startNewRanking;
 
 async function startNewRanking() {
@@ -183,6 +265,7 @@ async function startNewRanking() {
   getRandomItems();
   currentIndex = 0;
   rankings = new Array(10).fill(null);
+  usingPlayerIndex = 0;
   for (let i = 1; i <= 10; i++) {
     document.getElementById(`rank-${i}`).disabled = false;
   }
@@ -192,10 +275,11 @@ async function startNewRanking() {
   document.getElementById("next-btn").style.display = "none";
   document.getElementById("anime-name").textContent = "Nom de l'Anime ou de l'Opening";
   document.getElementById("anime-img").src = "";
+  // Précharge les deux players (utile sur reset)
   displayCurrentItem();
 }
 
-// Init on load
+// === INIT ON LOAD ===
 window.onload = async function () {
   await startNewRanking();
 };
