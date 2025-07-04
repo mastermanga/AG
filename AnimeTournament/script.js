@@ -20,16 +20,16 @@ window.addEventListener("DOMContentLoaded", () => {
 (() => {
   const TOTAL_ITEMS = 16;
   const QUALIFIED_TO_BRACKET = 8;
-  const MAX_WINS = 3;
-  const MAX_LOSSES = 3;
+  const SWISS_ROUNDS = 5; // 5 duels fixes
 
   let mode = 'anime';
   let data = [];
   let items = [];
 
-  // Round Suisse data
-  let swissStats = []; // {wins: 0, losses: 0, playedOpponents: Set}
+  // Round suisse data
+  let swissStats = []; // {wins, losses, playedOpponents: Set, opponents: Array}
   let swissMatches = [];
+  let swissRound = 0;
 
   // Bracket data
   let bracketMatches = [];
@@ -64,6 +64,7 @@ window.addEventListener("DOMContentLoaded", () => {
     bracketMatches = [];
     bracketRound = 0;
     bracketMatchIndex = 0;
+    swissRound = 0;
     duelContainer.innerHTML = '';
     duelContainer.style.display = '';
     classementDiv.innerHTML = '';
@@ -92,10 +93,11 @@ window.addEventListener("DOMContentLoaded", () => {
       swissStats = items.map(() => ({
         wins: 0,
         losses: 0,
-        playedOpponents: new Set()
+        playedOpponents: new Set(),
+        opponents: []
       }));
 
-      // Generate swiss matches for round 1 (random pairs)
+      swissRound = 0;
       swissMatches = generateSwissRoundMatches();
 
       setupUI();
@@ -105,37 +107,46 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // ----------- SUISSE ALGO 5 RONDES POUR TOUS -----------
   function generateSwissRoundMatches() {
-    const groups = {};
-    for(let i=0; i<items.length; i++){
-      const key = `${swissStats[i].wins}-${swissStats[i].losses}`;
-      if(!groups[key]) groups[key] = [];
-      groups[key].push(i);
-    }
-    const newMatches = [];
-    for(const key in groups){
-      const players = groups[key];
-      const paired = new Set();
-      for(let i=0; i<players.length; i++){
-        if(paired.has(players[i])) continue;
-        for(let j=i+1; j<players.length; j++){
-          if(paired.has(players[j])) continue;
-          if(!swissStats[players[i]].playedOpponents.has(players[j])){
-            newMatches.push({i1: players[i], i2: players[j], winner: 0});
-            paired.add(players[i]);
-            paired.add(players[j]);
+    // Pairing suisse: on groupe par score, puis on essaie de pairer sans doublons
+    const indices = Array.from({length: items.length}, (_, i) => i);
+    // Trie par score puis random pour éviter pairings automatiques
+    indices.sort((a, b) => {
+      if (swissStats[b].wins !== swissStats[a].wins) return swissStats[b].wins - swissStats[a].wins;
+      return Math.random() - 0.5;
+    });
+
+    const matches = [];
+    const used = new Set();
+
+    for (let i = 0; i < indices.length; i++) {
+      if (used.has(indices[i])) continue;
+      // Cherche le 1er dispo qui n'a pas encore été affronté
+      let found = false;
+      for (let j = i+1; j < indices.length; j++) {
+        if (used.has(indices[j])) continue;
+        if (!swissStats[indices[i]].playedOpponents.has(indices[j])) {
+          matches.push({i1: indices[i], i2: indices[j]});
+          used.add(indices[i]);
+          used.add(indices[j]);
+          found = true;
+          break;
+        }
+      }
+      // Si on n'a pas trouvé, pair au hasard
+      if (!found) {
+        for (let j = i+1; j < indices.length; j++) {
+          if (!used.has(indices[j])) {
+            matches.push({i1: indices[i], i2: indices[j]});
+            used.add(indices[i]);
+            used.add(indices[j]);
             break;
           }
         }
       }
     }
-    const pairedPlayers = new Set(newMatches.flatMap(m => [m.i1, m.i2]));
-    for(let i=0; i<items.length; i++){
-      if(!pairedPlayers.has(i) && swissStats[i].wins < MAX_WINS && swissStats[i].losses < MAX_LOSSES){
-        swissStats[i].wins++;
-      }
-    }
-    return newMatches;
+    return matches;
   }
 
   function setupUI() {
@@ -192,27 +203,25 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function showNextMatch() {
-    const swissOngoing = swissStats.some(s => s.wins < MAX_WINS && s.losses < MAX_LOSSES);
-    if(swissOngoing && swissMatches.length > 0){
-      const match = swissMatches.shift();
-      if(!match){
+    if (swissMatches.length === 0 && swissRound < SWISS_ROUNDS) {
+      swissRound++;
+      if (swissRound < SWISS_ROUNDS) {
         swissMatches = generateSwissRoundMatches();
-        if(swissMatches.length === 0) {
-          startBracket();
-          return;
-        }
         showNextMatch();
-        return;
-      }
-      showMatch(match);
-    } else {
-      if(bracketRound === 0){
-        startBracket();
       } else {
-        showClassement();
+        startBracket();
       }
+      return;
+    }
+
+    if (swissMatches.length > 0) {
+      showMatch(swissMatches.shift());
+    } else if (bracketRound > 0) {
+      showClassement();
     }
   }
+
+  let currentMatch = null;
 
   function showMatch(match) {
     const i1 = match.i1;
@@ -240,11 +249,9 @@ window.addEventListener("DOMContentLoaded", () => {
     currentMatch = match;
   }
 
-  let currentMatch = null;
-
   function recordWin(winner) {
     if(!currentMatch) return;
-
+    // Phase suisse
     if(bracketRound === 0){
       const winnerIndex = (winner === 1) ? currentMatch.i1 : currentMatch.i2;
       const loserIndex = (winner === 1) ? currentMatch.i2 : currentMatch.i1;
@@ -254,22 +261,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
       swissStats[winnerIndex].playedOpponents.add(loserIndex);
       swissStats[loserIndex].playedOpponents.add(winnerIndex);
+      swissStats[winnerIndex].opponents.push(loserIndex);
+      swissStats[loserIndex].opponents.push(winnerIndex);
 
-      const swissDone = swissStats.every(s => s.wins >= MAX_WINS || s.losses >= MAX_LOSSES);
-
-      if(swissDone){
-        startBracket();
-      } else {
-        if(swissMatches.length === 0){
-          swissMatches = generateSwissRoundMatches();
-          if(swissMatches.length === 0){
-            startBracket();
-            return;
-          }
-        }
-        showNextMatch();
-      }
+      showNextMatch();
     } else {
+      // Bracket
       const winnerIndex = (winner === 1) ? bracketMatches[bracketMatchIndex].i1 : bracketMatches[bracketMatchIndex].i2;
       bracketMatches[bracketMatchIndex].winner = winnerIndex;
       bracketMatchIndex++;
@@ -282,16 +279,23 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function startBracket() {
-    let qualified = swissStats
-      .map((s, i) => ({index: i, wins: s.wins, losses: s.losses}))
-      .filter(p => p.wins >= MAX_WINS && p.losses < MAX_LOSSES);
+    // Calcule le Buchholz pour chaque joueur
+    for (let i = 0; i < swissStats.length; i++) {
+      swissStats[i].buchholz = swissStats[i].opponents.reduce((sum, idx) => sum + swissStats[idx].wins, 0);
+    }
 
-    qualified.sort((a,b) => {
-      if(b.wins !== a.wins) return b.wins - a.wins;
-      return a.losses - b.losses;
+    // Trie par victoires, puis buchholz, puis random
+    let classement = swissStats.map((s, i) => ({
+      index: i,
+      wins: s.wins,
+      buchholz: s.buchholz
+    })).sort((a, b) => {
+      if (b.wins !== a.wins) return b.wins - a.wins;
+      if (b.buchholz !== a.buchholz) return b.buchholz - a.buchholz;
+      return Math.random() - 0.5;
     });
 
-    qualified = qualified.slice(0, QUALIFIED_TO_BRACKET);
+    let qualified = classement.slice(0, QUALIFIED_TO_BRACKET);
 
     if(qualified.length < QUALIFIED_TO_BRACKET){
       alert("Pas assez de qualifiés pour le bracket.");
@@ -366,74 +370,18 @@ window.addEventListener("DOMContentLoaded", () => {
     duelContainer.style.display = 'none';
     classementDiv.innerHTML = '';
 
-    // Prepare classement data
+    // Classement général (phase suisse)
+    let classement = swissStats.map((s, i) => ({
+      index: i,
+      wins: s.wins,
+      buchholz: s.buchholz || s.opponents.reduce((sum, idx) => sum + swissStats[idx].wins, 0)
+    })).sort((a, b) => {
+      if (b.wins !== a.wins) return b.wins - a.wins;
+      if (b.buchholz !== a.buchholz) return b.buchholz - a.buchholz;
+      return Math.random() - 0.5;
+    });
 
-    if(bracketRound > 0){
-      const ranks = new Array(items.length).fill(null);
-      const winnerIndex = bracketMatches.length === 1 && bracketMatches[0].winner != null ? bracketMatches[0].winner : null;
-
-      if(!winnerIndex){
-        alert("Classement non disponible");
-        return;
-      }
-
-      if(bracketRound === 3){
-        const finalMatch = bracketMatches[0];
-        const finalLoser = finalMatch.i1 === finalMatch.winner ? finalMatch.i2 : finalMatch.i1;
-
-        ranks[winnerIndex] = 1;
-        ranks[finalLoser] = 2;
-
-        const qualified = swissStats
-          .map((s, i) => ({index: i, wins: s.wins, losses: s.losses}))
-          .filter(p => p.wins >= MAX_WINS && p.losses < MAX_LOSSES)
-          .slice(0, QUALIFIED_TO_BRACKET)
-          .map(p => p.index);
-
-        const otherQualified = qualified.filter(i => i !== winnerIndex && i !== finalLoser);
-
-        for(let j=0; j<otherQualified.length; j++){
-          ranks[otherQualified[j]] = (j < 2) ? 3 + j : 5 + (j - 2);
-        }
-
-        for(let i=0; i<items.length; i++){
-          if(ranks[i] === null){
-            ranks[i] = 9 + i;
-          }
-        }
-
-      } else {
-        ranks.fill(null);
-        swissStats.forEach((s,i) => {
-          ranks[i] = 9 + i;
-        });
-      }
-
-      const rankedItems = items.map((item,i) => ({
-        index: i,
-        rank: ranks[i],
-        wins: swissStats[i]?.wins || 0,
-        losses: swissStats[i]?.losses || 0
-      })).sort((a,b) => a.rank - b.rank);
-
-      // -------- PATCH PRINCIPAL --------
-      for(const entry of rankedItems.slice(0, 16)){
-        displayClassementItem(entry.index, entry.rank);
-      }
-      // -------- PATCH PRINCIPAL --------
-
-    } else {
-      const classement = swissStats
-        .map((s,i) => ({index: i, wins: s.wins, losses: s.losses}))
-        .sort((a,b) => {
-          if(b.wins !== a.wins) return b.wins - a.wins;
-          return a.losses - b.losses;
-        });
-
-      // -------- PATCH PRINCIPAL --------
-      classement.slice(0, 16).forEach((c, i) => displayClassementItem(c.index, i + 1));
-      // -------- PATCH PRINCIPAL --------
-    }
+    classement.forEach((c, i) => displayClassementItem(c.index, i + 1));
   }
 
   function displayClassementItem(idx, rank) {
@@ -445,17 +393,17 @@ window.addEventListener("DOMContentLoaded", () => {
     if(rank === 3) div.classList.add('top3');
     div.setAttribute('tabindex', '0');
     div.setAttribute('aria-label', `Rang ${rank} - ${item.title}`);
-  
+
     const rankDiv = document.createElement('div');
     rankDiv.className = 'rank';
     rankDiv.textContent = `#${rank}`;
-  
+
     const titleDiv = document.createElement('div');
     titleDiv.className = 'title';
     titleDiv.textContent = item.title;
-  
+
     div.appendChild(rankDiv);
-  
+
     if(mode === 'anime'){
       // --- Affiche une image
       const img = document.createElement('img');
@@ -469,7 +417,7 @@ window.addEventListener("DOMContentLoaded", () => {
       if(embedUrl) {
         iframe.src = embedUrl;
         iframe.width = "100%";
-        iframe.height = "210"; // ou 210px comme l'image, adapte si tu veux
+        iframe.height = "210";
         iframe.setAttribute('frameborder', '0');
         iframe.setAttribute('allowfullscreen', '');
         div.appendChild(iframe);
