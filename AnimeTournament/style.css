@@ -125,7 +125,9 @@ body.light .toggle-btn:hover {
   margin: 1rem 0 0 0;
 }
 
-/* Classement style - podium */
+/* ===================== */
+/*   CLASSEMENT PODIUM   */
+/* ===================== */
 #classement {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -136,7 +138,20 @@ body.light .toggle-btn:hover {
   width: 100%;
   max-width: 850px;
   overflow-x: auto;
-  padding-top: 40px;
+  padding-top: 64px; /* Place pour couronne + glow */
+  box-sizing: border-box;
+  position: relative;
+}
+
+.classement-item {
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  background: none;
+  box-sizing: border-box;
+  border-radius: 16px;
+  transition: transform 0.14s, box-shadow 0.17s;
+  z-index: 1;
 }
 
 .classement-item img,
@@ -148,69 +163,89 @@ body.light .toggle-btn:hover {
   margin-bottom: 0.8em;
   box-shadow: 0 0 18px #1116;
 }
+
 .classement-item:hover {
-  transform: translateY(-5px) scale(1.04);
-  box-shadow: 0 6px 28px #00bcd4cc;
+  transform: translateY(-7px) scale(1.045);
+  box-shadow: 0 10px 32px #00bcd4cc, 0 0 18px #1118;
+  z-index: 4;
 }
 
-/* Numéro 1 : couronne et effet or */
+/* --- TOP 1 --- */
 .classement-item.top1 {
   border-color: gold;
-  box-shadow: 0 4px 24px #ffd70099, 0 0 0 4px #fff2;
-  position: relative;
-  z-index: 2;
-  margin-top: -30px;
-}
-.classement-item.top1 .rank {
-  position: absolute;
-  left: 15px;
-  top: -25px;  /* décale la couronne vers le haut */
-  z-index: 2;
-  /* styles de glow etc ici */
+  box-shadow: 0 8px 40px 0px #ffd700b8, 0 0 0 4px #fff5;
+  z-index: 3;
+  background: none;
 }
 
 .classement-item.top1::before {
   content: "👑";
-  font-size: 2rem;
+  font-size: 2.35rem;
   position: absolute;
-  top: -28px;
+  top: -58px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
-  filter: drop-shadow(0 2px 6px #ffd700cc);
+  z-index: 8;
+  filter: drop-shadow(0 3px 10px #ffd700aa) drop-shadow(0 6px 20px #fff8);
+  pointer-events: none;
 }
 
-/* Numéro 2 : effet argent */
+.classement-item.top1 .rank {
+  position: absolute;
+  left: 50%;
+  top: -36px;
+  transform: translateX(-50%);
+  z-index: 5;
+  background: gold;
+  color: #111;
+  border-radius: 9px;
+  font-size: 1.14rem;
+  font-weight: bold;
+  padding: 0.17em 1.15em;
+  box-shadow: 0 2px 14px #ffd70099;
+  border: 2px solid #fff6;
+  letter-spacing: 0.03em;
+}
+
+/* --- TOP 2 et 3 --- */
 .classement-item.top2 {
   border-color: #bbb;
   box-shadow: 0 2px 14px #bbb8;
-  margin-top: 10px;
+  margin-top: 12px;
 }
+
 .classement-item.top2 .rank {
   background: linear-gradient(90deg, #eee, #bbb);
   color: #333;
+  left: 18px;
+  top: -18px;
+  transform: none;
+  font-size: 1.02rem;
 }
 
-/* Numéro 3 : effet bronze */
 .classement-item.top3 {
   border-color: #c96f29;
   box-shadow: 0 2px 14px #c96f2977;
-  margin-top: 10px;
+  margin-top: 12px;
 }
+
 .classement-item.top3 .rank {
   background: linear-gradient(90deg, #ffb47c, #c96f29);
   color: #45250f;
+  left: 18px;
+  top: -18px;
+  transform: none;
+  font-size: 1.02rem;
 }
 
 .classement-item.top4 {
-margin-top: 10px;
+  margin-top: 10px;
 }
-
 
 .classement-item .rank {
   position: absolute;
-  left: 10px;
-  top: 8px;
+  left: 14px;
+  top: 10px;
   background: #00bcd4;
   color: #111;
   border-radius: 8px;
@@ -224,14 +259,6 @@ margin-top: 10px;
   display: none;
 }
 
-.classement-item img {
-  width: 100%;
-  height: 210px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 0.8em;
-}
-
 .classement-item .title {
   font-weight: bold;
   text-align: center;
@@ -241,6 +268,7 @@ margin-top: 10px;
   min-height: 2.1em;
 }
 
+/* ========== MOBILE ADAPT ========= */
 @media (max-width: 600px) {
   #duel-container .anime,
   #duel-container .opening {
@@ -254,10 +282,10 @@ margin-top: 10px;
     grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
     gap: 1rem;
     max-width: 100vw;
+    padding-top: 54px;
   }
   .classement-item {
-    position: relative;
-    width: 100%;
+    max-width: 100vw;
     padding: 0.6rem 0.2rem 0.5rem 0.2rem;
   }
   .classement-item img {
@@ -269,11 +297,23 @@ margin-top: 10px;
     left: 6px;
     top: 5px;
   }
+  .classement-item.top1::before {
+    font-size: 1.38rem;
+    top: -32px;
+  }
+  .classement-item.top1 .rank {
+    top: -18px;
+    font-size: 0.96rem;
+    padding: 0.11em 0.7em;
+  }
   .classement-item .title {
     font-size: 0.92rem;
   }
 }
 
+/* =================== */
+/*    FOOTER + DIVERS  */
+/* =================== */
 footer {
   padding: 1.2rem 0 0.4rem 0;
   color: #555;
