@@ -185,8 +185,9 @@ body.light #indicesContainer {
   margin-top: 5px;
 }
 
+/* Bouton générique et Next */
 button,
-#resetBtn {
+#nextBtn {
   margin-top: 13px;
   padding: 12px 19px;
   font-size: 1.05rem;
@@ -198,17 +199,20 @@ button,
   font-weight: bold;
   transition: background 0.2s;
   box-shadow: 0 1px 5px #1113;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 button:hover,
-#resetBtn:hover {
+#nextBtn:hover {
   background-color: #0097a7;
   color: white;
 }
-body.light button, body.light #resetBtn {
+body.light button, body.light #nextBtn {
   background-color: #1565c0;
   color: white;
 }
-body.light button:hover, body.light #resetBtn:hover {
+body.light button:hover, body.light #nextBtn:hover {
   background-color: #0d47a1;
 }
 
