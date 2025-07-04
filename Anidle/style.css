@@ -47,7 +47,7 @@ header h1 {
   color: white;
 }
 
-/* ================= DAILY BANNER ================== */
+/* ========== DAILY BANNER ========== */
 #daily-banner {
   display: none;
   background: linear-gradient(90deg, #1565c0 40%, #00bcd4 100%);
@@ -65,6 +65,10 @@ header h1 {
   gap: 10px;
   position: relative;
   z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 #daily-banner .score {
   margin-top: 5px;
@@ -72,8 +76,26 @@ header h1 {
   color: #ffe082;
   font-weight: bold;
 }
+#switch-mode-btn {
+  background-color: #42a5f5;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-left: 16px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 1px 8px #1565c088;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+#switch-mode-btn:hover {
+  background: #1976d2;
+  color: #fff;
+}
 
-/* ================= FIN DAILY ================== */
+/* ========== FIN DAILY ========== */
 
 body.light {
   background-color: #f5f5f5;
@@ -114,7 +136,6 @@ body.light .toggle-btn:hover {
   }
 }
 
-/* Suggestions et autocomplete */
 .suggestions {
   background: #1e1e1e;
   border: 1px solid #333;
@@ -162,7 +183,6 @@ body.light input[type="text"] {
   color: #333;
 }
 
-/* Grille résultats */
 .row {
   display: flex;
   justify-content: center;
@@ -214,7 +234,6 @@ body.light #indicesContainer {
   margin-top: 5px;
 }
 
-/* Bouton générique et Next */
 button,
 #nextBtn {
   margin-top: 13px;
@@ -287,11 +306,18 @@ body.light footer {
   color: #888;
 }
 
-/* Ajout : Responsive pour le bandeau daily */
+/* Responsive pour le bandeau daily et le bouton mode */
 @media (max-width: 600px) {
   #daily-banner {
     max-width: 98vw;
     font-size: 1rem;
     padding: 10px 3vw 10px 3vw;
+    flex-direction: column;
+    gap: 6px;
+  }
+  #switch-mode-btn {
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
   }
 }
