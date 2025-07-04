@@ -429,7 +429,7 @@ window.addEventListener("DOMContentLoaded", () => {
           return a.losses - b.losses;
         });
 
-      classement.forEach((c,i) => displayClassementItem(c.index, i+1));
+      classement.slice(0, 16).forEach((c, i) => displayClassementItem(c.index, i + 1));
     }
   }
 
