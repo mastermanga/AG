@@ -111,7 +111,6 @@ window.addEventListener("DOMContentLoaded", () => {
   function generateSwissRoundMatches() {
     // Pairing suisse: on groupe par score, puis on essaie de pairer sans doublons
     const indices = Array.from({length: items.length}, (_, i) => i);
-    // Trie par score puis random pour éviter pairings automatiques
     indices.sort((a, b) => {
       if (swissStats[b].wins !== swissStats[a].wins) return swissStats[b].wins - swissStats[a].wins;
       return Math.random() - 0.5;
@@ -303,10 +302,12 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // -- Génération bracket à 8 + demi + petite finale + finale
     bracketRound = 1;
     bracketMatchIndex = 0;
     bracketMatches = [];
 
+    // Quarts
     for(let i=0; i<QUALIFIED_TO_BRACKET/2; i++){
       bracketMatches.push({
         i1: qualified[i].index,
@@ -314,6 +315,13 @@ window.addEventListener("DOMContentLoaded", () => {
         winner: null
       });
     }
+    // Demis
+    bracketMatches.push({i1: null, i2: null, winner: null});
+    bracketMatches.push({i1: null, i2: null, winner: null});
+    // Petite finale
+    bracketMatches.push({i1: null, i2: null, winner: null});
+    // Finale
+    bracketMatches.push({i1: null, i2: null, winner: null});
 
     alert("Phase bracket 1v1 éliminatoire commencée !");
     duelContainer.style.display = 'flex';
@@ -322,8 +330,33 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function showBracketMatch(match) {
     const divs = duelContainer.children;
-    const i1 = match.i1;
-    const i2 = match.i2;
+    let i1 = match.i1;
+    let i2 = match.i2;
+
+    // Pour les rounds suivants, il faut remplir i1/i2 selon gagnants précédents
+    if (bracketMatchIndex === 4) { // demi-finale 1
+      i1 = bracketMatches[0].winner;
+      i2 = bracketMatches[1].winner;
+      match.i1 = i1; match.i2 = i2;
+    }
+    if (bracketMatchIndex === 5) { // demi-finale 2
+      i1 = bracketMatches[2].winner;
+      i2 = bracketMatches[3].winner;
+      match.i1 = i1; match.i2 = i2;
+    }
+    if (bracketMatchIndex === 6) { // petite finale
+      // perdants des demis
+      const demi1Loser = bracketMatches[4].i1 === bracketMatches[4].winner ? bracketMatches[4].i2 : bracketMatches[4].i1;
+      const demi2Loser = bracketMatches[5].i1 === bracketMatches[5].winner ? bracketMatches[5].i2 : bracketMatches[5].i1;
+      i1 = demi1Loser;
+      i2 = demi2Loser;
+      match.i1 = i1; match.i2 = i2;
+    }
+    if (bracketMatchIndex === 7) { // finale
+      i1 = bracketMatches[4].winner;
+      i2 = bracketMatches[5].winner;
+      match.i1 = i1; match.i2 = i2;
+    }
 
     if(mode === 'anime'){
       divs[0].querySelector('img').src = items[i1].image;
@@ -347,31 +380,20 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function setupNextBracketRound() {
-    const winners = bracketMatches.map(m => m.winner);
-
-    if(winners.length === 1){
+    bracketMatchIndex++;
+    if (bracketMatchIndex < bracketMatches.length) {
+      showBracketMatch(bracketMatches[bracketMatchIndex]);
+    } else {
       showClassement();
-      return;
     }
-    bracketRound++;
-    bracketMatchIndex = 0;
-    bracketMatches = [];
-    for(let i=0; i<winners.length; i+=2){
-      bracketMatches.push({
-        i1: winners[i],
-        i2: winners[i+1],
-        winner: null
-      });
-    }
-    showBracketMatch(bracketMatches[bracketMatchIndex]);
   }
 
   function showClassement() {
     duelContainer.style.display = 'none';
     classementDiv.innerHTML = '';
 
-    // Classement général (phase suisse)
-    let classement = swissStats.map((s, i) => ({
+    // Calcul du classement suisse avec tiebreak
+    let classementSuisse = swissStats.map((s, i) => ({
       index: i,
       wins: s.wins,
       buchholz: s.buchholz || s.opponents.reduce((sum, idx) => sum + swissStats[idx].wins, 0)
@@ -380,8 +402,65 @@ window.addEventListener("DOMContentLoaded", () => {
       if (b.buchholz !== a.buchholz) return b.buchholz - a.buchholz;
       return Math.random() - 0.5;
     });
+    let qualifiés = classementSuisse.slice(0, QUALIFIED_TO_BRACKET).map(c => c.index);
 
-    classement.forEach((c, i) => displayClassementItem(c.index, i + 1));
+    // Classement final (tout le monde 9e par défaut)
+    let classementFinal = Array(items.length).fill(9);
+
+    // Si bracket complet (8 matchs : 4 quarts, 2 demis, petite finale, finale)
+    if (bracketMatches.length === 8 && bracketMatches[7].winner != null) {
+      // 0-3 : quarts, 4-5 : demis, 6 : petite finale, 7 : finale
+      let finale = bracketMatches[7];
+      let petiteFinale = bracketMatches[6];
+      let winner = finale.winner;
+      let runnerup = finale.i1 === finale.winner ? finale.i2 : finale.i1;
+      let third = petiteFinale.winner;
+      let fourth = petiteFinale.i1 === petiteFinale.winner ? petiteFinale.i2 : petiteFinale.i1;
+
+      // Éliminés en quarts : 0,1,2,3
+      let qfLosers = [0,1,2,3].map(i => {
+        let m = bracketMatches[i];
+        return m.i1 === m.winner ? m.i2 : m.i1;
+      });
+      // Les classer selon classement suisse
+      let qfSorted = qfLosers.map(idx => {
+        let c = classementSuisse.find(c => c.index === idx);
+        return { index: idx, wins: c ? c.wins : 0, buchholz: c ? c.buchholz : 0 };
+      }).sort((a, b) => {
+        if (b.wins !== a.wins) return b.wins - a.wins;
+        if (b.buchholz !== a.buchholz) return b.buchholz - a.buchholz;
+        return Math.random() - 0.5;
+      });
+
+      classementFinal[winner] = 1;
+      classementFinal[runnerup] = 2;
+      classementFinal[third] = 3;
+      classementFinal[fourth] = 4;
+      classementFinal[qfSorted[0].index] = 5;
+      classementFinal[qfSorted[1].index] = 6;
+      classementFinal[qfSorted[2].index] = 7;
+      classementFinal[qfSorted[3].index] = 8;
+
+      // Le reste selon classement suisse (9+)
+      let nonQualifiés = classementSuisse.filter(c => !qualifiés.includes(c.index));
+      nonQualifiés.forEach((c, i) => {
+        classementFinal[c.index] = 9 + i;
+      });
+
+    } else {
+      // Pas de bracket : classement suisse
+      classementSuisse.forEach((c, i) => {
+        classementFinal[c.index] = i + 1;
+      });
+    }
+
+    // Affichage : trié du 1er au dernier
+    let classementSorted = items.map((item, i) => ({
+      index: i,
+      rank: classementFinal[i]
+    })).sort((a, b) => a.rank - b.rank);
+
+    classementSorted.forEach(entry => displayClassementItem(entry.index, entry.rank));
   }
 
   function displayClassementItem(idx, rank) {
