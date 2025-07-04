@@ -63,8 +63,8 @@ header h1 {
   gap: 1.2rem;
 }
 
-/* --- DAILY RECAP BLOCK --- */
-#daily-recap-block {
+/* --- DAILY RECAP --- */
+#daily-recap {
   background: #202933;
   border-radius: 10px;
   box-shadow: 0 2px 8px #00bcd42a;
@@ -75,7 +75,7 @@ header h1 {
   text-align: left;
   transition: background 0.25s;
 }
-#daily-recap-block h2 {
+#daily-recap h2 {
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 1.18rem;
@@ -84,48 +84,48 @@ header h1 {
   color: #00bcd4;
   text-align: left;
 }
-.daily-recap-list {
+#daily-recap ul {
   list-style: none;
   margin: 0 0 0.7rem 0;
   padding: 0;
 }
-.daily-recap-list li {
+#daily-recap li {
   margin: 0.2rem 0;
   font-size: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 0.4em;
+  gap: 0.8em;
   padding: 2px 0 2px 0;
 }
-.daily-recap-label {
-  font-weight: 500;
-}
-.daily-recap-value {
-  font-weight: bold;
-  min-width: 80px;
-  text-align: right;
-}
-#daily-recap-total {
+#recap-total {
   border-top: 1px solid #00bcd4cc;
   margin-top: 7px;
   padding-top: 5px;
-  font-size: 1.09rem;
+  font-size: 1.12rem;
   font-weight: bold;
-  display: flex;
-  justify-content: space-between;
+  display: inline-block;
   color: #fff;
 }
 
-body.light #daily-recap-block {
-  background: #f4fafd;
-  box-shadow: 0 2px 14px #42a5f54b;
+/* Lien Mode Classic */
+.classic-link {
+  color: #8ac6d1;
+  font-size: 0.97em;
+  margin-left: 8px;
+  text-decoration: underline dotted;
+  transition: color 0.2s;
+  font-weight: 500;
 }
-body.light #daily-recap-block h2 {
-  color: #1565c0;
+.classic-link:hover {
+  color: #00bcd4;
+  text-decoration: underline;
 }
-body.light #daily-recap-total {
+body.light .classic-link {
   color: #1976d2;
+}
+body.light .classic-link:hover {
+  color: #1565c0;
 }
 
 /* --- MENU JEUX --- */
@@ -183,6 +183,17 @@ body.light #container {
   box-shadow: 0 0 15px #42a5f5;
 }
 
+body.light #daily-recap {
+  background: #f4fafd;
+  box-shadow: 0 2px 14px #42a5f54b;
+}
+body.light #daily-recap h2 {
+  color: #1565c0;
+}
+body.light #recap-total {
+  color: #1976d2;
+}
+
 body.light .menu a {
   background-color: #42a5f5;
   color: #f5f5f5;
@@ -211,14 +222,14 @@ body.light .toggle-btn:hover {
     flex-direction: column;
     gap: 0.8rem;
   }
-  #daily-recap-block {
+  #daily-recap {
     max-width: 98vw;
     padding: 1rem 5vw 1rem 5vw;
   }
 }
 
 /* Animation douce à l'apparition */
-#daily-recap-block, .menu a {
+#daily-recap, .menu a {
   opacity: 0;
   transform: translateY(16px);
   animation: fadeUp 0.6s cubic-bezier(.47,1.64,.41,.8) 0.1s forwards;
