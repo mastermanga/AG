@@ -23,11 +23,6 @@ let attemptCount = 0;
 let gameOver = false;
 let indiceStep = 0;
 
-// Cache bouton suivant au départ
-const nextBtn = document.getElementById("nextBtn");
-nextBtn.style.display = "none";
-nextBtn.addEventListener("click", () => location.reload());
-
 // Chargement des données
 fetch('../data/animes.json')
   .then(response => response.json())
@@ -87,7 +82,6 @@ function guessAnime() {
   updateAideList();
 
   const results = document.getElementById("results");
-
   const keyToClass = {
     image: "cell-image",
     title: "cell-title",
@@ -201,11 +195,11 @@ function guessAnime() {
     gameOver = true;
     document.getElementById("animeInput").disabled = true;
     document.getElementById("indiceBtn").disabled = true;
-    nextBtn.style.display = "block"; // Affiche bouton Suivant !
-    const message = document.createElement("div");
-    message.id = "winMessage";
-    message.innerHTML = `🎆 <span style="font-size:2rem;">🥳</span> Bravo ! C'était <u>${targetAnime.title}</u> en ${attemptCount} tentative${attemptCount > 1 ? 's' : ''}. <span style="font-size:2rem;">🎉</span>`;
-    results.appendChild(message);
+    // Cacher les indices et le bouton indice
+    document.getElementById("indicesContainer").style.display = "none";
+    document.getElementById("indiceBtn").style.display = "none";
+    // Affiche le message de win en haut
+    showSuccessMessage();
     launchFireworks();
   }
 }
@@ -282,4 +276,25 @@ function launchFireworks() {
   }
 
   animate();
+}
+
+// ==== Message de victoire + bouton suivant ====
+function showSuccessMessage() {
+  const container = document.getElementById("successContainer");
+  container.innerHTML = `
+    <div id="winMessage" style="margin-bottom: 18px; font-size: 2rem; font-weight: bold; text-align: center;">
+      🎇 <span style="font-size:2.3rem;">🥳</span>
+      Bravo ! C'était <u>${targetAnime.title}</u> en ${attemptCount} tentative${attemptCount > 1 ? 's' : ''}.
+      <span style="font-size:2.3rem;">🎉</span>
+    </div>
+    <div style="text-align:center;">
+      <button id="nextBtn" style="font-size:1.1rem; margin: 0 auto;">Suivant</button>
+    </div>
+  `;
+  container.style.display = "block";
+  container.scrollIntoView({behavior: "smooth", block: "start"});
+
+  document.getElementById("nextBtn").onclick = () => {
+    location.reload();
+  };
 }
