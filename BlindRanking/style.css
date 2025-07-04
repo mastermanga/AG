@@ -15,7 +15,6 @@ body {
   align-items: center;
 }
 
-/* HEADER */
 header {
   width: 100%;
   max-width: 850px;
@@ -52,7 +51,6 @@ header h1 {
   color: #fff;
 }
 
-/* Mode select (animes/openings) */
 .mode-select {
   display: flex;
   gap: 1rem;
@@ -75,7 +73,7 @@ header h1 {
   color: #fff;
 }
 
-/* ====== SPLIT LAYOUT PRINCIPAL ====== */
+/* Split layout : classement à gauche, devinette à droite */
 #ranking-game.split-layout {
   display: flex;
   flex-direction: row;
@@ -90,7 +88,6 @@ header h1 {
   z-index: 0;
 }
 
-/* Classement à gauche */
 .ranking-container {
   flex: 1 1 0;
   min-width: 370px;
@@ -100,12 +97,7 @@ header h1 {
   padding: 18px 0 18px 10px;
   margin: 0;
 }
-.ranking-container .anime-list {
-  margin: 0;
-  z-index: 0;
-}
 
-/* Zone devinette à droite */
 .anime-container {
   flex: 0 0 480px;
   min-width: 340px;
@@ -115,9 +107,92 @@ header h1 {
   margin-bottom: 0;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-/* === CLASSEMENT DES ANIMES === */
+.anime-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1e1e1e;
+  padding: 30px 18px 18px 18px;
+  margin: 10px auto 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  width: 440px;
+  max-width: 100%;
+  position: static;
+  z-index: auto;
+  gap: 18px;
+}
+.anime-item img {
+  max-width: 440px;
+  max-height: 440px;
+  border-radius: 15px;
+  margin-bottom: 0;
+  display: block;
+}
+.anime-item iframe#anime-video {
+  width: 100%;
+  max-width: 440px;
+  height: 440px;
+  border-radius: 15px;
+  background: #222;
+  box-shadow: 0 4px 18px #1116;
+  display: block;
+}
+.anime-item p {
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+}
+
+.rank-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 0 0 0;
+  gap: 10px;
+}
+.rank-button button {
+  margin: 8px 4px;
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  background-color: #00bcd4;
+  color: #121212;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.rank-button button:hover {
+  background-color: #0097a7;
+  color: #fff;
+}
+.rank-button button:disabled {
+  background-color: #555;
+  color: #999;
+  cursor: not-allowed;
+}
+
+#new-ranking-btn {
+  background-color: #444;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+}
+#new-ranking-btn:hover {
+  background-color: #666;
+}
+
 .anime-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -160,7 +235,7 @@ header h1 {
   display: block;
 }
 
-/* Responsive grille sur tablette/mobile */
+/* Responsive sur tablette/mobile */
 @media (max-width: 1000px) {
   #ranking-game.split-layout {
     flex-direction: column;
@@ -188,87 +263,17 @@ header h1 {
   .anime-list img, .anime-list iframe {
     height: 120px;
   }
-}
-
-/* ====== PLAYER A DROITE ====== */
-.anime-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #1e1e1e;
-  padding: 30px;
-  margin: 10px auto 0 auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-  width: 440px;
-  max-width: 100%;
-  position: static;  /* surtout PAS absolute ! */
-  z-index: auto;
-}
-.anime-item img {
-  max-width: 440px;
-  max-height: 440px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  display: block;
-}
-.anime-item iframe#anime-video {
-  width: 100%;
-  max-width: 440px;
-  height: 440px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 18px #1116;
-  background: #222;
-  display: block;
-}
-.anime-item p {
-  font-size: 24px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.rank-button {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px 0;
-  gap: 10px;
-}
-.rank-button button {
-  margin: 8px 4px;
-  padding: 12px 24px;
-  font-size: 18px;
-  border: none;
-  background-color: #00bcd4;
-  color: #121212;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-.rank-button button:hover {
-  background-color: #0097a7;
-  color: #fff;
-}
-.rank-button button:disabled {
-  background-color: #555;
-  color: #999;
-  cursor: not-allowed;
-}
-
-#new-ranking-btn {
-  background-color: #444;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 24px;
-  font-size: 18px;
-  color: white;
-  cursor: pointer;
-  margin-top: 20px;
-}
-#new-ranking-btn:hover {
-  background-color: #666;
+  .anime-item {
+    width: 100%;
+    max-width: 100vw;
+    padding: 10px 3px 10px 3px;
+  }
+  .anime-item img,
+  .anime-item iframe#anime-video {
+    height: 180px;
+    min-height: 120px;
+    max-height: 220px;
+  }
 }
 
 /* Footer */
@@ -321,24 +326,4 @@ body.light #new-ranking-btn:hover {
 }
 body.light footer {
   color: #888;
-}
-
-/* Responsive pour le player */
-@media (max-width: 700px) {
-  .anime-item,
-  .anime-item img,
-  .anime-item iframe#anime-video {
-    max-width: 100vw;
-    width: 100%;
-  }
-  .anime-item img,
-  .anime-item iframe#anime-video {
-    height: 180px;
-    min-height: 120px;
-    max-height: 220px;
-  }
-  .anime-list img,
-  .anime-list iframe {
-    height: 120px;
-  }
 }
