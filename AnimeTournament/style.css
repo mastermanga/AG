@@ -271,3 +271,51 @@ footer {
 body.light footer {
   color: #888;
 }
+
+/* Duel: met le titre bien cliquable, effet bouton et pulse */
+#duel-container .anime h3,
+#duel-container .opening h3 {
+  cursor: pointer;
+  background: #00bcd4;
+  color: #121212;
+  border-radius: 12px;
+  margin: 1.2rem 0 0 0;
+  padding: 0.8em 1.7em;
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  transition: background 0.14s, color 0.14s, box-shadow 0.17s, transform 0.12s;
+  box-shadow: 0 0 0px #00bcd400;
+  border: none;
+  outline: none;
+  /* Animation pulse */
+  animation: duel-pulse-clic 1.18s infinite alternate cubic-bezier(.65,.12,.45,1);
+  position: relative;
+  z-index: 1;
+  user-select: none;
+}
+
+@keyframes duel-pulse-clic {
+  0%   { box-shadow: 0 0 0px #00bcd400;   transform: scale(1); }
+  100% { box-shadow: 0 0 24px #00bcd470;  transform: scale(1.025);}
+}
+
+#duel-container .anime h3:hover,
+#duel-container .opening h3:hover,
+#duel-container .anime h3:focus,
+#duel-container .opening h3:focus {
+  background: #0097a7;
+  color: #fff;
+  box-shadow: 0 6px 24px #00bcd470, 0 0 0 6px #fff4;
+  text-decoration: underline;
+  outline: none;
+  transform: scale(1.04);
+}
+
+#duel-container .anime h3:active,
+#duel-container .opening h3:active {
+  background: #007888;
+  color: #fff;
+  box-shadow: 0 2px 10px #00bcd499;
+  transform: scale(0.98);
+}
