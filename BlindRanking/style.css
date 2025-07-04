@@ -76,28 +76,30 @@ header h1 {
 #ranking-game.split-layout {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
-  width: 100vw;
-  max-width: none;
+  width: 100vw;          /* Utilise toute la largeur de l'écran */
+  max-width: none;       /* Supprime la limite */
   margin: 0;
   min-height: 75vh;
-  gap: 42px;      /* ← Mets ici l’écart que tu veux (ex : 40px, 36px, 30px…) */
+  gap: 0;
   position: relative;
   z-index: 0;
-  padding: 0;
+  padding: 0;            /* Enlève tout padding */
 }
 
+/* Classement complètement à gauche */
 .ranking-container {
   flex: 1 1 0;
   min-width: 410px;
   max-width: 570px;
   box-sizing: border-box;
   z-index: 0;
-  padding-left: 32px;  /* Laisse 20-32px ou mets 0 pour coller au bord */
+  padding-left: 30px;    /* Collé au bord, tu peux mettre 0 si tu veux extrême */
   margin-left: 0;
 }
 
+/* Zone guess complètement à droite */
 .anime-container {
   flex: 0 0 480px;
   min-width: 340px;
@@ -109,10 +111,9 @@ header h1 {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  margin-left: 0;      /* Important : 0 pour ne pas trop décaler */
-  margin-right: 32px;  /* Mets un petit espace si tu veux (20-32px) */
+  margin-left: auto;    /* Ce qui pousse à droite */
+  margin-right: 30px;   /* Décale encore plus à droite */
 }
-
 /* Responsive mobile */
 @media (max-width: 1000px) {
   #ranking-game.split-layout {
