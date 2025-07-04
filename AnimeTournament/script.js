@@ -46,12 +46,11 @@ window.addEventListener("DOMContentLoaded", () => {
   modeAnimeBtn.onclick = () => switchMode('anime');
   modeOpeningBtn.onclick = () => switchMode('opening');
 
-  // Action du bouton "Suivant" : ici retour au menu (change si tu veux rejouer à la place)
+  // Bouton Suivant : relance une nouvelle partie
   nextMatchBtn.onclick = function() {
-    window.location.href = "../index.html";
-    // Ou pour recommencer le tournoi :
-    // reset();
-    // loadDataAndStart();
+    nextMatchBtn.style.display = "none";
+    reset();
+    loadDataAndStart();
   };
 
   function switchMode(newMode) {
@@ -77,7 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
     duelContainer.innerHTML = '';
     duelContainer.style.display = '';
     classementDiv.innerHTML = '';
-    nextMatchBtn.style.display = "none";
+    if (nextMatchBtn) nextMatchBtn.style.display = "none";
     document.querySelectorAll('body > .rank').forEach(e => e.remove());
   }
 
@@ -195,7 +194,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function showNextMatch() {
     // Cacher le bouton suivant en dehors du classement final
-    nextMatchBtn.style.display = "none";
+    if (nextMatchBtn) nextMatchBtn.style.display = "none";
 
     if (swissMatches.length === 0 && swissRound < SWISS_ROUNDS) {
       swissRound++;
@@ -379,7 +378,7 @@ window.addEventListener("DOMContentLoaded", () => {
     classementDiv.innerHTML = '';
 
     // Affiche le bouton "Suivant"
-    nextMatchBtn.style.display = "block";
+    if (nextMatchBtn) nextMatchBtn.style.display = "block";
 
     // Calcul du classement suisse avec tiebreak
     let classementSuisse = swissStats.map((s, i) => ({
