@@ -4,6 +4,7 @@ document.getElementById("themeToggle").addEventListener("click", () => {
   const isLight = document.body.classList.contains("light");
   localStorage.setItem("theme", isLight ? "light" : "dark");
 });
+
 window.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "light") {
@@ -20,9 +21,10 @@ function getTodayString() {
   return now.toISOString().split('T')[0];
 }
 
-// Charge le score daily pour un jeu donné
+// Charge le score daily pour un jeu donné (clé commune à tous les jeux)
 function getDailyScoreFor(gameKey) {
   const today = getTodayString();
+  // Accepté : dailyScore_anidle_YYYY-MM-DD, dailyScore_openingquizz_YYYY-MM-DD, etc.
   try {
     const saved = localStorage.getItem(`dailyScore_${gameKey}_${today}`);
     if (!saved) return null;
@@ -37,7 +39,8 @@ function getDailyScoreFor(gameKey) {
 
 // Affiche le récap du daily sur la page d’accueil
 function loadDailyRecap() {
-  // Les clés utilisées devront être celles utilisées dans chaque jeu (dailyScore_anidle_YYYY-MM-DD, etc.)
+  // Les clés utilisées devront être les mêmes dans chaque jeu pour la sauvegarde :
+  //   dailyScore_anidle_YYYY-MM-DD, dailyScore_openingquizz_YYYY-MM-DD, dailyScore_characterquizz_YYYY-MM-DD
   const recapFields = [
     { key: "anidle", label: "Anidle", el: document.getElementById("recap-anidle") },
     { key: "openingquizz", label: "OpeningQuizz", el: document.getElementById("recap-openingquizz") },
