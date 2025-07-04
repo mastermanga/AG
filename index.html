@@ -14,15 +14,28 @@
     <button id="themeToggle" class="toggle-btn">🌓</button>
   </header>
 
-  <!-- Récap daily -->
-  <div id="daily-recap">
+  <!-- Récap daily moderne -->
+  <div id="daily-recap-block">
     <h2>🌞 Daily du jour</h2>
-    <ul>
-      <li><strong>Anidle :</strong> <span id="recap-anidle">—</span> <a class="classic-link" href="Anidle/index.html?mode=classic">Mode Classic</a></li>
-      <li><strong>OpeningQuizz :</strong> <span id="recap-openingquizz">—</span> <a class="classic-link" href="OpeningQuizz/index.html?mode=classic">Mode Classic</a></li>
-      <li><strong>CharacterQuizz :</strong> <span id="recap-characterquizz">—</span> <a class="classic-link" href="CharacterQuizz/index.html?mode=classic">Mode Classic</a></li>
-      <li style="margin-top:1.08em;font-size:1.13em;">
-        <strong>Total :</strong> <span id="recap-total" style="font-weight:bold;">—</span>
+    <ul class="daily-recap-list">
+      <li>
+        <span class="daily-recap-label">Anidle :</span>
+        <span class="daily-recap-value" id="recap-anidle">—</span>
+        <a class="classic-link" href="Anidle/index.html?mode=classic">Mode Classic</a>
+      </li>
+      <li>
+        <span class="daily-recap-label">OpeningQuizz :</span>
+        <span class="daily-recap-value" id="recap-openingquizz">—</span>
+        <a class="classic-link" href="OpeningQuizz/index.html?mode=classic">Mode Classic</a>
+      </li>
+      <li>
+        <span class="daily-recap-label">CharacterQuizz :</span>
+        <span class="daily-recap-value" id="recap-characterquizz">—</span>
+        <a class="classic-link" href="CharacterQuizz/index.html?mode=classic">Mode Classic</a>
+      </li>
+      <li id="daily-recap-total">
+        <span>Total :</span>
+        <span id="recap-total">—</span>
       </li>
     </ul>
   </div>
