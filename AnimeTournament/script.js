@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
 (() => {
   const TOTAL_ITEMS = 16;
   const QUALIFIED_TO_BRACKET = 8;
-  const SWISS_ROUNDS = 5;
+  const SWISS_ROUNDS = 5; // 5 duels fixes
 
   let mode = 'anime';
   let data = [];
@@ -45,6 +45,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
   modeAnimeBtn.onclick = () => switchMode('anime');
   modeOpeningBtn.onclick = () => switchMode('opening');
+
+  // Action du bouton "Suivant" : ici retour au menu (change si tu veux rejouer à la place)
+  nextMatchBtn.onclick = function() {
+    window.location.href = "../index.html";
+    // Ou pour recommencer le tournoi :
+    // reset();
+    // loadDataAndStart();
+  };
 
   function switchMode(newMode) {
     if (mode === newMode) return;
@@ -167,7 +175,8 @@ window.addEventListener("DOMContentLoaded", () => {
     duelContainer.appendChild(div1);
     duelContainer.appendChild(div2);
 
-    // On ne fait rien ici : on gère le click via showMatch()
+    div1.onclick = () => recordWin(1);
+    div2.onclick = () => recordWin(2);
   }
 
   function getYouTubeEmbedUrl(youtubeUrl) {
@@ -185,9 +194,8 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function showNextMatch() {
+    // Cacher le bouton suivant en dehors du classement final
     nextMatchBtn.style.display = "none";
-    // (on supprime d'abord l'event listener au cas où)
-    Array.from(duelContainer.children).forEach(div => div.onclick = null);
 
     if (swissMatches.length === 0 && swissRound < SWISS_ROUNDS) {
       swissRound++;
@@ -214,34 +222,28 @@ window.addEventListener("DOMContentLoaded", () => {
     const i2 = match.i2;
     const divs = duelContainer.children;
 
-    // MAJ UI
     if(mode === 'anime'){
       divs[0].querySelector('img').src = items[i1].image;
       divs[0].querySelector('img').alt = items[i1].title;
       divs[0].querySelector('h3').textContent = items[i1].title;
+
       divs[1].querySelector('img').src = items[i2].image;
       divs[1].querySelector('img').alt = items[i2].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     } else {
       const url1 = getYouTubeEmbedUrl(items[i1].youtubeUrls?.[0] || '') || '';
       const url2 = getYouTubeEmbedUrl(items[i2].youtubeUrls?.[0] || '') || '';
+
       divs[0].querySelector('iframe').src = url1;
       divs[1].querySelector('iframe').src = url2;
+
       divs[0].querySelector('h3').textContent = items[i1].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     }
-
-    // Bloque les autres votes tant qu'on n'a pas cliqué sur Suivant
-    divs[0].onclick = () => handleVote(1);
-    divs[1].onclick = () => handleVote(2);
     currentMatch = match;
   }
 
-  function handleVote(winner) {
-    // Désactive les clics jusqu'au prochain match
-    Array.from(duelContainer.children).forEach(div => div.onclick = null);
-
-    // Appelle l’ancienne recordWin, mais n'enchaîne PAS showNextMatch direct
+  function recordWin(winner) {
     if(!currentMatch) return;
     if(bracketRound === 0){
       const winnerIndex = (winner === 1) ? currentMatch.i1 : currentMatch.i2;
@@ -249,24 +251,22 @@ window.addEventListener("DOMContentLoaded", () => {
 
       swissStats[winnerIndex].wins++;
       swissStats[loserIndex].losses++;
+
       swissStats[winnerIndex].playedOpponents.add(loserIndex);
       swissStats[loserIndex].playedOpponents.add(winnerIndex);
       swissStats[winnerIndex].opponents.push(loserIndex);
       swissStats[loserIndex].opponents.push(winnerIndex);
 
-      // Affiche bouton suivant (pour passer au match suivant)
-      nextMatchBtn.style.display = "block";
-      nextMatchBtn.onclick = () => showNextMatch();
+      showNextMatch();
     } else {
-      // Bracket
       const winnerIndex = (winner === 1) ? bracketMatches[bracketMatchIndex].i1 : bracketMatches[bracketMatchIndex].i2;
       bracketMatches[bracketMatchIndex].winner = winnerIndex;
-      // Affiche bouton suivant
-      nextMatchBtn.style.display = "block";
-      nextMatchBtn.onclick = () => {
+      bracketMatchIndex++;
+      if(bracketMatchIndex >= bracketMatches.length){
         setupNextBracketRound();
-        nextMatchBtn.style.display = "none";
-      };
+      } else {
+        showBracketMatch(bracketMatches[bracketMatchIndex]);
+      }
     }
   }
 
@@ -286,16 +286,17 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     let qualified = classement.slice(0, QUALIFIED_TO_BRACKET);
+
     if(qualified.length < QUALIFIED_TO_BRACKET){
       alert("Pas assez de qualifiés pour le bracket.");
       showClassement();
       return;
     }
 
-    // Bracket: 4 quarts, 2 demis, petite finale, finale
     bracketRound = 1;
     bracketMatchIndex = 0;
     bracketMatches = [];
+
     for(let i=0; i<QUALIFIED_TO_BRACKET/2; i++){
       bracketMatches.push({
         i1: qualified[i].index,
@@ -303,7 +304,8 @@ window.addEventListener("DOMContentLoaded", () => {
         winner: null
       });
     }
-    // Demis, petite finale, finale (prépare tout)
+
+    // Ajout brackets pour demi, petite finale et finale
     bracketMatches.push({i1: null, i2: null, winner: null});
     bracketMatches.push({i1: null, i2: null, winner: null});
     bracketMatches.push({i1: null, i2: null, winner: null});
@@ -346,23 +348,21 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[0].querySelector('img').src = items[i1].image;
       divs[0].querySelector('img').alt = items[i1].title;
       divs[0].querySelector('h3').textContent = items[i1].title;
+
       divs[1].querySelector('img').src = items[i2].image;
       divs[1].querySelector('img').alt = items[i2].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     } else {
       const url1 = getYouTubeEmbedUrl(items[i1].youtubeUrls?.[0] || '') || '';
       const url2 = getYouTubeEmbedUrl(items[i2].youtubeUrls?.[0] || '') || '';
+
       divs[0].querySelector('iframe').src = url1;
       divs[1].querySelector('iframe').src = url2;
+
       divs[0].querySelector('h3').textContent = items[i1].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     }
-
-    // (réactive le click pour ce nouveau match)
-    divs[0].onclick = () => handleVote(1);
-    divs[1].onclick = () => handleVote(2);
     currentMatch = match;
-    nextMatchBtn.style.display = "none";
   }
 
   function setupNextBracketRound() {
@@ -378,6 +378,10 @@ window.addEventListener("DOMContentLoaded", () => {
     duelContainer.style.display = 'none';
     classementDiv.innerHTML = '';
 
+    // Affiche le bouton "Suivant"
+    nextMatchBtn.style.display = "block";
+
+    // Calcul du classement suisse avec tiebreak
     let classementSuisse = swissStats.map((s, i) => ({
       index: i,
       wins: s.wins,
@@ -389,6 +393,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     let qualifiés = classementSuisse.slice(0, QUALIFIED_TO_BRACKET).map(c => c.index);
 
+    // Classement final (tout le monde 9e par défaut)
     let classementFinal = Array(items.length).fill(9);
 
     if (bracketMatches.length === 8 && bracketMatches[7].winner != null) {
@@ -398,6 +403,7 @@ window.addEventListener("DOMContentLoaded", () => {
       let runnerup = finale.i1 === finale.winner ? finale.i2 : finale.i1;
       let third = petiteFinale.winner;
       let fourth = petiteFinale.i1 === petiteFinale.winner ? petiteFinale.i2 : petiteFinale.i1;
+
       let qfLosers = [0,1,2,3].map(i => {
         let m = bracketMatches[i];
         return m.i1 === m.winner ? m.i2 : m.i1;
@@ -437,7 +443,6 @@ window.addEventListener("DOMContentLoaded", () => {
     })).sort((a, b) => a.rank - b.rank);
 
     classementSorted.forEach(entry => displayClassementItem(entry.index, entry.rank));
-    nextMatchBtn.style.display = "none"; // plus de bouton
   }
 
   function displayClassementItem(idx, rank) {
