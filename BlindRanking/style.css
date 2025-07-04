@@ -111,22 +111,24 @@ header h1 {
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   margin: 0;
   min-width: 155px;
-  min-height: 175px;
+  min-height: 235px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .anime-list img,
 .anime-list iframe {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 10px;
+  width: 100%;
+  height: 210px;
   object-fit: cover;
   border-radius: 10px;
   background: #222;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 12px #1114;
 }
 .anime-list iframe {
   background: #222;
+  display: block;
 }
 
 @media (max-width: 1000px) {
@@ -138,13 +140,12 @@ header h1 {
   }
   .anime-list li {
     min-width: 120px;
-    min-height: 120px;
+    min-height: 160px;
     font-size: 16px;
     padding: 10px;
   }
   .anime-list img, .anime-list iframe {
-    width: 70px;
-    height: 70px;
+    height: 120px;
   }
 }
 
@@ -163,14 +164,25 @@ header h1 {
   margin: 10px auto;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-  width: 340px;
-  max-width: 96vw;
+  width: 440px;
+  max-width: 98vw;
 }
-.anime-item img, .anime-item iframe {
-  max-width: 180px;
-  max-height: 180px;
+.anime-item img {
+  max-width: 440px;
+  max-height: 440px;
   border-radius: 15px;
   margin-bottom: 20px;
+  display: block;
+}
+.anime-item iframe#anime-video {
+  width: 100%;
+  max-width: 440px;
+  height: 440px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 18px #1116;
+  background: #222;
+  display: block;
 }
 .anime-item p {
   font-size: 24px;
@@ -271,4 +283,24 @@ body.light #new-ranking-btn:hover {
 }
 body.light footer {
   color: #888;
+}
+
+/* Responsive pour le player */
+@media (max-width: 700px) {
+  .anime-item,
+  .anime-item img,
+  .anime-item iframe#anime-video {
+    max-width: 100vw;
+    width: 100%;
+  }
+  .anime-item img,
+  .anime-item iframe#anime-video {
+    height: 180px;
+    min-height: 120px;
+    max-height: 220px;
+  }
+  .anime-list img,
+  .anime-list iframe {
+    height: 120px;
+  }
 }
