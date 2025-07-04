@@ -67,6 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
     duelContainer.innerHTML = '';
     duelContainer.style.display = '';
     classementDiv.innerHTML = '';
+    document.querySelectorAll('body > .rank').forEach(e => e.remove());
   }
 
   function shuffle(array) {
