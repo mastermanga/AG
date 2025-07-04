@@ -118,7 +118,7 @@ function displayCurrentItem() {
       document.getElementById("rank-section").style.display = "none";
       container.style.display = "none";
       nextBtn.style.display = "block";
-      nextBtn.textContent = "Nouveau classement";
+      nextBtn.textContent = "Rejouer";
     }
   }, 120);
 }
