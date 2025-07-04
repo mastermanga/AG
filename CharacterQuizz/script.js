@@ -3,13 +3,12 @@ document.getElementById("back-to-menu").addEventListener("click", function() {
   window.location.href = "../index.html";
 });
 
-// Bouton changer de thème + persistance
+// Thème dark/light + persistance
 document.getElementById("themeToggle").addEventListener("click", () => {
   document.body.classList.toggle("light");
   const isLight = document.body.classList.contains("light");
   localStorage.setItem("theme", isLight ? "light" : "dark");
 });
-
 window.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "light") {
@@ -17,36 +16,26 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// ========== CARACTÈRES ==========
 const container = document.getElementById("character-container");
 const feedback = document.getElementById("feedback");
 const timerDisplay = document.getElementById("timer");
-const guessInput = document.getElementById("guess-input");
+const input = document.getElementById("characterInput"); // nouveau nom uniforme
 const submitBtn = document.getElementById("submit-btn");
 const restartBtn = document.getElementById("restart-btn");
-const animeList = document.getElementById("anime-list");
+const suggestions = document.getElementById("suggestions");
 
+let allAnimes = [];
 let currentAnime = null;
 let revealedCount = 0;
 let gameEnded = false;
 let countdown = 5;
 let countdownInterval = null;
-let allAnimes = [];
 
 async function loadAnimes() {
   try {
     const response = await fetch('../data/animes.json');
-    const animes = await response.json();
-    allAnimes = animes;
-
-    // Remplir la datalist avec les titres uniques
-    const titles = [...new Set(animes.map(a => a.title))];
-    animeList.innerHTML = '';
-    titles.forEach(title => {
-      const option = document.createElement('option');
-      option.value = title;
-      animeList.appendChild(option);
-    });
-
+    allAnimes = await response.json();
     startNewGame();
   } catch (error) {
     timerDisplay.textContent = "Erreur de chargement des données.";
@@ -58,30 +47,78 @@ function startNewGame() {
   currentAnime = allAnimes[Math.floor(Math.random() * allAnimes.length)];
   container.innerHTML = '';
   feedback.textContent = '';
+  feedback.className = "";
   revealedCount = 0;
   gameEnded = false;
   restartBtn.style.display = 'none';
 
+  // Affiche tous les persos mais masqués (display:none)
   currentAnime.characters.forEach((char, i) => {
     const img = document.createElement("img");
     img.src = char.image;
     img.alt = char.name;
     img.className = "character-img";
     img.id = "char-" + i;
+    img.style.display = "none";
     container.appendChild(img);
   });
 
   revealNextCharacter();
 
-  guessInput.disabled = false;
+  input.disabled = false;
+  input.value = '';
   submitBtn.disabled = true;
-  guessInput.value = '';
-  guessInput.focus();
+  input.focus();
 
+  suggestions.innerHTML = '';
   timerDisplay.textContent = '';
   clearInterval(countdownInterval);
   resetTimer();
 }
+
+// Système de suggestions identique à Anidle
+input.addEventListener("input", function() {
+  if (gameEnded) return;
+  const val = this.value.toLowerCase();
+  suggestions.innerHTML = '';
+  feedback.textContent = '';
+  submitBtn.disabled = true;
+  if (!val) return;
+  // max 7 suggestions
+  const found = [...new Set(allAnimes.map(a => a.title))]
+    .filter(title => title.toLowerCase().includes(val))
+    .slice(0, 7);
+
+  found.forEach(title => {
+    const div = document.createElement("div");
+    div.innerHTML = `<span>${title.replace(new RegExp(val, 'i'), 
+      match => `<b>${match}</b>`)}</span>`;
+    div.addEventListener("mousedown", function(e) {
+      e.preventDefault();
+      input.value = title;
+      suggestions.innerHTML = "";
+      submitBtn.disabled = false;
+      input.focus();
+    });
+    suggestions.appendChild(div);
+  });
+});
+
+// Active le bouton valider si la valeur matche un titre
+input.addEventListener("input", function() {
+  const val = this.value.trim().toLowerCase();
+  const titles = allAnimes.map(a => a.title.toLowerCase());
+  submitBtn.disabled = !titles.includes(val);
+});
+
+input.addEventListener("keydown", function(e) {
+  if (e.key === "Enter" && !submitBtn.disabled && !gameEnded) {
+    checkGuess();
+  }
+});
+
+submitBtn.addEventListener("click", checkGuess);
+restartBtn.addEventListener("click", startNewGame);
 
 function revealNextCharacter() {
   if (revealedCount < currentAnime.characters.length) {
@@ -118,28 +155,20 @@ function resetTimer() {
 function checkGuess() {
   if (gameEnded) return;
 
-  const guess = guessInput.value.trim();
+  const guess = input.value.trim();
   if (!guess) {
     feedback.textContent = "⚠️ Tu dois écrire un nom d'anime.";
     feedback.className = "error";
     return;
   }
-
-  // Vérifier si la saisie correspond à un titre connu (ignore la casse)
   const normalizedGuess = guess.toLowerCase();
-  const validTitles = allAnimes.map(a => a.title.toLowerCase());
-  if (!validTitles.includes(normalizedGuess)) {
-    feedback.textContent = "⚠️ Cet anime n'est pas dans la liste.";
-    feedback.className = "error";
-    return;
-  }
-
   const answer = currentAnime.title.toLowerCase();
 
   if (normalizedGuess === answer) {
     feedback.textContent = `🎉 Bonne réponse ! C'était bien "${currentAnime.title}"`;
     feedback.className = "success";
     clearInterval(countdownInterval);
+    // Affiche tous les persos restants
     for (let i = revealedCount; i < currentAnime.characters.length; i++) {
       document.getElementById("char-" + i).style.display = "block";
     }
@@ -156,28 +185,19 @@ function checkGuess() {
     }
   }
 
-  guessInput.value = '';
+  input.value = '';
   submitBtn.disabled = true;
-  guessInput.focus();
+  input.focus();
+  suggestions.innerHTML = '';
 }
 
 function endGame() {
   gameEnded = true;
-  guessInput.disabled = true;
+  input.disabled = true;
   submitBtn.disabled = true;
   restartBtn.style.display = 'inline-block';
   timerDisplay.textContent = "Jeu terminé.";
+  suggestions.innerHTML = '';
 }
-
-guessInput.addEventListener("input", () => {
-  submitBtn.disabled = guessInput.value.trim() === '';
-  feedback.textContent = '';
-});
-
-submitBtn.addEventListener("click", checkGuess);
-
-restartBtn.addEventListener("click", () => {
-  startNewGame();
-});
 
 loadAnimes();
