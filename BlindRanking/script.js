@@ -46,6 +46,7 @@ let currentIndex = 0;
 let rankings = new Array(10).fill(null);
 let selectedAnimes = [];
 
+// Chargement dynamique selon le mode
 async function loadRankingData() {
   try {
     const file = rankingMode === 'anime' ? '../data/animes.json' : '../data/openings.json';
@@ -58,6 +59,7 @@ async function loadRankingData() {
   }
 }
 
+// Choix aléatoire de 10 items non doublonnés
 function getRandomItems() {
   selectedAnimes = [];
   const used = new Set();
@@ -70,6 +72,7 @@ function getRandomItems() {
   }
 }
 
+// Convertit une URL YT en embed pour iframe
 function getYouTubeEmbedUrl(youtubeUrl) {
   let videoId = null;
   try {
@@ -83,12 +86,12 @@ function getYouTubeEmbedUrl(youtubeUrl) {
   return videoId ? `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=0` : "";
 }
 
+// Affichage principal de l’item en cours
 function displayCurrentItem() {
   setTimeout(() => {
     const animeImg = document.getElementById("anime-img");
     const container = document.getElementById("anime-item");
     document.getElementById("anime-video")?.remove();
-    const nextBtn = document.getElementById("next-btn");
 
     if (currentIndex < selectedAnimes.length) {
       const item = selectedAnimes[currentIndex];
@@ -113,16 +116,17 @@ function displayCurrentItem() {
       }
       container.style.display = "flex";
       document.getElementById("rank-section").style.display = "block";
-      nextBtn.style.display = "none";
+      document.getElementById("new-ranking-btn").style.display = "none";
     } else {
       document.getElementById("rank-section").style.display = "none";
       container.style.display = "none";
-      nextBtn.style.display = "block";
-      nextBtn.textContent = "Nouveau classement";
+      document.getElementById("new-ranking-btn").style.display = "block";
     }
+    updateRankingList();
   }, 120);
 }
 
+// Attribuer le rang, avancer, MAJ UI
 function assignRank(rank) {
   if (rankings[rank - 1] !== null) {
     alert("Ce rang a déjà été attribué !");
@@ -130,15 +134,14 @@ function assignRank(rank) {
   }
   rankings[rank - 1] = selectedAnimes[currentIndex].title;
   document.getElementById(`rank-${rank}`).disabled = true;
-  updateRankingList();
   currentIndex++;
   displayCurrentItem();
 }
 
+// Mise à jour de la grille des classements (toujours 2 lignes de 5)
 function updateRankingList() {
   const rankingList = document.getElementById("ranking-list");
   rankingList.innerHTML = '';
-  let rows = [[], []];
   for (let i = 0; i < 10; i++) {
     let html = "";
     if (rankings[i]) {
@@ -165,19 +168,16 @@ function updateRankingList() {
     } else {
       html = `
         <li>
-          <div style="width:100%;height:210px;opacity:0.1;background:#ccc;display:inline-block;border-radius:10px"></div>
+          <div></div>
           <span>Rang ${i + 1}</span>
         </li>
       `;
     }
-    rows[Math.floor(i / 5)].push(html);
+    rankingList.innerHTML += html;
   }
-  rankingList.innerHTML = rows[0].join('') + rows[1].join('');
 }
 
-// Bouton "Suivant" (relance une partie)
-document.getElementById("next-btn").onclick = startNewRanking;
-
+// Démarre ou redémarre une partie
 async function startNewRanking() {
   await loadRankingData();
   getRandomItems();
@@ -186,10 +186,9 @@ async function startNewRanking() {
   for (let i = 1; i <= 10; i++) {
     document.getElementById(`rank-${i}`).disabled = false;
   }
-  updateRankingList();
   document.getElementById("anime-item").style.display = "flex";
   document.getElementById("rank-section").style.display = "block";
-  document.getElementById("next-btn").style.display = "none";
+  document.getElementById("new-ranking-btn").style.display = "none";
   document.getElementById("anime-name").textContent = "Nom de l'Anime ou de l'Opening";
   document.getElementById("anime-img").src = "";
   displayCurrentItem();
