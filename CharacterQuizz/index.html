@@ -10,21 +10,22 @@
   <body>
     <header>
       <div class="header-group">
-      <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
-      <h1>CharacterQuizz</h1>
-      <button id="themeToggle" class="toggle-btn">🌓</button>
+        <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
+        <h1>CharacterQuizz</h1>
+        <button id="themeToggle" class="toggle-btn">🌓</button>
       </div>
     </header>  
     <div id="character-container"></div>
-  
+
     <div id="controls">
-      <!-- Ajout de la datalist pour autocomplete -->
-      <input list="anime-list" type="text" id="guess-input" placeholder="Écris le nom de l'anime ici" autocomplete="off" />
-      <datalist id="anime-list"></datalist>
+      <div class="input-container">
+        <input type="text" id="characterInput" placeholder="Entrez le nom de l'anime..." autocomplete="off" />
+        <div id="suggestions" class="suggestions"></div>
+      </div>
       <button id="submit-btn" disabled>Valider</button>
       <button id="restart-btn" style="display:none;">Rejouer</button>
     </div>
-  
+
     <p id="timer">Chargement...</p>
     <p id="feedback"></p>
     <footer>
