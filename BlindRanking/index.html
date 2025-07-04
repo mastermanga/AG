@@ -31,6 +31,17 @@
         <div class="anime-item" id="anime-item">
           <img id="anime-img" src="" alt="Anime" style="display:none">
           <p id="anime-name">Nom de l'Anime ou de l'Opening</p>
+          
+          <!-- === ZONE YOUTUBE PLAYERS (ajouté ici) === -->
+          <div style="position: relative; width: 100%; height: 225px;">
+            <div id="yt-player-1" style="width:100%; height:225px; display: block;"></div>
+            <div id="yt-player-2" style="width:100%; height:225px; display: none;"></div>
+            <div id="player-loader" style="position:absolute;top:0;left:0;width:100%;height:100%;display:none;align-items:center;justify-content:center;background:rgba(20,20,20,0.7);z-index:2;">
+              <span style="color:#fff;font-size:1.2rem;">Chargement…</span>
+            </div>
+          </div>
+          <!-- ================== -->
+          
           <div id="rank-section">
             <div class="rank-button">
               <button id="rank-1" onclick="assignRank(1)">1</button>
@@ -52,6 +63,8 @@
     <footer>
       © 2025 mastermanga
     </footer>
+    <!-- Ajoute l’API Youtube avant ton script.js ! -->
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
   </body>
 </html>
