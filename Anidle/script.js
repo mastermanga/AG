@@ -16,80 +16,118 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ========== ANIMEDLE GAME (MODE DAILY INCLUS) ==========
+// ========== ANIMEDLE GAME (MODE DAILY/CLASSIC) ==========
 let animeData = [];
 let targetAnime = null;
 let attemptCount = 0;
 let gameOver = false;
 let indiceStep = 0;
 
-// -- Daily Logic --
-const IS_DAILY = true; // Passe à false pour revenir au mode libre (test)
+// -- Mode switch --
+let isDaily = true;
 const DAILY_BANNER = document.getElementById("daily-banner");
 const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
-const todayKey = () => {
+const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
+
+function todayKey() {
   const d = new Date();
   return `${d.getFullYear()}${(d.getMonth()+1).toString().padStart(2, "0")}${d.getDate().toString().padStart(2,"0")}`;
-};
+}
 const SCORE_KEY = `daily_anidle_score_${todayKey()}`;
 const ANIME_KEY = `daily_anidle_id_${todayKey()}`;
+
+// ---- State persistance ----
 let dailyPlayed = false;
-
-// Chargement des données
-fetch('../data/animes.json')
-  .then(response => response.json())
-  .then(data => {
-    animeData = data;
-
-    // Sélection du daily de façon déterministe pour tous
-    if (IS_DAILY) {
-      let animeIdx;
-      // On essaye de garder le même daily pour tous (hash date % total)
-      if (!localStorage.getItem(ANIME_KEY)) {
-        // On "génère" le daily du jour
-        animeIdx = getDeterministicDailyIndex(animeData.length);
-        localStorage.setItem(ANIME_KEY, animeIdx);
-      } else {
-        animeIdx = parseInt(localStorage.getItem(ANIME_KEY));
-      }
-      targetAnime = animeData[animeIdx];
-
-      // Affichage bandeau daily
-      showDailyBanner();
-
-      // On bloque si déjà joué
-      if (localStorage.getItem(SCORE_KEY)) {
-        lockDailyInputs();
-        gameOver = true;
-        return;
-      }
-    } else {
-      targetAnime = animeData[Math.floor(Math.random() * animeData.length)];
-      if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
-    }
-  });
+let dailyScore = null;
 
 function getDeterministicDailyIndex(len) {
-  // Simple hash du jour (ne change pas sur reload) : anime différent chaque jour
   const d = new Date();
   const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
   return seed % len;
 }
 
+// --- INITIALISATION ---
+fetch('../data/animes.json')
+  .then(response => response.json())
+  .then(data => {
+    animeData = data;
+    setupGame();
+  });
+
+function setupGame() {
+  // Récupérer dailyScore si existant
+  dailyScore = localStorage.getItem(SCORE_KEY);
+  dailyPlayed = !!dailyScore;
+
+  if (isDaily) {
+    // Générer un daily commun pour tous (déterministe)
+    let animeIdx;
+    if (!localStorage.getItem(ANIME_KEY)) {
+      animeIdx = getDeterministicDailyIndex(animeData.length);
+      localStorage.setItem(ANIME_KEY, animeIdx);
+    } else {
+      animeIdx = parseInt(localStorage.getItem(ANIME_KEY));
+    }
+    targetAnime = animeData[animeIdx];
+    showDailyBanner();
+    if (dailyPlayed) {
+      lockDailyInputs();
+      gameOver = true;
+    }
+  } else {
+    // Mode classic (random)
+    targetAnime = animeData[Math.floor(Math.random() * animeData.length)];
+    if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
+    // On réactive les inputs en cas de retour classic
+    unlockClassicInputs();
+  }
+
+  // Remettre à zéro
+  attemptCount = 0;
+  gameOver = false;
+  indiceStep = 0;
+  document.getElementById("animeInput").value = "";
+  document.getElementById("suggestions").innerHTML = "";
+  document.getElementById("results").innerHTML = "";
+  document.getElementById("counter").textContent = "Tentatives : 0";
+  document.getElementById("indicesContainer").style.display = "none";
+  document.getElementById("indiceBtn").style.display = "inline-block";
+  document.getElementById("successContainer").style.display = "none";
+}
+
+// --- BANDEAU DAILY ---
 function showDailyBanner() {
   if (!DAILY_BANNER) return;
   DAILY_BANNER.style.display = "block";
-  const score = localStorage.getItem(SCORE_KEY);
-  if (score) {
+  updateSwitchModeBtn();
+  if (dailyPlayed) {
     DAILY_STATUS.textContent = "✅ Daily du jour déjà jouée !";
-    DAILY_SCORE.textContent = `Score : ${score} pts`;
+    DAILY_SCORE.textContent = `Score : ${dailyScore} pts`;
   } else {
     DAILY_STATUS.textContent = "🎲 Daily du jour :";
     DAILY_SCORE.textContent = "";
   }
 }
 
+function updateSwitchModeBtn() {
+  if (!SWITCH_MODE_BTN) return;
+  if (isDaily) {
+    SWITCH_MODE_BTN.textContent = "Passer en mode Classic";
+    SWITCH_MODE_BTN.style.backgroundColor = "#42a5f5";
+  } else {
+    SWITCH_MODE_BTN.textContent = "Revenir au Daily";
+    SWITCH_MODE_BTN.style.backgroundColor = "#00bcd4";
+  }
+}
+if (SWITCH_MODE_BTN) {
+  SWITCH_MODE_BTN.onclick = () => {
+    isDaily = !isDaily;
+    setupGame();
+  };
+}
+
+// --- (DE)BLOQUER INPUTS ---
 function lockDailyInputs() {
   document.getElementById("animeInput").disabled = true;
   document.getElementById("indiceBtn").disabled = true;
@@ -98,10 +136,14 @@ function lockDailyInputs() {
     showDailyBanner();
   }
 }
+function unlockClassicInputs() {
+  document.getElementById("animeInput").disabled = false;
+  document.getElementById("indiceBtn").disabled = false;
+}
 
-// Suggestions auto-complete
+// ========== SUGGESTIONS AUTO-COMPLETE ==========
 document.getElementById("animeInput").addEventListener("input", function() {
-  if (IS_DAILY && localStorage.getItem(SCORE_KEY)) return;
+  if (isDaily && dailyPlayed) return;
   const input = this.value.toLowerCase();
   const matches = animeData.filter(a => a.title.toLowerCase().includes(input)).slice(0, 5);
   const suggestions = document.getElementById("suggestions");
@@ -118,10 +160,10 @@ document.getElementById("animeInput").addEventListener("input", function() {
   });
 });
 
-// Indices progressifs
+// ========== INDICES ==========
 document.getElementById("indiceBtn").addEventListener("click", () => {
   if (!targetAnime) return;
-  if (IS_DAILY && localStorage.getItem(SCORE_KEY)) return;
+  if (isDaily && dailyPlayed) return;
   indiceStep++;
   if (indiceStep > 5) indiceStep = 5;
   document.getElementById("indicesContainer").style.display = "block";
@@ -136,9 +178,9 @@ document.getElementById("indiceBtn").addEventListener("click", () => {
   }
 });
 
-// Fonction principale de jeu
+// ========== FONCTION PRINCIPALE DE JEU ==========
 function guessAnime() {
-  if (gameOver || (IS_DAILY && localStorage.getItem(SCORE_KEY))) return;
+  if (gameOver || (isDaily && dailyPlayed)) return;
   const input = document.getElementById("animeInput").value.trim();
   const guessedAnime = animeData.find(a => a.title.toLowerCase() === input.toLowerCase());
   if (!guessedAnime) {
@@ -271,13 +313,15 @@ function guessAnime() {
     showSuccessMessage();
 
     // Sauvegarde daily score : 3000 pts de base, -100/tentative sup, -1000/indice utilisé
-    if (IS_DAILY && !localStorage.getItem(SCORE_KEY)) {
+    if (isDaily && !dailyPlayed) {
       let score = 3000;
       score -= (attemptCount - 1) * 100;
       score -= (indiceStep) * 1000;
       if (score < 0) score = 0;
       localStorage.setItem(SCORE_KEY, score);
       showDailyBanner();
+      dailyPlayed = true;
+      dailyScore = score;
     }
     launchFireworks();
   }
@@ -367,18 +411,17 @@ function showSuccessMessage() {
       <span style="font-size:2.3rem;">🎉</span>
     </div>
     <div style="text-align:center;">
-      <button id="nextBtn" style="font-size:1.1rem; margin: 0 auto;">Rejouer</button>
+      <button id="nextBtn" style="font-size:1.1rem; margin: 0 auto;">${isDaily ? "Retour menu" : "Rejouer"}</button>
     </div>
   `;
   container.style.display = "block";
   container.scrollIntoView({behavior: "smooth", block: "start"});
 
   document.getElementById("nextBtn").onclick = () => {
-    // Mode daily : reload interdit si score déjà enregistré
-    if (IS_DAILY && localStorage.getItem(SCORE_KEY)) {
+    if (isDaily) {
       window.location.href = "../index.html";
     } else {
-      location.reload();
+      setupGame();
     }
   };
 }
