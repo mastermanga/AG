@@ -49,6 +49,7 @@ header h1 {
   color: white;
 }
 
+/* Mode clair */
 body.light {
   background-color: #f5f5f5;
   color: #222;
@@ -98,8 +99,9 @@ body.light .toggle-btn:hover {
   justify-content: center;
   margin-bottom: 2rem;
   width: 100%;
-  max-width: 850px;
+  max-width: 950px;
 }
+
 #duel-container .anime,
 #duel-container .opening {
   display: flex;
@@ -122,6 +124,154 @@ body.light .toggle-btn:hover {
   text-align: center;
   font-weight: bold;
   margin: 1rem 0 0 0;
+}
+
+/* Classement style - podium */
+#classement {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 2.2rem 2rem;
+  justify-items: center;
+  align-items: start;
+  margin: 2rem 0 3rem 0;
+  width: 100%;
+  max-width: 1150px;
+  overflow-x: visible;
+  padding-top: 60px;
+  position: relative;
+}
+
+/* Classement card */
+.classement-item {
+  position: relative;
+  background: none;
+  padding: 0.2rem 0 0.5rem 0;
+  border-radius: 12px;
+  transition: box-shadow 0.17s, transform 0.14s;
+  box-shadow: 0 0 0px #00bcd400;
+}
+
+.classement-item img,
+.classement-item iframe {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.8em;
+  box-shadow: 0 0 18px #1116;
+}
+.classement-item:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 6px 28px #00bcd4cc;
+}
+
+/* Badge de rang général */
+.classement-item .rank {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  background: #00bcd4;
+  color: #111;
+  border-radius: 9px;
+  font-weight: bold;
+  font-size: 1.12rem;
+  padding: 0.14em 1.2em;
+  box-shadow: 0 1px 6px #1113;
+  z-index: 4;
+  border: 2px solid #fff7;
+  min-width: 44px;
+  text-align: center;
+  transition: background 0.18s, color 0.18s;
+}
+
+/* Podium : Or, Argent, Bronze */
+/* TOP 1 */
+.classement-item.top1 {
+  border-color: gold;
+  box-shadow: 0 4px 24px #ffd70099, 0 0 0 4px #fff2;
+  z-index: 2;
+  margin-top: 0;
+}
+
+/* Couronne centrée et au-dessus */
+.classement-item.top1::before {
+  content: "👑";
+  font-size: 2.3rem;
+  position: absolute;
+  top: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  filter: drop-shadow(0 2px 8px #ffd700cc);
+  pointer-events: none;
+}
+
+/* Badge #1 : style or, reste en haut à gauche */
+.classement-item.top1 .rank {
+  background: #ffd700;
+  color: #111;
+  box-shadow: 0 1px 6px #ffd700b8, 0 0 14px #ffe970b5;
+  border: 2px solid #fff7;
+}
+
+/* TOP 2 : Argent */
+.classement-item.top2 {
+  border-color: #bbb;
+  box-shadow: 0 2px 14px #bbb8;
+  margin-top: 10px;
+}
+.classement-item.top2 .rank {
+  background: linear-gradient(90deg, #eee, #bbb);
+  color: #333;
+}
+
+/* TOP 3 : Bronze */
+.classement-item.top3 {
+  border-color: #c96f29;
+  box-shadow: 0 2px 14px #c96f2977;
+  margin-top: 10px;
+}
+.classement-item.top3 .rank {
+  background: linear-gradient(90deg, #ffb47c, #c96f29);
+  color: #45250f;
+}
+
+.classement-item .title {
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  margin-top: 0.1em;
+  font-size: 1.08rem;
+  min-height: 2.1em;
+}
+
+@media (max-width: 900px) {
+  #classement {
+    max-width: 99vw;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.2rem 0.8rem;
+    padding-top: 34px;
+  }
+  .classement-item img,
+  .classement-item iframe {
+    height: 135px;
+  }
+  .classement-item .rank {
+    font-size: 0.95rem;
+    min-width: 32px;
+    padding: 0.12em 0.65em;
+    left: 6px;
+    top: 6px;
+  }
+  .classement-item.top1::before {
+    font-size: 1.38rem;
+    top: -19px;
+  }
+}
+
+/* Duel: met le titre bien cliquable, effet bouton et pulse */
+#duel-container .anime h3,
+#duel-container .opening h3 {
   cursor: pointer;
   background: #00bcd4;
   color: #121212;
@@ -135,7 +285,6 @@ body.light .toggle-btn:hover {
   box-shadow: 0 0 0px #00bcd400;
   border: none;
   outline: none;
-  /* Animation pulse */
   animation: duel-pulse-clic 1.18s infinite alternate cubic-bezier(.65,.12,.45,1);
   position: relative;
   z-index: 1;
@@ -165,163 +314,6 @@ body.light .toggle-btn:hover {
   color: #fff;
   box-shadow: 0 2px 10px #00bcd499;
   transform: scale(0.98);
-}
-
-/* Classement style - podium */
-#classement {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 2rem 1.5rem;
-  justify-items: center;
-  align-items: start;
-  margin: 2rem 0 3rem 0;
-  width: 100%;
-  max-width: 850px;
-  overflow-x: auto;
-  padding-top: 60px; /* Laisse la place à la couronne et badge top1 */
-}
-
-/* ----------- CLASSEMENT PODIUM ----------- */
-.classement-item {
-  position: relative;
-  width: 100%;
-  max-width: 250px;
-  background: none;
-  box-sizing: border-box;
-  border-radius: 16px;
-  transition: transform 0.14s, box-shadow 0.17s;
-  z-index: 1;
-  min-height: 300px;
-}
-
-/* Glow and hover */
-.classement-item img,
-.classement-item iframe {
-  width: 100%;
-  height: 210px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 0.8em;
-  box-shadow: 0 0 18px #1116;
-}
-.classement-item:hover {
-  transform: translateY(-5px) scale(1.04);
-  box-shadow: 0 6px 28px #00bcd4cc;
-}
-
-/* --- Badge Rank: tous alignés sur l'image, top-left --- */
-.classement-item .rank {
-  position: absolute;
-  left: 16px;
-  top: 12px;
-  background: #00bcd4;
-  color: #111;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1.05rem;
-  padding: 0.13em 0.75em;
-  box-shadow: 0 1px 5px #1113;
-  z-index: 4;
-  border: none;
-  pointer-events: none;
-}
-
-/* --- Badge Spécial #1 --- */
-.classement-item.top1 .rank {
-  left: 50%;
-  top: -34px;
-  transform: translateX(-50%);
-  background: gold;
-  color: #111;
-  border-radius: 10px;
-  font-size: 1.15rem;
-  font-weight: bold;
-  padding: 0.17em 1.18em;
-  box-shadow: 0 2px 14px #ffd70099;
-  border: 2px solid #fff8;
-  letter-spacing: 0.03em;
-  z-index: 5; /* devant la couronne */
-  pointer-events: none;
-}
-
-/* Couronne pour #1 (toujours en dessous du badge) */
-.classement-item.top1::before {
-  content: "👑";
-  font-size: 2.35rem;
-  position: absolute;
-  top: -54px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  filter: drop-shadow(0 3px 10px #ffd700aa) drop-shadow(0 6px 20px #fff8);
-  pointer-events: none;
-}
-
-/* Podium : top2 et top3, même place que les autres mais style différent */
-.classement-item.top2 .rank {
-  background: linear-gradient(90deg, #eee, #bbb);
-  color: #333;
-  border: none;
-}
-.classement-item.top3 .rank {
-  background: linear-gradient(90deg, #ffb47c, #c96f29);
-  color: #45250f;
-  border: none;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  #duel-container .anime,
-  #duel-container .opening {
-    width: 100%;
-  }
-  #duel-container .anime img,
-  #duel-container .opening iframe {
-    height: 180px;
-  }
-  #classement {
-    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
-    gap: 1rem;
-    max-width: 100vw;
-    padding-top: 38px;
-  }
-  .classement-item {
-    min-height: 200px;
-    padding: 0.6rem 0.2rem 0.5rem 0.2rem;
-  }
-  .classement-item img {
-    height: 120px;
-  }
-  .classement-item .rank {
-    font-size: 0.97rem;
-    left: 7px;
-    top: 7px;
-    padding: 0.11em 0.59em;
-  }
-  .classement-item.top1 .rank {
-    font-size: 1rem;
-    top: -20px;
-    padding: 0.12em 0.98em;
-  }
-  .classement-item.top1::before {
-    font-size: 1.2rem;
-    top: -24px;
-  }
-}
-
-/* Titre de la carte classement */
-.classement-item .title {
-  font-weight: bold;
-  text-align: center;
-  color: #fff;
-  margin-top: 0.1em;
-  font-size: 1.08rem;
-  min-height: 2.1em;
-}
-
-/* Hide #classement > .rank si jamais il y a un bug */
-#classement > .rank {
-  display: none;
 }
 
 footer {
