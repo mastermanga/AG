@@ -243,6 +243,7 @@ body.light .toggle-btn:hover {
     max-width: 100vw;
   }
   .classement-item {
+    position: relative;
     width: 100%;
     padding: 0.6rem 0.2rem 0.5rem 0.2rem;
   }
