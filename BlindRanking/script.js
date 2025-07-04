@@ -120,7 +120,9 @@ function displayCurrentItem() {
     } else {
       document.getElementById("rank-section").style.display = "none";
       container.style.display = "none";
-      document.getElementById("new-ranking-btn").style.display = "block";
+      const nextBtn = document.getElementById("new-ranking-btn");
+      nextBtn.style.display = "block";
+      nextBtn.textContent = "Nouveau classement";
     }
   }, 120);
 }
