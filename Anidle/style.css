@@ -47,6 +47,34 @@ header h1 {
   color: white;
 }
 
+/* ================= DAILY BANNER ================== */
+#daily-banner {
+  display: none;
+  background: linear-gradient(90deg, #1565c0 40%, #00bcd4 100%);
+  color: #fff;
+  border-radius: 9px;
+  box-shadow: 0 4px 15px #00bcd4cc;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 12px 20px 10px 20px;
+  margin: 0 auto 26px auto;
+  max-width: 460px;
+  width: 95%;
+  letter-spacing: 0.4px;
+  gap: 10px;
+  position: relative;
+  z-index: 3;
+}
+#daily-banner .score {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #ffe082;
+  font-weight: bold;
+}
+
+/* ================= FIN DAILY ================== */
+
 body.light {
   background-color: #f5f5f5;
   color: #222;
@@ -71,6 +99,7 @@ body.light .toggle-btn:hover {
   flex-direction: column;
   align-items: center;
   min-height: 540px;
+  position: relative;
 }
 
 @media (max-width: 900px) {
@@ -256,4 +285,13 @@ footer {
 }
 body.light footer {
   color: #888;
+}
+
+/* Ajout : Responsive pour le bandeau daily */
+@media (max-width: 600px) {
+  #daily-banner {
+    max-width: 98vw;
+    font-size: 1rem;
+    padding: 10px 3vw 10px 3vw;
+  }
 }
