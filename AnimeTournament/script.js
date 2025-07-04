@@ -234,9 +234,8 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[0].querySelector('iframe').src = url1;
       divs[1].querySelector('iframe').src = url2;
 
-    divs[0].querySelector('h3').textContent = items[i1].title;
-    divs[1].querySelector('h3').textContent = items[i2].title;
-
+      divs[0].querySelector('h3').textContent = items[i1].title;
+      divs[1].querySelector('h3').textContent = items[i2].title;
     }
     currentMatch = match;
   }
@@ -417,9 +416,11 @@ window.addEventListener("DOMContentLoaded", () => {
         losses: swissStats[i]?.losses || 0
       })).sort((a,b) => a.rank - b.rank);
 
-      for(const entry of rankedItems){
+      // -------- PATCH PRINCIPAL --------
+      for(const entry of rankedItems.slice(0, 16)){
         displayClassementItem(entry.index, entry.rank);
       }
+      // -------- PATCH PRINCIPAL --------
 
     } else {
       const classement = swissStats
@@ -429,7 +430,9 @@ window.addEventListener("DOMContentLoaded", () => {
           return a.losses - b.losses;
         });
 
+      // -------- PATCH PRINCIPAL --------
       classement.slice(0, 16).forEach((c, i) => displayClassementItem(c.index, i + 1));
+      // -------- PATCH PRINCIPAL --------
     }
   }
 
@@ -481,7 +484,6 @@ window.addEventListener("DOMContentLoaded", () => {
     div.appendChild(titleDiv);
     classementDiv.appendChild(div);
   }
-
 
   // Init first load
   loadDataAndStart();
