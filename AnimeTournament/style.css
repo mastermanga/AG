@@ -136,6 +136,7 @@ body.light .toggle-btn:hover {
   width: 100%;
   max-width: 850px;
   overflow-x: auto;
+  padding-top: 40px;
 }
 
 .classement-item img,
@@ -158,12 +159,16 @@ body.light .toggle-btn:hover {
   box-shadow: 0 4px 24px #ffd70099, 0 0 0 4px #fff2;
   position: relative;
   z-index: 2;
+  margin-top: 30px;
 }
 .classement-item.top1 .rank {
-  background: linear-gradient(90deg, gold, orange);
-  color: #222;
-  border: 2px solid #fff5;
+  position: absolute;
+  left: 15px;
+  top: -25px;  /* décale la couronne vers le haut */
+  z-index: 2;
+  /* styles de glow etc ici */
 }
+
 .classement-item.top1::before {
   content: "👑";
   font-size: 2rem;
