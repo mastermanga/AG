@@ -23,6 +23,11 @@ let attemptCount = 0;
 let gameOver = false;
 let indiceStep = 0;
 
+// Cache bouton suivant au départ
+const nextBtn = document.getElementById("nextBtn");
+nextBtn.style.display = "none";
+nextBtn.addEventListener("click", () => location.reload());
+
 // Chargement des données
 fetch('../data/animes.json')
   .then(response => response.json())
@@ -196,6 +201,7 @@ function guessAnime() {
     gameOver = true;
     document.getElementById("animeInput").disabled = true;
     document.getElementById("indiceBtn").disabled = true;
+    nextBtn.style.display = "block"; // Affiche bouton Suivant !
     const message = document.createElement("div");
     message.id = "winMessage";
     message.innerHTML = `🎆 <span style="font-size:2rem;">🥳</span> Bravo ! C'était <u>${targetAnime.title}</u> en ${attemptCount} tentative${attemptCount > 1 ? 's' : ''}. <span style="font-size:2rem;">🎉</span>`;
@@ -235,12 +241,6 @@ function updateAideList() {
 function selectFromAide(title) {
   document.getElementById("animeInput").value = title;
   guessAnime();
-}
-
-// Reset du jeu
-document.getElementById("resetBtn").addEventListener("click", resetGame);
-function resetGame() {
-  location.reload();
 }
 
 // Fireworks confetti
