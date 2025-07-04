@@ -4581,13 +4581,15 @@
   {
     "title": "Prince of Tennis",
     "image": "https://cdn.myanimelist.net/images/anime/6/21624l.jpg",
-    "season": "summer 2021",
-    "studio": "Keica",
+    "season": "Fall 2001",
+    "studio": "Trans Arts",
     "genres": [
       "Sports"
     ],
-    "themes": [],
-    "score": 6.31,
+    "themes": [
+      "School"
+    ],
+    "score": 7.85,
     "characters": [
       {
         "name": "Yanagi, Renji",
@@ -7069,7 +7071,7 @@
     ]
   },
   {
-    "title": "Havenu2019t You Heard? Iu2019m Sakamoto",
+    "title": "Havent You Heard? Im Sakamoto",
     "image": "https://cdn.myanimelist.net/images/anime/4/79468l.jpg",
     "season": "winter 2025",
     "studio": "TMS Entertainment",
