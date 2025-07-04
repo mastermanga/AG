@@ -79,6 +79,8 @@ body.light .toggle-btn:hover {
   }
 }
 
+.input-container { position: relative; margin-bottom: 8px; }
+
 /* INPUT UNIFORME */
 input[type="text"], #openingInput {
   width: 100%;
