@@ -68,10 +68,8 @@ fetch('../data/openings.json')
   });
 
 function setupGame() {
-  // Gestion du score daily
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
-  // Index de daily fixé ou random pour classic
   if (isDaily) {
     let animeIdx;
     if (!localStorage.getItem(OPENING_KEY)) {
@@ -140,12 +138,6 @@ function unlockClassicInputs() {
 }
 
 // ============ PLAYER LOGIC ===========
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
 function initPlayer() {
   player = new YT.Player('playerWrapper', {
     height: '0',
@@ -217,18 +209,19 @@ function checkAnswer(selectedTitle) {
   if (isDaily && dailyPlayed) return;
   const inputVal = selectedTitle.trim().toLowerCase();
   if (currentAnime.altTitles.includes(inputVal)) {
-    // SCORE: 1000/800/500 pour daily, sinon pas de save
     let score = 0;
     if (isDaily && !dailyPlayed) {
       score = tries === 1 ? 1000 : (tries === 2 ? 800 : 500);
       localStorage.setItem(SCORE_KEY, score);
-      showDailyBanner();
-      dailyPlayed = true;
       dailyScore = score;
+      dailyPlayed = true;
+      showDailyBanner();
     }
     showResultMessage(`✅ Bravo ! C’est ${currentAnime.title}${isDaily && score ? " ("+score+" pts)" : ""}`, true);
     blockInputs();
     showNextButton();
+    if (isDaily) showDailyBanner();
+    launchFireworks();
   } else {
     failedAnswers.push(selectedTitle);
     updateFailedAttempts();
@@ -260,7 +253,6 @@ function blockInputs() {
 function showNextButton() {
   document.getElementById("nextBtn").style.display = "block";
 }
-
 function nextAnime() {
   if (isDaily) {
     window.location.href = "../index.html";
@@ -271,7 +263,6 @@ function nextAnime() {
   currentAnime = animeList[currentIndex];
   resetControls();
 }
-
 function showResultMessage(msg, correct = false, dailyDone = false) {
   document.getElementById("result").textContent = msg;
   document.getElementById("result").className = correct ? "correct" : "incorrect";
@@ -283,13 +274,47 @@ function showResultMessage(msg, correct = false, dailyDone = false) {
     document.getElementById("nextBtn").textContent = isDaily ? "Retour menu" : "Rejouer";
   }
 }
+function launchFireworks() {
+  const canvas = document.getElementById("fireworks");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const particles = [];
+  function createParticle(x, y) {
+    const angle = Math.random() * 2 * Math.PI;
+    const speed = Math.random() * 5 + 2;
+    return { x, y, dx: Math.cos(angle) * speed, dy: Math.sin(angle) * speed, life: 60 };
+  }
+  for (let i = 0; i < 100; i++) {
+    particles.push(createParticle(canvas.width / 2, canvas.height / 2));
+  }
+  function animate() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      ctx.fill();
+      p.x += p.dx;
+      p.y += p.dy;
+      p.dy += 0.05;
+      p.life--;
+    });
+    for (let i = particles.length - 1; i >= 0; i--) {
+      if (particles[i].life <= 0) particles.splice(i, 1);
+    }
+    if (particles.length > 0) requestAnimationFrame(animate);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  animate();
+}
 
 document.getElementById("playTry1").addEventListener("click", () => playTry(1));
 document.getElementById("playTry2").addEventListener("click", () => playTry(2));
 document.getElementById("playTry3").addEventListener("click", () => playTry(3));
 document.getElementById("nextBtn").addEventListener("click", () => nextAnime());
 
-// ===== AUTOCOMPLETE & SUBMIT =====
 const input = document.getElementById("openingInput");
 input.addEventListener("input", function() {
   if (isDaily && dailyPlayed) return;
