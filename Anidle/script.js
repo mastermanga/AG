@@ -54,12 +54,10 @@ fetch('../data/animes.json')
   });
 
 function setupGame() {
-  // Récupérer dailyScore si existant
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
 
   if (isDaily) {
-    // Générer un daily commun pour tous (déterministe)
     let animeIdx;
     if (!localStorage.getItem(ANIME_KEY)) {
       animeIdx = getDeterministicDailyIndex(animeData.length);
@@ -74,13 +72,11 @@ function setupGame() {
       gameOver = true;
     }
   } else {
-    // Mode classic (random)
     targetAnime = animeData[Math.floor(Math.random() * animeData.length)];
     if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
     unlockClassicInputs();
   }
 
-  // Remettre à zéro
   attemptCount = 0;
   gameOver = false;
   indiceStep = 0;
@@ -99,8 +95,9 @@ function showDailyBanner() {
   DAILY_BANNER.style.display = "block";
   updateSwitchModeBtn();
   if (dailyPlayed) {
+    const saved = localStorage.getItem(SCORE_KEY);
     DAILY_STATUS.textContent = "✅ Daily du jour déjà jouée !";
-    DAILY_SCORE.textContent = `Score : ${dailyScore} pts`;
+    DAILY_SCORE.textContent = saved ? `Score : ${saved} pts` : "";
   } else {
     DAILY_STATUS.textContent = "🎲 Daily du jour :";
     DAILY_SCORE.textContent = "";
@@ -199,7 +196,6 @@ function guessAnime() {
     score: "cell-score"
   };
 
-  // Afficher le header au premier essai
   if (attemptCount === 1) {
     const header = document.createElement("div");
     header.classList.add("row");
@@ -216,7 +212,6 @@ function guessAnime() {
   const row = document.createElement("div");
   row.classList.add("row");
 
-  // Image
   const cellImage = document.createElement("div");
   cellImage.classList.add("cell", keyToClass.image);
   const img = document.createElement("img");
@@ -226,7 +221,6 @@ function guessAnime() {
   cellImage.appendChild(img);
   row.appendChild(cellImage);
 
-  // Titre
   const cellTitle = document.createElement("div");
   cellTitle.classList.add("cell", keyToClass.title);
   const isTitleMatch = guessedAnime.title === targetAnime.title;
@@ -234,7 +228,6 @@ function guessAnime() {
   cellTitle.textContent = guessedAnime.title;
   row.appendChild(cellTitle);
 
-  // Saison
   const cellSeason = document.createElement("div");
   cellSeason.classList.add("cell", keyToClass.season);
   const [gs, gy] = guessedAnime.season.split(" ");
@@ -253,7 +246,6 @@ function guessAnime() {
   }
   row.appendChild(cellSeason);
 
-  // Studio
   const cellStudio = document.createElement("div");
   cellStudio.classList.add("cell", keyToClass.studio);
   const isStudioMatch = guessedAnime.studio === targetAnime.studio;
@@ -261,7 +253,6 @@ function guessAnime() {
   cellStudio.textContent = guessedAnime.studio;
   row.appendChild(cellStudio);
 
-  // Genres / Thèmes
   const cellGenresThemes = document.createElement("div");
   cellGenresThemes.classList.add("cell", keyToClass.genresThemes);
   const allGuessed = [...guessedAnime.genres, ...guessedAnime.themes];
@@ -277,7 +268,6 @@ function guessAnime() {
   cellGenresThemes.innerHTML = allGuessed.join("<br>");
   row.appendChild(cellGenresThemes);
 
-  // Score
   const cellScore = document.createElement("div");
   cellScore.classList.add("cell", keyToClass.score);
   const g = parseFloat(guessedAnime.score);
@@ -291,14 +281,12 @@ function guessAnime() {
   }
   row.appendChild(cellScore);
 
-  // Affiche la ligne sous le header
   const header = results.querySelector(".row");
   results.insertBefore(row, header.nextSibling);
 
   document.getElementById("animeInput").value = "";
   document.getElementById("suggestions").innerHTML = "";
 
-  // Fin du jeu
   if (isTitleMatch) {
     gameOver = true;
     document.getElementById("animeInput").disabled = true;
@@ -307,22 +295,22 @@ function guessAnime() {
     document.getElementById("indiceBtn").style.display = "none";
     showSuccessMessage();
 
-    // --- SAUVEGARDE SCORE AVEC LA BONNE CLÉ MENU ---
     if (isDaily && !dailyPlayed) {
       let score = 3000;
       score -= (attemptCount - 1) * 100;
       score -= (indiceStep) * 1000;
       if (score < 0) score = 0;
-      localStorage.setItem(SCORE_KEY, score); // clé compatible menu
-      showDailyBanner();
+      localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
       dailyScore = score;
+      showDailyBanner();
     }
+
     launchFireworks();
   }
 }
 
-// Suggestions "Aide" dynamiques
+// ========== Suggestions Aide ==========
 function updateAideList() {
   const aideDiv = document.getElementById("aideContainer");
   if (attemptCount < 5) {
@@ -349,13 +337,12 @@ function updateAideList() {
     `</ul>`;
 }
 
-// Sélection aide (pour clic suggestion)
 function selectFromAide(title) {
   document.getElementById("animeInput").value = title;
   guessAnime();
 }
 
-// Fireworks confetti
+// ========== Confettis ==========
 function launchFireworks() {
   const canvas = document.getElementById("fireworks");
   const ctx = canvas.getContext("2d");
@@ -396,7 +383,7 @@ function launchFireworks() {
   animate();
 }
 
-// ==== Message de victoire + bouton suivant ====
+// ========== Message de victoire ==========
 function showSuccessMessage() {
   const container = document.getElementById("successContainer");
   container.innerHTML = `
@@ -420,4 +407,3 @@ function showSuccessMessage() {
     }
   };
 }
-
