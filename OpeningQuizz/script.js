@@ -81,9 +81,11 @@ function setupGame() {
     currentIndex = animeIdx;
     showDailyBanner();
     if (dailyPlayed) {
-      showResultMessage(`✅ Daily du jour déjà jouée !`, true, true);
+      showDailyBanner(); // force update visuel
+      showResultMessage(`✅ Daily du jour déjà jouée !`, true, true, true); // <-- modif (dernier arg true)
       blockInputs();
       document.getElementById("nextBtn").style.display = "block";
+      resizeContainer();
       return;
     }
   } else {
@@ -99,6 +101,7 @@ function setupGame() {
     initPlayer();
   }
   resetControls();
+  resizeContainer();
 }
 
 function showDailyBanner() {
@@ -106,10 +109,11 @@ function showDailyBanner() {
   DAILY_BANNER.style.display = "block";
   updateSwitchModeBtn();
   if (dailyPlayed) {
-    DAILY_STATUS.textContent = "✅ Daily du jour déjà jouée !";
-    DAILY_SCORE.textContent = `Score : ${dailyScore} pts`;
+    // Style compact + ✔️ + score + bouton
+    DAILY_STATUS.innerHTML = `<span style="color:#25ff67;font-size:1.3em;vertical-align:-2px;">&#x2705;</span> <b>Daily du jour déjà jouée !</b> <span style="margin-left:7px;">Score : <b>${dailyScore} pts</b></span>`;
+    DAILY_SCORE.textContent = "";
   } else {
-    DAILY_STATUS.textContent = "🎲 Daily du jour :";
+    DAILY_STATUS.innerHTML = `<b>🎲 Daily du jour :</b>`;
     DAILY_SCORE.textContent = "";
   }
 }
@@ -138,6 +142,12 @@ function unlockClassicInputs() {
 }
 
 // ============ PLAYER LOGIC ===========
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 function initPlayer() {
   player = new YT.Player('playerWrapper', {
     height: '0',
@@ -177,6 +187,7 @@ function resetControls() {
   document.getElementById("playTry3").disabled = true;
   document.getElementById("nextBtn").style.display = "none";
   document.getElementById("suggestions").innerHTML = "";
+  resizeContainer();
 }
 
 function playTry(n) {
@@ -203,6 +214,7 @@ function playTry(n) {
   document.getElementById("playTry1").disabled = true;
   document.getElementById("playTry2").disabled = (tries !== 1);
   document.getElementById("playTry3").disabled = (tries !== 2);
+  resizeContainer();
 }
 
 function checkAnswer(selectedTitle) {
@@ -213,15 +225,14 @@ function checkAnswer(selectedTitle) {
     if (isDaily && !dailyPlayed) {
       score = tries === 1 ? 1000 : (tries === 2 ? 800 : 500);
       localStorage.setItem(SCORE_KEY, score);
-      dailyScore = score;
-      dailyPlayed = true;
       showDailyBanner();
+      dailyPlayed = true;
+      dailyScore = score;
     }
-    showResultMessage(`✅ Bravo ! C’est ${currentAnime.title}${isDaily && score ? " ("+score+" pts)" : ""}`, true);
+    showResultMessage(`✅ Bravo ! C’est ${currentAnime.title}`, true, false, false);
     blockInputs();
     showNextButton();
-    if (isDaily) showDailyBanner();
-    launchFireworks();
+    resizeContainer();
   } else {
     failedAnswers.push(selectedTitle);
     updateFailedAttempts();
@@ -230,6 +241,7 @@ function checkAnswer(selectedTitle) {
     } else {
       document.getElementById("openingInput").disabled = true;
     }
+    resizeContainer();
   }
 }
 
@@ -242,6 +254,7 @@ function revealAnswer() {
   resultDiv.className = "incorrect";
   blockInputs();
   showNextButton();
+  resizeContainer();
 }
 function blockInputs() {
   document.getElementById("openingInput").disabled = true;
@@ -252,7 +265,9 @@ function blockInputs() {
 }
 function showNextButton() {
   document.getElementById("nextBtn").style.display = "block";
+  document.getElementById("nextBtn").textContent = isDaily ? "Retour menu" : "Rejouer";
 }
+
 function nextAnime() {
   if (isDaily) {
     window.location.href = "../index.html";
@@ -262,10 +277,22 @@ function nextAnime() {
   currentIndex = Math.floor(Math.random() * animeList.length);
   currentAnime = animeList[currentIndex];
   resetControls();
+  resizeContainer();
 }
-function showResultMessage(msg, correct = false, dailyDone = false) {
-  document.getElementById("result").textContent = msg;
-  document.getElementById("result").className = correct ? "correct" : "incorrect";
+
+function showResultMessage(msg, correct = false, dailyDone = false, dailyBannerOnly = false) {
+  const resultDiv = document.getElementById("result");
+  if (dailyBannerOnly) {
+    resultDiv.textContent = "";
+    resultDiv.className = "";
+    document.getElementById("failedAttempts").innerText = "";
+    document.getElementById("nextBtn").textContent = "Retour menu";
+    document.getElementById("nextBtn").style.display = "block";
+    resizeContainer();
+    return;
+  }
+  resultDiv.textContent = msg;
+  resultDiv.className = correct ? "correct" : "incorrect";
   if (dailyDone) {
     blockInputs();
     document.getElementById("nextBtn").textContent = "Retour menu";
@@ -273,41 +300,7 @@ function showResultMessage(msg, correct = false, dailyDone = false) {
   } else if (correct) {
     document.getElementById("nextBtn").textContent = isDaily ? "Retour menu" : "Rejouer";
   }
-}
-function launchFireworks() {
-  const canvas = document.getElementById("fireworks");
-  const ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  const particles = [];
-  function createParticle(x, y) {
-    const angle = Math.random() * 2 * Math.PI;
-    const speed = Math.random() * 5 + 2;
-    return { x, y, dx: Math.cos(angle) * speed, dy: Math.sin(angle) * speed, life: 60 };
-  }
-  for (let i = 0; i < 100; i++) {
-    particles.push(createParticle(canvas.width / 2, canvas.height / 2));
-  }
-  function animate() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-      ctx.fillStyle = `hsl(${Math.random() * 360}, 100%, 50%)`;
-      ctx.fill();
-      p.x += p.dx;
-      p.y += p.dy;
-      p.dy += 0.05;
-      p.life--;
-    });
-    for (let i = particles.length - 1; i >= 0; i--) {
-      if (particles[i].life <= 0) particles.splice(i, 1);
-    }
-    if (particles.length > 0) requestAnimationFrame(animate);
-    else ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-  animate();
+  resizeContainer();
 }
 
 document.getElementById("playTry1").addEventListener("click", () => playTry(1));
@@ -315,6 +308,7 @@ document.getElementById("playTry2").addEventListener("click", () => playTry(2));
 document.getElementById("playTry3").addEventListener("click", () => playTry(3));
 document.getElementById("nextBtn").addEventListener("click", () => nextAnime());
 
+// ===== AUTOCOMPLETE & SUBMIT =====
 const input = document.getElementById("openingInput");
 input.addEventListener("input", function() {
   if (isDaily && dailyPlayed) return;
@@ -346,3 +340,15 @@ input.addEventListener("keydown", function(e) {
 document.addEventListener("click", (e) => {
   if (e.target !== input) document.getElementById("suggestions").innerHTML = "";
 });
+
+// ===== Resize container (évite grand vide en bas) =====
+function resizeContainer() {
+  const c = document.getElementById("container");
+  if (!c) return;
+  c.style.minHeight = "unset";
+  c.style.height = "unset";
+  setTimeout(() => {
+    c.style.height = "auto";
+    c.style.minHeight = "0";
+  }, 40);
+}
