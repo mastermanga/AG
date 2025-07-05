@@ -30,12 +30,10 @@ const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
 const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
 
-function todayKey() {
-  const d = new Date();
-  return `${d.getFullYear()}${(d.getMonth()+1).toString().padStart(2, "0")}${d.getDate().toString().padStart(2,"0")}`;
-}
-const SCORE_KEY = `daily_anidle_score_${todayKey()}`;
-const ANIME_KEY = `daily_anidle_id_${todayKey()}`;
+// ------- CLÉ COMPATIBLE MENU -------
+const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+const SCORE_KEY = `dailyScore_anidle_${today}`;
+const ANIME_KEY = `daily_anidle_id_${today.replace(/-/g, '')}`; // pour daily id stable
 
 // ---- State persistance ----
 let dailyPlayed = false;
@@ -79,7 +77,6 @@ function setupGame() {
     // Mode classic (random)
     targetAnime = animeData[Math.floor(Math.random() * animeData.length)];
     if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
-    // On réactive les inputs en cas de retour classic
     unlockClassicInputs();
   }
 
@@ -306,19 +303,17 @@ function guessAnime() {
     gameOver = true;
     document.getElementById("animeInput").disabled = true;
     document.getElementById("indiceBtn").disabled = true;
-    // Cacher les indices et le bouton indice
     document.getElementById("indicesContainer").style.display = "none";
     document.getElementById("indiceBtn").style.display = "none";
-    // Affiche le message de win en haut
     showSuccessMessage();
 
-    // Sauvegarde daily score : 3000 pts de base, -100/tentative sup, -1000/indice utilisé
+    // --- SAUVEGARDE SCORE AVEC LA BONNE CLÉ MENU ---
     if (isDaily && !dailyPlayed) {
       let score = 3000;
       score -= (attemptCount - 1) * 100;
       score -= (indiceStep) * 1000;
       if (score < 0) score = 0;
-      localStorage.setItem(SCORE_KEY, score);
+      localStorage.setItem(SCORE_KEY, score); // clé compatible menu
       showDailyBanner();
       dailyPlayed = true;
       dailyScore = score;
@@ -425,3 +420,4 @@ function showSuccessMessage() {
     }
   };
 }
+
