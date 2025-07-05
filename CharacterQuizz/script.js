@@ -1,9 +1,7 @@
-// Bouton retour au menu
+// === MENU & THEME ===
 document.getElementById("back-to-menu").addEventListener("click", function() {
   window.location.href = "../index.html";
 });
-
-// Thème dark/light + persistance
 document.getElementById("themeToggle").addEventListener("click", () => {
   document.body.classList.toggle("light");
   const isLight = document.body.classList.contains("light");
@@ -16,11 +14,63 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ========== CARACTÈRES ==========
+// === DAILY SYSTEME ===
+let isDaily = true;
+const DAILY_BANNER = document.getElementById("daily-banner");
+const DAILY_STATUS = document.getElementById("daily-status");
+const DAILY_SCORE = document.getElementById("daily-score");
+const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
+
+function todayKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2,"0")}-${d.getDate().toString().padStart(2,"0")}`;
+}
+const SCORE_KEY = `dailyScore_characterquizz_${todayKey()}`;
+const CHARACTER_KEY = `daily_characterquizz_id_${todayKey()}`;
+
+let dailyPlayed = false;
+let dailyScore = null;
+
+function getDeterministicDailyIndex(len) {
+  const d = new Date();
+  const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
+  return seed % len;
+}
+
+if (SWITCH_MODE_BTN) {
+  SWITCH_MODE_BTN.onclick = () => {
+    isDaily = !isDaily;
+    startNewGame();
+  };
+}
+function updateSwitchModeBtn() {
+  if (!SWITCH_MODE_BTN) return;
+  if (isDaily) {
+    SWITCH_MODE_BTN.textContent = "Passer en mode Classic";
+    SWITCH_MODE_BTN.style.backgroundColor = "#42a5f5";
+  } else {
+    SWITCH_MODE_BTN.textContent = "Revenir au Daily";
+    SWITCH_MODE_BTN.style.backgroundColor = "#00bcd4";
+  }
+}
+function showDailyBanner() {
+  if (!DAILY_BANNER) return;
+  DAILY_BANNER.style.display = "block";
+  updateSwitchModeBtn();
+  if (dailyPlayed) {
+    DAILY_STATUS.innerHTML = "<span style='font-weight:bold;'><input type='checkbox' checked disabled style='accent-color:#38d430; margin-right:6px;'>Daily du jour déjà jouée !</span>";
+    DAILY_SCORE.innerHTML = `Score : ${dailyScore} pts`;
+  } else {
+    DAILY_STATUS.textContent = "🎲 Daily du jour :";
+    DAILY_SCORE.textContent = "";
+  }
+}
+
+// === VARIABLES & DOM ===
 const container = document.getElementById("character-container");
 const feedback = document.getElementById("feedback");
 const timerDisplay = document.getElementById("timer");
-const input = document.getElementById("characterInput"); // nouveau nom uniforme
+const input = document.getElementById("characterInput");
 const submitBtn = document.getElementById("submit-btn");
 const restartBtn = document.getElementById("restart-btn");
 const suggestions = document.getElementById("suggestions");
@@ -32,6 +82,7 @@ let gameEnded = false;
 let countdown = 5;
 let countdownInterval = null;
 
+// Chargement des données
 async function loadAnimes() {
   try {
     const response = await fetch('../data/animes.json');
@@ -43,8 +94,33 @@ async function loadAnimes() {
   }
 }
 
+// --- Le coeur du jeu, Daily ou Classic selon isDaily ---
 function startNewGame() {
-  currentAnime = allAnimes[Math.floor(Math.random() * allAnimes.length)];
+  // Gestion daily/classic
+  dailyScore = localStorage.getItem(SCORE_KEY);
+  dailyPlayed = !!dailyScore;
+  if (isDaily && allAnimes.length > 0) {
+    let animeIdx;
+    if (!localStorage.getItem(CHARACTER_KEY)) {
+      animeIdx = getDeterministicDailyIndex(allAnimes.length);
+      localStorage.setItem(CHARACTER_KEY, animeIdx);
+    } else {
+      animeIdx = parseInt(localStorage.getItem(CHARACTER_KEY));
+    }
+    currentAnime = allAnimes[animeIdx];
+    showDailyBanner();
+    if (dailyPlayed) {
+      showSuccessDailyMsg(); // affiche le message daily déjà fait
+      blockInputs();
+      return;
+    }
+  } else if (allAnimes.length > 0) {
+    currentAnime = allAnimes[Math.floor(Math.random() * allAnimes.length)];
+    if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
+    unlockClassicInputs();
+  }
+
+  // Reset
   container.innerHTML = '';
   feedback.textContent = '';
   feedback.className = "";
@@ -76,9 +152,28 @@ function startNewGame() {
   resetTimer();
 }
 
-// Système de suggestions identique à Anidle
+function showSuccessDailyMsg() {
+  feedback.innerHTML = `<span style="font-weight:bold; color:#4caf50;">
+    <input type="checkbox" checked disabled style="accent-color:#38d430; margin-right:6px;">
+    Daily du jour déjà jouée ! Score : ${dailyScore} pts
+  </span>`;
+  feedback.className = "success";
+  restartBtn.textContent = "Retour menu";
+  restartBtn.style.display = 'inline-block';
+  timerDisplay.textContent = "";
+}
+
+// --- UI Logic ---
+function unlockClassicInputs() {
+  input.disabled = false;
+  submitBtn.disabled = true;
+  restartBtn.textContent = "Rejouer";
+  restartBtn.style.display = "none";
+}
+
+// Suggestions comme Anidle
 input.addEventListener("input", function() {
-  if (gameEnded) return;
+  if (gameEnded || (isDaily && dailyPlayed)) return;
   const val = this.value.toLowerCase();
   suggestions.innerHTML = '';
   feedback.textContent = '';
@@ -108,17 +203,23 @@ input.addEventListener("input", function() {
 input.addEventListener("input", function() {
   const val = this.value.trim().toLowerCase();
   const titles = allAnimes.map(a => a.title.toLowerCase());
-  submitBtn.disabled = !titles.includes(val);
+  submitBtn.disabled = !titles.includes(val) || (isDaily && dailyPlayed);
 });
 
 input.addEventListener("keydown", function(e) {
-  if (e.key === "Enter" && !submitBtn.disabled && !gameEnded) {
+  if (e.key === "Enter" && !submitBtn.disabled && !gameEnded && !(isDaily && dailyPlayed)) {
     checkGuess();
   }
 });
 
 submitBtn.addEventListener("click", checkGuess);
-restartBtn.addEventListener("click", startNewGame);
+restartBtn.addEventListener("click", function() {
+  if (isDaily && dailyPlayed) {
+    window.location.href = "../index.html";
+  } else {
+    startNewGame();
+  }
+});
 
 function revealNextCharacter() {
   if (revealedCount < currentAnime.characters.length) {
@@ -153,7 +254,7 @@ function resetTimer() {
 }
 
 function checkGuess() {
-  if (gameEnded) return;
+  if (gameEnded || (isDaily && dailyPlayed)) return;
 
   const guess = input.value.trim();
   if (!guess) {
@@ -171,6 +272,18 @@ function checkGuess() {
     // Affiche tous les persos restants
     for (let i = revealedCount; i < currentAnime.characters.length; i++) {
       document.getElementById("char-" + i).style.display = "block";
+    }
+    // --- Scoring only for Daily ---
+    if (isDaily && !dailyPlayed) {
+      // Score: 1000 - 100*révélés - 50*erreurs
+      let score = Math.max(1000 - (revealedCount-1)*100, 100);
+      localStorage.setItem(SCORE_KEY, score);
+      dailyPlayed = true;
+      dailyScore = score;
+      showDailyBanner();
+      restartBtn.textContent = "Retour menu";
+    } else {
+      restartBtn.textContent = "Rejouer";
     }
     endGame();
   } else {
@@ -201,3 +314,4 @@ function endGame() {
 }
 
 loadAnimes();
+
