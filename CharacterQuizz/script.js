@@ -21,31 +21,21 @@ const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
 const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
 
-// --- Seed utils ---
-function getGameSeed(gameName, year, month, day) {
-  let str = `${gameName}_${year}_${month}_${day}`;
-  let hash = 5381;
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) + hash) + str.charCodeAt(i);
-  }
-  return Math.abs(hash) >>> 0;
-}
-function seededRandom(seed) {
-  return function() {
-    seed = (seed * 1664525 + 1013904223) % 4294967296;
-    return seed / 4294967296;
-  };
-}
-
 function todayKey() {
   const d = new Date();
-  return `${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2,"0")}-${d.getDate().toString().padStart(2,"0")}`;
+  return ${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2,"0")}-${d.getDate().toString().padStart(2,"0")};
 }
-const SCORE_KEY = `dailyScore_characterquizz_${todayKey()}`;
-const CHARACTER_KEY = `daily_characterquizz_id_${todayKey()}`; // index du jour (pour compatibilité, mais inutile après seed unique)
+const SCORE_KEY = dailyScore_characterquizz_${todayKey()};
+const CHARACTER_KEY = daily_characterquizz_id_${todayKey()};
 
 let dailyPlayed = false;
 let dailyScore = null;
+
+function getDeterministicDailyIndex(len) {
+  const d = new Date();
+  const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
+  return seed % len;
+}
 
 if (SWITCH_MODE_BTN) {
   SWITCH_MODE_BTN.onclick = () => {
@@ -69,7 +59,7 @@ function showDailyBanner() {
   updateSwitchModeBtn();
   if (dailyPlayed) {
     DAILY_STATUS.innerHTML = "<span style='font-weight:bold;'><input type='checkbox' checked disabled style='accent-color:#38d430; margin-right:6px;'>Daily du jour déjà jouée !</span>";
-    DAILY_SCORE.innerHTML = `Score : ${dailyScore} pts`;
+    DAILY_SCORE.innerHTML = Score : ${dailyScore} pts;
   } else {
     DAILY_STATUS.textContent = "🎲 Daily du jour :";
     DAILY_SCORE.textContent = "";
@@ -106,25 +96,21 @@ async function loadAnimes() {
 
 // --- Le coeur du jeu, Daily ou Classic selon isDaily ---
 function startNewGame() {
+  // Gestion daily/classic
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
   if (isDaily && allAnimes.length > 0) {
     let animeIdx;
-    let stored = localStorage.getItem(CHARACTER_KEY);
-    if (!stored) {
-      // SEED UNIQUE avec nom du jeu
-      const d = new Date();
-      const seed = getGameSeed("characterquizz", d.getFullYear(), d.getMonth()+1, d.getDate());
-      const rand = seededRandom(seed)();
-      animeIdx = Math.floor(rand * allAnimes.length);
+    if (!localStorage.getItem(CHARACTER_KEY)) {
+      animeIdx = getDeterministicDailyIndex(allAnimes.length);
       localStorage.setItem(CHARACTER_KEY, animeIdx);
     } else {
-      animeIdx = parseInt(stored);
+      animeIdx = parseInt(localStorage.getItem(CHARACTER_KEY));
     }
     currentAnime = allAnimes[animeIdx];
     showDailyBanner();
     if (dailyPlayed) {
-      showSuccessDailyMsg();
+      showSuccessDailyMsg(); // affiche le message daily déjà fait
       blockInputs();
       return;
     }
@@ -167,10 +153,10 @@ function startNewGame() {
 }
 
 function showSuccessDailyMsg() {
-  feedback.innerHTML = `<span style="font-weight:bold; color:#4caf50;">
+  feedback.innerHTML = <span style="font-weight:bold; color:#4caf50;">
     <input type="checkbox" checked disabled style="accent-color:#38d430; margin-right:6px;">
     Daily du jour déjà jouée ! Score : ${dailyScore} pts
-  </span>`;
+  </span>;
   feedback.className = "success";
   restartBtn.textContent = "Retour menu";
   restartBtn.style.display = 'inline-block';
@@ -183,11 +169,6 @@ function unlockClassicInputs() {
   submitBtn.disabled = true;
   restartBtn.textContent = "Rejouer";
   restartBtn.style.display = "none";
-}
-function blockInputs() {
-  input.disabled = true;
-  submitBtn.disabled = true;
-  restartBtn.style.display = "inline-block";
 }
 
 // Suggestions comme Anidle
@@ -205,8 +186,8 @@ input.addEventListener("input", function() {
 
   found.forEach(title => {
     const div = document.createElement("div");
-    div.innerHTML = `<span>${title.replace(new RegExp(val, 'i'), 
-      match => `<b>${match}</b>`)}</span>`;
+    div.innerHTML = <span>${title.replace(new RegExp(val, 'i'), 
+      match => <b>${match}</b>)}</span>;
     div.addEventListener("mousedown", function(e) {
       e.preventDefault();
       input.value = title;
@@ -251,7 +232,7 @@ function revealNextCharacter() {
 
 function resetTimer() {
   countdown = 5;
-  timerDisplay.textContent = `Temps restant : ${countdown} s`;
+  timerDisplay.textContent = Temps restant : ${countdown} s;
   if (countdownInterval) clearInterval(countdownInterval);
   countdownInterval = setInterval(() => {
     countdown--;
@@ -259,7 +240,7 @@ function resetTimer() {
       clearInterval(countdownInterval);
       if (!gameEnded) {
         if (revealedCount === currentAnime.characters.length) {
-          feedback.textContent = `⏰ Temps écoulé ! Tu as perdu. C'était "${currentAnime.title}".`;
+          feedback.textContent = ⏰ Temps écoulé ! Tu as perdu. C'était "${currentAnime.title}".;
           feedback.className = "error";
           endGame();
         } else {
@@ -267,7 +248,7 @@ function resetTimer() {
         }
       }
     } else {
-      timerDisplay.textContent = `Temps restant : ${countdown} s`;
+      timerDisplay.textContent = Temps restant : ${countdown} s;
     }
   }, 1000);
 }
@@ -285,7 +266,7 @@ function checkGuess() {
   const answer = currentAnime.title.toLowerCase();
 
   if (normalizedGuess === answer) {
-    feedback.textContent = `🎉 Bonne réponse ! C'était bien "${currentAnime.title}"`;
+    feedback.textContent = 🎉 Bonne réponse ! C'était bien "${currentAnime.title}";
     feedback.className = "success";
     clearInterval(countdownInterval);
     // Affiche tous les persos restants
@@ -294,6 +275,7 @@ function checkGuess() {
     }
     // --- Scoring only for Daily ---
     if (isDaily && !dailyPlayed) {
+      // Score: 1000 - 100*révélés - 50*erreurs
       let score = Math.max(1000 - (revealedCount-1)*100, 100);
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
@@ -311,7 +293,7 @@ function checkGuess() {
       clearInterval(countdownInterval);
       revealNextCharacter();
     } else {
-      feedback.textContent += ` Tu as épuisé tous les indices. C'était "${currentAnime.title}".`;
+      feedback.textContent +=  Tu as épuisé tous les indices. C'était "${currentAnime.title}".;
       endGame();
     }
   }
