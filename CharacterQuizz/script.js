@@ -21,21 +21,31 @@ const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
 const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
 
+// --- Seed utils ---
+function getGameSeed(gameName, year, month, day) {
+  let str = `${gameName}_${year}_${month}_${day}`;
+  let hash = 5381;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) + hash) + str.charCodeAt(i);
+  }
+  return Math.abs(hash) >>> 0;
+}
+function seededRandom(seed) {
+  return function() {
+    seed = (seed * 1664525 + 1013904223) % 4294967296;
+    return seed / 4294967296;
+  };
+}
+
 function todayKey() {
   const d = new Date();
   return `${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2,"0")}-${d.getDate().toString().padStart(2,"0")}`;
 }
 const SCORE_KEY = `dailyScore_characterquizz_${todayKey()}`;
-const CHARACTER_KEY = `daily_characterquizz_id_${todayKey()}`;
+const CHARACTER_KEY = `daily_characterquizz_id_${todayKey()}`; // index du jour (pour compatibilité, mais inutile après seed unique)
 
 let dailyPlayed = false;
 let dailyScore = null;
-
-function getDeterministicDailyIndex(len) {
-  const d = new Date();
-  const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
-  return seed % len;
-}
 
 if (SWITCH_MODE_BTN) {
   SWITCH_MODE_BTN.onclick = () => {
@@ -96,21 +106,25 @@ async function loadAnimes() {
 
 // --- Le coeur du jeu, Daily ou Classic selon isDaily ---
 function startNewGame() {
-  // Gestion daily/classic
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
   if (isDaily && allAnimes.length > 0) {
     let animeIdx;
-    if (!localStorage.getItem(CHARACTER_KEY)) {
-      animeIdx = getDeterministicDailyIndex(allAnimes.length);
+    let stored = localStorage.getItem(CHARACTER_KEY);
+    if (!stored) {
+      // SEED UNIQUE avec nom du jeu
+      const d = new Date();
+      const seed = getGameSeed("characterquizz", d.getFullYear(), d.getMonth()+1, d.getDate());
+      const rand = seededRandom(seed)();
+      animeIdx = Math.floor(rand * allAnimes.length);
       localStorage.setItem(CHARACTER_KEY, animeIdx);
     } else {
-      animeIdx = parseInt(localStorage.getItem(CHARACTER_KEY));
+      animeIdx = parseInt(stored);
     }
     currentAnime = allAnimes[animeIdx];
     showDailyBanner();
     if (dailyPlayed) {
-      showSuccessDailyMsg(); // affiche le message daily déjà fait
+      showSuccessDailyMsg();
       blockInputs();
       return;
     }
@@ -169,6 +183,11 @@ function unlockClassicInputs() {
   submitBtn.disabled = true;
   restartBtn.textContent = "Rejouer";
   restartBtn.style.display = "none";
+}
+function blockInputs() {
+  input.disabled = true;
+  submitBtn.disabled = true;
+  restartBtn.style.display = "inline-block";
 }
 
 // Suggestions comme Anidle
@@ -275,7 +294,6 @@ function checkGuess() {
     }
     // --- Scoring only for Daily ---
     if (isDaily && !dailyPlayed) {
-      // Score: 1000 - 100*révélés - 50*erreurs
       let score = Math.max(1000 - (revealedCount-1)*100, 100);
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
@@ -314,4 +332,3 @@ function endGame() {
 }
 
 loadAnimes();
-
