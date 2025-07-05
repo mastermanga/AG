@@ -15,8 +15,15 @@
         <button id="themeToggle" class="toggle-btn">🌓</button>
       </div>
     </header>  
+
+    <!-- Bandeau daily en haut -->
+    <div id="daily-banner" style="display:none; margin-bottom: 1.2rem;">
+      <span id="daily-status"></span>
+      <span id="daily-score"></span>
+      <button id="switch-mode-btn" class="toggle-btn" style="margin-left:14px;">Passer en mode Classic</button>
+    </div>
+
     <div id="container">
-      <!-- Nouvelle zone input uniforme -->
       <div class="input-container">
         <input type="text" id="openingInput" placeholder="Entrez le nom d'un anime..." autocomplete="off" />
         <div id="suggestions" class="suggestions"></div>
@@ -35,7 +42,6 @@
     <footer>
       © 2025 mastermanga
     </footer>
-      
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
   </body>
