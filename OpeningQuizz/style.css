@@ -64,6 +64,49 @@ body.light .toggle-btn:hover {
   background-color: #0d47a1;
 }
 
+/* Bandeau Daily */
+#daily-banner {
+  display: none;
+  background: linear-gradient(90deg, #1565c0 40%, #00bcd4 100%);
+  color: #fff;
+  border-radius: 9px;
+  box-shadow: 0 4px 15px #00bcd4cc;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 12px 20px 10px 20px;
+  margin: 0 auto 26px auto;
+  max-width: 460px;
+  width: 95%;
+  letter-spacing: 0.4px;
+  gap: 10px;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#daily-banner .score {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #ffe082;
+}
+@media (max-width: 600px) {
+  #daily-banner {
+    max-width: 98vw;
+    font-size: 1rem;
+    padding: 10px 3vw;
+    flex-direction: column;
+    gap: 6px;
+  }
+  #switch-mode-btn {
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
+  }
+}
+
 /* Zone centrale */
 #container {
   margin: 0 auto 2rem auto;
