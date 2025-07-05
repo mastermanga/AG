@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CharacterQuizz</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="../images/favicon-32x32.png">
-  </head>
-  <body>
-    <header>
-      <div class="header-group">
-        <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
-        <h1>CharacterQuizz</h1>
-        <button id="themeToggle" class="toggle-btn">🌓</button>
-      </div>
-    </header>  
-    <div id="character-container"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CharacterQuizz</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="../images/favicon-32x32.png">
+  <style>
+    /* Responsive small improvements */
+    @media (max-width: 600px) {
+      #character-container img { max-width: 80vw !important; }
+      #container, #controls { width: 98vw !important; padding: 1rem !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-group">
+      <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
+      <h1>CharacterQuizz</h1>
+      <button id="themeToggle" class="toggle-btn">🌓</button>
+    </div>
+  </header>
 
-    <div id="controls">
-      <div class="input-container">
+  <div id="container" style="margin: 0 auto; max-width: 370px; width: 100%;">
+    <div id="character-container" style="margin-bottom:1rem;"></div>
+
+    <div id="controls" style="margin-top:1rem;">
+      <div class="input-container" style="position:relative;">
         <input type="text" id="characterInput" placeholder="Entrez le nom de l'anime..." autocomplete="off" />
         <div id="suggestions" class="suggestions"></div>
       </div>
-      <button id="submit-btn" disabled>Valider</button>
-      <button id="restart-btn" style="display:none;">Rejouer</button>
+      <div style="margin-top:0.5rem;">
+        <button id="submit-btn" disabled>Valider</button>
+        <button id="mode-btn" onclick="switchCharacterMode()" style="margin-left:0.4em;">Mode Daily/Classic</button>
+        <button id="restart-btn" style="display:none;">Rejouer</button>
+      </div>
     </div>
 
-    <p id="timer">Chargement...</p>
-    <p id="feedback"></p>
-    <footer>
-      © 2025 mastermanga
-    </footer>
-    <script src="script.js"></script>
-  </body>
+    <p id="timer" style="display:none;"></p>
+    <p id="feedback" style="margin-top:1.5em;min-height:1.7em;font-size:1.13em;"></p>
+  </div>
+
+  <footer>
+    © 2025 mastermanga
+  </footer>
+  <script src="script.js"></script>
+</body>
 </html>
