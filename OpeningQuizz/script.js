@@ -12,39 +12,35 @@ window.addEventListener("DOMContentLoaded", () => {
   if (savedTheme === "light") document.body.classList.add("light");
 });
 
-// ====== DAILY SYSTEME (SEED UNIQUEMENT) =====
+// ======= DAILY / CLASSIC MODE LOGIC =======
 let isDaily = true;
 const DAILY_BANNER = document.getElementById("daily-banner");
 const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
 const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
 
-// Seed helpers
-function getGameSeed(gameName, year, month, day) {
-  let str = `${gameName}_${year}_${month}_${day}`;
-  let hash = 5381;
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) + hash) + str.charCodeAt(i);
-  }
-  return Math.abs(hash) >>> 0;
-}
-function seededRandom(seed) {
-  return function() {
-    seed = (seed * 1664525 + 1013904223) % 4294967296;
-    return seed / 4294967296;
-  };
-}
-
 function todayKey() {
   const d = new Date();
-  return `${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2,"0")}`;
+  return ${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2,"0")};
 }
-const SCORE_KEY = `dailyScore_openingquizz_${todayKey()}`;
-const OPENING_KEY = `daily_openingquizz_id_${todayKey()}`; // stocke l'index du daily (pour compatibilité, mais sera seedé)
+const SCORE_KEY = dailyScore_openingquizz_${todayKey()};
+const OPENING_KEY = daily_openingquizz_id_${todayKey()};
 
-// ====== STATE ======
 let dailyPlayed = false;
 let dailyScore = null;
+
+function getDeterministicDailyIndex(len) {
+  const d = new Date();
+  const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
+  return seed % len;
+}
+
+// ====== OPENING QUIZZ LOGIC =======
+function extractVideoId(url) {
+  const regExp = /^.*((youtu.be\/)|(v\/)|(watch\?))\??v?=?([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[5].length === 11) ? match[5] : null;
+}
 
 let animeList = [];
 let currentIndex = 0;
@@ -56,7 +52,6 @@ const maxTries = 3;
 const tryDurations = [3, 5, 15];
 let failedAnswers = [];
 
-// ====== DATA LOADING ======
 fetch('../data/openings.json')
   .then(res => res.json())
   .then(data => {
@@ -64,7 +59,7 @@ fetch('../data/openings.json')
       anime.youtubeUrls.map((url, index) => ({
         title: anime.title,
         altTitles: [anime.title.toLowerCase()],
-        opening: `Opening ${index + 1}`,
+        opening: Opening ${index + 1},
         videoId: extractVideoId(url),
         startTime: index === 1 ? 3 : 0
       }))
@@ -72,33 +67,22 @@ fetch('../data/openings.json')
     setupGame();
   });
 
-function extractVideoId(url) {
-  const regExp = /^.*((youtu.be\/)|(v\/)|(watch\?))\??v?=?([^#&?]*).*/;
-  const match = url.match(regExp);
-  return (match && match[5].length === 11) ? match[5] : null;
-}
-
-// ====== GAME SETUP ======
 function setupGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
   if (isDaily) {
     let animeIdx;
-    let stored = localStorage.getItem(OPENING_KEY);
-    if (!stored) {
-      const d = new Date();
-      const seed = getGameSeed("openingquizz", d.getFullYear(), d.getMonth()+1, d.getDate());
-      const rand = seededRandom(seed)();
-      animeIdx = Math.floor(rand * animeList.length);
+    if (!localStorage.getItem(OPENING_KEY)) {
+      animeIdx = getDeterministicDailyIndex(animeList.length);
       localStorage.setItem(OPENING_KEY, animeIdx);
     } else {
-      animeIdx = parseInt(stored);
+      animeIdx = parseInt(localStorage.getItem(OPENING_KEY));
     }
     currentIndex = animeIdx;
     showDailyBanner();
     if (dailyPlayed) {
-      showDailyBanner();
-      showResultMessage(`✅ Daily du jour déjà jouée !`, true, true, true);
+      showDailyBanner(); // force update visuel
+      showResultMessage(✅ Daily du jour déjà jouée !, true, true, true); // <-- modif (dernier arg true)
       blockInputs();
       document.getElementById("nextBtn").style.display = "block";
       resizeContainer();
@@ -120,16 +104,16 @@ function setupGame() {
   resizeContainer();
 }
 
-// ====== UI BANNER ======
 function showDailyBanner() {
   if (!DAILY_BANNER) return;
   DAILY_BANNER.style.display = "block";
   updateSwitchModeBtn();
   if (dailyPlayed) {
-    DAILY_STATUS.innerHTML = `<span style="color:#25ff67;font-size:1.3em;vertical-align:-2px;">&#x2705;</span> <b>Daily du jour déjà jouée !</b> <span style="margin-left:7px;">Score : <b>${dailyScore} pts</b></span>`;
+    // Style compact + ✔️ + score + bouton
+    DAILY_STATUS.innerHTML = <span style="color:#25ff67;font-size:1.3em;vertical-align:-2px;">&#x2705;</span> <b>Daily du jour déjà jouée !</b> <span style="margin-left:7px;">Score : <b>${dailyScore} pts</b></span>;
     DAILY_SCORE.textContent = "";
   } else {
-    DAILY_STATUS.innerHTML = `<b>🎲 Daily du jour :</b>`;
+    DAILY_STATUS.innerHTML = <b>🎲 Daily du jour :</b>;
     DAILY_SCORE.textContent = "";
   }
 }
@@ -245,7 +229,7 @@ function checkAnswer(selectedTitle) {
       dailyPlayed = true;
       dailyScore = score;
     }
-    showResultMessage(`✅ Bravo ! C’est ${currentAnime.title}`, true, false, false);
+    showResultMessage(✅ Bravo ! C’est ${currentAnime.title}, true, false, false);
     blockInputs();
     showNextButton();
     resizeContainer();
@@ -262,11 +246,11 @@ function checkAnswer(selectedTitle) {
 }
 
 function updateFailedAttempts() {
-  document.getElementById("failedAttempts").innerText = failedAnswers.map(e => `❌ ${e}`).join("\n");
+  document.getElementById("failedAttempts").innerText = failedAnswers.map(e => ❌ ${e}).join("\n");
 }
 function revealAnswer() {
   const resultDiv = document.getElementById("result");
-  resultDiv.textContent = `🔔 Réponse : ${currentAnime.title}`;
+  resultDiv.textContent = 🔔 Réponse : ${currentAnime.title};
   resultDiv.className = "incorrect";
   blockInputs();
   showNextButton();
