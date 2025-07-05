@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Guess The Opening</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="../images/favicon-32x32.png">
-  </head>
-  <body>
-    <header>
-      <div class="header-group">
-        <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
-        <h1>Guess The Opening</h1>
-        <button id="themeToggle" class="toggle-btn">🌓</button>
-      </div>
-    </header>  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guess The Opening</title>
+  <link rel="icon" type="image/png" href="../images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
+    <h1>Guess The Opening</h1>
+    <button id="themeToggle" class="toggle-btn">🌓</button>
+  </header>
 
-    <!-- Bandeau daily en haut -->
-    <div id="daily-banner" style="display:none; margin-bottom: 1.2rem;">
-      <span id="daily-status"></span>
-      <span id="daily-score"></span>
-      <button id="switch-mode-btn" class="toggle-btn" style="margin-left:14px;">Passer en mode Classic</button>
+  <!-- Bandeau Daily juste après le header -->
+  <div id="daily-banner" style="display:none; margin-bottom:1.2rem; text-align:center;">
+    <span id="daily-status"></span>
+    <span id="daily-score"></span>
+    <button id="switch-mode-btn" class="toggle-btn" style="margin-left:1.4rem; font-size:1rem; padding:0.35rem 1rem;"></button>
+  </div>
+
+  <div id="container">
+    <div class="input-container">
+      <input type="text" id="openingInput" placeholder="Entrez le nom d'un anime..." autocomplete="off" />
+      <div id="suggestions" class="suggestions"></div>
     </div>
 
-    <div id="container">
-      <div class="input-container">
-        <input type="text" id="openingInput" placeholder="Entrez le nom d'un anime..." autocomplete="off" />
-        <div id="suggestions" class="suggestions"></div>
-      </div>
-      <div style="margin-top:1rem;">
-        <button id="playTry1">Écoute 1 (3s)</button>
-        <button id="playTry2" disabled>Écoute 2 (5s)</button>
-        <button id="playTry3" disabled>Écoute 3 (15s)</button>
-      </div>
-      <div id="failedAttempts"></div>
-      <div id="result"></div>
-      <div id="timer"></div>
-      <button id="nextBtn" style="display:none; margin-top:1rem;">Rejouer</button>
-      <div id="playerWrapper" style="display:none;"></div>
+    <div style="margin-top:1rem;">
+      <button id="playTry1">Écoute 1 (3s)</button>
+      <button id="playTry2" disabled>Écoute 2 (5s)</button>
+      <button id="playTry3" disabled>Écoute 3 (15s)</button>
     </div>
-    <footer>
-      © 2025 mastermanga
-    </footer>
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="script.js"></script>
-  </body>
+
+    <div id="failedAttempts"></div>
+    <div id="result"></div>
+    <div id="timer"></div>
+    <div id="successContainer" style="display:none;"></div>
+    <button id="nextBtn" style="display:none; margin-top:1rem;">Rejouer</button>
+
+    <canvas id="fireworks"></canvas>
+    <div id="playerWrapper" style="display:none;"></div>
+  </div>
+
+  <footer>
+    © 2025 mastermanga
+  </footer>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="script.js"></script>
+</body>
 </html>
