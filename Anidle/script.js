@@ -16,6 +16,24 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// ========= SEEDING UTILS ==========
+function getGameSeed(gameName, year, month, day) {
+  // jeu différent => seed différent, même jour
+  let str = `${gameName}_${year}_${month}_${day}`;
+  // simple hash:
+  let hash = 5381;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) + hash) + str.charCodeAt(i); // hash * 33 + c
+  }
+  return Math.abs(hash) >>> 0;
+}
+function seededRandom(seed) {
+  return function() {
+    seed = (seed * 1664525 + 1013904223) % 4294967296;
+    return seed / 4294967296;
+  };
+}
+
 // ========== ANIMEDLE GAME (MODE DAILY/CLASSIC) ==========
 let animeData = [];
 let targetAnime = null;
@@ -31,19 +49,14 @@ const DAILY_SCORE = document.getElementById("daily-score");
 const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
 
 // ------- CLÉ COMPATIBLE MENU -------
-const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
-const SCORE_KEY = `dailyScore_anidle_${today}`;
-const ANIME_KEY = `daily_anidle_id_${today.replace(/-/g, '')}`; // pour daily id stable
+const today = new Date();
+const todayString = today.toISOString().split('T')[0]; // YYYY-MM-DD
+const SCORE_KEY = `dailyScore_anidle_${todayString}`;
+const ANIME_KEY = `daily_anidle_id_${todayString.replace(/-/g, '')}`; // pour daily id stable
 
 // ---- State persistance ----
 let dailyPlayed = false;
 let dailyScore = null;
-
-function getDeterministicDailyIndex(len) {
-  const d = new Date();
-  const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
-  return seed % len;
-}
 
 // --- INITIALISATION ---
 fetch('../data/animes.json')
@@ -59,11 +72,17 @@ function setupGame() {
 
   if (isDaily) {
     let animeIdx;
-    if (!localStorage.getItem(ANIME_KEY)) {
-      animeIdx = getDeterministicDailyIndex(animeData.length);
+    // Génération index daily avec seed unique jeu
+    let dailyId = localStorage.getItem(ANIME_KEY);
+    if (!dailyId) {
+      const d = new Date();
+      // utiliser le nom du jeu pour le seed !
+      const seed = getGameSeed("anidle", d.getFullYear(), d.getMonth() + 1, d.getDate());
+      const rand = seededRandom(seed)();
+      animeIdx = Math.floor(rand * animeData.length);
       localStorage.setItem(ANIME_KEY, animeIdx);
     } else {
-      animeIdx = parseInt(localStorage.getItem(ANIME_KEY));
+      animeIdx = parseInt(dailyId);
     }
     targetAnime = animeData[animeIdx];
     showDailyBanner();
@@ -305,7 +324,6 @@ function guessAnime() {
       dailyScore = score;
       showDailyBanner();
     }
-
     launchFireworks();
   }
 }
