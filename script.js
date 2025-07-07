@@ -23,14 +23,23 @@ function getTodayString() {
 // Charge le score daily pour un jeu donné
 function getDailyScoreFor(gameKey) {
   const today = getTodayString();
-  const value = localStorage.getItem(`dailyScore_${gameKey}_${today}`);
-  if (value === null) return null; // Corrigé : ne retourne null QUE si aucune valeur stockée
-  if (!isNaN(Number(value))) return Number(value);
-  try {
-    const parsed = JSON.parse(value);
-    if (typeof parsed === "number") return parsed;
-    if (typeof parsed === "object" && typeof parsed.score === "number") return parsed.score;
-  } catch {}
+  const scoreKey = `dailyScore_${gameKey}_${today}`;
+  const startedKey = `dailyStarted_${gameKey}_${today}`;
+
+  const value = localStorage.getItem(scoreKey);
+  if (value !== null) {
+    if (!isNaN(Number(value))) return Number(value);
+    try {
+      const parsed = JSON.parse(value);
+      if (typeof parsed === "number") return parsed;
+      if (typeof parsed === "object" && typeof parsed.score === "number") return parsed.score;
+    } catch {}
+    return null;
+  }
+  // NO SCORE but started for today => failed = 0 pts
+  if (localStorage.getItem(startedKey) && gameKey === "characterquizz") {
+    return 0;
+  }
   return null;
 }
 
