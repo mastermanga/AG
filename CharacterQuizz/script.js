@@ -37,6 +37,7 @@ function todayKey() {
 }
 const SCORE_KEY = `dailyScore_characterquizz_${todayKey()}`;
 const CHARACTER_KEY = `daily_characterquizz_id_${todayKey()}`;
+const STARTED_KEY = `dailyStarted_characterquizz_${todayKey()}`;
 
 let dailyPlayed = false;
 let dailyScore = null;
@@ -104,8 +105,18 @@ function startNewGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
 
-  // Sélection anime daily/classic
+  // Daily déjà commencé mais pas fini (perdu ou quitté sans finir)
   if (isDaily && allAnimes.length > 0) {
+    // Si daily déjà commencé mais score absent : déjà grillé !
+    if (localStorage.getItem(STARTED_KEY) && !localStorage.getItem(SCORE_KEY)) {
+      dailyPlayed = true;
+      dailyScore = 0;
+      showDailyBanner();
+      showSuccessDailyMsg();
+      blockInputs();
+      return;
+    }
+
     let animeIdx;
     if (!localStorage.getItem(CHARACTER_KEY)) {
       const d = new Date();
@@ -117,6 +128,10 @@ function startNewGame() {
       animeIdx = parseInt(localStorage.getItem(CHARACTER_KEY));
     }
     currentAnime = allAnimes[animeIdx];
+
+    // Marque le daily comme démarré pour aujourd'hui
+    localStorage.setItem(STARTED_KEY, "1");
+
     showDailyBanner();
     if (dailyPlayed) {
       showSuccessDailyMsg();
@@ -253,6 +268,13 @@ function resetTimer() {
       clearInterval(countdownInterval);
       if (!gameEnded) {
         if (revealedCount === currentAnime.characters.length) {
+          // MARQUE LE DAILY COMME FAIL (score 0) si daily non validé :
+          if (isDaily && !dailyPlayed) {
+            localStorage.setItem(SCORE_KEY, 0);
+            dailyPlayed = true;
+            dailyScore = 0;
+            showDailyBanner();
+          }
           feedback.textContent = `⏰ Temps écoulé ! Tu as perdu. C'était "${currentAnime.title}".`;
           feedback.className = "error";
           endGame();
@@ -286,10 +308,11 @@ function checkGuess() {
     for (let i = revealedCount; i < currentAnime.characters.length; i++) {
       document.getElementById("char-" + i).style.display = "block";
     }
-    // --- Scoring only for Daily ---
+    // --- Nouveau système de score ---
     if (isDaily && !dailyPlayed) {
-      // Score: 1000 - 100*révélés, minimum 100
-      let score = Math.max(1000 - (revealedCount-1)*100, 100);
+      // Score : 3000 - (nb de persos révélés - 1) * 500, min 0
+      let malus = (revealedCount - 1) * 500;
+      let score = Math.max(3000 - malus, 0);
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
       dailyScore = score;
@@ -306,6 +329,13 @@ function checkGuess() {
       clearInterval(countdownInterval);
       revealNextCharacter();
     } else {
+      // MARQUE LE DAILY COMME FAIL (score 0)
+      if (isDaily && !dailyPlayed) {
+        localStorage.setItem(SCORE_KEY, 0);
+        dailyPlayed = true;
+        dailyScore = 0;
+        showDailyBanner();
+      }
       feedback.textContent += ` Tu as épuisé tous les indices. C'était "${currentAnime.title}".`;
       endGame();
     }
