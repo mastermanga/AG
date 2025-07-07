@@ -55,12 +55,26 @@ const STARTED_KEY = `dailyStarted_anidle_${todayString}`;
 let dailyPlayed = false;
 let dailyScore = null;
 
-// --- INITIALISATION ---
+// ======== MODE PARCOURS (iframe) ========
+const urlParams = new URLSearchParams(window.location.search);
+const isParcours = urlParams.get("parcours") === "1";
+const parcoursCount = parseInt(urlParams.get("count") || "1", 10);
+let parcoursIndex = 0;
+let parcoursTotalScore = 0;
+
 fetch('../data/animes.json')
   .then(response => response.json())
   .then(data => {
     animeData = data;
-    setupGame();
+    if (isParcours) {
+      document.getElementById("back-to-menu").style.display = "none";
+      isDaily = false;
+      parcoursIndex = 0;
+      parcoursTotalScore = 0;
+      launchParcoursRound();
+    } else {
+      setupGame();
+    }
   });
 
 function setupGame() {
@@ -410,7 +424,9 @@ function launchFireworks() {
 }
 
 // ========== Message de victoire ==========
-function showSuccessMessage() {
+
+// Version native (hors Parcours)
+function showSuccessMessageClassic() {
   const container = document.getElementById("successContainer");
   container.innerHTML = `
     <div id="winMessage" style="margin-bottom: 18px; font-size: 2rem; font-weight: bold; text-align: center;">
@@ -432,4 +448,67 @@ function showSuccessMessage() {
       setupGame();
     }
   };
+}
+
+// --- Mode Parcours ---
+function launchParcoursRound() {
+  attemptCount = 0;
+  gameOver = false;
+  indiceStep = 0;
+  document.getElementById("animeInput").value = "";
+  document.getElementById("suggestions").innerHTML = "";
+  document.getElementById("results").innerHTML = "";
+  document.getElementById("counter").textContent = "Tentatives : 0";
+  document.getElementById("indicesContainer").style.display = "none";
+  document.getElementById("indiceBtn").style.display = "inline-block";
+  document.getElementById("successContainer").style.display = "none";
+  targetAnime = animeData[Math.floor(Math.random() * animeData.length)];
+}
+
+function showSuccessMessageParcours(roundScore) {
+  const container = document.getElementById("successContainer");
+  container.innerHTML = `
+    <div id="winMessage" style="margin-bottom: 18px; font-size: 2rem; font-weight: bold; text-align: center;">
+      🎇 <span style="font-size:2.3rem;">🥳</span>
+      Bravo ! C'était <u>${targetAnime.title}</u> en ${attemptCount} tentative${attemptCount > 1 ? 's' : ''}.
+      <span style="font-size:2.3rem;">🎉</span>
+    </div>
+    <div style="text-align:center;">
+      <button id="nextParcoursBtn" style="font-size:1.1rem; margin: 0 auto;">${parcoursIndex+1 < parcoursCount ? "Suivant" : "Terminer"}</button>
+    </div>
+  `;
+  container.style.display = "block";
+  container.scrollIntoView({behavior: "smooth", block: "start"});
+
+  document.getElementById("nextParcoursBtn").onclick = () => {
+    parcoursIndex++;
+    if (parcoursIndex < parcoursCount) {
+      launchParcoursRound();
+    } else {
+      setTimeout(() => {
+        parent.postMessage({
+          parcoursScore: {
+            label: "Anidle",
+            score: parcoursTotalScore,
+            total: parcoursCount * 3000
+          }
+        }, "*");
+      }, 400);
+      container.innerHTML = `<div style="font-size:1.6rem;text-align:center;">🏆 Parcours terminé !<br>Score : <b>${parcoursTotalScore}</b> / ${parcoursCount*3000}</div>`;
+    }
+  };
+}
+
+// --- Choix du message selon le mode
+function showSuccessMessage() {
+  let roundScore = 3000 - (attemptCount - 1) * 100 - (indiceStep) * 1000;
+  if (roundScore < 0) roundScore = 0;
+  if (isParcours) {
+    parcoursTotalScore += roundScore;
+    showSuccessMessageParcours(roundScore);
+    launchFireworks();
+  } else {
+    showSuccessMessageClassic();
+    launchFireworks();
+  }
 }
