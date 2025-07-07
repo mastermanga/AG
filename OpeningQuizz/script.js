@@ -29,12 +29,6 @@ const OPENING_KEY = `daily_openingquizz_id_${todayKey()}`;
 let dailyPlayed = false;
 let dailyScore = null;
 
-function getDeterministicDailyIndex(len) {
-  const d = new Date();
-  const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
-  return seed % len;
-}
-
 // ====== OPENING QUIZZ LOGIC =======
 function extractVideoId(url) {
   const regExp = /^.*((youtu.be\/)|(v\/)|(watch\?))\??v?=?([^#&?]*).*/;
@@ -51,6 +45,7 @@ let tries = 0;
 const maxTries = 3;
 const tryDurations = [3, 5, 15];
 let failedAnswers = [];
+let playerReady = false;
 
 fetch('../data/openings.json')
   .then(res => res.json())
@@ -66,6 +61,12 @@ fetch('../data/openings.json')
     ).filter(a => a.videoId);
     setupGame();
   });
+
+function getDeterministicDailyIndex(len) {
+  const d = new Date();
+  const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
+  return seed % len;
+}
 
 function setupGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
@@ -84,7 +85,7 @@ function setupGame() {
     if (dailyPlayed) {
       showDailyBanner();
       showResultMessage("✅ Daily du jour déjà jouée !", true, true, true);
-      blockInputs();
+      blockInputsAll();
       document.getElementById("nextBtn").style.display = "block";
       document.getElementById("nextBtn").textContent = "Retour menu";
       resizeContainer();
@@ -97,6 +98,12 @@ function setupGame() {
   }
 
   currentAnime = animeList[currentIndex];
+
+  // Détruit l'ancien player pour éviter un double player invisible
+  if (player && typeof player.destroy === "function") {
+    player.destroy();
+  }
+  playerReady = false;
 
   if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
     window.onYouTubeIframeAPIReady = initPlayer;
@@ -112,7 +119,6 @@ function showDailyBanner() {
   DAILY_BANNER.style.display = "flex";
   updateSwitchModeBtn();
   if (dailyPlayed) {
-    // ✅ Daily du jour déjà jouée !  Score : 1000 pts
     DAILY_STATUS.innerHTML = `<span style="color:#25ff67;font-size:1.3em;vertical-align:-2px;">&#x2705;</span> <b>Daily du jour déjà jouée !</b>`;
     DAILY_SCORE.innerHTML = `<span style="margin-left:12px;">Score : <b>${dailyScore} pts</b></span>`;
   } else {
@@ -138,27 +144,36 @@ if (SWITCH_MODE_BTN) {
 }
 function unlockClassicInputs() {
   document.getElementById("openingInput").disabled = false;
-  document.getElementById("playTry1").disabled = false;
+  document.getElementById("playTry1").disabled = true; // Désactivé jusqu'au player ready
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
   document.getElementById("nextBtn").style.display = "none";
 }
-
-// ============ PLAYER LOGIC (YOUTUBE LECTURE FLEXIBLE) ===========
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
+function blockInputsAll() {
+  document.getElementById("openingInput").disabled = true;
+  document.getElementById("playTry1").disabled = true;
+  document.getElementById("playTry2").disabled = true;
+  document.getElementById("playTry3").disabled = true;
+  document.getElementById("suggestions").innerHTML = "";
 }
+
+// ============ PLAYER LOGIC ===========
 function initPlayer() {
+  playerReady = false;
   player = new YT.Player('playerWrapper', {
     height: '0',
     width: '0',
     videoId: currentAnime.videoId,
     playerVars: { autoplay: 0, controls: 0, modestbranding: 1, rel: 0, iv_load_policy: 3 },
     events: {
-      onReady: (event) => player.setVolume(50),
+      onReady: (event) => {
+        player.setVolume(50);
+        playerReady = true;
+        // Active le bouton écoute 1 si autorisé
+        if ((!isDaily || !dailyPlayed)) {
+          document.getElementById("playTry1").disabled = false;
+        }
+      },
       onStateChange: onPlayerStateChange
     }
   });
@@ -185,7 +200,7 @@ function resetControls() {
   document.getElementById("timer").textContent = "";
   document.getElementById("openingInput").value = "";
   document.getElementById("openingInput").disabled = true;
-  document.getElementById("playTry1").disabled = false;
+  document.getElementById("playTry1").disabled = true; // Toujours désactivé jusqu'à ready
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
   document.getElementById("nextBtn").style.display = "none";
@@ -194,6 +209,10 @@ function resetControls() {
 }
 
 function playTry(n) {
+  if (!playerReady) {
+    alert("Veuillez patienter, le lecteur se prépare…");
+    return;
+  }
   if (isDaily && dailyPlayed) return;
   if (n !== tries + 1) return alert("Vous devez écouter les extraits dans l'ordre.");
   tries = n;
@@ -230,10 +249,10 @@ function checkAnswer(selectedTitle) {
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
       dailyScore = score;
-      showDailyBanner(); // met à jour le bandeau direct (✅ Daily du jour déjà jouée ! ...)
+      showDailyBanner(); // met à jour le bandeau direct
     }
     showVictory();
-    blockInputs();
+    blockInputsAll();
     showNextButton();
     resizeContainer();
   } else {
@@ -255,16 +274,9 @@ function revealAnswer() {
   const resultDiv = document.getElementById("result");
   resultDiv.textContent = `🔔 Réponse : ${currentAnime.title}`;
   resultDiv.className = "incorrect";
-  blockInputs();
+  blockInputsAll();
   showNextButton();
   resizeContainer();
-}
-function blockInputs() {
-  document.getElementById("openingInput").disabled = true;
-  document.getElementById("playTry1").disabled = true;
-  document.getElementById("playTry2").disabled = true;
-  document.getElementById("playTry3").disabled = true;
-  document.getElementById("suggestions").innerHTML = "";
 }
 function showNextButton() {
   document.getElementById("nextBtn").style.display = "block";
@@ -363,6 +375,10 @@ function nextAnime() {
   currentIndex = Math.floor(Math.random() * animeList.length);
   currentAnime = animeList[currentIndex];
   resetControls();
+  if (player && typeof player.destroy === "function") {
+    player.destroy();
+  }
+  playerReady = false;
   if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
     window.onYouTubeIframeAPIReady = initPlayer;
   } else {
