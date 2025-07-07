@@ -46,15 +46,12 @@ const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
 const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
 
-// ------- CLÉ COMPATIBLE MENU -------
 const today = new Date();
-const todayString = today.toISOString().split('T')[0]; // YYYY-MM-DD
+const todayString = today.toISOString().split('T')[0];
 const SCORE_KEY = `dailyScore_anidle_${todayString}`;
 const ANIME_KEY = `daily_anidle_id_${todayString.replace(/-/g, '')}`;
-// Ajout : pour 1 seule tentative
 const STARTED_KEY = `dailyStarted_anidle_${todayString}`;
 
-// ---- State persistance ----
 let dailyPlayed = false;
 let dailyScore = null;
 
@@ -70,17 +67,17 @@ function setupGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
 
-  // Bloque la daily si déjà lancée (même si score = 0)
-  if (isDaily) {
-    if (localStorage.getItem(STARTED_KEY) && !localStorage.getItem(SCORE_KEY)) {
-      dailyPlayed = true;
-      dailyScore = 0;
-      showDailyBanner();
-      lockDailyInputs();
-      gameOver = true;
-      return;
-    }
+  // Si le daily a déjà été commencé mais pas fini, c'est perdu : score 0 et bloqué
+  if (isDaily && localStorage.getItem(STARTED_KEY) && !localStorage.getItem(SCORE_KEY)) {
+    dailyPlayed = true;
+    dailyScore = 0;
+    showDailyBanner();
+    lockDailyInputs();
+    gameOver = true;
+    return;
+  }
 
+  if (isDaily) {
     let animeIdx;
     let dailyId = localStorage.getItem(ANIME_KEY);
     if (!dailyId) {
@@ -99,6 +96,8 @@ function setupGame() {
       gameOver = true;
       return;
     }
+    // Marque le daily comme démarré (dès l'affichage du daily)
+    localStorage.setItem(STARTED_KEY, "1");
   } else {
     targetAnime = animeData[Math.floor(Math.random() * animeData.length)];
     if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
@@ -125,7 +124,7 @@ function showDailyBanner() {
   if (dailyPlayed) {
     const saved = localStorage.getItem(SCORE_KEY);
     DAILY_STATUS.textContent = "✅ Daily du jour déjà jouée !";
-    DAILY_SCORE.textContent = saved ? `Score : ${saved} pts` : "";
+    DAILY_SCORE.textContent = saved ? `Score : ${saved} pts` : "Score : 0 pts";
   } else {
     DAILY_STATUS.textContent = "🎲 Daily du jour :";
     DAILY_SCORE.textContent = "";
@@ -202,11 +201,6 @@ document.getElementById("indiceBtn").addEventListener("click", () => {
 // ========== FONCTION PRINCIPALE DE JEU ==========
 function guessAnime() {
   if (gameOver || (isDaily && dailyPlayed)) return;
-
-  // BLOQUAGE dès la 1ère tentative
-  if (isDaily && !localStorage.getItem(STARTED_KEY)) {
-    localStorage.setItem(STARTED_KEY, "1");
-  }
 
   const input = document.getElementById("animeInput").value.trim();
   const guessedAnime = animeData.find(a => a.title.toLowerCase() === input.toLowerCase());
@@ -320,16 +314,15 @@ function guessAnime() {
   document.getElementById("animeInput").value = "";
   document.getElementById("suggestions").innerHTML = "";
 
-  // ----- DAILY : UNE SEULE TENTATIVE
-  if (isDaily) {
+  if (isTitleMatch) {
     gameOver = true;
     document.getElementById("animeInput").disabled = true;
     document.getElementById("indiceBtn").disabled = true;
     document.getElementById("indicesContainer").style.display = "none";
     document.getElementById("indiceBtn").style.display = "none";
+    showSuccessMessage();
 
-    if (isTitleMatch) {
-      // Score si bon
+    if (isDaily && !dailyPlayed) {
       let score = 3000;
       score -= (attemptCount - 1) * 100;
       score -= (indiceStep) * 1000;
@@ -338,39 +331,7 @@ function guessAnime() {
       dailyPlayed = true;
       dailyScore = score;
       showDailyBanner();
-      launchFireworks();
-      showSuccessMessage();
-    } else {
-      // Mauvaise réponse = bloqué et score 0
-      localStorage.setItem(SCORE_KEY, 0);
-      dailyPlayed = true;
-      dailyScore = 0;
-      showDailyBanner();
-      // Message perdant
-      document.getElementById("successContainer").innerHTML = `
-        <div style="margin-bottom: 18px; font-size: 2rem; font-weight: bold; text-align: center;">
-          ❌ Mauvaise réponse. Le daily du jour est terminé pour toi !
-        </div>
-        <div style="text-align:center;">
-          <button id="nextBtn" style="font-size:1.1rem; margin: 0 auto;">Retour menu</button>
-        </div>
-      `;
-      document.getElementById("successContainer").style.display = "block";
-      document.getElementById("nextBtn").onclick = () => {
-        window.location.href = "../index.html";
-      };
     }
-    return;
-  }
-
-  // --- Classic : on continue jusqu’à win
-  if (isTitleMatch) {
-    gameOver = true;
-    document.getElementById("animeInput").disabled = true;
-    document.getElementById("indiceBtn").disabled = true;
-    document.getElementById("indicesContainer").style.display = "none";
-    document.getElementById("indiceBtn").style.display = "none";
-    showSuccessMessage();
     launchFireworks();
   }
 }
