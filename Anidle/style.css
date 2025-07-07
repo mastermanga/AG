@@ -1,7 +1,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #121212;
-  color: #f0f0f0;
+  background: #181818 !important;
+  color: #f0f0f0 !important;
   margin: 0;
   min-height: 100vh;
   padding: 0;
@@ -113,6 +113,7 @@ body.light .toggle-btn:hover {
 
 /* Container central */
 #container {
+  /* Style habituel */
   margin: 0 auto;
   margin-bottom: 1.5rem;
   max-width: 1150px;
@@ -122,6 +123,11 @@ body.light .toggle-btn:hover {
   align-items: center;
   min-height: 540px;
   position: relative;
+  /* Debug cadre bleu lumineux */
+  border: 4px solid #2196f3 !important;
+  box-shadow: 0 0 26px #2196f3a8 !important;
+  background: #181818 !important;
+  z-index: 10;
 }
 
 @media (max-width: 900px) {
@@ -321,3 +327,5 @@ body.light footer {
     width: 100%;
   }
 }
+
+
