@@ -152,7 +152,6 @@ startParcoursBtn.addEventListener("click", () => {
 });
 
 function showRecap() {
-  console.log("showRecap appelé !");
   document.getElementById("parcours-builder").style.display = "none";
   recapSection.style.display = "block";
   recapList.innerHTML = "";
@@ -177,20 +176,17 @@ editParcoursBtn.addEventListener("click", () => {
 
 // ========== CONFIRMER LE PARCOURS ==========
 launchConfirmedBtn.addEventListener("click", () => {
-  console.log("BOUTON CONFIRMER CLICK !");
   // Sauvegarde la liste dans localStorage
   localStorage.setItem("parcoursSteps", JSON.stringify(parcoursSteps));
   localStorage.setItem("parcoursInProgress", "1");
   localStorage.setItem("parcoursIndex", "0");
   parcoursScores = [];
   startIframeParcours();
-  console.log("startIframeParcours a été appelée");
 });
 
 // ========== MODE IFRAME ==========
 // Avec effet + loader
 function startIframeParcours() {
-  console.log("startIframeParcours DEBUT");
   document.getElementById("parcours-builder").style.display = "none";
   recapSection.style.display = "none";
   parcoursContainer.style.display = "flex";
@@ -202,7 +198,6 @@ function startIframeParcours() {
 }
 
 function launchIframeStep(idx) {
-  console.log("launchIframeStep:", idx);
   const steps = JSON.parse(localStorage.getItem("parcoursSteps") || "[]");
   if (!steps.length || idx >= steps.length) {
     showFinalRecap();
@@ -227,20 +222,19 @@ function launchIframeStep(idx) {
   } else {
     url = base + "index.html";
   }
-  console.log("URL utilisée pour l'iframe :", url);
   parcoursIframe.style.display = "none";
+  parcoursIframe.classList.remove("active");
   parcoursLoader.style.display = "block";
   parcoursIframe.onload = () => {
     parcoursLoader.style.display = "none";
     parcoursIframe.style.display = "block";
+    parcoursIframe.classList.add("active"); // <<== Ajoute la classe pour rendre visible
   };
   parcoursIframe.src = url;
 }
 
-
 // Pour les jeux : doivent appeler parent.postMessage({parcoursScore: ...}, "*")
 window.addEventListener("message", (e) => {
-  // {parcoursScore: { label: "Opening Quizz", score: 21, total: 25 }}
   if (e.data && e.data.parcoursScore) {
     parcoursScores.push(e.data.parcoursScore);
     // Prochaine étape
@@ -257,6 +251,7 @@ window.addEventListener("message", (e) => {
 // ========== AFFICHAGE FINAL ==========
 function showFinalRecap() {
   parcoursIframe.style.display = "none";
+  parcoursIframe.classList.remove("active");
   parcoursLoader.style.display = "none";
   parcoursScore.style.display = "block";
   parcoursFinish.style.display = "block";
@@ -269,7 +264,6 @@ function showFinalRecap() {
   html += "</ul>";
   html += `<div style="font-size:1.3rem;margin-top:13px;"><b>Score total : ${totalScore}</b></div>`;
   parcoursScore.innerHTML = html;
-  // Bouton retour menu
   parcoursFinish.innerHTML = `<button onclick="window.location.href='../index.html'">Retour menu</button>`;
 }
 
