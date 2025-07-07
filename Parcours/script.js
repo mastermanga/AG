@@ -152,8 +152,9 @@ startParcoursBtn.addEventListener("click", () => {
 });
 
 function showRecap() {
+  console.log("showRecap appelé !");
   document.getElementById("parcours-builder").style.display = "none";
-  recapSection.style.display = "";
+  recapSection.style.display = "block";
   recapList.innerHTML = "";
   parcoursSteps.forEach((step, i) => {
     let txt = "";
