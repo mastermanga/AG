@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mode Parcours</title>
+  <link rel="stylesheet" href="parcours.css" />
+  <link rel="icon" type="image/png" href="../images/favicon-32x32.png">
+</head>
+<body>
+  <header>
+    <div class="header-group">
+      <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
+      <h1>Mode Parcours</h1>
+      <button id="themeToggle" class="toggle-btn">🌓</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="parcours-builder" class="card">
+      <h2>Composer votre parcours personnalisé</h2>
+      <div id="steps-list"></div>
+      <div class="add-step-group">
+        <select id="gameType">
+          <option value="anidle">Anidle</option>
+          <option value="openingquizz">Opening Quizz</option>
+          <option value="characterquizz">Character Quizz</option>
+          <option value="animetournament">Anime Tournament</option>
+          <option value="blindranking">Blind Ranking</option>
+        </select>
+        <select id="modeOption" style="display:none;">
+          <option value="anime">Anime</option>
+          <option value="opening">Opening</option>
+        </select>
+        <input type="number" id="stepCount" min="1" max="50" value="1" />
+        <button id="addStepBtn">Ajouter à la liste</button>
+      </div>
+      <button id="startParcoursBtn" class="start-btn">Lancer le Parcours 🚀</button>
+    </section>
+
+    <section id="recap" style="display:none;">
+      <h2>Votre Parcours</h2>
+      <ul id="parcoursRecapList"></ul>
+      <button id="editParcoursBtn">Modifier</button>
+      <button id="launchConfirmedBtn" class="start-btn">Commencer</button>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 mastermanga
+  </footer>
+
+  <script src="parcours.js"></script>
+</body>
+</html>
