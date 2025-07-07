@@ -82,15 +82,20 @@ function setupGame() {
     }
     currentIndex = animeIdx;
     showDailyBanner();
-    if (dailyPlayed) {
-      showDailyBanner();
-      showResultMessage("✅ Daily du jour déjà jouée !", true, true, true);
-      blockInputsAll();
-      document.getElementById("nextBtn").style.display = "block";
-      document.getElementById("nextBtn").textContent = "Retour menu";
-      resizeContainer();
-      return;
-    }
+  if (dailyPlayed) {
+    showDailyBanner();
+    showResultMessage("✅ Daily du jour déjà jouée !", true, true, true);
+    blockInputs();
+    document.getElementById("nextBtn").style.display = "block";
+    document.getElementById("nextBtn").textContent = "Retour menu";
+    // Ajoute ces lignes si ce n’est pas déjà fait dans blockInputs
+    document.getElementById("openingInput").disabled = true;
+    document.getElementById("playTry1").disabled = true;
+    document.getElementById("playTry2").disabled = true;
+    document.getElementById("playTry3").disabled = true;
+    resizeContainer();
+    return;
+  }
   } else {
     currentIndex = Math.floor(Math.random() * animeList.length);
     if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
