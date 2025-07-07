@@ -1,23 +1,32 @@
-body {
-  background: #121212;
+html, body {
+  background: #181818 !important;
   color: #eee;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  width: 100vw;
+  box-sizing: border-box;
+  /* Empêche scroll horizontal fantôme */
+  overflow-x: hidden;
   transition: background 0.4s;
 }
 
-body.light {
-  background: #f5f5f5;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+body.light, html.light {
+  background: #f5f5f5 !important;
   color: #234;
 }
 
 /* HEADER */
 header {
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   margin-top: 2rem;
@@ -204,18 +213,18 @@ body.light .step-line {
 /* === Container d'iframe pour Parcours === */
 #parcours-container {
   width: 100vw;
-  min-height: 70vh;
+  min-height: 75vh;
   background: transparent;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 36px;
+  margin-top: 24px;
   margin-bottom: 24px;
-  /* Apparition douce */
   opacity: 0;
   transition: opacity 0.5s;
 }
+
 #parcours-container.active {
   opacity: 1;
   display: flex;
@@ -223,17 +232,17 @@ body.light .step-line {
 
 /* Style de l'iframe pour qu'il prenne bien la place et reste lisible */
 #parcours-iframe {
-  width: 98vw;
+  width: 100vw;
   max-width: 1000px;
-  height: 620px;
+  height: 610px;
   border-radius: 14px;
   box-shadow: 0 4px 18px #00bcd455;
   margin-top: 12px;
   margin-bottom: 12px;
-  background: #181818;
+  background: #181818 !important;
   display: none;
   overflow: hidden;
-  /* Apparition douce */
+  border: none;
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -242,7 +251,7 @@ body.light .step-line {
   opacity: 1;
 }
 body.light #parcours-iframe {
-  background: #fafcff;
+  background: #fafcff !important;
 }
 
 /* Score & finish recap */
@@ -269,16 +278,25 @@ body.light #parcours-score {
 }
 
 /* Responsive */
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   #parcours-iframe {
-    max-width: 99vw;
+    max-width: 98vw;
+  }
+}
+@media (max-width: 900px) {
+  #parcours-iframe {
     height: 420px;
+    max-width: 99vw;
+  }
+  #parcours-score {
+    max-width: 94vw;
+    padding: 10px 4vw;
   }
 }
 @media (max-width: 600px) {
   #parcours-builder, #recap {
-    padding: 18px 4vw 18px 4vw;
-    max-width: 98vw;
+    padding: 18px 2vw 18px 2vw;
+    max-width: 99vw;
   }
   .step-line {
     flex-direction: column;
@@ -287,12 +305,18 @@ body.light #parcours-score {
     padding: 10px 7px;
   }
   #parcours-iframe {
-    height: 340px;
+    height: 260px;
     min-width: 98vw;
     max-width: 99vw;
   }
   #parcours-score {
-    padding: 13px 5vw;
-    font-size: 0.96rem;
+    padding: 13px 3vw;
+    font-size: 0.95rem;
   }
+}
+
+/* Garde le fond noir sur tout l'écran même si body n'est pas assez haut */
+html {
+  min-height: 100vh;
+  background: #181818 !important;
 }
