@@ -462,10 +462,16 @@ function launchParcoursRound() {
   document.getElementById("indicesContainer").style.display = "none";
   document.getElementById("indiceBtn").style.display = "inline-block";
   document.getElementById("successContainer").style.display = "none";
-  targetAnime = animeData[Math.floor(Math.random() * animeData.length)];
+  document.getElementById("animeInput").disabled = false;
+  document.getElementById("indiceBtn").disabled = false;
+  // PATCH random : random avec parcoursIndex
+  const random = seededRandom(Date.now() + parcoursIndex * 37)();
+  targetAnime = animeData[Math.floor(random * animeData.length)];
 }
 
 function showSuccessMessageParcours(roundScore) {
+  document.getElementById("indicesContainer").style.display = "none";
+  document.getElementById("indiceBtn").style.display = "none";
   const container = document.getElementById("successContainer");
   container.innerHTML = `
     <div id="winMessage" style="margin-bottom: 18px; font-size: 2rem; font-weight: bold; text-align: center;">
