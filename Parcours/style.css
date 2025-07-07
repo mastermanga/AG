@@ -232,8 +232,8 @@ body.light .step-line {
 
 /* Style de l'iframe pour qu'il prenne bien la place et reste lisible */
 #parcours-iframe {
-  width: 98vw;              /* presque toute la largeur */
-  max-width: 1700px;        /* augmente la limite max selon tes besoins */
+  width: 100vw;              /* presque toute la largeur */
+  max-width: none;        /* augmente la limite max selon tes besoins */
   height: 92vh;             /* adapte la hauteur selon l'écran */
   min-height: 600px;
   border-radius: 18px;
