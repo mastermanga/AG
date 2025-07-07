@@ -319,3 +319,38 @@ html {
   min-height: 100vh;
   background: #181818 !important;
 }
+
+body.parcours-fullscreen header {
+  display: none !important;
+}
+
+body.parcours-fullscreen #parcours-container {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  width: 100vw !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+}
+
+body.parcours-fullscreen #parcours-iframe {
+  width: 100vw !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #181818 !important;
+  display: block !important;
+  height: 95vh !important; /* change 95vh par 100vh si tu veux VRAIMENT tout */
+  opacity: 1 !important;
+}
+
