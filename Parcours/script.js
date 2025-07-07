@@ -189,6 +189,7 @@ launchConfirmedBtn.addEventListener("click", () => {
 function startIframeParcours() {
   document.getElementById("parcours-builder").style.display = "none";
   recapSection.style.display = "none";
+  document.body.classList.add('parcours-fullscreen');
   parcoursContainer.style.display = "flex";
   parcoursContainer.classList.add("active");
   parcoursScore.style.display = "none";
