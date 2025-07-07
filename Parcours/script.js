@@ -177,17 +177,20 @@ editParcoursBtn.addEventListener("click", () => {
 
 // ========== CONFIRMER LE PARCOURS ==========
 launchConfirmedBtn.addEventListener("click", () => {
+  console.log("BOUTON CONFIRMER CLICK !");
   // Sauvegarde la liste dans localStorage
   localStorage.setItem("parcoursSteps", JSON.stringify(parcoursSteps));
   localStorage.setItem("parcoursInProgress", "1");
   localStorage.setItem("parcoursIndex", "0");
   parcoursScores = [];
   startIframeParcours();
+  console.log("startIframeParcours a été appelée");
 });
 
 // ========== MODE IFRAME ==========
 // Avec effet + loader
 function startIframeParcours() {
+  console.log("startIframeParcours DEBUT");
   document.getElementById("parcours-builder").style.display = "none";
   recapSection.style.display = "none";
   parcoursContainer.style.display = "flex";
@@ -199,6 +202,7 @@ function startIframeParcours() {
 }
 
 function launchIframeStep(idx) {
+  console.log("launchIframeStep:", idx);
   const steps = JSON.parse(localStorage.getItem("parcoursSteps") || "[]");
   if (!steps.length || idx >= steps.length) {
     showFinalRecap();
@@ -221,6 +225,7 @@ function launchIframeStep(idx) {
   } else {
     url = "../index.html";
   }
+  console.log("URL utilisée pour l'iframe :", url);
   parcoursIframe.style.display = "none";
   parcoursLoader.style.display = "block";
   parcoursIframe.onload = () => {
