@@ -119,11 +119,11 @@ function showDailyBanner() {
   DAILY_BANNER.style.display = "flex";
   updateSwitchModeBtn();
   if (dailyPlayed) {
-    DAILY_STATUS.innerHTML = `<span style="color:#25ff67;font-size:1.3em;vertical-align:-2px;">&#x2705;</span> <b>Daily du jour déjà jouée !</b> <span style="margin-left:7px;">Score : <b>${dailyScore} pts</b></span>`;
-    DAILY_SCORE.textContent = "";
+    DAILY_STATUS.innerHTML = `<span style="font-size:1.35em;vertical-align:-1.5px;">🎲</span> <b>Daily du jour :</b>`;
+    DAILY_SCORE.innerHTML = `<span style="color:#25ff67;font-weight:bold;margin-left:13px;">Score : <b>${dailyScore} pts</b></span>`;
   } else {
-    DAILY_STATUS.innerHTML = `<b>🎲 Daily du jour :</b>`;
-    DAILY_SCORE.textContent = "";
+    DAILY_STATUS.innerHTML = `<span style="font-size:1.35em;vertical-align:-1.5px;">🎲</span> <b>Daily du jour :</b>`;
+    DAILY_SCORE.innerHTML = "";
   }
 }
 function updateSwitchModeBtn() {
@@ -144,7 +144,7 @@ if (SWITCH_MODE_BTN) {
 }
 function unlockClassicInputs() {
   document.getElementById("openingInput").disabled = false;
-  document.getElementById("playTry1").disabled = false;
+  document.getElementById("playTry1").disabled = true;
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
   document.getElementById("nextBtn").style.display = "none";
@@ -181,7 +181,7 @@ function onPlayerStateChange(event) {
   }
 }
 function updateListenButtons() {
-  // Active/désactive les boutons écoute selon le playerReady et l'état du jeu
+  // Activation des boutons d’écoute uniquement quand le player est prêt
   document.getElementById("playTry1").disabled = !playerReady || (tries > 0);
   document.getElementById("playTry2").disabled = !playerReady || (tries !== 1);
   document.getElementById("playTry3").disabled = !playerReady || (tries !== 2);
@@ -241,9 +241,9 @@ function checkAnswer(selectedTitle) {
     if (isDaily && !dailyPlayed) {
       score = tries === 1 ? 1000 : (tries === 2 ? 800 : 500);
       localStorage.setItem(SCORE_KEY, score);
-      showDailyBanner();
       dailyPlayed = true;
       dailyScore = score;
+      showDailyBanner(); // <-- met à jour l'affichage score direct
     }
     showVictory();
     blockInputs();
