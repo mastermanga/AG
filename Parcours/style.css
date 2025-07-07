@@ -232,23 +232,24 @@ body.light .step-line {
 
 /* Style de l'iframe pour qu'il prenne bien la place et reste lisible */
 #parcours-iframe {
-  width: 100vw;
-  max-width: 1000px;
-  height: 610px;
+  width: 98vw;
+  max-width: 1300px;
+  height: 800px;
+  min-height: 700px;
   border-radius: 14px;
-  box-shadow: 0 4px 18px #00bcd455;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  box-shadow: 0 4px 18px #222a;
   background: #181818 !important;
   display: none;
   overflow: hidden;
-  border: none;
+  border: none !important;
   opacity: 0;
   transition: opacity 0.5s;
 }
 #parcours-iframe.active {
   display: block;
   opacity: 1;
+  border: none !important;
+  box-shadow: 0 4px 18px #222a;
 }
 body.light #parcours-iframe {
   background: #fafcff !important;
