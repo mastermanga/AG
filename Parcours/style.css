@@ -232,17 +232,19 @@ body.light .step-line {
 
 /* Style de l'iframe pour qu'il prenne bien la place et reste lisible */
 #parcours-iframe {
-  width: 98vw;
-  max-width: 1300px;
-  height: 800px;
-  min-height: 700px;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px #222a;
+  width: 98vw;              /* presque toute la largeur */
+  max-width: 1700px;        /* augmente la limite max selon tes besoins */
+  height: 92vh;             /* adapte la hauteur selon l'écran */
+  min-height: 600px;
+  border-radius: 18px;
+  margin-top: 18px;
+  margin-bottom: 18px;
   background: #181818 !important;
+  box-shadow: 0 6px 44px #00bcd433;
   display: none;
   overflow: hidden;
-  border: none !important;
-  opacity: 0;
+  border: none;             /* plus de cadre */
+  opacity: 1;
   transition: opacity 0.5s;
 }
 #parcours-iframe.active {
