@@ -25,6 +25,7 @@ function todayKey() {
 }
 const SCORE_KEY = `dailyScore_openingquizz_${todayKey()}`;
 const OPENING_KEY = `daily_openingquizz_id_${todayKey()}`;
+const STARTED_KEY = `dailyStarted_openingquizz_${todayKey()}`;
 
 let dailyPlayed = false;
 let dailyScore = null;
@@ -72,7 +73,20 @@ function setupGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
 
+  // Si daily déjà commencé mais pas fini : perdu !
   if (isDaily) {
+    if (localStorage.getItem(STARTED_KEY) && !localStorage.getItem(SCORE_KEY)) {
+      dailyPlayed = true;
+      dailyScore = 0;
+      showDailyBanner();
+      showResultMessage("✅ Daily du jour déjà jouée !", true, true, true);
+      blockInputsAll();
+      document.getElementById("nextBtn").style.display = "block";
+      document.getElementById("nextBtn").textContent = "Retour menu";
+      resizeContainer();
+      return;
+    }
+
     let animeIdx;
     if (!localStorage.getItem(OPENING_KEY)) {
       animeIdx = getDeterministicDailyIndex(animeList.length);
@@ -81,12 +95,15 @@ function setupGame() {
       animeIdx = parseInt(localStorage.getItem(OPENING_KEY));
     }
     currentIndex = animeIdx;
-    showDailyBanner();
 
+    // Marque comme daily lancé
+    localStorage.setItem(STARTED_KEY, "1");
+
+    showDailyBanner();
     if (dailyPlayed) {
       showDailyBanner();
       showResultMessage("✅ Daily du jour déjà jouée !", true, true, true);
-      blockInputsAll(); // force tout désactiver
+      blockInputsAll();
       document.getElementById("nextBtn").style.display = "block";
       document.getElementById("nextBtn").textContent = "Retour menu";
       resizeContainer();
@@ -144,8 +161,8 @@ if (SWITCH_MODE_BTN) {
   };
 }
 function unlockClassicInputs() {
-  document.getElementById("openingInput").disabled = true; // Important : désactivé au début
-  document.getElementById("playTry1").disabled = true; // Désactivé jusqu'au player ready
+  document.getElementById("openingInput").disabled = true;
+  document.getElementById("playTry1").disabled = true;
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
   document.getElementById("nextBtn").style.display = "none";
@@ -200,8 +217,8 @@ function resetControls() {
   document.getElementById("timer").style.display = "none";
   document.getElementById("timer").textContent = "";
   document.getElementById("openingInput").value = "";
-  document.getElementById("openingInput").disabled = true; // Désactivé par défaut
-  document.getElementById("playTry1").disabled = true; // Toujours désactivé jusqu'à ready
+  document.getElementById("openingInput").disabled = true;
+  document.getElementById("playTry1").disabled = true;
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
   document.getElementById("nextBtn").style.display = "none";
@@ -217,7 +234,7 @@ function playTry(n) {
   if (isDaily && dailyPlayed) return;
   if (n !== tries + 1) return alert("Vous devez écouter les extraits dans l'ordre.");
   tries = n;
-  document.getElementById("openingInput").disabled = false; // N'active qu'après écoute
+  document.getElementById("openingInput").disabled = false;
   document.getElementById("result").textContent = "";
   document.getElementById("result").className = "";
   clearInterval(stopInterval);
@@ -246,7 +263,9 @@ function checkAnswer(selectedTitle) {
   if (currentAnime.altTitles.includes(inputVal)) {
     let score = 0;
     if (isDaily && !dailyPlayed) {
-      score = tries === 1 ? 1000 : (tries === 2 ? 800 : 500);
+      if (tries === 1) score = 3000;
+      else if (tries === 2) score = 2000;
+      else if (tries === 3) score = 1000;
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
       dailyScore = score;
@@ -275,6 +294,13 @@ function revealAnswer() {
   const resultDiv = document.getElementById("result");
   resultDiv.textContent = `🔔 Réponse : ${currentAnime.title}`;
   resultDiv.className = "incorrect";
+  // Système daily: score 0 si perdu
+  if (isDaily && !dailyPlayed) {
+    localStorage.setItem(SCORE_KEY, 0);
+    dailyPlayed = true;
+    dailyScore = 0;
+    showDailyBanner();
+  }
   blockInputsAll();
   showNextButton();
   resizeContainer();
@@ -398,4 +424,13 @@ function resizeContainer() {
     c.style.height = "auto";
     c.style.minHeight = "0";
   }, 40);
+}
+
+// ========= Message Daily déjà joué =========
+function showResultMessage(msg, showGreen, block, isDailyDone) {
+  const resultDiv = document.getElementById("result");
+  resultDiv.textContent = msg;
+  resultDiv.className = showGreen ? "correct" : "";
+  if (block) blockInputsAll();
+  if (isDailyDone) document.getElementById("nextBtn").style.display = "block";
 }
