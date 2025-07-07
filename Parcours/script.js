@@ -32,6 +32,16 @@ const parcoursIframe = document.getElementById("parcours-iframe");
 const parcoursScore = document.getElementById("parcours-score");
 const parcoursFinish = document.getElementById("parcours-finish");
 
+// Ajout loader (HTML dans JS, ou bien ajoute le DIV dans ton HTML !)
+let parcoursLoader = document.getElementById('parcours-loader');
+if (!parcoursLoader) {
+  parcoursLoader = document.createElement('div');
+  parcoursLoader.id = 'parcours-loader';
+  parcoursLoader.textContent = "Chargement du jeu…";
+  parcoursLoader.style.cssText = "display:none;text-align:center;margin:1.3rem;font-size:1.3rem;";
+  parcoursContainer && parcoursContainer.insertBefore(parcoursLoader, parcoursIframe);
+}
+
 let parcoursSteps = [];
 let parcoursScores = []; // Pour stocker les scores en live
 
@@ -175,10 +185,12 @@ launchConfirmedBtn.addEventListener("click", () => {
 });
 
 // ========== MODE IFRAME ==========
+// Avec effet + loader
 function startIframeParcours() {
   document.getElementById("parcours-builder").style.display = "none";
   recapSection.style.display = "none";
   parcoursContainer.style.display = "flex";
+  parcoursContainer.classList.add("active");
   parcoursScore.style.display = "none";
   parcoursFinish.style.display = "none";
   parcoursScores = [];
@@ -208,8 +220,13 @@ function launchIframeStep(idx) {
   } else {
     url = "../index.html";
   }
+  parcoursIframe.style.display = "none";
+  parcoursLoader.style.display = "block";
+  parcoursIframe.onload = () => {
+    parcoursLoader.style.display = "none";
+    parcoursIframe.style.display = "block";
+  };
   parcoursIframe.src = url;
-  parcoursIframe.style.display = "block";
 }
 
 // Pour les jeux : doivent appeler parent.postMessage({parcoursScore: ...}, "*")
@@ -231,6 +248,7 @@ window.addEventListener("message", (e) => {
 // ========== AFFICHAGE FINAL ==========
 function showFinalRecap() {
   parcoursIframe.style.display = "none";
+  parcoursLoader.style.display = "none";
   parcoursScore.style.display = "block";
   parcoursFinish.style.display = "block";
   let html = "<h2>Récapitulatif du Parcours</h2><ul>";
@@ -245,7 +263,6 @@ function showFinalRecap() {
   // Bouton retour menu
   parcoursFinish.innerHTML = `<button onclick="window.location.href='../index.html'">Retour menu</button>`;
 }
-
 
 // Pour pouvoir être appelé depuis l’iframe :
 window.launchNextParcoursStep = function() {
