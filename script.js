@@ -37,12 +37,11 @@ function getDailyScoreFor(gameKey) {
     return null;
   }
   // NO SCORE but started for today => failed = 0 pts
-  if (localStorage.getItem(startedKey) && gameKey === "characterquizz") {
+  if (localStorage.getItem(startedKey)) {
     return 0;
   }
   return null;
 }
-
 
 // Affiche le récap du daily sur la page d’accueil
 function loadDailyRecap() {
