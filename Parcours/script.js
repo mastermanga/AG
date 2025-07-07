@@ -187,7 +187,6 @@ launchConfirmedBtn.addEventListener("click", () => {
 // ========== MODE IFRAME ==========
 // Avec effet + loader
 function startIframeParcours() {
-  document.getElementById("mainHeader").style.display = "none";
   document.getElementById("parcours-builder").style.display = "none";
   recapSection.style.display = "none";
   parcoursContainer.style.display = "flex";
