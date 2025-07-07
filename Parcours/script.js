@@ -246,17 +246,6 @@ function showFinalRecap() {
   parcoursFinish.innerHTML = `<button onclick="window.location.href='../index.html'">Retour menu</button>`;
 }
 
-// ========== BOUTON RELANCE PARCOURS ==========
-document.getElementById("restartParcoursBtn").addEventListener("click", function() {
-  localStorage.removeItem("parcoursSteps");
-  localStorage.removeItem("parcoursInProgress");
-  localStorage.removeItem("parcoursIndex");
-  localStorage.removeItem("parcoursCurrent");
-  parcoursScores = [];
-  document.getElementById("parcours-builder").style.display = "";
-  recapSection.style.display = "none";
-  parcoursContainer.style.display = "none";
-});
 
 // Pour pouvoir être appelé depuis l’iframe :
 window.launchNextParcoursStep = function() {
