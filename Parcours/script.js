@@ -212,18 +212,20 @@ function launchIframeStep(idx) {
   localStorage.setItem("parcoursIndex", String(idx));
   const step = steps[idx];
   let url = "";
+  // REMETS BIEN TON CHEMIN DE BASE ICI
+  const base = "https://mastermanga.github.io/AG/";
   if (step.type === "anidle") {
-    url = `../Anidle/index.html?parcours=1&count=${step.count}`;
+    url = `${base}Anidle/index.html?parcours=1&count=${step.count}`;
   } else if (step.type === "openingquizz") {
-    url = `../OpeningQuizz/index.html?parcours=1&count=${step.count}`;
+    url = `${base}OpeningQuizz/index.html?parcours=1&count=${step.count}`;
   } else if (step.type === "characterquizz") {
-    url = `../CharacterQuizz/index.html?parcours=1&count=${step.count}`;
+    url = `${base}CharacterQuizz/index.html?parcours=1&count=${step.count}`;
   } else if (step.type === "animetournament") {
-    url = `../AnimeTournament/index.html?parcours=1&mode=${step.mode || "anime"}&count=${step.count}`;
+    url = `${base}AnimeTournament/index.html?parcours=1&mode=${step.mode || "anime"}&count=${step.count}`;
   } else if (step.type === "blindranking") {
-    url = `../BlindRanking/index.html?parcours=1&mode=${step.mode || "anime"}&count=${step.count}`;
+    url = `${base}BlindRanking/index.html?parcours=1&mode=${step.mode || "anime"}&count=${step.count}`;
   } else {
-    url = "../index.html";
+    url = base + "index.html";
   }
   console.log("URL utilisée pour l'iframe :", url);
   parcoursIframe.style.display = "none";
@@ -234,6 +236,7 @@ function launchIframeStep(idx) {
   };
   parcoursIframe.src = url;
 }
+
 
 // Pour les jeux : doivent appeler parent.postMessage({parcoursScore: ...}, "*")
 window.addEventListener("message", (e) => {
