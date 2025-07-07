@@ -23,10 +23,8 @@ function getTodayString() {
 // Charge le score daily pour un jeu donné
 function getDailyScoreFor(gameKey) {
   const today = getTodayString();
-  // Même format que dans Anidle
   const value = localStorage.getItem(`dailyScore_${gameKey}_${today}`);
-  if (!value) return null;
-  // Accepte chaîne ou nombre
+  if (value === null) return null; // Corrigé : ne retourne null QUE si aucune valeur stockée
   if (!isNaN(Number(value))) return Number(value);
   try {
     const parsed = JSON.parse(value);
@@ -35,6 +33,7 @@ function getDailyScoreFor(gameKey) {
   } catch {}
   return null;
 }
+
 
 // Affiche le récap du daily sur la page d’accueil
 function loadDailyRecap() {
