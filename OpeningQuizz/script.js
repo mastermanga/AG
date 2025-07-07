@@ -19,7 +19,6 @@ const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
 const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
 
-// -- Clé du jour pour le score
 function todayKey() {
   const d = new Date();
   return `${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2,"0")}`;
@@ -30,14 +29,13 @@ const OPENING_KEY = `daily_openingquizz_id_${todayKey()}`;
 let dailyPlayed = false;
 let dailyScore = null;
 
-// -- Index daily déterministe
 function getDeterministicDailyIndex(len) {
   const d = new Date();
   const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
   return seed % len;
 }
 
-// ====== YOUTUBE / DATA ======
+// ====== OPENING QUIZZ LOGIC =======
 function extractVideoId(url) {
   const regExp = /^.*((youtu.be\/)|(v\/)|(watch\?))\??v?=?([^#&?]*).*/;
   const match = url.match(regExp);
@@ -47,7 +45,6 @@ function extractVideoId(url) {
 let animeList = [];
 let currentIndex = 0;
 let player;
-let playerReady = false;
 let stopInterval;
 let currentAnime;
 let tries = 0;
@@ -55,7 +52,6 @@ const maxTries = 3;
 const tryDurations = [3, 5, 15];
 let failedAnswers = [];
 
-// ========== INITIALISATION ==========
 fetch('../data/openings.json')
   .then(res => res.json())
   .then(data => {
@@ -71,12 +67,9 @@ fetch('../data/openings.json')
     setupGame();
   });
 
-// ===== SETUP & RESET =====
 function setupGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
-
-  playerReady = false;
 
   if (isDaily) {
     let animeIdx;
@@ -119,8 +112,9 @@ function showDailyBanner() {
   DAILY_BANNER.style.display = "flex";
   updateSwitchModeBtn();
   if (dailyPlayed) {
-    DAILY_STATUS.innerHTML = `<span style="font-size:1.35em;vertical-align:-1.5px;">🎲</span> <b>Daily du jour :</b>`;
-    DAILY_SCORE.innerHTML = `<span style="color:#25ff67;font-weight:bold;margin-left:13px;">Score : <b>${dailyScore} pts</b></span>`;
+    // ✅ Daily du jour déjà jouée !  Score : 1000 pts
+    DAILY_STATUS.innerHTML = `<span style="color:#25ff67;font-size:1.3em;vertical-align:-2px;">&#x2705;</span> <b>Daily du jour déjà jouée !</b>`;
+    DAILY_SCORE.innerHTML = `<span style="margin-left:12px;">Score : <b>${dailyScore} pts</b></span>`;
   } else {
     DAILY_STATUS.innerHTML = `<span style="font-size:1.35em;vertical-align:-1.5px;">🎲</span> <b>Daily du jour :</b>`;
     DAILY_SCORE.innerHTML = "";
@@ -144,26 +138,27 @@ if (SWITCH_MODE_BTN) {
 }
 function unlockClassicInputs() {
   document.getElementById("openingInput").disabled = false;
-  document.getElementById("playTry1").disabled = true;
+  document.getElementById("playTry1").disabled = false;
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
   document.getElementById("nextBtn").style.display = "none";
 }
 
-// ============ YOUTUBE PLAYER LOGIC ===========
+// ============ PLAYER LOGIC (YOUTUBE LECTURE FLEXIBLE) ===========
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 function initPlayer() {
-  playerReady = false;
   player = new YT.Player('playerWrapper', {
     height: '0',
     width: '0',
     videoId: currentAnime.videoId,
     playerVars: { autoplay: 0, controls: 0, modestbranding: 1, rel: 0, iv_load_policy: 3 },
     events: {
-      onReady: (event) => {
-        player.setVolume(50);
-        playerReady = true;
-        updateListenButtons();
-      },
+      onReady: (event) => player.setVolume(50),
       onStateChange: onPlayerStateChange
     }
   });
@@ -180,13 +175,6 @@ function onPlayerStateChange(event) {
     }, 200);
   }
 }
-function updateListenButtons() {
-  // Activation des boutons d’écoute uniquement quand le player est prêt
-  document.getElementById("playTry1").disabled = !playerReady || (tries > 0);
-  document.getElementById("playTry2").disabled = !playerReady || (tries !== 1);
-  document.getElementById("playTry3").disabled = !playerReady || (tries !== 2);
-}
-
 function resetControls() {
   tries = 0;
   failedAnswers = [];
@@ -197,19 +185,16 @@ function resetControls() {
   document.getElementById("timer").textContent = "";
   document.getElementById("openingInput").value = "";
   document.getElementById("openingInput").disabled = true;
-  document.getElementById("playTry1").disabled = true;
+  document.getElementById("playTry1").disabled = false;
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
   document.getElementById("nextBtn").style.display = "none";
   document.getElementById("suggestions").innerHTML = "";
-  updateListenButtons();
   resizeContainer();
 }
 
-// ===== LOGIQUE D'ÉCOUTE =====
 function playTry(n) {
   if (isDaily && dailyPlayed) return;
-  if (!playerReady) return alert("Le lecteur n'est pas prêt, réessaie dans une seconde !");
   if (n !== tries + 1) return alert("Vous devez écouter les extraits dans l'ordre.");
   tries = n;
   document.getElementById("openingInput").disabled = false;
@@ -229,7 +214,9 @@ function playTry(n) {
   });
   player.playVideo();
 
-  updateListenButtons();
+  document.getElementById("playTry1").disabled = true;
+  document.getElementById("playTry2").disabled = (tries !== 1);
+  document.getElementById("playTry3").disabled = (tries !== 2);
   resizeContainer();
 }
 
@@ -243,7 +230,7 @@ function checkAnswer(selectedTitle) {
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
       dailyScore = score;
-      showDailyBanner(); // <-- met à jour l'affichage score direct
+      showDailyBanner(); // met à jour le bandeau direct (✅ Daily du jour déjà jouée ! ...)
     }
     showVictory();
     blockInputs();
@@ -261,11 +248,9 @@ function checkAnswer(selectedTitle) {
   }
 }
 
-// Affichage des essais échoués
 function updateFailedAttempts() {
   document.getElementById("failedAttempts").innerText = failedAnswers.map(e => `❌ ${e}`).join("\n");
 }
-
 function revealAnswer() {
   const resultDiv = document.getElementById("result");
   resultDiv.textContent = `🔔 Réponse : ${currentAnime.title}`;
@@ -274,7 +259,6 @@ function revealAnswer() {
   showNextButton();
   resizeContainer();
 }
-
 function blockInputs() {
   document.getElementById("openingInput").disabled = true;
   document.getElementById("playTry1").disabled = true;
@@ -282,7 +266,6 @@ function blockInputs() {
   document.getElementById("playTry3").disabled = true;
   document.getElementById("suggestions").innerHTML = "";
 }
-
 function showNextButton() {
   document.getElementById("nextBtn").style.display = "block";
   document.getElementById("nextBtn").textContent = isDaily ? "Retour menu" : "Rejouer";
@@ -295,8 +278,6 @@ function showVictory() {
   resultDiv.className = "correct";
   launchFireworks();
 }
-
-// -- Fireworks simple (tu peux le retirer si tu n'en veux pas)
 function launchFireworks() {
   const canvas = document.getElementById("fireworks");
   if (!canvas) return;
@@ -304,17 +285,14 @@ function launchFireworks() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   const particles = [];
-
   function createParticle(x, y) {
     const angle = Math.random() * 2 * Math.PI;
     const speed = Math.random() * 5 + 2;
     return { x, y, dx: Math.cos(angle) * speed, dy: Math.sin(angle) * speed, life: 60 };
   }
-
   for (let i = 0; i < 80; i++) {
     particles.push(createParticle(canvas.width / 2, canvas.height / 2));
   }
-
   function animate() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -334,7 +312,6 @@ function launchFireworks() {
     if (particles.length > 0) requestAnimationFrame(animate);
     else ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
-
   animate();
 }
 
