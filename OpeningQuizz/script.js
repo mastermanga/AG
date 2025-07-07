@@ -82,20 +82,16 @@ function setupGame() {
     }
     currentIndex = animeIdx;
     showDailyBanner();
-  if (dailyPlayed) {
-    showDailyBanner();
-    showResultMessage("✅ Daily du jour déjà jouée !", true, true, true);
-    blockInputs();
-    document.getElementById("nextBtn").style.display = "block";
-    document.getElementById("nextBtn").textContent = "Retour menu";
-    // Ajoute ces lignes si ce n’est pas déjà fait dans blockInputs
-    document.getElementById("openingInput").disabled = true;
-    document.getElementById("playTry1").disabled = true;
-    document.getElementById("playTry2").disabled = true;
-    document.getElementById("playTry3").disabled = true;
-    resizeContainer();
-    return;
-  }
+
+    if (dailyPlayed) {
+      showDailyBanner();
+      showResultMessage("✅ Daily du jour déjà jouée !", true, true, true);
+      blockInputsAll(); // force tout désactiver
+      document.getElementById("nextBtn").style.display = "block";
+      document.getElementById("nextBtn").textContent = "Retour menu";
+      resizeContainer();
+      return;
+    }
   } else {
     currentIndex = Math.floor(Math.random() * animeList.length);
     if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
@@ -148,7 +144,7 @@ if (SWITCH_MODE_BTN) {
   };
 }
 function unlockClassicInputs() {
-  document.getElementById("openingInput").disabled = false;
+  document.getElementById("openingInput").disabled = true; // Important : désactivé au début
   document.getElementById("playTry1").disabled = true; // Désactivé jusqu'au player ready
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
@@ -204,7 +200,7 @@ function resetControls() {
   document.getElementById("timer").style.display = "none";
   document.getElementById("timer").textContent = "";
   document.getElementById("openingInput").value = "";
-  document.getElementById("openingInput").disabled = true;
+  document.getElementById("openingInput").disabled = true; // Désactivé par défaut
   document.getElementById("playTry1").disabled = true; // Toujours désactivé jusqu'à ready
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
@@ -221,7 +217,7 @@ function playTry(n) {
   if (isDaily && dailyPlayed) return;
   if (n !== tries + 1) return alert("Vous devez écouter les extraits dans l'ordre.");
   tries = n;
-  document.getElementById("openingInput").disabled = false;
+  document.getElementById("openingInput").disabled = false; // N'active qu'après écoute
   document.getElementById("result").textContent = "";
   document.getElementById("result").className = "";
   clearInterval(stopInterval);
@@ -254,7 +250,7 @@ function checkAnswer(selectedTitle) {
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
       dailyScore = score;
-      showDailyBanner(); // met à jour le bandeau direct
+      showDailyBanner();
     }
     showVictory();
     blockInputsAll();
