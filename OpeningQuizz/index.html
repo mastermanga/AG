@@ -14,31 +14,28 @@
     <button id="themeToggle" class="toggle-btn">🌓</button>
   </header>
 
-  <!-- Bandeau Daily juste après le header -->
-  <div id="daily-banner" style="display:none; margin-bottom:1.2rem; text-align:center;">
+  <!-- Bandeau Daily -->
+  <div id="daily-banner" style="display:none;">
     <span id="daily-status"></span>
     <span id="daily-score"></span>
-    <button id="switch-mode-btn" class="toggle-btn" style="margin-left:1.4rem; font-size:1rem; padding:0.35rem 1rem;"></button>
+    <button id="switch-mode-btn" class="toggle-btn"></button>
   </div>
 
   <div id="container">
+    <div id="successContainer" style="display:none;"></div>
     <div class="input-container">
       <input type="text" id="openingInput" placeholder="Entrez le nom d'un anime..." autocomplete="off" />
       <div id="suggestions" class="suggestions"></div>
     </div>
-
-    <div style="margin-top:1rem;">
+    <div id="listen-buttons" style="display:flex; justify-content:center; gap:12px; margin-bottom:16px;">
       <button id="playTry1">Écoute 1 (3s)</button>
       <button id="playTry2" disabled>Écoute 2 (5s)</button>
       <button id="playTry3" disabled>Écoute 3 (15s)</button>
     </div>
-
     <div id="failedAttempts"></div>
     <div id="result"></div>
     <div id="timer"></div>
-    <div id="successContainer" style="display:none;"></div>
-    <button id="nextBtn" style="display:none; margin-top:1rem;">Rejouer</button>
-
+    <button id="nextBtn" style="display:none; margin-top:1.1rem;"></button>
     <canvas id="fireworks"></canvas>
     <div id="playerWrapper" style="display:none;"></div>
   </div>
