@@ -281,9 +281,13 @@ body.light #parcours-score {
 }
 
 /* Responsive */
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
   #parcours-iframe {
-    max-width: 98vw;
+    width: 99vw;
+    max-width: 99vw;
+    min-height: 320px;
+    height: 60vh;
+    border-radius: 8px;
   }
 }
 @media (max-width: 900px) {
