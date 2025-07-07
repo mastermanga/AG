@@ -247,7 +247,6 @@ function showFinalRecap() {
 }
 
 // ========== BOUTON RELANCE PARCOURS ==========
-(À activer si tu veux permettre un restart complet du parcours)
 document.getElementById("restartParcoursBtn").addEventListener("click", function() {
   localStorage.removeItem("parcoursSteps");
   localStorage.removeItem("parcoursInProgress");
