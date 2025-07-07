@@ -27,7 +27,13 @@ const recapList = document.getElementById("parcoursRecapList");
 const editParcoursBtn = document.getElementById("editParcoursBtn");
 const launchConfirmedBtn = document.getElementById("launchConfirmedBtn");
 
+const parcoursContainer = document.getElementById("parcours-container");
+const parcoursIframe = document.getElementById("parcours-iframe");
+const parcoursScore = document.getElementById("parcours-score");
+const parcoursFinish = document.getElementById("parcours-finish");
+
 let parcoursSteps = [];
+let parcoursScores = []; // Pour stocker les scores en live
 
 // ========== AFFICHER/DISSIMULER LE MODE (anime/opening) ==========
 gameType.addEventListener("change", () => {
@@ -164,48 +170,107 @@ launchConfirmedBtn.addEventListener("click", () => {
   localStorage.setItem("parcoursSteps", JSON.stringify(parcoursSteps));
   localStorage.setItem("parcoursInProgress", "1");
   localStorage.setItem("parcoursIndex", "0");
-  // Redirige vers la première étape :
-  launchNextParcoursStep();
+  parcoursScores = [];
+  startIframeParcours();
 });
 
-// ========== ENCHAÎNEMENT DES JEUX ==========
-function launchNextParcoursStep() {
-  const steps = JSON.parse(localStorage.getItem("parcoursSteps") || "[]");
-  let idx = parseInt(localStorage.getItem("parcoursIndex") || "0", 10);
-
-  if (!steps.length || idx >= steps.length) {
-    localStorage.removeItem("parcoursInProgress");
-    localStorage.removeItem("parcoursIndex");
-    window.location.href = "parcours_result.html";
-    return;
-  }
-  const step = steps[idx];
-  // Selon le type, redirige avec infos utiles en localStorage :
-  localStorage.setItem("parcoursCurrent", JSON.stringify(step));
-  // Redirection selon le jeu (ici adapte les liens à ton arborescence !)
-  if (step.type === "anidle") {
-    window.location.href = "anidle.html?parcours=1";
-  } else if (step.type === "openingquizz") {
-    window.location.href = "openingquizz.html?parcours=1";
-  } else if (step.type === "characterquizz") {
-    window.location.href = "characterquizz.html?parcours=1";
-  } else if (step.type === "animetournament") {
-    window.location.href = "animetournament.html?parcours=1";
-  } else if (step.type === "blindranking") {
-    window.location.href = "blindranking.html?parcours=1";
-  } else {
-    window.location.href = "../index.html";
-  }
+// ========== MODE IFRAME ==========
+function startIframeParcours() {
+  document.getElementById("parcours-builder").style.display = "none";
+  recapSection.style.display = "none";
+  parcoursContainer.style.display = "flex";
+  parcoursScore.style.display = "none";
+  parcoursFinish.style.display = "none";
+  parcoursScores = [];
+  launchIframeStep(0);
 }
 
-// Pour pouvoir être appelé depuis les autres jeux :
-window.launchNextParcoursStep = launchNextParcoursStep;
+function launchIframeStep(idx) {
+  const steps = JSON.parse(localStorage.getItem("parcoursSteps") || "[]");
+  if (!steps.length || idx >= steps.length) {
+    showFinalRecap();
+    return;
+  }
+  localStorage.setItem("parcoursInProgress", "1");
+  localStorage.setItem("parcoursIndex", String(idx));
+  const step = steps[idx];
+  let url = "";
+  if (step.type === "anidle") {
+    url = `../Anidle/index.html?parcours=1&count=${step.count}`;
+  } else if (step.type === "openingquizz") {
+    url = `../OpeningQuizz/index.html?parcours=1&count=${step.count}`;
+  } else if (step.type === "characterquizz") {
+    url = `../CharacterQuizz/index.html?parcours=1&count=${step.count}`;
+  } else if (step.type === "animetournament") {
+    url = `../AnimeTournament/index.html?parcours=1&mode=${step.mode || "anime"}&count=${step.count}`;
+  } else if (step.type === "blindranking") {
+    url = `../BlindRanking/index.html?parcours=1&mode=${step.mode || "anime"}&count=${step.count}`;
+  } else {
+    url = "../index.html";
+  }
+  parcoursIframe.src = url;
+  parcoursIframe.style.display = "block";
+}
 
-// ========= DÉMO : on reload, on restaure si parcours en cours (optionnel) ==========
+// Pour les jeux : doivent appeler parent.postMessage({parcoursScore: ...}, "*")
+window.addEventListener("message", (e) => {
+  // {parcoursScore: { label: "Opening Quizz", score: 21, total: 25 }}
+  if (e.data && e.data.parcoursScore) {
+    parcoursScores.push(e.data.parcoursScore);
+    // Prochaine étape
+    const idx = parseInt(localStorage.getItem("parcoursIndex") || "0", 10) + 1;
+    const steps = JSON.parse(localStorage.getItem("parcoursSteps") || "[]");
+    if (idx < steps.length) {
+      launchIframeStep(idx);
+    } else {
+      showFinalRecap();
+    }
+  }
+});
+
+// ========== AFFICHAGE FINAL ==========
+function showFinalRecap() {
+  parcoursIframe.style.display = "none";
+  parcoursScore.style.display = "block";
+  parcoursFinish.style.display = "block";
+  let html = "<h2>Récapitulatif du Parcours</h2><ul>";
+  let totalScore = 0;
+  parcoursScores.forEach((res, idx) => {
+    html += `<li>${res.label} : <b>${res.score} / ${res.total}</b></li>`;
+    totalScore += (typeof res.score === "number" ? res.score : 0);
+  });
+  html += "</ul>";
+  html += `<div style="font-size:1.3rem;margin-top:13px;"><b>Score total : ${totalScore}</b></div>`;
+  parcoursScore.innerHTML = html;
+  // Bouton retour menu
+  parcoursFinish.innerHTML = `<button onclick="window.location.href='../index.html'">Retour menu</button>`;
+}
+
+// ========== BOUTON RELANCE PARCOURS ==========
+(À activer si tu veux permettre un restart complet du parcours)
+document.getElementById("restartParcoursBtn").addEventListener("click", function() {
+  localStorage.removeItem("parcoursSteps");
+  localStorage.removeItem("parcoursInProgress");
+  localStorage.removeItem("parcoursIndex");
+  localStorage.removeItem("parcoursCurrent");
+  parcoursScores = [];
+  document.getElementById("parcours-builder").style.display = "";
+  recapSection.style.display = "none";
+  parcoursContainer.style.display = "none";
+});
+
+// Pour pouvoir être appelé depuis l’iframe :
+window.launchNextParcoursStep = function() {
+  // Les jeux doivent poster le score avec :
+  // parent.postMessage({parcoursScore: {label:..., score:..., total:...}}, "*");
+  // Ici, le passage est fait à la réception du message postMessage (voir listener plus haut)
+};
+
+// Restauration parcours en cours si reload
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("parcoursInProgress")) {
     if (confirm("Un Mode Parcours est en cours, continuer ?")) {
-      launchNextParcoursStep();
+      startIframeParcours();
     } else {
       localStorage.removeItem("parcoursInProgress");
       localStorage.removeItem("parcoursSteps");
