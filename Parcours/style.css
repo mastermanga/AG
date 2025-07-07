@@ -7,7 +7,6 @@ html, body {
   padding: 0;
   width: 100vw;
   box-sizing: border-box;
-  /* Empêche scroll horizontal fantôme */
   overflow-x: hidden;
   transition: background 0.4s;
 }
@@ -217,10 +216,13 @@ body.light .step-line {
   min-width: 0;
   margin: 0;
   padding: 0;
-  /* Retire border-radius, box-shadow si tu veux plus de cadre du tout ! */
-  border-radius: 0;
-  box-shadow: none;
-  background: transparent;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 #parcours-container.active {
@@ -230,21 +232,18 @@ body.light .step-line {
 
 /* Style de l'iframe pour qu'il prenne bien la place et reste lisible */
 #parcours-iframe {
-  width: 100vw;
-  max-width: none;
+  width: 98vw;
+  max-width: 98vw;
   min-width: 0;
   margin: 0;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   background: #181818 !important;
   display: block;
-}
-#parcours-iframe.active {
-  display: block;
   opacity: 1;
-  border: none !important;
-  box-shadow: 0 4px 18px #222a;
+  z-index: 2;
+  height: 90vh;
 }
 body.light #parcours-iframe {
   background: #fafcff !important;
@@ -319,18 +318,4 @@ body.light #parcours-score {
 html {
   min-height: 100vh;
   background: #181818 !important;
-}
-
-
-#parcours-iframe {
-  /* ... (tes autres règles, laisse-les comme tu veux) ... */
-  border: 4px solid #00e6ff;
-  box-shadow: 0 0 32px 8px #00e6ffa0, 0 4px 18px #00bcd455;
-  transition: border-color 0.25s, box-shadow 0.4s;
-  z-index: 9;
-}
-
-#parcours-iframe.active {
-  border-color: #ffeb3b;
-  box-shadow: 0 0 40px 12px #ffe60088, 0 6px 22px #00bcd488;
 }
