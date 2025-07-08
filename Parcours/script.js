@@ -68,19 +68,6 @@ addStepBtn.addEventListener("click", () => {
 
   if (!type || count < 1) return;
 
-  let label = "";
-  switch(type) {
-    case "anidle": label = `Anidle × ${count}`; break;
-    case "openingquizz": label = `Opening Quizz × ${count}`; break;
-    case "characterquizz": label = `Character Quizz × ${count}`; break;
-    case "animetournament":
-      label = `AnimeTournament (${mode === "opening" ? "Opening" : "Anime"})`;
-      break;
-    case "blindranking":
-      label = `BlindRanking (${mode === "opening" ? "Opening" : "Anime"})`;
-      break;
-  }
-
   parcoursSteps.push({ type, mode, count });
   renderSteps();
   startParcoursBtn.style.display = parcoursSteps.length > 0 ? "block" : "none";
@@ -99,6 +86,7 @@ function renderSteps() {
       txt = `${gameNameLabel(step.type)} × ${step.count}`;
     } else {
       txt = `${gameNameLabel(step.type)} (${step.mode === "opening" ? "Opening" : "Anime"})`;
+      if (step.count > 1) txt += ` × ${step.count}`;
     }
     const div = document.createElement("div");
     div.className = "step-line";
@@ -158,6 +146,7 @@ function showRecap() {
       txt = `${gameNameLabel(step.type)} × ${step.count}`;
     } else {
       txt = `${gameNameLabel(step.type)} (${step.mode === "opening" ? "Opening" : "Anime"})`;
+      if (step.count > 1) txt += ` × ${step.count}`;
     }
     const li = document.createElement("li");
     li.textContent = `${i+1}. ${txt}`;
