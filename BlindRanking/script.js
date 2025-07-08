@@ -108,8 +108,9 @@ function displayCurrentItem() {
     const animeImg = document.getElementById("anime-img");
     const container = document.getElementById("anime-item");
     const nextBtn = document.getElementById("next-btn");
-    // Nettoie le player central à chaque fois
     const ytDiv = document.getElementById('yt-player-1');
+    const playerZone = document.getElementById('player-zone'); // AJOUT
+
     ytDiv.innerHTML = "";
     ytDiv.style.display = "none";
     document.getElementById('player-loader').style.display = "none";
@@ -117,12 +118,26 @@ function displayCurrentItem() {
     if (currentIndex < selectedAnimes.length) {
       const item = selectedAnimes[currentIndex];
       document.getElementById("anime-name").textContent = item.title;
+
       if (rankingMode === "anime") {
         animeImg.src = item.image;
         animeImg.style.display = "block";
+        // PATCH pour enlever l'espace du player en mode anime
+        if (playerZone) {
+          playerZone.style.height = "0";
+          playerZone.style.minHeight = "0";
+          playerZone.style.padding = "0";
+          playerZone.style.overflow = "hidden";
+        }
       } else {
         animeImg.style.display = "none";
-        // Affiche le player <iframe> pour que l'utilisateur clique sur "Play"
+        // PATCH pour remettre la hauteur normale du player en mode opening
+        if (playerZone) {
+          playerZone.style.height = "225px";
+          playerZone.style.minHeight = "225px";
+          playerZone.style.padding = "";
+          playerZone.style.overflow = "";
+        }
         ytDiv.innerHTML = "";
         ytDiv.style.display = "block";
         if (item.youtubeUrls?.[0]) {
@@ -142,6 +157,7 @@ function displayCurrentItem() {
     }
   }, 120);
 }
+
 
 // ==== ASSIGNATION RANG ====
 function assignRank(rank) {
