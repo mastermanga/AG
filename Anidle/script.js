@@ -481,7 +481,7 @@ function showSuccessMessageParcours(roundScore) {
       <span style="font-size:2.3rem;">🎉</span>
     </div>
     <div style="text-align:center;">
-      <button id="nextParcoursBtn" style="font-size:1.1rem; margin: 0 auto;">${parcoursIndex+1 < parcoursCount ? "Suivant" : "Terminer"}</button>
+      <button id="nextParcoursBtn" style="font-size:1.1rem; margin: 0 auto 1rem auto;">${parcoursIndex+1 < parcoursCount ? "Suivant" : "Terminer"}</button>
     </div>
   `;
   container.style.display = "block";
