@@ -61,6 +61,7 @@ gameType.addEventListener("change", () => {
 });
 
 // ========== AJOUTER UNE ETAPE ==========
+// Décompose chaque ajout >1 en étapes unitaires pour que le parcours fonctionne bien
 addStepBtn.addEventListener("click", () => {
   const type = gameType.value;
   const mode = modeOption.style.display === "none" ? null : modeOption.value;
@@ -68,11 +69,14 @@ addStepBtn.addEventListener("click", () => {
 
   if (!type || count < 1) return;
 
-  parcoursSteps.push({ type, mode, count });
+  for (let i = 0; i < count; i++) {
+    parcoursSteps.push({ type, mode, count: 1 });
+  }
   renderSteps();
   startParcoursBtn.style.display = parcoursSteps.length > 0 ? "block" : "none";
 });
 
+// Affiche la liste des étapes en regroupant visuellement les mêmes
 function renderSteps() {
   stepsList.innerHTML = "";
   if (parcoursSteps.length === 0) {
@@ -80,28 +84,50 @@ function renderSteps() {
     startParcoursBtn.style.display = "none";
     return;
   }
-  parcoursSteps.forEach((step, idx) => {
-    let txt = "";
-    if (["anidle", "openingquizz", "characterquizz"].includes(step.type)) {
-      txt = `${gameNameLabel(step.type)} × ${step.count}`;
+  // Regroupement d’affichage des étapes similaires consécutives
+  let grouped = [];
+  for (let i = 0; i < parcoursSteps.length; i++) {
+    const step = parcoursSteps[i];
+    if (
+      grouped.length > 0 &&
+      grouped[grouped.length - 1].type === step.type &&
+      grouped[grouped.length - 1].mode === step.mode
+    ) {
+      grouped[grouped.length - 1].count += 1;
+      grouped[grouped.length - 1].indices.push(i);
     } else {
-      txt = `${gameNameLabel(step.type)} (${step.mode === "opening" ? "Opening" : "Anime"})`;
-      if (step.count > 1) txt += ` × ${step.count}`;
+      grouped.push({
+        ...step,
+        count: 1,
+        indices: [i]
+      });
+    }
+  }
+
+  grouped.forEach((group, idx) => {
+    let txt = "";
+    if (["anidle", "openingquizz", "characterquizz"].includes(group.type)) {
+      txt = `${gameNameLabel(group.type)} × ${group.count}`;
+    } else {
+      txt = `${gameNameLabel(group.type)} (${group.mode === "opening" ? "Opening" : "Anime"})`;
+      if (group.count > 1) txt += ` × ${group.count}`;
     }
     const div = document.createElement("div");
     div.className = "step-line";
     div.innerHTML = `
       <span class="step-label">${txt}</span>
       <span class="step-controls">
-        <button class="upBtn" ${idx === 0 ? "disabled" : ""}>⬆️</button>
-        <button class="downBtn" ${idx === parcoursSteps.length-1 ? "disabled" : ""}>⬇️</button>
+        <button class="upBtn" ${grouped.length === 1 || idx === 0 ? "disabled" : ""}>⬆️</button>
+        <button class="downBtn" ${grouped.length === 1 || idx === grouped.length-1 ? "disabled" : ""}>⬇️</button>
         <button class="removeBtn">🗑️</button>
       </span>
     `;
-    // Events
-    div.querySelector(".upBtn").onclick = () => { moveStep(idx, -1); };
-    div.querySelector(".downBtn").onclick = () => { moveStep(idx, 1); };
-    div.querySelector(".removeBtn").onclick = () => { removeStep(idx); };
+    div.querySelector(".upBtn").onclick = () => { moveStep(group.indices[0], -1); };
+    div.querySelector(".downBtn").onclick = () => { moveStep(group.indices[0], 1); };
+    div.querySelector(".removeBtn").onclick = () => {
+      // supprime toutes les étapes du groupe (d’un coup)
+      for (let j = group.indices.length - 1; j >= 0; j--) removeStep(group.indices[j]);
+    };
     stepsList.appendChild(div);
   });
 }
@@ -140,13 +166,30 @@ function showRecap() {
   document.getElementById("parcours-builder").style.display = "none";
   recapSection.style.display = "block";
   recapList.innerHTML = "";
-  parcoursSteps.forEach((step, i) => {
-    let txt = "";
-    if (["anidle", "openingquizz", "characterquizz"].includes(step.type)) {
-      txt = `${gameNameLabel(step.type)} × ${step.count}`;
+  // Regroupe pour l’affichage du recap (même logique que renderSteps)
+  let grouped = [];
+  for (let i = 0; i < parcoursSteps.length; i++) {
+    const step = parcoursSteps[i];
+    if (
+      grouped.length > 0 &&
+      grouped[grouped.length - 1].type === step.type &&
+      grouped[grouped.length - 1].mode === step.mode
+    ) {
+      grouped[grouped.length - 1].count += 1;
     } else {
-      txt = `${gameNameLabel(step.type)} (${step.mode === "opening" ? "Opening" : "Anime"})`;
-      if (step.count > 1) txt += ` × ${step.count}`;
+      grouped.push({
+        ...step,
+        count: 1
+      });
+    }
+  }
+  grouped.forEach((group, i) => {
+    let txt = "";
+    if (["anidle", "openingquizz", "characterquizz"].includes(group.type)) {
+      txt = `${gameNameLabel(group.type)} × ${group.count}`;
+    } else {
+      txt = `${gameNameLabel(group.type)} (${group.mode === "opening" ? "Opening" : "Anime"})`;
+      if (group.count > 1) txt += ` × ${group.count}`;
     }
     const li = document.createElement("li");
     li.textContent = `${i+1}. ${txt}`;
@@ -171,7 +214,6 @@ launchConfirmedBtn.addEventListener("click", () => {
 });
 
 // ========== MODE IFRAME ==========
-// Avec effet + loader
 function startIframeParcours() {
   document.getElementById("parcours-builder").style.display = "none";
   recapSection.style.display = "none";
@@ -194,7 +236,6 @@ function launchIframeStep(idx) {
   localStorage.setItem("parcoursIndex", String(idx));
   const step = steps[idx];
   let url = "";
-  // REMETS BIEN TON CHEMIN DE BASE ICI
   const base = "https://mastermanga.github.io/AG/";
   if (step.type === "anidle") {
     url = `${base}Anidle/index.html?parcours=1&count=${step.count}`;
@@ -215,7 +256,7 @@ function launchIframeStep(idx) {
   parcoursIframe.onload = () => {
     parcoursLoader.style.display = "none";
     parcoursIframe.style.display = "block";
-    parcoursIframe.classList.add("active"); // <<== Ajoute la classe pour rendre visible
+    parcoursIframe.classList.add("active");
   };
   parcoursIframe.src = url;
 }
@@ -224,7 +265,6 @@ function launchIframeStep(idx) {
 window.addEventListener("message", (e) => {
   if (e.data && e.data.parcoursScore) {
     parcoursScores.push(e.data.parcoursScore);
-    // Prochaine étape
     const idx = parseInt(localStorage.getItem("parcoursIndex") || "0", 10) + 1;
     const steps = JSON.parse(localStorage.getItem("parcoursSteps") || "[]");
     if (idx < steps.length) {
@@ -237,24 +277,15 @@ window.addEventListener("message", (e) => {
 
 // ========== AFFICHAGE FINAL ==========
 function showFinalRecap() {
-  // 1. On s'assure que l'iframe est caché
   parcoursIframe.style.display = "none";
   parcoursIframe.classList.remove("active");
   parcoursLoader.style.display = "none";
-  
-  // 2. On enlève le "fullscreen" du body pour réafficher le header
   document.body.classList.remove('parcours-fullscreen');
-  // → Le header réapparaît grâce à ton CSS
-  
-  // 3. On affiche le container (déjà présent normalement)
   parcoursContainer.style.display = "flex";
   parcoursContainer.classList.add("active");
-  
-  // 4. On affiche le score et le bouton de fin
   parcoursScore.style.display = "block";
   parcoursFinish.style.display = "block";
-  
-  // 5. On construit le récapitulatif
+
   let html = "<h2>Récapitulatif du Parcours</h2><ul>";
   let totalScore = 0;
   parcoursScores.forEach((res, idx) => {
