@@ -47,19 +47,16 @@ let parcoursScores = []; // Pour stocker les scores en live
 
 // ========== AFFICHER/DISSIMULER LE MODE (anime/opening) ==========
 gameType.addEventListener("change", () => {
-  if (["animetournament", "blindranking"].includes(gameType.value) || gameType.value === "characterquizz") {
+  if (["animetournament", "blindranking"].includes(gameType.value)) {
     modeOption.style.display = "";
-    modeOption.innerHTML = "";
-    if (gameType.value === "characterquizz") {
-      modeOption.innerHTML = `<option value="anime">Anime</option>`;
-    } else {
-      modeOption.innerHTML = `
-        <option value="anime">Anime</option>
-        <option value="opening">Opening</option>
-      `;
-    }
+    modeOption.innerHTML = `
+      <option value="anime">Anime</option>
+      <option value="opening">Opening</option>
+    `;
   } else {
+    // characterquizz et les autres jeux → MASQUE le select
     modeOption.style.display = "none";
+    modeOption.innerHTML = "";
   }
 });
 
