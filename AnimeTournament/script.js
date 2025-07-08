@@ -9,7 +9,6 @@ document.getElementById("themeToggle").addEventListener("click", () => {
   const isLight = document.body.classList.contains("light");
   localStorage.setItem("theme", isLight ? "light" : "dark");
 });
-
 window.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "light") {
@@ -18,11 +17,17 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 (() => {
+  // ==== Mode Parcours : lecture URL ====
+  const urlParams = new URLSearchParams(window.location.search);
+  const isParcours = urlParams.get("parcours") === "1";
+  const parcoursCount = parseInt(urlParams.get("count") || "1", 10);
+  // Par défaut "anime" mais dans le parcours ça peut être "opening"
+  let mode = urlParams.get("mode") || "anime";
+
   const TOTAL_ITEMS = 16;
   const QUALIFIED_TO_BRACKET = 8;
   const SWISS_ROUNDS = 5; // 5 duels fixes
 
-  let mode = 'anime';
   let data = [];
   let items = [];
 
@@ -38,13 +43,26 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // UI Elements
   const duelContainer = document.querySelector('#duel-container');
-  const classementDiv = document.querySelector('#classement');
+  const classementDiv = document.getElementById('classement');
   const modeAnimeBtn = document.getElementById('mode-anime');
   const modeOpeningBtn = document.getElementById('mode-opening');
   const nextMatchBtn = document.getElementById('next-match-btn');
+  const modeSelectDiv = document.getElementById('mode-select');
 
-  modeAnimeBtn.onclick = () => switchMode('anime');
-  modeOpeningBtn.onclick = () => switchMode('opening');
+  // GESTION MODES
+  if (isParcours) {
+    // Si parcours : cacher le sélecteur de mode et forcer la valeur de mode depuis l'URL
+    if (modeSelectDiv) modeSelectDiv.style.display = "none";
+    // Applique la classe active au bon bouton pour la cohérence si jamais tu affiches quand même le bloc
+    modeAnimeBtn.classList.toggle('active', mode === 'anime');
+    modeAnimeBtn.setAttribute('aria-pressed', mode === 'anime');
+    modeOpeningBtn.classList.toggle('active', mode === 'opening');
+    modeOpeningBtn.setAttribute('aria-pressed', mode === 'opening');
+  } else {
+    // Hors parcours : clics manuels normaux
+    modeAnimeBtn.onclick = () => switchMode('anime');
+    modeOpeningBtn.onclick = () => switchMode('opening');
+  }
 
   // Bouton Suivant : relance une nouvelle partie
   nextMatchBtn.onclick = function() {
