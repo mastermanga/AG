@@ -393,6 +393,10 @@ function showVictoryParcours(roundScore) {
   resultDiv.className = roundScore > 0 ? "correct" : "incorrect";
   launchFireworks();
 
+  // Affiche TOUJOURS le bouton
+  document.getElementById("nextBtn").style.display = "block";
+  document.getElementById("nextBtn").textContent = (parcoursIndex + 1 < parcoursCount) ? "Suivant" : "Terminer";
+
   document.getElementById("nextBtn").onclick = () => {
     parcoursIndex++;
     if (parcoursIndex < parcoursCount) {
@@ -536,4 +540,3 @@ function showResultMessage(msg, showGreen, block, isDailyDone) {
   if (block) blockInputsAll();
   if (isDailyDone) document.getElementById("nextBtn").style.display = "block";
 }
-
