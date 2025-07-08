@@ -12,8 +12,15 @@ window.addEventListener("DOMContentLoaded", () => {
   if (savedTheme === "light") document.body.classList.add("light");
 });
 
-// === DAILY SYSTEME (SEED VRAIMENT UNIQUE) ===
-let isDaily = true;
+// === MODE PARCOURS ? ===
+const urlParams = new URLSearchParams(window.location.search);
+const isParcours = urlParams.get("parcours") === "1";
+const parcoursCount = parseInt(urlParams.get("count") || "1", 10);
+let parcoursIndex = 0;
+let parcoursTotalScore = 0;
+
+// === DAILY SYSTEME ===
+let isDaily = !isParcours; // force le mode classic en parcours
 const DAILY_BANNER = document.getElementById("daily-banner");
 const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
@@ -58,7 +65,10 @@ let gameEnded = false;
 let countdown = 5;
 let countdownInterval = null;
 
-// ----  DAILY LOGIC  ----
+// === PARCOURS STATE ===
+let parcoursPool = []; // Liste d'animes restants (pour éviter doublons en parcours)
+
+// ---- DAILY LOGIC / MODE SWITCH ----
 if (SWITCH_MODE_BTN) {
   SWITCH_MODE_BTN.onclick = () => {
     isDaily = !isDaily;
@@ -93,7 +103,14 @@ async function loadAnimes() {
   try {
     const response = await fetch('../data/animes.json');
     allAnimes = await response.json();
-    startNewGame();
+    if (isParcours) {
+      parcoursIndex = 0;
+      parcoursTotalScore = 0;
+      parcoursPool = [...allAnimes];
+      startNewParcoursRound();
+    } else {
+      startNewGame();
+    }
   } catch (error) {
     timerDisplay.textContent = "Erreur de chargement des données.";
     console.error(error);
@@ -105,9 +122,7 @@ function startNewGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
 
-  // Daily déjà commencé mais pas fini (perdu ou quitté sans finir)
   if (isDaily && allAnimes.length > 0) {
-    // Si daily déjà commencé mais score absent : déjà grillé !
     if (localStorage.getItem(STARTED_KEY) && !localStorage.getItem(SCORE_KEY)) {
       dailyPlayed = true;
       dailyScore = 0;
@@ -128,10 +143,7 @@ function startNewGame() {
       animeIdx = parseInt(localStorage.getItem(CHARACTER_KEY));
     }
     currentAnime = allAnimes[animeIdx];
-
-    // Marque le daily comme démarré pour aujourd'hui
     localStorage.setItem(STARTED_KEY, "1");
-
     showDailyBanner();
     if (dailyPlayed) {
       showSuccessDailyMsg();
@@ -176,6 +188,50 @@ function startNewGame() {
   resetTimer();
 }
 
+// === MODE PARCOURS : round par round ===
+function startNewParcoursRound() {
+  // Masque le header "menu" en mode parcours (optionnel)
+  document.getElementById("back-to-menu").style.display = "none";
+  if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
+
+  // Choix sans doublon pour chaque round (prend au hasard dans le pool)
+  if (parcoursPool.length === 0 || parcoursIndex >= parcoursCount) {
+    showFinalRecapParcours();
+    return;
+  }
+  currentAnime = parcoursPool.splice(Math.floor(Math.random() * parcoursPool.length), 1)[0];
+
+  // Reset
+  container.innerHTML = '';
+  feedback.textContent = '';
+  feedback.className = "";
+  revealedCount = 0;
+  gameEnded = false;
+  restartBtn.style.display = 'none';
+
+  currentAnime.characters.forEach((char, i) => {
+    const img = document.createElement("img");
+    img.src = char.image;
+    img.alt = char.name;
+    img.className = "character-img";
+    img.id = "char-" + i;
+    img.style.display = "none";
+    container.appendChild(img);
+  });
+
+  revealNextCharacter();
+
+  input.disabled = false;
+  input.value = '';
+  submitBtn.disabled = true;
+  input.focus();
+
+  suggestions.innerHTML = '';
+  timerDisplay.textContent = '';
+  clearInterval(countdownInterval);
+  resetTimer();
+}
+
 // --- VICTOIRE (Daily) ---
 function showSuccessDailyMsg() {
   feedback.innerHTML = `<input type='checkbox' checked disabled style='accent-color:#38d430; margin-right:6px;vertical-align:-2px;'> <b>Daily du jour déjà jouée !</b> Score : <b>${dailyScore} pts</b>`;
@@ -185,7 +241,7 @@ function showSuccessDailyMsg() {
   timerDisplay.textContent = "";
 }
 
-// --- BLOQUER LES ENTRÉES QUAND DAILY FAIT ---
+// --- BLOQUER LES ENTRÉES ---
 function blockInputs() {
   input.disabled = true;
   submitBtn.disabled = true;
@@ -210,7 +266,6 @@ input.addEventListener("input", function() {
   feedback.textContent = '';
   submitBtn.disabled = true;
   if (!val) return;
-  // max 7 suggestions
   const found = [...new Set(allAnimes.map(a => a.title))]
     .filter(title => title.toLowerCase().includes(val))
     .slice(0, 7);
@@ -228,19 +283,32 @@ input.addEventListener("input", function() {
     suggestions.appendChild(div);
   });
 
-  // Activation du bouton Valider seulement si le texte est un vrai titre
   const titles = allAnimes.map(a => a.title.toLowerCase());
   submitBtn.disabled = !titles.includes(val) || (isDaily && dailyPlayed);
 });
 input.addEventListener("keydown", function(e) {
   if (e.key === "Enter" && !submitBtn.disabled && !gameEnded && !(isDaily && dailyPlayed)) {
-    checkGuess();
+    if (isParcours) {
+      checkGuessParcours();
+    } else {
+      checkGuess();
+    }
   }
 });
-submitBtn.addEventListener("click", checkGuess);
-
+submitBtn.addEventListener("click", () => {
+  if (isParcours) checkGuessParcours();
+  else checkGuess();
+});
 restartBtn.addEventListener("click", function() {
-  if (isDaily && dailyPlayed) {
+  if (isParcours) {
+    // En mode parcours, ce bouton sert à "Suivant" ou "Terminer"
+    if (parcoursIndex < parcoursCount - 1) {
+      parcoursIndex++;
+      startNewParcoursRound();
+    } else {
+      showFinalRecapParcours();
+    }
+  } else if (isDaily && dailyPlayed) {
     window.location.href = "../index.html";
   } else {
     startNewGame();
@@ -268,16 +336,21 @@ function resetTimer() {
       clearInterval(countdownInterval);
       if (!gameEnded) {
         if (revealedCount === currentAnime.characters.length) {
-          // MARQUE LE DAILY COMME FAIL (score 0) si daily non validé :
-          if (isDaily && !dailyPlayed) {
+          if (isParcours) {
+            showFeedbackParcours(false);
+          } else if (isDaily && !dailyPlayed) {
             localStorage.setItem(SCORE_KEY, 0);
             dailyPlayed = true;
             dailyScore = 0;
             showDailyBanner();
+            feedback.textContent = `⏰ Temps écoulé ! Tu as perdu. C'était "${currentAnime.title}".`;
+            feedback.className = "error";
+            endGame();
+          } else {
+            feedback.textContent = `⏰ Temps écoulé ! Tu as perdu. C'était "${currentAnime.title}".`;
+            feedback.className = "error";
+            endGame();
           }
-          feedback.textContent = `⏰ Temps écoulé ! Tu as perdu. C'était "${currentAnime.title}".`;
-          feedback.className = "error";
-          endGame();
         } else {
           revealNextCharacter();
         }
@@ -288,7 +361,7 @@ function resetTimer() {
   }, 1000);
 }
 
-// --- VALIDATION ---
+// --- VALIDATION CLASSIC/DAILY ---
 function checkGuess() {
   if (gameEnded || (isDaily && dailyPlayed)) return;
   const guess = input.value.trim();
@@ -304,13 +377,10 @@ function checkGuess() {
     feedback.textContent = `🎉 Bonne réponse ! C'était bien "${currentAnime.title}"`;
     feedback.className = "success";
     clearInterval(countdownInterval);
-    // Affiche tous les persos restants
     for (let i = revealedCount; i < currentAnime.characters.length; i++) {
       document.getElementById("char-" + i).style.display = "block";
     }
-    // --- Nouveau système de score ---
     if (isDaily && !dailyPlayed) {
-      // Score : 3000 - (nb de persos révélés - 1) * 500, min 0
       let malus = (revealedCount - 1) * 500;
       let score = Math.max(3000 - malus, 0);
       localStorage.setItem(SCORE_KEY, score);
@@ -329,7 +399,6 @@ function checkGuess() {
       clearInterval(countdownInterval);
       revealNextCharacter();
     } else {
-      // MARQUE LE DAILY COMME FAIL (score 0)
       if (isDaily && !dailyPlayed) {
         localStorage.setItem(SCORE_KEY, 0);
         dailyPlayed = true;
@@ -346,6 +415,57 @@ function checkGuess() {
   suggestions.innerHTML = '';
 }
 
+// --- VALIDATION PARCOURS ---
+function checkGuessParcours() {
+  if (gameEnded) return;
+  const guess = input.value.trim();
+  if (!guess) {
+    feedback.textContent = "⚠️ Tu dois écrire un nom d'anime.";
+    feedback.className = "error";
+    return;
+  }
+  const normalizedGuess = guess.toLowerCase();
+  const answer = currentAnime.title.toLowerCase();
+
+  if (normalizedGuess === answer) {
+    showFeedbackParcours(true);
+  } else {
+    feedback.textContent = "❌ Mauvaise réponse.";
+    feedback.className = "error";
+    if (revealedCount < currentAnime.characters.length) {
+      clearInterval(countdownInterval);
+      revealNextCharacter();
+    } else {
+      showFeedbackParcours(false);
+    }
+  }
+  input.value = '';
+  submitBtn.disabled = true;
+  input.focus();
+  suggestions.innerHTML = '';
+}
+
+// --- FIN ROUND PARCOURS ---
+function showFeedbackParcours(isWin) {
+  clearInterval(countdownInterval);
+  for (let i = revealedCount; i < currentAnime.characters.length; i++) {
+    document.getElementById("char-" + i).style.display = "block";
+  }
+  let roundScore = 0;
+  if (isWin) {
+    let malus = (revealedCount - 1) * 500;
+    roundScore = Math.max(3000 - malus, 0);
+    feedback.textContent = `🎉 Bonne réponse ! "${currentAnime.title}" | Score : ${roundScore}`;
+    feedback.className = "success";
+  } else {
+    feedback.textContent = `❌ Perdu. C'était "${currentAnime.title}". | Score : 0`;
+    feedback.className = "error";
+  }
+  parcoursTotalScore += roundScore;
+  endGameParcours();
+}
+
+// --- FIN JEU/ROUND ---
 function endGame() {
   gameEnded = true;
   input.disabled = true;
@@ -354,5 +474,38 @@ function endGame() {
   timerDisplay.textContent = "Jeu terminé.";
   suggestions.innerHTML = '';
 }
+function endGameParcours() {
+  gameEnded = true;
+  input.disabled = true;
+  submitBtn.disabled = true;
+  restartBtn.style.display = 'inline-block';
+  timerDisplay.textContent = "Round terminé.";
+  suggestions.innerHTML = '';
+  if (parcoursIndex < parcoursCount - 1) {
+    restartBtn.textContent = "Suivant";
+  } else {
+    restartBtn.textContent = "Terminer";
+  }
+}
 
+// --- RECAP FINAL PARCOURS ---
+function showFinalRecapParcours() {
+  container.innerHTML = '';
+  feedback.innerHTML = `<div style="font-size:1.3em;">🏆 Parcours terminé !<br>Score total : <b>${parcoursTotalScore}</b> / ${parcoursCount * 3000}</div>`;
+  feedback.className = "success";
+  timerDisplay.textContent = "";
+  restartBtn.style.display = "none";
+  // Envoie le score final au parent
+  setTimeout(() => {
+    parent.postMessage({
+      parcoursScore: {
+        label: "Character Quizz",
+        score: parcoursTotalScore,
+        total: parcoursCount * 3000
+      }
+    }, "*");
+  }, 300);
+}
+
+// --- LANCE LE CHARGEMENT AU DÉMARRAGE ---
 loadAnimes();
