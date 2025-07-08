@@ -288,16 +288,18 @@ function showFinalRecap() {
 
   let html = "<h2>Récapitulatif du Parcours</h2><ul>";
   let totalScore = 0;
+  let maxScore = 0;
   parcoursScores.forEach((res, idx) => {
     if (res.label && res.label.startsWith("Blind Ranking")) {
       html += `<li>${res.label} : <b>0 / 0</b></li>`;
     } else {
       html += `<li>${res.label} : <b>${res.score} / ${res.total}</b></li>`;
       totalScore += (typeof res.score === "number" ? res.score : 0);
+      maxScore += (typeof res.total === "number" ? res.total : 0);
     }
   });
   html += "</ul>";
-  html += `<div style="font-size:1.3rem;margin-top:13px;"><b>Score total : ${totalScore}</b></div>`;
+  html += `<div style="font-size:1.3rem;margin-top:13px;"><b>Score total : ${totalScore} / ${maxScore} </b></div>`;
   parcoursScore.innerHTML = html;
   parcoursFinish.innerHTML = `<button onclick="window.location.href='../index.html'">Retour menu</button>`;
 }
