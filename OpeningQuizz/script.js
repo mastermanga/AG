@@ -365,6 +365,7 @@ function revealAnswer() {
   const resultDiv = document.getElementById("result");
   const videoTitle = getYouTubeTitle();
   console.log("YouTube iframe title (victoire):", videoTitle);
+  console.log(currentAnime);
   resultDiv.innerHTML = `🔔 Réponse : <b>${currentAnime.title}</b><br>
     <span style="color:#bbb;font-size:1rem">${videoTitle}</span>`;
   resultDiv.className = "incorrect";
