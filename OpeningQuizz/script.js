@@ -484,7 +484,8 @@ input.addEventListener("keydown", function(e) {
     document.getElementById("suggestions").innerHTML = "";
     const uniqueTitles = [...new Set(animeList.map(a => a.title))];
     if (uniqueTitles.some(title => title.toLowerCase() === val.toLowerCase())) {
-      input.value = ""; // <-- Ajoute cette ligne pour vider
+      input.value = ""; // <-- Vide le champ si bonne réponse
+    }
   }
 });
 document.addEventListener("click", (e) => {
