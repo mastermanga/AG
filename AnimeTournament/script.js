@@ -396,7 +396,36 @@ window.addEventListener("DOMContentLoaded", () => {
     classementDiv.innerHTML = '';
 
     // Affiche le bouton "Suivant"
-    if (nextMatchBtn) nextMatchBtn.style.display = "block";
+    if (nextMatchBtn) {
+      nextMatchBtn.style.display = "block";
+      if (isParcours) {
+        // Récupère la progression (optionnel selon ton URL)
+        const step = parseInt(urlParams.get("step") || "1", 10);
+        if (step < parcoursCount) {
+          nextMatchBtn.textContent = "Suivant";
+        } else {
+          nextMatchBtn.textContent = "Terminer";
+        }
+        // Au clic, notifie le parent frame pour le parcours
+        nextMatchBtn.onclick = function() {
+          parent.postMessage({
+            parcoursScore: {
+              label: "Anime Tournament " + (mode === "anime" ? "Anime" : "Opening"),
+              score: 0, // Mets ici ton score calculé si besoin
+              total: 0  // Mets ici ton total à atteindre si besoin
+            }
+          }, "*");
+        };
+      } else {
+        nextMatchBtn.textContent = "Rejouer";
+        nextMatchBtn.onclick = function() {
+          nextMatchBtn.style.display = "none";
+          reset();
+          loadDataAndStart();
+        };
+      }
+    }
+
 
     // Calcul du classement suisse avec tiebreak
     let classementSuisse = swissStats.map((s, i) => ({
