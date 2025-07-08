@@ -1,3 +1,4 @@
+
 // ======= DARK/LIGHT MODE + MENU =======
 document.getElementById("back-to-menu").addEventListener("click", function() {
   window.location.href = "../index.html";
@@ -12,8 +13,15 @@ window.addEventListener("DOMContentLoaded", () => {
   if (savedTheme === "light") document.body.classList.add("light");
 });
 
+// ======= MODE PARCOURS ? =======
+const urlParams = new URLSearchParams(window.location.search);
+const isParcours = urlParams.get("parcours") === "1";
+const parcoursCount = parseInt(urlParams.get("count") || "1", 10);
+let parcoursIndex = 0;
+let parcoursTotalScore = 0;
+
 // ======= DAILY / CLASSIC MODE LOGIC =======
-let isDaily = true;
+let isDaily = !isParcours;
 const DAILY_BANNER = document.getElementById("daily-banner");
 const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
@@ -60,15 +68,76 @@ fetch('../data/openings.json')
         startTime: index === 1 ? 3 : 0
       }))
     ).filter(a => a.videoId);
-    setupGame();
+
+    if (isParcours) {
+      parcoursIndex = 0;
+      parcoursTotalScore = 0;
+      startParcoursGame();
+    } else {
+      setupGame();
+    }
   });
 
+// ====== MODE PARCOURS : seed "random" pour chaque round
+function seededRandom(seed) {
+  // simple seed random
+  return function() {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  }
+}
+function getParcoursIndex(n) {
+  // pour garantir pas toujours le même opening: seed = Date.now() + parcoursIndex
+  const baseSeed = Date.now() + parcoursIndex * 37;
+  return Math.floor(seededRandom(baseSeed)() * n);
+}
+
+function startParcoursGame() {
+  document.getElementById("back-to-menu").style.display = "none";
+  if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
+  nextParcoursRound();
+}
+
+function nextParcoursRound() {
+  // Nouveau round
+  tries = 0;
+  failedAnswers = [];
+  updateFailedAttempts();
+  document.getElementById("result").textContent = "";
+  document.getElementById("result").className = "";
+  document.getElementById("timer").style.display = "none";
+  document.getElementById("timer").textContent = "";
+  document.getElementById("openingInput").value = "";
+  document.getElementById("openingInput").disabled = true;
+  document.getElementById("playTry1").disabled = true;
+  document.getElementById("playTry2").disabled = true;
+  document.getElementById("playTry3").disabled = true;
+  document.getElementById("nextBtn").style.display = "none";
+  document.getElementById("suggestions").innerHTML = "";
+
+  // get random (seeded) opening pour chaque round
+  currentIndex = getParcoursIndex(animeList.length);
+  currentAnime = animeList[currentIndex];
+
+  if (player && typeof player.destroy === "function") {
+    player.destroy();
+  }
+  playerReady = false;
+
+  if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+    window.onYouTubeIframeAPIReady = initPlayer;
+  } else {
+    initPlayer();
+  }
+  resizeContainer();
+}
+
+// =========== DAILY CLASSIC LOGIC ============
 function getDeterministicDailyIndex(len) {
   const d = new Date();
   const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
   return seed % len;
 }
-
 function setupGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
@@ -188,7 +257,7 @@ function initPlayer() {
         player.setVolume(50);
         playerReady = true;
         // Active le bouton écoute 1 si autorisé
-        if ((!isDaily || !dailyPlayed)) {
+        if ((isParcours || (!isDaily || !dailyPlayed))) {
           document.getElementById("playTry1").disabled = false;
         }
       },
@@ -262,7 +331,14 @@ function checkAnswer(selectedTitle) {
   const inputVal = selectedTitle.trim().toLowerCase();
   if (currentAnime.altTitles.includes(inputVal)) {
     let score = 0;
-    if (isDaily && !dailyPlayed) {
+    if (isParcours) {
+      // Score parcours: 3000/2000/1000/0
+      if (tries === 1) score = 3000;
+      else if (tries === 2) score = 2000;
+      else if (tries === 3) score = 1000;
+      parcoursTotalScore += score;
+      showVictoryParcours(score);
+    } else if (isDaily && !dailyPlayed) {
       if (tries === 1) score = 3000;
       else if (tries === 2) score = 2000;
       else if (tries === 3) score = 1000;
@@ -270,8 +346,10 @@ function checkAnswer(selectedTitle) {
       dailyPlayed = true;
       dailyScore = score;
       showDailyBanner();
+      showVictory();
+    } else {
+      showVictory();
     }
-    showVictory();
     blockInputsAll();
     showNextButton();
     resizeContainer();
@@ -279,7 +357,11 @@ function checkAnswer(selectedTitle) {
     failedAnswers.push(selectedTitle);
     updateFailedAttempts();
     if (tries >= maxTries) {
-      revealAnswer();
+      if (isParcours) {
+        showVictoryParcours(0); // perdu
+      } else {
+        revealAnswer();
+      }
     } else {
       document.getElementById("openingInput").disabled = true;
     }
@@ -307,7 +389,7 @@ function revealAnswer() {
 }
 function showNextButton() {
   document.getElementById("nextBtn").style.display = "block";
-  document.getElementById("nextBtn").textContent = isDaily ? "Retour menu" : "Rejouer";
+  document.getElementById("nextBtn").textContent = (isParcours ? (parcoursIndex + 1 < parcoursCount ? "Suivant" : "Terminer") : (isDaily ? "Retour menu" : "Rejouer"));
 }
 
 // ===== VICTOIRE / MESSAGE =====
@@ -317,6 +399,34 @@ function showVictory() {
   resultDiv.className = "correct";
   launchFireworks();
 }
+function showVictoryParcours(roundScore) {
+  const resultDiv = document.getElementById("result");
+  resultDiv.innerHTML = `🎉 <b>${currentAnime.title}</b><br>Score : <b>${roundScore}</b> / 3000 <br><span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span>`;
+  resultDiv.className = roundScore > 0 ? "correct" : "incorrect";
+  launchFireworks();
+
+  // Next/finish parcours step
+  document.getElementById("nextBtn").onclick = () => {
+    parcoursIndex++;
+    if (parcoursIndex < parcoursCount) {
+      nextParcoursRound();
+    } else {
+      setTimeout(() => {
+        // Post final score (label/score/total) à la parent frame
+        parent.postMessage({
+          parcoursScore: {
+            label: "Opening Quizz",
+            score: parcoursTotalScore,
+            total: parcoursCount * 3000
+          }
+        }, "*");
+      }, 400);
+      resultDiv.innerHTML = `<div style="font-size:1.4em;">🏆 Parcours terminé !<br>Score : <b>${parcoursTotalScore}</b> / ${parcoursCount*3000}</div>`;
+    }
+  };
+}
+
+// ========== Fireworks Animation ==========
 function launchFireworks() {
   const canvas = document.getElementById("fireworks");
   if (!canvas) return;
@@ -357,7 +467,7 @@ function launchFireworks() {
 // ========== AUTOCOMPLETE & SUBMIT ==========
 const input = document.getElementById("openingInput");
 input.addEventListener("input", function() {
-  if (isDaily && dailyPlayed) return;
+  if ((isDaily && dailyPlayed) || isParcours && document.getElementById("openingInput").disabled) return;
   const val = this.value.toLowerCase();
   const suggestionsDiv = document.getElementById("suggestions");
   suggestionsDiv.innerHTML = "";
@@ -391,7 +501,13 @@ document.addEventListener("click", (e) => {
 document.getElementById("playTry1").addEventListener("click", () => playTry(1));
 document.getElementById("playTry2").addEventListener("click", () => playTry(2));
 document.getElementById("playTry3").addEventListener("click", () => playTry(3));
-document.getElementById("nextBtn").addEventListener("click", () => nextAnime());
+document.getElementById("nextBtn").addEventListener("click", () => {
+  if (isParcours) {
+    // Géré dans showVictoryParcours pour custom "Suivant"/"Terminer"
+    return;
+  }
+  nextAnime();
+});
 
 function nextAnime() {
   if (isDaily) {
