@@ -64,12 +64,6 @@ window.addEventListener("DOMContentLoaded", () => {
     modeOpeningBtn.onclick = () => switchMode('opening');
   }
 
-  // Bouton Suivant : relance une nouvelle partie
-  nextMatchBtn.onclick = function() {
-    nextMatchBtn.style.display = "none";
-    reset();
-    loadDataAndStart();
-  };
 
   function switchMode(newMode) {
     if (mode === newMode) return;
