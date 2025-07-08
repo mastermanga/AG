@@ -207,7 +207,7 @@ function showDailyBanner() {
 function updateSwitchModeBtn() {
   if (!SWITCH_MODE_BTN) return;
   if (isDaily) {
-    SWITCH_MODE_BTN.textContent = "Passer en mode Classique";
+    SWITCH_MODE_BTN.textContent = "Passer en mode Classic";
     SWITCH_MODE_BTN.style.backgroundColor = "#42a5f5";
   } else {
     SWITCH_MODE_BTN.textContent = "Revenir au Daily";
@@ -317,8 +317,6 @@ function playTry(n) {
 }
 
 function checkAnswer(selectedTitle) {
-  document.getElementById("openingInput").value = "";
-  document.getElementById("suggestions").innerHTML = "";
   if (isDaily && dailyPlayed) return;
   const inputVal = selectedTitle.trim().toLowerCase();
   if (currentAnime.altTitles.includes(inputVal)) {
@@ -365,8 +363,7 @@ function updateFailedAttempts() {
 }
 function revealAnswer() {
   const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = `🔔 Réponse : <b>${currentAnime.title}</b><br>
-    <span style="color:#bbb;font-size:1rem">${videoTitle}</span>`;
+  resultDiv.textContent = `🔔 Réponse : ${currentAnime.title}`;
   resultDiv.className = "incorrect";
   if (isDaily && !dailyPlayed) {
     localStorage.setItem(SCORE_KEY, 0);
@@ -386,16 +383,13 @@ function showNextButton() {
 // ===== VICTOIRE / MESSAGE =====
 function showVictory() {
   const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = `🎉 Bravo ! C’est <b>${currentAnime.title}</b><br>
-    <span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span> 🥳`;
+  resultDiv.innerHTML = `🎉 Bravo ! C’est <b>${currentAnime.title}</b> <span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span> 🥳`;
   resultDiv.className = "correct";
   launchFireworks();
 }
 function showVictoryParcours(roundScore) {
   const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = `🎉 <b>${currentAnime.title}</b><br>
-    Score : <b>${roundScore}</b> / 3000 <br>
-    <span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span>`;
+  resultDiv.innerHTML = `🎉 <b>${currentAnime.title}</b><br>Score : <b>${roundScore}</b> / 3000 <br><span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span>`;
   resultDiv.className = roundScore > 0 ? "correct" : "incorrect";
   launchFireworks();
 
@@ -421,7 +415,6 @@ function showVictoryParcours(roundScore) {
     }
   };
 }
-
 
 // ========== Fireworks Animation ==========
 function launchFireworks() {
