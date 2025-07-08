@@ -78,7 +78,7 @@ if (SWITCH_MODE_BTN) {
 function updateSwitchModeBtn() {
   if (!SWITCH_MODE_BTN) return;
   if (isDaily) {
-    SWITCH_MODE_BTN.textContent = "Passer en mode Classic";
+    SWITCH_MODE_BTN.textContent = "Passer en mode Classique";
     SWITCH_MODE_BTN.style.backgroundColor = "#42a5f5";
   } else {
     SWITCH_MODE_BTN.textContent = "Revenir au Daily";
