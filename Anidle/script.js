@@ -71,6 +71,7 @@ fetch('../data/animes.json')
       isDaily = false;
       parcoursIndex = 0;
       parcoursTotalScore = 0;
+      if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
       launchParcoursRound();
     } else {
       setupGame();
