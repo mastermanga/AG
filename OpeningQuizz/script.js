@@ -317,6 +317,8 @@ function playTry(n) {
 }
 
 function checkAnswer(selectedTitle) {
+  document.getElementById("openingInput").value = "";
+  document.getElementById("suggestions").innerHTML = "";
   if (isDaily && dailyPlayed) return;
   const inputVal = selectedTitle.trim().toLowerCase();
   if (currentAnime.altTitles.includes(inputVal)) {
