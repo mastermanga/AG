@@ -236,8 +236,8 @@ function finishGame() {
     nextBtn.onclick = function () {
       parcoursScores.push({
         label: "Blind Ranking " + (rankingMode === "anime" ? "Anime" : "Opening"),
-        score: score,
-        total: 10
+        score: 0,
+        total: 0
       });
       gamesPlayed++;
       if (gamesPlayed < parcoursCount) {
