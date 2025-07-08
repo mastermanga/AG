@@ -363,9 +363,6 @@ function updateFailedAttempts() {
 }
 function revealAnswer() {
   const resultDiv = document.getElementById("result");
-  const videoTitle = getYouTubeTitle();
-  console.log("YouTube iframe title (victoire):", videoTitle);
-  console.log(currentAnime);
   resultDiv.innerHTML = `🔔 Réponse : <b>${currentAnime.title}</b><br>
     <span style="color:#bbb;font-size:1rem">${videoTitle}</span>`;
   resultDiv.className = "incorrect";
@@ -384,28 +381,17 @@ function showNextButton() {
   document.getElementById("nextBtn").textContent = (isParcours ? (parcoursIndex + 1 < parcoursCount ? "Suivant" : "Terminer") : (isDaily ? "Retour menu" : "Rejouer"));
 }
 
-function getYouTubeTitle() {
-  const playerIframe = document.querySelector('#playerWrapper iframe');
-  return playerIframe ? (playerIframe.getAttribute('title') || "") : "";
-}
-
 // ===== VICTOIRE / MESSAGE =====
 function showVictory() {
   const resultDiv = document.getElementById("result");
-  const videoTitle = getYouTubeTitle();
-  console.log("YouTube iframe title (victoire):", videoTitle);
   resultDiv.innerHTML = `🎉 Bravo ! C’est <b>${currentAnime.title}</b><br>
-    <span style="color:#bbb;font-size:1rem">${videoTitle}</span><br>
     <span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span> 🥳`;
   resultDiv.className = "correct";
   launchFireworks();
 }
 function showVictoryParcours(roundScore) {
   const resultDiv = document.getElementById("result");
-  const videoTitle = getYouTubeTitle();
-  console.log("YouTube iframe title (victoire):", videoTitle);
   resultDiv.innerHTML = `🎉 <b>${currentAnime.title}</b><br>
-    <span style="color:#bbb;font-size:1rem">${videoTitle}</span><br>
     Score : <b>${roundScore}</b> / 3000 <br>
     <span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span>`;
   resultDiv.className = roundScore > 0 ? "correct" : "incorrect";
