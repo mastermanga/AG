@@ -251,11 +251,24 @@ window.addEventListener("message", (e) => {
 
 // ========== AFFICHAGE FINAL ==========
 function showFinalRecap() {
+  // 1. On s'assure que l'iframe est caché
   parcoursIframe.style.display = "none";
   parcoursIframe.classList.remove("active");
   parcoursLoader.style.display = "none";
+  
+  // 2. On enlève le "fullscreen" du body pour réafficher le header
+  document.body.classList.remove('parcours-fullscreen');
+  // → Le header réapparaît grâce à ton CSS
+  
+  // 3. On affiche le container (déjà présent normalement)
+  parcoursContainer.style.display = "flex";
+  parcoursContainer.classList.add("active");
+  
+  // 4. On affiche le score et le bouton de fin
   parcoursScore.style.display = "block";
   parcoursFinish.style.display = "block";
+  
+  // 5. On construit le récapitulatif
   let html = "<h2>Récapitulatif du Parcours</h2><ul>";
   let totalScore = 0;
   parcoursScores.forEach((res, idx) => {
