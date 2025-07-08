@@ -435,7 +435,7 @@ function showSuccessMessageClassic() {
       <span style="font-size:2.3rem;">🎉</span>
     </div>
     <div style="text-align:center;">
-      <button id="nextBtn" style="font-size:1.1rem; margin: 0 auto;">${isDaily ? "Retour menu" : "Rejouer"}</button>
+      <button id="nextBtn" style="font-size:1.1rem; margin: 0 auto 1rem auto;">${isDaily ? "Retour menu" : "Rejouer"}</button>
     </div>
   `;
   container.style.display = "block";
