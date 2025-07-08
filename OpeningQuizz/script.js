@@ -1,4 +1,3 @@
-
 // ======= DARK/LIGHT MODE + MENU =======
 document.getElementById("back-to-menu").addEventListener("click", function() {
   window.location.href = "../index.html";
@@ -80,14 +79,12 @@ fetch('../data/openings.json')
 
 // ====== MODE PARCOURS : seed "random" pour chaque round
 function seededRandom(seed) {
-  // simple seed random
   return function() {
     seed = (seed * 9301 + 49297) % 233280;
     return seed / 233280;
   }
 }
 function getParcoursIndex(n) {
-  // pour garantir pas toujours le même opening: seed = Date.now() + parcoursIndex
   const baseSeed = Date.now() + parcoursIndex * 37;
   return Math.floor(seededRandom(baseSeed)() * n);
 }
@@ -99,7 +96,6 @@ function startParcoursGame() {
 }
 
 function nextParcoursRound() {
-  // Nouveau round
   tries = 0;
   failedAnswers = [];
   updateFailedAttempts();
@@ -115,7 +111,6 @@ function nextParcoursRound() {
   document.getElementById("nextBtn").style.display = "none";
   document.getElementById("suggestions").innerHTML = "";
 
-  // get random (seeded) opening pour chaque round
   currentIndex = getParcoursIndex(animeList.length);
   currentAnime = animeList[currentIndex];
 
@@ -142,7 +137,6 @@ function setupGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
 
-  // Si daily déjà commencé mais pas fini : perdu !
   if (isDaily) {
     if (localStorage.getItem(STARTED_KEY) && !localStorage.getItem(SCORE_KEY)) {
       dailyPlayed = true;
@@ -164,8 +158,6 @@ function setupGame() {
       animeIdx = parseInt(localStorage.getItem(OPENING_KEY));
     }
     currentIndex = animeIdx;
-
-    // Marque comme daily lancé
     localStorage.setItem(STARTED_KEY, "1");
 
     showDailyBanner();
@@ -186,7 +178,6 @@ function setupGame() {
 
   currentAnime = animeList[currentIndex];
 
-  // Détruit l'ancien player pour éviter un double player invisible
   if (player && typeof player.destroy === "function") {
     player.destroy();
   }
@@ -256,7 +247,6 @@ function initPlayer() {
       onReady: (event) => {
         player.setVolume(50);
         playerReady = true;
-        // Active le bouton écoute 1 si autorisé
         if ((isParcours || (!isDaily || !dailyPlayed))) {
           document.getElementById("playTry1").disabled = false;
         }
@@ -332,7 +322,6 @@ function checkAnswer(selectedTitle) {
   if (currentAnime.altTitles.includes(inputVal)) {
     let score = 0;
     if (isParcours) {
-      // Score parcours: 3000/2000/1000/0
       if (tries === 1) score = 3000;
       else if (tries === 2) score = 2000;
       else if (tries === 3) score = 1000;
@@ -358,7 +347,7 @@ function checkAnswer(selectedTitle) {
     updateFailedAttempts();
     if (tries >= maxTries) {
       if (isParcours) {
-        showVictoryParcours(0); // perdu
+        showVictoryParcours(0);
       } else {
         revealAnswer();
       }
@@ -376,7 +365,6 @@ function revealAnswer() {
   const resultDiv = document.getElementById("result");
   resultDiv.textContent = `🔔 Réponse : ${currentAnime.title}`;
   resultDiv.className = "incorrect";
-  // Système daily: score 0 si perdu
   if (isDaily && !dailyPlayed) {
     localStorage.setItem(SCORE_KEY, 0);
     dailyPlayed = true;
@@ -405,14 +393,12 @@ function showVictoryParcours(roundScore) {
   resultDiv.className = roundScore > 0 ? "correct" : "incorrect";
   launchFireworks();
 
-  // Next/finish parcours step
   document.getElementById("nextBtn").onclick = () => {
     parcoursIndex++;
     if (parcoursIndex < parcoursCount) {
       nextParcoursRound();
     } else {
       setTimeout(() => {
-        // Post final score (label/score/total) à la parent frame
         parent.postMessage({
           parcoursScore: {
             label: "Opening Quizz",
@@ -503,7 +489,7 @@ document.getElementById("playTry2").addEventListener("click", () => playTry(2));
 document.getElementById("playTry3").addEventListener("click", () => playTry(3));
 document.getElementById("nextBtn").addEventListener("click", () => {
   if (isParcours) {
-    // Géré dans showVictoryParcours pour custom "Suivant"/"Terminer"
+    // Géré dans showVictoryParcours
     return;
   }
   nextAnime();
@@ -530,7 +516,7 @@ function nextAnime() {
   resizeContainer();
 }
 
-// ===== Resize container (évite grand vide en bas) =====
+// ===== Resize container =====
 function resizeContainer() {
   const c = document.getElementById("container");
   if (!c) return;
@@ -550,3 +536,4 @@ function showResultMessage(msg, showGreen, block, isDailyDone) {
   if (block) blockInputsAll();
   if (isDailyDone) document.getElementById("nextBtn").style.display = "block";
 }
+
