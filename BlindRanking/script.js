@@ -14,60 +14,69 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// === Mode selection buttons ===
-let rankingMode = 'anime'; // 'anime' or 'opening'
+// === Mode PARCOURS (lecture URL) ===
+const urlParams = new URLSearchParams(window.location.search);
+const isParcours = urlParams.get("parcours") === "1";
+const parcoursCount = parseInt(urlParams.get("count") || "1", 10);
+let parcoursStepIdx = 0;
+let parcoursScores = [];
+let rankingMode = urlParams.get("mode") || 'anime'; // par défaut anime
+
 const modeAnimeBtn = document.getElementById('mode-anime');
 const modeOpeningBtn = document.getElementById('mode-opening');
 
-modeAnimeBtn.onclick = () => {
-  if (rankingMode !== 'anime') {
-    rankingMode = 'anime';
-    modeAnimeBtn.classList.add('active');
-    modeAnimeBtn.setAttribute('aria-pressed', 'true');
-    modeOpeningBtn.classList.remove('active');
-    modeOpeningBtn.setAttribute('aria-pressed', 'false');
-    startNewRanking();
-  }
-};
-modeOpeningBtn.onclick = () => {
-  if (rankingMode !== 'opening') {
-    rankingMode = 'opening';
-    modeOpeningBtn.classList.add('active');
-    modeOpeningBtn.setAttribute('aria-pressed', 'true');
-    modeAnimeBtn.classList.remove('active');
-    modeAnimeBtn.setAttribute('aria-pressed', 'false');
-    startNewRanking();
-  }
-};
+// Si parcours, cacher sélecteur de mode et fixer le mode :
+if (isParcours) {
+  document.getElementById("mode-select").style.display = "none";
+  modeAnimeBtn.classList.toggle('active', rankingMode === 'anime');
+  modeOpeningBtn.classList.toggle('active', rankingMode === 'opening');
+} else {
+  modeAnimeBtn.onclick = () => {
+    if (rankingMode !== 'anime') {
+      rankingMode = 'anime';
+      modeAnimeBtn.classList.add('active');
+      modeAnimeBtn.setAttribute('aria-pressed', 'true');
+      modeOpeningBtn.classList.remove('active');
+      modeOpeningBtn.setAttribute('aria-pressed', 'false');
+      startNewRanking();
+    }
+  };
+  modeOpeningBtn.onclick = () => {
+    if (rankingMode !== 'opening') {
+      rankingMode = 'opening';
+      modeOpeningBtn.classList.add('active');
+      modeOpeningBtn.setAttribute('aria-pressed', 'true');
+      modeAnimeBtn.classList.remove('active');
+      modeAnimeBtn.setAttribute('aria-pressed', 'false');
+      startNewRanking();
+    }
+  };
+}
 
 // === Blind Ranking Variables ===
 let animeList = [];
 let currentIndex = 0;
 let rankings = new Array(10).fill(null);
 let selectedAnimes = [];
+let gamesPlayed = 0;
 
 // ==== Double YouTube Player ====
 let ytPlayers = [null, null];
 let ytReady = [false, false];
 let usingPlayerIndex = 0; // 0 ou 1
 
-// Appelle l’API YouTube pour créer les deux players une fois qu'elle est prête
 window.onYouTubeIframeAPIReady = function () {
   ytPlayers[0] = new YT.Player('yt-player-1', {
     height: '225',
     width: '100%',
     playerVars: { autoplay: 0, controls: 1, modestbranding: 1, rel: 0 },
-    events: {
-      'onReady': () => { ytReady[0] = true; },
-    }
+    events: { 'onReady': () => { ytReady[0] = true; } }
   });
   ytPlayers[1] = new YT.Player('yt-player-2', {
     height: '225',
     width: '100%',
     playerVars: { autoplay: 0, controls: 1, modestbranding: 1, rel: 0 },
-    events: {
-      'onReady': () => { ytReady[1] = true; },
-    }
+    events: { 'onReady': () => { ytReady[1] = true; } }
   });
 };
 
@@ -108,7 +117,6 @@ function getYouTubeVideoId(youtubeUrl) {
   } catch {}
   return videoId;
 }
-
 function getYouTubeEmbedUrl(youtubeUrl) {
   const videoId = getYouTubeVideoId(youtubeUrl);
   return videoId ? `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=0` : "";
@@ -120,7 +128,6 @@ function displayCurrentItem() {
     const animeImg = document.getElementById("anime-img");
     const container = document.getElementById("anime-item");
     const nextBtn = document.getElementById("next-btn");
-    // Masquer tous les players au début
     document.getElementById('yt-player-1').style.display = "none";
     document.getElementById('yt-player-2').style.display = "none";
     document.getElementById('player-loader').style.display = "none";
@@ -128,7 +135,6 @@ function displayCurrentItem() {
     if (currentIndex < selectedAnimes.length) {
       const item = selectedAnimes[currentIndex];
       document.getElementById("anime-name").textContent = item.title;
-
       if (rankingMode === "anime") {
         animeImg.src = item.image;
         animeImg.style.display = "block";
@@ -143,49 +149,35 @@ function displayCurrentItem() {
       document.getElementById("rank-section").style.display = "none";
       container.style.display = "none";
       nextBtn.style.display = "block";
-      nextBtn.textContent = "Rejouer";
       // Arrête tout son de YouTube à la fin
       ytPlayers.forEach(p => p && p.stopVideo && p.stopVideo());
       document.getElementById('player-loader').style.display = "none";
+      finishGame(); // On gère le bouton ici (parcours/rejouer)
     }
   }, 120);
 }
 
 async function showCurrentOpeningPlayer() {
-  // Ne fait rien si YouTube API pas prête ou pas d’URL
   if (!selectedAnimes[currentIndex] || !selectedAnimes[currentIndex].youtubeUrls?.[0]) return;
-
   const currentVideoId = getYouTubeVideoId(selectedAnimes[currentIndex].youtubeUrls[0]);
   const nextVideoId = (selectedAnimes[currentIndex + 1] && selectedAnimes[currentIndex + 1].youtubeUrls?.[0])
     ? getYouTubeVideoId(selectedAnimes[currentIndex + 1].youtubeUrls[0])
     : null;
-
-  // 1. Affiche loader si le player n'est pas prêt
   document.getElementById('player-loader').style.display = "flex";
-
-  // 2. On attend que les players soient prêts
   await waitForPlayerReady(usingPlayerIndex);
-  
-  // 3. Charge la vidéo du currentIndex dans le bon player et affiche-le
   let mainPlayer = ytPlayers[usingPlayerIndex];
   if (mainPlayer && mainPlayer.loadVideoById) {
     mainPlayer.loadVideoById({ videoId: currentVideoId });
     document.getElementById(`yt-player-${usingPlayerIndex + 1}`).style.display = "block";
   }
-
-  // 4. Cache l'autre player (pour éviter écho)
   document.getElementById(`yt-player-${((usingPlayerIndex + 1) % 2) + 1}`).style.display = "none";
-
-  // 5. Précharge la vidéo suivante dans le second player (si existe)
   if (nextVideoId && ytPlayers[(usingPlayerIndex + 1) % 2] && ytPlayers[(usingPlayerIndex + 1) % 2].cueVideoById) {
     await waitForPlayerReady((usingPlayerIndex + 1) % 2);
     ytPlayers[(usingPlayerIndex + 1) % 2].cueVideoById({ videoId: nextVideoId });
   }
-
   document.getElementById('player-loader').style.display = "none";
 }
 
-// Attend que le player [i] soit prêt
 function waitForPlayerReady(i) {
   return new Promise(res => {
     if (ytReady[i]) return res();
@@ -208,12 +200,9 @@ function assignRank(rank) {
   document.getElementById(`rank-${rank}`).disabled = true;
   updateRankingList();
   currentIndex++;
-
-  // On swap le player pour que le préchargé devienne l’actif
   if (rankingMode === "opening") {
     usingPlayerIndex = (usingPlayerIndex + 1) % 2;
   }
-
   displayCurrentItem();
 }
 
@@ -257,8 +246,8 @@ function updateRankingList() {
   rankingList.innerHTML = rows[0].join('') + rows[1].join('');
 }
 
-// ==== BOUTON REJOUER ====
-document.getElementById("next-btn").onclick = startNewRanking;
+// ==== BOUTON REJOUER / SUIVANT (PARCOURS) ====
+// on ne met pas de .onclick ici mais dans finishGame()
 
 async function startNewRanking() {
   await loadRankingData();
@@ -275,11 +264,49 @@ async function startNewRanking() {
   document.getElementById("next-btn").style.display = "none";
   document.getElementById("anime-name").textContent = "Nom de l'Anime ou de l'Opening";
   document.getElementById("anime-img").src = "";
-  // Précharge les deux players (utile sur reset)
   displayCurrentItem();
+}
+
+// ==== FIN DE PARTIE ET ENCHAÎNEMENT PARCOURS ====
+// appelé automatiquement à la fin d'une partie
+function finishGame() {
+  const nextBtn = document.getElementById("next-btn");
+  // Score simple = nb de rangs exacts trouvés
+  let score = 0;
+  for (let i = 0; i < 10; i++) {
+    const trueTitle = selectedAnimes[i]?.title;
+    if (rankings[i] === trueTitle) score++;
+  }
+  // Mode parcours
+  if (isParcours) {
+    nextBtn.textContent = (gamesPlayed < parcoursCount - 1) ? "Suivant" : "Terminer";
+    nextBtn.onclick = function () {
+      parcoursScores.push({
+        label: "Blind Ranking " + (rankingMode === "anime" ? "Anime" : "Opening"),
+        score: score,
+        total: 10
+      });
+      gamesPlayed++;
+      if (gamesPlayed < parcoursCount) {
+        startNewRanking();
+      } else {
+        // Envoyer tous les scores au parent
+        // (Ici on ne peut en renvoyer qu'un, donc tu peux custom si besoin)
+        // On envoie chaque score séparément :
+        parcoursScores.forEach(s => parent.postMessage({ parcoursScore: s }, "*"));
+      }
+    }
+  } else {
+    nextBtn.textContent = "Rejouer";
+    nextBtn.onclick = function () {
+      startNewRanking();
+    };
+  }
 }
 
 // === INIT ON LOAD ===
 window.onload = async function () {
+  gamesPlayed = 0;
+  parcoursScores = [];
   await startNewRanking();
 };
