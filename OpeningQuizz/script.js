@@ -471,6 +471,7 @@ input.addEventListener("input", function() {
       input.value = title;
       suggestionsDiv.innerHTML = "";
       checkAnswer(title);
+      input.value = "";
     };
     suggestionsDiv.appendChild(div);
   });
@@ -481,6 +482,9 @@ input.addEventListener("keydown", function(e) {
     if (!val) return;
     checkAnswer(val);
     document.getElementById("suggestions").innerHTML = "";
+    const uniqueTitles = [...new Set(animeList.map(a => a.title))];
+    if (uniqueTitles.some(title => title.toLowerCase() === val.toLowerCase())) {
+      input.value = ""; // <-- Ajoute cette ligne pour vider
   }
 });
 document.addEventListener("click", (e) => {
