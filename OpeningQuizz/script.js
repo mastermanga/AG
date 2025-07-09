@@ -55,16 +55,17 @@ const tryDurations = [3, 5, 15];
 let failedAnswers = [];
 let playerReady = false;
 
+// ======= CHARGEMENT NOUVEAU FORMAT JSON =======
 fetch('../data/openings.json')
   .then(res => res.json())
   .then(data => {
     animeList = data.flatMap(anime =>
-      anime.youtubeUrls.map((url, index) => ({
+      anime.openings.map(opening => ({
         title: anime.title,
         altTitles: [anime.title.toLowerCase()],
-        opening: `Opening ${index + 1}`,
-        videoId: extractVideoId(url),
-        startTime: index === 1 ? 3 : 0
+        openingName: opening.name,
+        videoId: extractVideoId(opening.url),
+        startTime: 0
       }))
     ).filter(a => a.videoId);
 
@@ -363,7 +364,7 @@ function updateFailedAttempts() {
 }
 function revealAnswer() {
   const resultDiv = document.getElementById("result");
-  resultDiv.textContent = `🔔 Réponse : ${currentAnime.title}`;
+  resultDiv.innerHTML = `🔔 Réponse : <b>${currentAnime.title}</b><br><em>${currentAnime.openingName}</em>`;
   resultDiv.className = "incorrect";
   if (isDaily && !dailyPlayed) {
     localStorage.setItem(SCORE_KEY, 0);
@@ -383,13 +384,13 @@ function showNextButton() {
 // ===== VICTOIRE / MESSAGE =====
 function showVictory() {
   const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = `🎉 Bravo ! C’est <b>${currentAnime.title}</b> <span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span> 🥳`;
+  resultDiv.innerHTML = `🎉 Bravo ! C’est <b>${currentAnime.title}</b><br><em>${currentAnime.openingName}</em><br><span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span> 🥳`;
   resultDiv.className = "correct";
   launchFireworks();
 }
 function showVictoryParcours(roundScore) {
   const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = `🎉 <b>${currentAnime.title}</b><br>Score : <b>${roundScore}</b> / 3000 <br><span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span>`;
+  resultDiv.innerHTML = `🎉 <b>${currentAnime.title}</b><br><em>${currentAnime.openingName}</em><br>Score : <b>${roundScore}</b> / 3000 <br><span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span>`;
   resultDiv.className = roundScore > 0 ? "correct" : "incorrect";
   launchFireworks();
 
