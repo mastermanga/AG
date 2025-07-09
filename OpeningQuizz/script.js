@@ -20,6 +20,7 @@ let parcoursIndex = 0;
 let parcoursTotalScore = 0;
 
 // ======= DAILY / CLASSIC MODE LOGIC =======
+const GAME_ID = "openingquizz"; // Modifie ce nom pour chaque jeu différent sur la même base
 let isDaily = !isParcours;
 const DAILY_BANNER = document.getElementById("daily-banner");
 const DAILY_STATUS = document.getElementById("daily-status");
@@ -30,12 +31,21 @@ function todayKey() {
   const d = new Date();
   return `${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2,"0")}`;
 }
-const SCORE_KEY = `dailyScore_openingquizz_${todayKey()}`;
-const OPENING_KEY = `daily_openingquizz_id_${todayKey()}`;
-const STARTED_KEY = `dailyStarted_openingquizz_${todayKey()}`;
+const SCORE_KEY = `dailyScore_${GAME_ID}_${todayKey()}`;
+const STARTED_KEY = `dailyStarted_${GAME_ID}_${todayKey()}`;
 
 let dailyPlayed = false;
 let dailyScore = null;
+
+// ====== HASH FONCTION POUR SÉLECTION DETERMINISTE =======
+function simpleHash(str) {
+  let hash = 5381;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) + hash) + str.charCodeAt(i);
+    hash = hash & 0xFFFFFFFF; // force 32bit
+  }
+  return Math.abs(hash);
+}
 
 // ====== OPENING QUIZZ LOGIC =======
 function extractVideoId(url) {
@@ -129,16 +139,23 @@ function nextParcoursRound() {
 }
 
 // =========== DAILY CLASSIC LOGIC ============
-function getDeterministicDailyIndex(len) {
+// ===> NOUVEAU SYSTEME D'INDEX DAILY <===
+function getDailyIndex(len) {
   const d = new Date();
-  const seed = d.getFullYear() * 10000 + (d.getMonth()+1) * 100 + d.getDate();
-  return seed % len;
+  const dateStr = d.getFullYear() + "-" + (d.getMonth()+1).toString().padStart(2,"0") + "-" + d.getDate().toString().padStart(2,"0");
+  const hash = simpleHash(dateStr + "|" + GAME_ID);
+  return hash % len;
 }
+
 function setupGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
 
   if (isDaily) {
+    // NOUVEAU: index calculé par hash date+GAME_ID
+    currentIndex = getDailyIndex(animeList.length);
+
+    // on marque "joué" si déjà fait
     if (localStorage.getItem(STARTED_KEY) && !localStorage.getItem(SCORE_KEY)) {
       dailyPlayed = true;
       dailyScore = 0;
@@ -150,20 +167,9 @@ function setupGame() {
       resizeContainer();
       return;
     }
-
-    let animeIdx;
-    if (!localStorage.getItem(OPENING_KEY)) {
-      animeIdx = getDeterministicDailyIndex(animeList.length);
-      localStorage.setItem(OPENING_KEY, animeIdx);
-    } else {
-      animeIdx = parseInt(localStorage.getItem(OPENING_KEY));
-    }
-    currentIndex = animeIdx;
     localStorage.setItem(STARTED_KEY, "1");
-
     showDailyBanner();
     if (dailyPlayed) {
-      showDailyBanner();
       showResultMessage("✅ Daily du jour déjà jouée !", true, true, true);
       blockInputsAll();
       document.getElementById("nextBtn").style.display = "block";
