@@ -106,26 +106,45 @@ window.addEventListener("DOMContentLoaded", () => {
       const res = await fetch(url);
       if(!res.ok) throw new Error("Erreur chargement " + url);
       data = await res.json();
-
-      shuffle(data);
-      items = data.slice(0, TOTAL_ITEMS);
-
+  
+      if (mode === "opening") {
+        // On a un tableau d'animes, chacun a une clé "openings" (array)
+        let openingsList = [];
+        data.forEach(anime => {
+          if (anime.openings && Array.isArray(anime.openings)) {
+            anime.openings.forEach(opening => {
+              openingsList.push({
+                title: anime.title,
+                openingName: opening.name,
+                url: opening.url
+              });
+            });
+          }
+        });
+        shuffle(openingsList);
+        items = openingsList.slice(0, TOTAL_ITEMS);
+      } else {
+        shuffle(data);
+        items = data.slice(0, TOTAL_ITEMS);
+      }
+  
       swissStats = items.map(() => ({
         wins: 0,
         losses: 0,
         playedOpponents: new Set(),
         opponents: []
       }));
-
+  
       swissRound = 0;
       swissMatches = generateSwissRoundMatches();
-
+  
       setupUI();
       showNextMatch();
     } catch(e) {
       alert(e.message);
     }
   }
+
 
   function generateSwissRoundMatches() {
     const indices = Array.from({length: items.length}, (_, i) => i);
