@@ -51,15 +51,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // GESTION MODES
   if (isParcours) {
-    // Si parcours : cacher le sélecteur de mode et forcer la valeur de mode depuis l'URL
     if (modeSelectDiv) modeSelectDiv.style.display = "none";
-    // Applique la classe active au bon bouton pour la cohérence si jamais tu affiches quand même le bloc
     modeAnimeBtn.classList.toggle('active', mode === 'anime');
     modeAnimeBtn.setAttribute('aria-pressed', mode === 'anime');
     modeOpeningBtn.classList.toggle('active', mode === 'opening');
     modeOpeningBtn.setAttribute('aria-pressed', mode === 'opening');
   } else {
-    // Hors parcours : clics manuels normaux
     modeAnimeBtn.onclick = () => switchMode('anime');
     modeOpeningBtn.onclick = () => switchMode('opening');
   }
@@ -107,7 +104,6 @@ window.addEventListener("DOMContentLoaded", () => {
       data = await res.json();
 
       if (mode === "opening") {
-        // On a un tableau d'animes, chacun a une clé "openings" (array)
         let openingsList = [];
         data.forEach(anime => {
           if (anime.openings && Array.isArray(anime.openings)) {
@@ -222,9 +218,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   function showNextMatch() {
-    // Cacher le bouton suivant en dehors du classement final
     if (nextMatchBtn) nextMatchBtn.style.display = "none";
-
     if (swissMatches.length === 0 && swissRound < SWISS_ROUNDS) {
       swissRound++;
       if (swissRound < SWISS_ROUNDS) {
@@ -265,8 +259,8 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[0].querySelector('iframe').src = url1;
       divs[1].querySelector('iframe').src = url2;
 
-      divs[0].querySelector('h3').textContent = items[i1].title + (items[i1].openingName ? " – " + items[i1].openingName : "");
-      divs[1].querySelector('h3').textContent = items[i2].title + (items[i2].openingName ? " – " + items[i2].openingName : "");
+      divs[0].querySelector('h3').textContent = items[i1].openingName || '';
+      divs[1].querySelector('h3').textContent = items[i2].openingName || '';
     }
     currentMatch = match;
   }
@@ -387,8 +381,8 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[0].querySelector('iframe').src = url1;
       divs[1].querySelector('iframe').src = url2;
 
-      divs[0].querySelector('h3').textContent = items[i1].title + (items[i1].openingName ? " – " + items[i1].openingName : "");
-      divs[1].querySelector('h3').textContent = items[i2].title + (items[i2].openingName ? " – " + items[i2].openingName : "");
+      divs[0].querySelector('h3').textContent = items[i1].openingName || '';
+      divs[1].querySelector('h3').textContent = items[i2].openingName || '';
     }
     currentMatch = match;
   }
@@ -410,20 +404,18 @@ window.addEventListener("DOMContentLoaded", () => {
     if (nextMatchBtn) {
       nextMatchBtn.style.display = "block";
       if (isParcours) {
-        // Récupère la progression (optionnel selon ton URL)
         const step = parseInt(urlParams.get("step") || "1", 10);
         if (step < parcoursCount) {
           nextMatchBtn.textContent = "Suivant";
         } else {
           nextMatchBtn.textContent = "Terminer";
         }
-        // Au clic, notifie le parent frame pour le parcours
         nextMatchBtn.onclick = function() {
           parent.postMessage({
             parcoursScore: {
               label: "Anime Tournament " + (mode === "anime" ? "Anime" : "Opening"),
-              score: 0, // Mets ici ton score calculé si besoin
-              total: 0  // Mets ici ton total à atteindre si besoin
+              score: 0,
+              total: 0
             }
           }, "*");
         };
@@ -521,7 +513,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (mode === "anime") {
       titleDiv.textContent = item.title;
     } else {
-      titleDiv.textContent = item.title + (item.openingName ? " – " + item.openingName : "");
+      titleDiv.textContent = item.openingName || '';
     }
 
     div.appendChild(rankDiv);
