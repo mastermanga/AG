@@ -296,3 +296,19 @@ body.light footer {
   }
   #listen-buttons { flex-direction: column; gap:8px; }
 }
+
+#result em {
+  display: block;
+  font-style: italic;
+  background: #00bcd422;
+  border-radius: 5px;
+  padding: 2px 8px;
+  font-size: 1.1em;
+  margin: 8px 0 2px 0;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+}
+body.light #result em {
+  color: #1565c0;
+}
+
