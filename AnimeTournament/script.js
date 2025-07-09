@@ -64,7 +64,6 @@ window.addEventListener("DOMContentLoaded", () => {
     modeOpeningBtn.onclick = () => switchMode('opening');
   }
 
-
   function switchMode(newMode) {
     if (mode === newMode) return;
     mode = newMode;
@@ -106,7 +105,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const res = await fetch(url);
       if(!res.ok) throw new Error("Erreur chargement " + url);
       data = await res.json();
-  
+
       if (mode === "opening") {
         // On a un tableau d'animes, chacun a une clé "openings" (array)
         let openingsList = [];
@@ -127,24 +126,23 @@ window.addEventListener("DOMContentLoaded", () => {
         shuffle(data);
         items = data.slice(0, TOTAL_ITEMS);
       }
-  
+
       swissStats = items.map(() => ({
         wins: 0,
         losses: 0,
         playedOpponents: new Set(),
         opponents: []
       }));
-  
+
       swissRound = 0;
       swissMatches = generateSwissRoundMatches();
-  
+
       setupUI();
       showNextMatch();
     } catch(e) {
       alert(e.message);
     }
   }
-
 
   function generateSwissRoundMatches() {
     const indices = Array.from({length: items.length}, (_, i) => i);
@@ -261,14 +259,14 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[1].querySelector('img').alt = items[i2].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     } else {
-      const url1 = getYouTubeEmbedUrl(items[i1].youtubeUrls?.[0] || '') || '';
-      const url2 = getYouTubeEmbedUrl(items[i2].youtubeUrls?.[0] || '') || '';
+      const url1 = getYouTubeEmbedUrl(items[i1].url || '') || '';
+      const url2 = getYouTubeEmbedUrl(items[i2].url || '') || '';
 
       divs[0].querySelector('iframe').src = url1;
       divs[1].querySelector('iframe').src = url2;
 
-      divs[0].querySelector('h3').textContent = items[i1].title;
-      divs[1].querySelector('h3').textContent = items[i2].title;
+      divs[0].querySelector('h3').textContent = items[i1].title + (items[i1].openingName ? " – " + items[i1].openingName : "");
+      divs[1].querySelector('h3').textContent = items[i2].title + (items[i2].openingName ? " – " + items[i2].openingName : "");
     }
     currentMatch = match;
   }
@@ -383,14 +381,14 @@ window.addEventListener("DOMContentLoaded", () => {
       divs[1].querySelector('img').alt = items[i2].title;
       divs[1].querySelector('h3').textContent = items[i2].title;
     } else {
-      const url1 = getYouTubeEmbedUrl(items[i1].youtubeUrls?.[0] || '') || '';
-      const url2 = getYouTubeEmbedUrl(items[i2].youtubeUrls?.[0] || '') || '';
+      const url1 = getYouTubeEmbedUrl(items[i1].url || '') || '';
+      const url2 = getYouTubeEmbedUrl(items[i2].url || '') || '';
 
       divs[0].querySelector('iframe').src = url1;
       divs[1].querySelector('iframe').src = url2;
 
-      divs[0].querySelector('h3').textContent = items[i1].title;
-      divs[1].querySelector('h3').textContent = items[i2].title;
+      divs[0].querySelector('h3').textContent = items[i1].title + (items[i1].openingName ? " – " + items[i1].openingName : "");
+      divs[1].querySelector('h3').textContent = items[i2].title + (items[i2].openingName ? " – " + items[i2].openingName : "");
     }
     currentMatch = match;
   }
@@ -438,7 +436,6 @@ window.addEventListener("DOMContentLoaded", () => {
         };
       }
     }
-
 
     // Calcul du classement suisse avec tiebreak
     let classementSuisse = swissStats.map((s, i) => ({
@@ -520,7 +517,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const titleDiv = document.createElement('div');
     titleDiv.className = 'title';
-    titleDiv.textContent = item.title;
+
+    if (mode === "anime") {
+      titleDiv.textContent = item.title;
+    } else {
+      titleDiv.textContent = item.title + (item.openingName ? " – " + item.openingName : "");
+    }
 
     div.appendChild(rankDiv);
 
@@ -531,7 +533,7 @@ window.addEventListener("DOMContentLoaded", () => {
       div.appendChild(img);
     } else {
       const iframe = document.createElement('iframe');
-      const embedUrl = getYouTubeEmbedUrl(item.youtubeUrls?.[0] || '');
+      const embedUrl = getYouTubeEmbedUrl(item.url || '');
       if(embedUrl) {
         iframe.src = embedUrl;
         iframe.width = "100%";
