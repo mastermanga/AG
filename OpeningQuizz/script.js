@@ -396,9 +396,9 @@ function showVictory() {
 }
 function showVictoryParcours(roundScore) {
   const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = `🎉 <b>${currentAnime.title}</b><br><em>${currentAnime.openingName}</em><br>Score : <b>${roundScore}</b> / 3000 <br><span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span>`;
+  resultDiv.innerHTML = `🎶 <b>${currentAnime.title}</b><br><em>${currentAnime.openingName}</em><br>Score : <b>${roundScore}</b> / 3000 <br><span style="font-size:1.1em;">en ${tries} tentative${tries > 1 ? "s" : ""}.</span>`;
   resultDiv.className = roundScore > 0 ? "correct" : "incorrect";
-  launchFireworks();
+  if (roundScore > 0) launchFireworks();
 
   // Affiche TOUJOURS le bouton
   document.getElementById("nextBtn").style.display = "block";
