@@ -61,7 +61,7 @@ let stopInterval;
 let currentAnime;
 let tries = 0;
 const maxTries = 3;
-const tryDurations = [3, 5, 15];
+const tryDurations = [3, 15, 15];
 let failedAnswers = [];
 let playerReady = false;
 
@@ -306,8 +306,8 @@ function playTry(n) {
   clearInterval(stopInterval);
 
   let start = 0;
-  if (tries === 2) start = 3;
-  if (tries === 3) start = 0;
+  if (tries === 2) start = 0;
+  if (tries === 3) start = 50;
   currentAnime.startTime = start;
 
   player.loadVideoById({
