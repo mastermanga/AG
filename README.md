@@ -10,3 +10,8 @@ Ce projet regroupe **plusieurs mini-jeux web** autour de l'univers anime, jouabl
 - **Anime Tournament** : Affrontez des duels 1v1 entre animes ou openings et élisez vos favoris jusqu’au grand vainqueur !
 - **Blind Ranking** : Classez à l’aveugle animes ou openings dans un top 10.
 - **Mode Parcours** : Créez un “parcours” personnalisé : choisissez le nombre de parties pour chaque jeu, enchaînez différents défis à la suite (animes, openings…).
+
+### 📦 Données incluses : 
+
+- 🎵 **750 Openings** (dans `openings.json`)
+- 🎬 **250 Animes** (dans `animes.json`)
