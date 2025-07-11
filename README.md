@@ -1,4 +1,4 @@
-# Anime Quizz Games 🎮
+# 🎮 Anime Games 🎮
 
 Ce projet regroupe **plusieurs mini-jeux web** autour de l'univers anime, jouables directement dans le navigateur.
 
