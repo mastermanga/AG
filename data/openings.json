@@ -7473,26 +7473,6 @@
       {
         "url": "https://www.youtube.com/watch?v=-IPEV6Vs4Z0",
         "name": "Yu Yu Hakusho - Opening 2 | Hohoemi no Bakudan"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=H-KFEnX4LWk",
-        "name": "Yu Yu Hakusho - Ending 1 | Homework Ga Owaranai"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=627Z3-XL9Xs",
-        "name": "Yu Yu Hakusho - Ending 3 | Anbaransu na Kiss o Shite"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=yw74taLtGRw",
-        "name": "Yu Yu Hakusho - Ending 2 | Sayonara Bye Bye"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=m1LkK118spc",
-        "name": "Yu Yu Hakusho - Ending 4 | Taiyou Ga Mata Kagayaku Toki"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=wiWpC2D0Ou8",
-        "name": "Yu Yu Hakusho - Ending 5 | Dei Doorimu Jeneresshon"
       }
     ]
   },
@@ -8055,6 +8035,54 @@
       {
         "url": "https://youtu.be/tsYbt0sBYWo?list=RDtsYbt0sBYWo",
         "name": "Summertime Render OP / Opening 2"
+      }
+    ]
+  },
+  {
+    "title": "SPY x FAMILY",
+    "openings": [
+      {
+        "url": "https://youtu.be/EzGs8Tm_C2g?list=RDEzGs8Tm_C2g",
+        "name": "SPY x FAMILY OP / Opening 1"
+      },
+      {
+        "url": "https://youtu.be/Hlw8dTz_iq0?list=RDHlw8dTz_iq0",
+        "name": "SPY x FAMILY OP / Opening 2"
+      },
+      {
+        "url": "https://youtu.be/JqUsUe6B43g?list=RDJqUsUe6B43g",
+        "name": "SPY x FAMILY OP / Opening 3"
+      } 
+    ]
+  },
+  {
+    "title": "Umamusume: Pretty Derby",
+    "openings": [
+      {
+        "url": "https://youtu.be/_6rP_HS0ox4?list=RD_6rP_HS0ox4",
+        "name": "Umamusume: Pretty Derby - Opening"
+      }
+    ]
+  },
+  {
+    "title": "Rainbow",
+    "openings": [
+      {
+        "url": "https://youtu.be/ibkhGFKhyW8?list=RDibkhGFKhyW8",
+        "name": "Rainbow: Nisha Rokubō no Shichinin OP"
+      }
+    ]
+  },
+  {
+    "title": "Banana Fish",
+    "openings": [
+      {
+        "url": "https://youtu.be/0z6FLH2HXl4?list=RD0z6FLH2HXl4",
+        "name": "Banana Fish - Opening 1"
+      },
+      {
+        "url": "https://youtu.be/2EFGPtKGmlU?list=RD2EFGPtKGmlU",
+        "name": "Banana Fish - Opening 2"
       }
     ]
   },
