@@ -173,10 +173,6 @@
       {
         "url": "https://www.youtube.com/watch?v=_E-Z1bLUMaQ",
         "name": "A Destructive God Sits Next to Me - Opening | Take mo' Chance"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=6stpzl6Okpc",
-        "name": "A Destructive God Sits Next to Me - Ending | Freedom de Muda ni Muteki!!"
       }
     ]
   },
@@ -266,14 +262,6 @@
         "name": "Ace of the Diamond - Opening 2 | Perfect HERO"
       },
       {
-        "url": "https://www.youtube.com/watch?v=mXMHme0XoKY",
-        "name": "Ace of the Diamond - Opening 4 | HEROES"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=0L6TiLGBLDI",
-        "name": "Ace of the Diamond - Opening 5 | Sora ga Aozora de Aru Tame ni"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=zOhIuE0TgvM",
         "name": "Ace of the Diamond - Ending 4 | CLOUD NINE"
       },
@@ -284,34 +272,6 @@
       {
         "url": "https://www.youtube.com/watch?v=9jJE0mq_s4o",
         "name": "Ace of the Diamond - Ending 6 | FINAL VICTORY"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=3riuGV4Q7U8",
-        "name": "Ace of the Diamond - Ending 9 | BLOOM OF YOUTH"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=mcC5W8fiRF8",
-        "name": "Ace of the Diamond - Ending 10 | BRAND NEW BLUE"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=pW6YsHip_P4",
-        "name": "Ace of the Diamond - Ending 7 | KIMERO!!"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=KQ1XGZ2-N5E",
-        "name": "Ace of the Diamond - Ending 5 | PROMISED FIELD"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=5FdiwW7QkZw",
-        "name": "Ace of the Diamond - Ending 8 | BLUE WINDING ROAD"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=kb0NJX8tjus",
-        "name": "Ace of the Diamond - Ending 3 | Mirai e Tsunage"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=1irzunH5JHg",
-        "name": "Ace of the Diamond - Ending 1 | Seek Diamonds"
       }
     ]
   },
@@ -370,10 +330,6 @@
   {
     "title": "Akame ga Kill!",
     "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=ji9BD3ESMqg",
-        "name": "Akame ga Kill! - Opening 1 | Skyreach"
-      },
       {
         "url": "https://www.youtube.com/watch?v=mGclLUQiqH8",
         "name": "Akame ga Kill! - Ending 2 | Tsuki Akari"
@@ -601,10 +557,6 @@
       {
         "url": "https://www.youtube.com/watch?v=RkObier1ql4",
         "name": "As Miss Beelzebub Likes it. - Opening | Pink Lemonade"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=Znjm55BFP0Y",
-        "name": "As Miss Beelzebub Likes it. - Ending | Akuma de Koiwazurai"
       }
     ]
   },
@@ -1425,19 +1377,6 @@
     ]
   },
   {
-    "title": "Caligula",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=eOESH-O7VRw",
-        "name": "Caligula - Opening | Paradigm Box"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=xq3cZJOhjRE",
-        "name": "Caligula - Ending | Hypno"
-      }
-    ]
-  },
-  {
     "title": "Cardcaptor Sakura: Clear Card",
     "openings": [
       {
@@ -1773,16 +1712,8 @@
         "name": "DAYS - Opening 2 | Higher Climber"
       },
       {
-        "url": "https://www.youtube.com/watch?v=VIoqhoyFvv0",
-        "name": "DAYS - Opening 1 | Wake We Up"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=bm2ILhvGV6A",
         "name": "DAYS - Ending 2 | DAYS"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=napgWPkDsbI",
-        "name": "DAYS - Ending 1 | Everlasting Days"
       }
     ]
   },
@@ -3235,32 +3166,11 @@
     ]
   },
   {
-    "title": "HINAMATSURI",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=7tRjrWZXM4Y",
-        "name": "HINAMATSURI - Opening | Distance"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=uy5J1gP1tU4",
-        "name": "HINAMATSURI - Ending | Salted Salmon, Salmon Roe, 893, and the Girl"
-      }
-    ]
-  },
-  {
     "title": "Hinomaru Sumo",
     "openings": [
       {
-        "url": "https://www.youtube.com/watch?v=wPcE4ZEg3vs",
-        "name": "Hinomaru Sumo - Opening 1 | FIRE GROUND"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=p5uQ87OItqU",
         "name": "Hinomaru Sumo - Opening 2 | Be the NAKED"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=PKcOgX7MaGg",
-        "name": "Hinomaru Sumo - Ending 1 | Hizuru Basho"
       },
       {
         "url": "https://www.youtube.com/watch?v=LKZ1qu0Qwkc",
@@ -3336,10 +3246,6 @@
       {
         "url": "https://www.youtube.com/watch?v=xGOJfEGQdrE",
         "name": "How Not to Summon a Demon Lord Ω - Opening | EVERYBODY! EVERYBODY!"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=0X7lljYJeqY",
-        "name": "How Not to Summon a Demon Lord Ω - Ending | YOU YOU YOU"
       }
     ]
   },
@@ -3557,10 +3463,6 @@
       {
         "url": "https://www.youtube.com/watch?v=FI2kUA78mRU",
         "name": "In/Spectre - Opening | Mononoke in the Fiction"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=Czs_suW8tmA",
-        "name": "In/Spectre - Ending | Last Dance"
       }
     ]
   },
@@ -3574,15 +3476,6 @@
       {
         "url": "https://www.youtube.com/watch?v=rSpqg-8gsqI",
         "name": "In/Spectre Season 2 - Ending | Invincible Love"
-      }
-    ]
-  },
-  {
-    "title": "Interviews with Monster Girls",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=ail6FwK7gR4",
-        "name": "Interviews with Monster Girls - Opening | Original"
       }
     ]
   },
@@ -3895,19 +3788,6 @@
       {
         "url": "https://www.youtube.com/watch?v=8U3t7SDCMtA",
         "name": "KamiErabi GOD.app Season 2 Opening | Fuka"
-      }
-    ]
-  },
-  {
-    "title": "KARAKAI JOZU NO TAKAGI-SAN",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=IEvQJ4mUkoY",
-        "name": "KARAKAI JOZU NO TAKAGI-SAN - Opening | Iwanai Kedo ne"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=GyEgudnPXL0",
-        "name": "KARAKAI JOZU NO TAKAGI-SAN - Ending | Kimagure Romantic"
       }
     ]
   },
@@ -4248,19 +4128,6 @@
     ]
   },
   {
-    "title": "Last Period: the journey to the end of the despair",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=ge9OREX7lU8",
-        "name": "Last Period: the journey to the end of the despair - Ending | Wiseman Theme"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=GPqcL45pcH8",
-        "name": "Last Period: the journey to the end of the despair - Opening | Yokubari Dreamer"
-      }
-    ]
-  },
-  {
     "title": "Level 2 Super Cheat Powers",
     "openings": [
       {
@@ -4288,19 +4155,6 @@
       {
         "url": "https://www.youtube.com/watch?v=2Yz2nDeEx6E",
         "name": "Life With an Ordinary Guy Who Reincarnated Into a Total Fantasy Knockout - Ending"
-      }
-    ]
-  },
-  {
-    "title": "Link Click",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=_cuCfmOsuCA",
-        "name": "Link Click - Opening | Dive Back In Time"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=ly2GjsxKtg0",
-        "name": "Link Click - Ending | OverThink"
       }
     ]
   },
@@ -4386,10 +4240,6 @@
   {
     "title": "Love, Chunibyo & Other Delusions",
     "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=R7xLVyz9bg4",
-        "name": "Love, Chunibyo & Other Delusions - Opening | Sparkling Daydream"
-      },
       {
         "url": "https://www.youtube.com/watch?v=VLoZQWyt9Q8",
         "name": "Love, Chunibyo & Other Delusions - Heart Throb - Opening | Voice"
@@ -4527,10 +4377,6 @@
   {
     "title": "Masamune-kun's Revenge",
     "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=oqAy5sXmfoI",
-        "name": "Masamune-kun's Revenge - Opening | Wagamama Mirror Heart"
-      },
       {
         "url": "https://www.youtube.com/watch?v=Lj706jveQ5M",
         "name": "Masamune-kun's Revenge - Ending | Elemental World"
@@ -4780,10 +4626,6 @@
         "name": "Mobile Suit Gundam: Iron-Blooded Orphans - Opening 2 | Survivor"
       },
       {
-        "url": "https://www.youtube.com/watch?v=FjXS_lbU2TU",
-        "name": "Mobile Suit Gundam: Iron-Blooded Orphans - Opening 1 | Raise Your Flag"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=8MrZDz3b-5k",
         "name": "Mobile Suit Gundam: Iron-Blooded Orphans - Ending 1 | Orphans no Namida"
       },
@@ -4794,10 +4636,6 @@
       {
         "url": "https://www.youtube.com/watch?v=ZAO6CDrnFqY",
         "name": "Mobile Suit Gundam: Iron-Blooded Orphans - Ending 4 | Freesia"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=T9x523hRKeo",
-        "name": "Mobile Suit Gundam: Iron-Blooded Orphans - Ending 3 | Shonen no Hate"
       }
     ]
   },
@@ -4972,19 +4810,6 @@
     ]
   },
   {
-    "title": "Ms. Vampire who lives in my neighborhood.",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=CIEkTPnZjeI",
-        "name": "Ms. Vampire who lives in my neighborhood. - Opening | †Kyutie Ladies†"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=YGAk9TWEjUM",
-        "name": "Ms. Vampire who lives in my neighborhood. - Ending | Happy!! Strange Friends"
-      }
-    ]
-  },
-  {
     "title": "Mushoku Tensei: Jobless Reincarnation Season 2 Part 2",
     "openings": [
       {
@@ -5078,10 +4903,6 @@
         "name": "My Hero Academia Opening 1 | The Day"
       },
       {
-        "url": "https://www.youtube.com/watch?v=L1FdEBTJXus",
-        "name": "My Hero Academia Opening 1 | The Day"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=-t5--PiJsWo",
         "name": "My Hero Academia Season 4 Opening 1 | Polaris"
       },
@@ -5100,10 +4921,6 @@
       {
         "url": "https://www.youtube.com/watch?v=6OJxjAefwXc",
         "name": "My Hero Academia - Opening 6 | Polaris"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=JFDFFoBClLY",
-        "name": "My Hero Academia Season 6 - Opening 2 | Bokurano"
       },
       {
         "url": "https://www.youtube.com/watch?v=JFDFFoBClLY",
@@ -5134,20 +4951,12 @@
         "name": "My Hero Academia Season 5 - Opening 2 | Merry-Go-Round"
       },
       {
-        "url": "https://www.youtube.com/watch?v=9_mxwsQD4as",
-        "name": "My Hero Academia Season 5 - Opening 2 | Merry-Go-Round"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=Ei0LbNH02-Y",
         "name": "My Hero Academia Season 4 - Ending 2 | Shout Baby"
       },
       {
         "url": "https://www.youtube.com/watch?v=PTbRl5h64tU",
         "name": "My Hero Academia Season 5 - Opening 1 | No.1"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=cM1F9TbJhkk",
-        "name": "My Hero Academia Season 6 - Opening 1 | Hitamuki"
       },
       {
         "url": "https://www.youtube.com/watch?v=cM1F9TbJhkk",
@@ -5769,20 +5578,8 @@
         "name": "Natsume Yujin-cho - Opening 3 | Boku ni Dekiru Koto"
       },
       {
-        "url": "https://www.youtube.com/watch?v=UJzNob2vUHM",
-        "name": "Natsume Yujin-cho - Opening 6 | Floria"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=6BdmcIEMgBw",
         "name": "Natsume Yujin-cho - Ending 1 | Natsu Yuuzora"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=a3QWhO8NxAY",
-        "name": "Natsume Yujin-cho - Opening 4 | Ima, Kono Toki"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=NZ7QSbqNDEg",
-        "name": "Natsume Yujin-cho - Opening 5 | Takarabako"
       },
       {
         "url": "https://www.youtube.com/watch?v=DrXLXq5tlbc",
@@ -5795,14 +5592,6 @@
       {
         "url": "https://www.youtube.com/watch?v=OOOarat8B84",
         "name": "Natsume Yujin-cho - Ending 4 | Takaramono"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=H1nGi0Ll04w",
-        "name": "Natsume Yujin-cho - Ending 6 | Kimi no Uta"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=K5b5-xp4c8E",
-        "name": "Natsume Yujin-cho - Ending 5 | Akane Sasu"
       }
     ]
   },
@@ -5834,10 +5623,6 @@
       {
         "url": "https://www.youtube.com/watch?v=Ee439rxfiaM",
         "name": "NEW GAME!! - Opening | Step by Step Up ↑↑↑↑"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=_8GQagRv8F8",
-        "name": "NEW GAME!! - Ending 1 | Jumpin' Jump Up!!!!"
       },
       {
         "url": "https://www.youtube.com/watch?v=UbNJlE4geKo",
@@ -5895,15 +5680,6 @@
       {
         "url": "https://www.youtube.com/watch?v=Cmwaa9XVS4w",
         "name": "Ningen Fushin - Opening | Glorious World"
-      }
-    ]
-  },
-  {
-    "title": "No Game No Life",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=-vmp_AL4Q88",
-        "name": "No Game No Life - Ending | Oracion"
       }
     ]
   },
@@ -6122,10 +5898,6 @@
     "title": "Orange",
     "openings": [
       {
-        "url": "https://www.youtube.com/watch?v=yE1aag6NPbQ",
-        "name": "Orange - Opening | Hikari no Hahen"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=ButwnZomyYk",
         "name": "Orange - Ending | Mirai"
       }
@@ -6268,15 +6040,6 @@
     ]
   },
   {
-    "title": "Parasyte -the maxim- Opening",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=akM53Bs58Bw",
-        "name": "Parasyte -the maxim- Opening | Let Me Hear"
-      }
-    ]
-  },
-  {
     "title": "Peach Boy Riverside",
     "openings": [
       {
@@ -6299,19 +6062,6 @@
       {
         "url": "https://www.youtube.com/watch?v=TWykC_-h9dQ",
         "name": "Planet With - Ending | Rainbow Planet"
-      }
-    ]
-  },
-  {
-    "title": "Platinum End",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=ZDhywizAidY",
-        "name": "Platinum End - Opening | Sense"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=PEwmLvXtZuI",
-        "name": "Platinum End - Ending | Kofuku-Ron"
       }
     ]
   },
@@ -6652,15 +6402,6 @@
     ]
   },
   {
-    "title": "Rokka -Braves of the Six Flowers- Ending 1",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=bKiMhP1zx3k",
-        "name": "Rokka -Braves of the Six Flowers- Ending 1 | Secret Sky"
-      }
-    ]
-  },
-  {
     "title": "Rokka -Braves of the Six Flowers- Ending 2",
     "openings": [
       {
@@ -6733,15 +6474,6 @@
       {
         "url": "https://www.youtube.com/watch?v=vkbgjEmcx5E",
         "name": "Run with the Wind - Ending | Reset"
-      }
-    ]
-  },
-  {
-    "title": "Run With the Wind",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=-79c0TFqwzI",
-        "name": "Run With the Wind - Official Opening"
       }
     ]
   },
@@ -7149,10 +6881,6 @@
       {
         "url": "https://www.youtube.com/watch?v=5bjALtpM8RA",
         "name": "Skull-face Bookseller Honda-san - Opening | ISBN~Inner Sound & book’s Narrative~"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=ccy3odyh31o",
-        "name": "Skull-face Bookseller Honda-san - Ending | Book-end, Happy-end"
       }
     ]
   },
@@ -7315,19 +7043,6 @@
       {
         "url": "https://www.youtube.com/watch?v=vem4dMT6GXM",
         "name": "Squishy! Black Clover - Opening | POSSIBLE"
-      }
-    ]
-  },
-  {
-    "title": "SSSS.GRIDMAN",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=IMVH4bvG5GM",
-        "name": "SSSS.GRIDMAN - Opening | UNION"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=s7m8rALmMJY",
-        "name": "SSSS.GRIDMAN - Ending | youthful beautiful"
       }
     ]
   },
@@ -8078,10 +7793,6 @@
     "title": "The Morose Mononokean",
     "openings": [
       {
-        "url": "https://www.youtube.com/watch?v=JO2Vv7YexFA",
-        "name": "The Morose Mononokean - Opening | Tomodachi Meter"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=bf8fWraY1rE",
         "name": "The Morose Mononokean - Ending | Tobira no Muko"
       }
@@ -8616,10 +8327,6 @@
     "title": "TRINITY SEVEN",
     "openings": [
       {
-        "url": "https://www.youtube.com/watch?v=98sU00dGmag",
-        "name": "TRINITY SEVEN - Opening | Seven Doors"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=k_wt-juy21g",
         "name": "TRINITY SEVEN - Ending 1 | BEAUTIFUL≒SENTENCE"
       },
@@ -8776,19 +8483,6 @@
     ]
   },
   {
-    "title": "Ulysses: Jeanne d'Arc and the Alchemist Knight",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=lAOG5_PL-Iw",
-        "name": "Ulysses: Jeanne d'Arc and the Alchemist Knight - Opening | Liberation"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=OITLeW-A6eo",
-        "name": "Ulysses: Jeanne d'Arc and the Alchemist Knight - Ending | Hyakunen no Meram"
-      }
-    ]
-  },
-  {
     "title": "Umamusume: Pretty Derby",
     "openings": [
       {
@@ -8854,10 +8548,6 @@
       {
         "url": "https://www.youtube.com/watch?v=w3jOMfEE60I",
         "name": "Ushio and Tora - Ending 1 | HERO"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=jRSMElIZe08",
-        "name": "Ushio and Tora - Ending 2 | Makeruna Chiisaki Mono Yo"
       }
     ]
   },
@@ -9276,10 +8966,6 @@
       {
         "url": "https://www.youtube.com/watch?v=O9VOud8y3tg",
         "name": "ZOMBIE LAND SAGA - Opening | Adabana Necromancy"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=qgc_klPp3JE",
-        "name": "ZOMBIE LAND SAGA - Ending Hikari"
       }
     ]
   },
