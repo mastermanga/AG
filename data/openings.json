@@ -22,7 +22,7 @@
     ]
   },
   {
-    "title": "X",
+    "title": "86",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=tA0EEJj4hU0",
@@ -40,6 +40,11 @@
         "url": "https://www.youtube.com/watch?v=YRGG02ZWccA",
         "name": "86 EIGHTY-SIX - Ending 2 | Alchemila"
       },
+    ]
+  },
+  {
+    "title": "A Certain Magical Index",
+    "openings": [
       {
         "url": "https://www.youtube.com/watch?v=6dOsskwHifU",
         "name": "A Certain Magical Index III - Opening 2 | ROAR"
@@ -55,11 +60,21 @@
       {
         "url": "https://www.youtube.com/watch?v=NnXbAIoQsDk",
         "name": "A Certain Magical Index III -  Ending | Kakumei Zenya"
-      },
+      }
+    ]
+  },
+  {
+    "title": "A Destructive God Sits Next to Me",
+    "openings": [
       {
         "url": "https://www.youtube.com/watch?v=_E-Z1bLUMaQ",
         "name": "A Destructive God Sits Next to Me - Opening | Take mo' Chance"
-      },
+      }
+    ]
+  },
+  {
+    "title": "A Galaxy Next Door",
+    "openings": [
       {
         "url": "https://www.youtube.com/watch?v=tInmc5J9Ovw",
         "name": "A Galaxy Next Door - Opening | Tonari Awase"
@@ -67,7 +82,12 @@
       {
         "url": "https://www.youtube.com/watch?v=fvZiHXpwJAM",
         "name": "A Galaxy Next Door - Ending | Near Stella"
-      },
+      }
+    ]
+  },
+  {
+    "title": "BUBUKI/BURANKI: The Gentle Giants of the Galaxy",
+    "openings": [
       {
         "url": "https://www.youtube.com/watch?v=uMgLARkTqo8",
         "name": "BUBUKI/BURANKI: The Gentle Giants of the Galaxy - Opening | Reiro taru Junketsu wa 'Koen' no Kairai"
@@ -75,7 +95,12 @@
       {
         "url": "https://www.youtube.com/watch?v=eOy4hEhc8Jk",
         "name": "BUBUKI/BURANKI: The Gentle Giants of the Galaxy - Ending | so beautiful ;- )"
-      },
+      }
+    ]
+  },
+  {
+    "title": "X",
+    "openings": [
       {
         "url": "https://www.youtube.com/watch?v=_GY986rvHhY",
         "name": "X - Opening | eX Dream"
@@ -83,7 +108,7 @@
     ]
   },
   {
-    "title": "DAYS",
+    "title": "91 DAYS",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=jkd__a6WmS4",
@@ -92,15 +117,12 @@
       {
         "url": "https://www.youtube.com/watch?v=Ad0gGaSeb6M",
         "name": "91 Days - Ending | Rain or Shine"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=cyfUQ8B6_9o",
-        "name": "DAYS - Opening 2 | Higher Climber"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=bm2ILhvGV6A",
-        "name": "DAYS - Ending 2 | DAYS"
-      },
+      }
+    ]
+  },
+  {
+    "title": "Days with My Stepsister",
+    "openings": [
       {
         "url": "https://www.youtube.com/watch?v=FeebPyzIqnI",
         "name": "Days with My Stepsister - Ending | Suisou no Buranko"
@@ -108,6 +130,19 @@
       {
         "url": "https://www.youtube.com/watch?v=1SrBWYo9BmM",
         "name": "Days with My Stepsister Opening | Tenshi-tachi no Uta"
+      }
+    ]
+  },
+  {
+    "title": "DAYS",
+    "openings": [
+      {
+        "url": "https://www.youtube.com/watch?v=cyfUQ8B6_9o",
+        "name": "DAYS - Opening 2 | Higher Climber"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=bm2ILhvGV6A",
+        "name": "DAYS - Ending 2 | DAYS"
       }
     ]
   },
@@ -808,7 +843,12 @@
       {
         "url": "https://www.youtube.com/watch?v=X44Ovss0yLE",
         "name": "Berserk of Gluttony - Opening | Jekyll & Hyde"
-      },
+      }
+    ]
+  },
+  {
+    "title": "Berserk of Gluttony",
+    "openings": [
       {
         "url": "https://www.youtube.com/watch?v=ZaX7BHrTDN8",
         "name": "Berserk of Gluttony - Ending | Ao no Genseki"
@@ -2071,7 +2111,12 @@
       {
         "url": "https://www.youtube.com/watch?v=-bJMPrbiT6c",
         "name": "GATE - Ending | Prism Communicate"
-      },
+      }
+    ]
+  },
+  {
+    "title": "Steins;Gate",
+    "openings": [
       {
         "url": "https://www.youtube.com/watch?v=1xJbdY9B3A8",
         "name": "Steins;Gate - Opening | Fatima"
@@ -2666,14 +2711,6 @@
     "title": "Hunter X Hunter",
     "openings": [
       {
-        "url": "https://www.youtube.com/watch?v=a-Jttwd1ipI",
-        "name": "Hunter X Hunter - Opening 5 | Departure! -second version-"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=tK-d2LJlaaQ",
-        "name": "Hunter X Hunter - Ending 2 | Hunting For Your Dream"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=ELuVDnlB8PE",
         "name": "Hunter X Hunter - Ending 1 | Just Awake"
       },
@@ -2682,37 +2719,17 @@
         "name": "Hunter X Hunter - Ending 5 | Hyori Ittai"
       },
       {
-        "url": "https://www.youtube.com/watch?v=LXu9u3kH6Ro",
-        "name": "Hunter X Hunter - Opening 6 | Departure!"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=qibSkLoSVAA",
-        "name": "Hunter X Hunter - Opening 2 | Departure! -second version-"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=CGXZmNECNco",
-        "name": "Hunter X Hunter - Opening 4 | Departure!"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=Kag5vCMycwg",
         "name": "Hunter X Hunter - Ending 6 | Hyori Ittai"
       },
       {
-        "url": "https://www.youtube.com/watch?v=PsklRGotMnQ",
-        "name": "Hunter X Hunter - Opening 3 | Departure!"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=wnOGkmMDMuM",
-        "name": "Hunter X Hunter - Ending 3 | Reason"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=kc6MHszfb2I",
-        "name": "Hunter X Hunter - Ending 4 | Nagareboshi Kirari"
-      },
-      {
         "url": "https://www.youtube.com/watch?v=faqmNf_fZlE",
         "name": "Hunter X Hunter Opening 1 | Departure!"
-      }
+      },
+      {
+        "url": "https://youtu.be/9M_iCDwCJb8?list=PLagX-LeD8zSPWAyLn89vco5VLH7X7shmn",
+        "name": "Hunter x Hunter (1999) OP1 | Merry Go Round Goes"
+      },
     ]
   },
   {
@@ -2975,6 +2992,14 @@
       {
         "url": "https://www.youtube.com/watch?v=LFTE4W--Htk",
         "name": "JUJUTSU KAISEN Opening 2 | Vivid Vice"
+      },
+      {
+        "url": "https://youtu.be/gcgKUcJKxIs?list=PLH8zT39L5CWCrg4Pr8ef0emabZxAfodVt",
+        "name": "JUJUTSU KAISEN Opening 3"
+      },
+      {
+        "url": "https://youtu.be/5yb2N3pnztU?list=PLH8zT39L5CWCrg4Pr8ef0emabZxAfodVt",
+        "name": "JUJUTSU KAISEN Opening 4"
       }
     ]
   },
@@ -3706,7 +3731,7 @@
     ]
   },
   {
-    "title": "Mobile Suit Gundam Unicorn RE:0096",
+    "title": "Mobile Suit Gundam",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=VLDZO-dN_ls",
@@ -3723,12 +3748,7 @@
       {
         "url": "https://www.youtube.com/watch?v=iCzO4KtdZdM",
         "name": "Mobile Suit Gundam Unicorn RE:0096 - Ending 1 | Next 2U -eUC-"
-      }
-    ]
-  },
-  {
-    "title": "Mobile Suit Gundam Wing",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=oNJ4aBoRipg",
         "name": "Mobile Suit Gundam Wing - Opening 1 | Just Communication"
@@ -3740,12 +3760,7 @@
       {
         "url": "https://www.youtube.com/watch?v=9dNbLTGCE_M",
         "name": "Mobile Suit Gundam Wing - Ending | It's Just Love!"
-      }
-    ]
-  },
-  {
-    "title": "Mobile Suit Gundam: Iron-Blooded Orphans",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=gz_nHGZutVU",
         "name": "Mobile Suit Gundam: Iron-Blooded Orphans - Opening 3 | RAGE OF DUST"
@@ -3769,12 +3784,7 @@
       {
         "url": "https://www.youtube.com/watch?v=ZAO6CDrnFqY",
         "name": "Mobile Suit Gundam: Iron-Blooded Orphans - Ending 4 | Freesia"
-      }
-    ]
-  },
-  {
-    "title": "Mobile Suit Gundam: The Witch from Mercury",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=uqZ9tCxq9Yw",
         "name": "Mobile Suit Gundam: The Witch from Mercury - Opening | Shukufuku"
@@ -7483,6 +7493,56 @@
       {
         "url": "https://www.youtube.com/watch?v=BHf7fe-pxbU",
         "name": "Zom 100: Bucket List of The Dead - Opening | Song of the Dead"
+      }
+    ]
+  },
+  {
+    "title": "Dragon Ball",
+    "openings": [
+      {
+        "url": "https://youtu.be/nz8IjonLhkk?list=PLJrvLNDbcTd6RLey8hx0vZF4aEejdEigm",
+        "name": "Dragon Ball - Opening (Makafushigi Adventure)"
+      },
+      {
+        "url": "https://youtu.be/EK2z1t57K74?list=PLJrvLNDbcTd6RLey8hx0vZF4aEejdEigm",
+        "name": "Dragon Ball GT - Opening v1 (DAN DAN Kokoro Hikaret...)"
+      },
+      {
+        "url": "https://youtu.be/mvCH65k9FDI?list=PLJrvLNDbcTd6RLey8hx0vZF4aEejdEigm",
+        "name": "Dragon Ball GT - Ending 3 (Blue Velvet)"
+      },
+      {
+        "url": "https://youtu.be/xXMxFin0-90?list=PLJrvLNDbcTd6RLey8hx0vZF4aEejdEigm",
+        "name": Dragon Ball Z - Opening 1 v1 (Cha-La Head-Cha-La)"
+      },
+      {
+        "url": "https://youtu.be/Lgpy_zI64M0?list=PLJrvLNDbcTd6RLey8hx0vZF4aEejdEigm",
+        "name": "Dragon Ball Z - Opening 2 (We Gotta Power)"
+      },
+      {
+        "url": "https://youtu.be/-wImDUQxH-4?list=PLJrvLNDbcTd6RLey8hx0vZF4aEejdEigm",
+        "name": "Dragon Ball Kai - Opening 1 v1 (Dragon Soul)"
+      },
+      {
+        "url": "https://youtu.be/DKNEF7XOOTY?list=PLJrvLNDbcTd6RLey8hx0vZF4aEejdEigm",
+        "name": "Dragon Ball Super - Opening 1 v1 (Chouzetsu☆Dynamic!)"
+      },
+      {
+        "url": "https://youtu.be/3vD4kl59-mc?list=PLJrvLNDbcTd6RLey8hx0vZF4aEejdEigm",
+        "name": "Dragon Ball Super - Opening 2 (Genkai Toppa × Survivor)"
+      }
+    ]
+  },
+  {
+    "title": "Chainsaw Man",
+    "openings": [
+      {
+        "url": "https://youtu.be/NMA_isZYsYQ?list=PLzb5mwlGMz0qPsXHL_F9ynnbFFzYSmBUs",
+        "name": "KICK BACK"
+      },
+      {
+        "url": "https://youtu.be/HEwAiwttN10?list=RDHEwAiwttN10",
+        "name": "CHAINSAW MAN #3 Ending│マキシマム ザ ホルモン 「刃渡り2億センチ」"
       }
     ]
   },
