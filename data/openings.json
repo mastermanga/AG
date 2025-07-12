@@ -1,16 +1,11 @@
 [
   {
-    "title": "365 Days To The Wedding Ending",
+    "title": "365 Days To The Wedding",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=kHvVCi3L5a0",
         "name": "365 Days To The Wedding Ending | Tsumari wa"
-      }
-    ]
-  },
-  {
-    "title": "365 Days To The Wedding Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=eLkgGA8enBg",
         "name": "365 Days To The Wedding Opening | Kirakira"
@@ -31,7 +26,7 @@
     ]
   },
   {
-    "title": "86 EIGHTY-SIX",
+    "title": "X",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=tA0EEJj4hU0",
@@ -48,11 +43,51 @@
       {
         "url": "https://www.youtube.com/watch?v=YRGG02ZWccA",
         "name": "86 EIGHTY-SIX - Ending 2 | Alchemila"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=6dOsskwHifU",
+        "name": "A Certain Magical Index III - Opening 2 | ROAR"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=w2gkLOFWCrQ",
+        "name": "A Certain Magical Index III - Opening 1 | Gravitation"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=hdeZqE8daaE",
+        "name": "A Certain Magical Index III - Ending 2 | Owaranai Uta"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=NnXbAIoQsDk",
+        "name": "A Certain Magical Index III -  Ending | Kakumei Zenya"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=_E-Z1bLUMaQ",
+        "name": "A Destructive God Sits Next to Me - Opening | Take mo' Chance"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=tInmc5J9Ovw",
+        "name": "A Galaxy Next Door - Opening | Tonari Awase"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=fvZiHXpwJAM",
+        "name": "A Galaxy Next Door - Ending | Near Stella"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=uMgLARkTqo8",
+        "name": "BUBUKI/BURANKI: The Gentle Giants of the Galaxy - Opening | Reiro taru Junketsu wa 'Koen' no Kairai"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=eOy4hEhc8Jk",
+        "name": "BUBUKI/BURANKI: The Gentle Giants of the Galaxy - Ending | so beautiful ;- )"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=_GY986rvHhY",
+        "name": "X - Opening | eX Dream"
       }
     ]
   },
   {
-    "title": "91 Days",
+    "title": "DAYS",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=jkd__a6WmS4",
@@ -61,6 +96,22 @@
       {
         "url": "https://www.youtube.com/watch?v=Ad0gGaSeb6M",
         "name": "91 Days - Ending | Rain or Shine"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=cyfUQ8B6_9o",
+        "name": "DAYS - Opening 2 | Higher Climber"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=bm2ILhvGV6A",
+        "name": "DAYS - Ending 2 | DAYS"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=FeebPyzIqnI",
+        "name": "Days with My Stepsister - Ending | Suisou no Buranko"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=1SrBWYo9BmM",
+        "name": "Days with My Stepsister Opening | Tenshi-tachi no Uta"
       }
     ]
   },
@@ -78,27 +129,6 @@
     ]
   },
   {
-    "title": "A Certain Magical Index III",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=6dOsskwHifU",
-        "name": "A Certain Magical Index III - Opening 2 | ROAR"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=w2gkLOFWCrQ",
-        "name": "A Certain Magical Index III - Opening 1 | Gravitation"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=hdeZqE8daaE",
-        "name": "A Certain Magical Index III - Ending 2 | Owaranai Uta"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=NnXbAIoQsDk",
-        "name": "A Certain Magical Index III -  Ending | Kakumei Zenya"
-      }
-    ]
-  },
-  {
     "title": "A Certain Scientific Accelerator",
     "openings": [
       {
@@ -112,17 +142,12 @@
     ]
   },
   {
-    "title": "A Certain Scientific Railgun S",
+    "title": "A Certain Scientific Railgun",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=rNWITQJzbls",
         "name": "A Certain Scientific Railgun S - Opening | sister's noise"
-      }
-    ]
-  },
-  {
-    "title": "A Certain Scientific Railgun T",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=OiUGGp2ZR9A",
         "name": "A Certain Scientific Railgun T - Opening 2 | dual existence"
@@ -168,39 +193,12 @@
     ]
   },
   {
-    "title": "A Destructive God Sits Next to Me",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=_E-Z1bLUMaQ",
-        "name": "A Destructive God Sits Next to Me - Opening | Take mo' Chance"
-      }
-    ]
-  },
-  {
-    "title": "A Galaxy Next Door",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=tInmc5J9Ovw",
-        "name": "A Galaxy Next Door - Opening | Tonari Awase"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=fvZiHXpwJAM",
-        "name": "A Galaxy Next Door - Ending | Near Stella"
-      }
-    ]
-  },
-  {
     "title": "A Journey Through Another World",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=qFkxWa7ioLI",
         "name": "A Journey Through Another World - Ending | MAKUAKE"
-      }
-    ]
-  },
-  {
-    "title": "A Journey Through Another World Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=hJxveaQZd2s",
         "name": "A Journey Through Another World Opening | Yururing Travel Days"
@@ -243,7 +241,7 @@
     ]
   },
   {
-    "title": "Ace of the Diamond",
+    "title": "Ace Of The Diamond",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=ViBE_zYivNc",
@@ -268,12 +266,7 @@
       {
         "url": "https://www.youtube.com/watch?v=9jJE0mq_s4o",
         "name": "Ace of the Diamond - Ending 6 | FINAL VICTORY"
-      }
-    ]
-  },
-  {
-    "title": "Ace of the Diamond act II",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=21eMhlQ1jKQ",
         "name": "Ace of the Diamond act II - Opening 1 | Hajimari no Uta"
@@ -324,7 +317,7 @@
     ]
   },
   {
-    "title": "Akame ga Kill!",
+    "title": "Akame Ga Kill",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=mGclLUQiqH8",
@@ -333,12 +326,7 @@
       {
         "url": "https://www.youtube.com/watch?v=iDhY5BM7BlQ",
         "name": "Akame ga Kill! - Ending 1 | Konna Sekai, Shiritakunakatta"
-      }
-    ]
-  },
-  {
-    "title": "Akame ga Kill! Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=mAzFWd5WqOg",
         "name": "Akame ga Kill! Opening 2 | Liar Mask by Rika Mayama"
@@ -394,7 +382,7 @@
     ]
   },
   {
-    "title": "Amanchu!",
+    "title": "Amanchu",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=h3bRos2VNZ8",
@@ -403,21 +391,11 @@
       {
         "url": "https://www.youtube.com/watch?v=TQZypqPXYms",
         "name": "Amanchu! - Ending | Futari Shoujo"
-      }
-    ]
-  },
-  {
-    "title": "Amanchu! ~Advance~ Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=dhVY3k6MgXw",
         "name": "Amanchu! ~Advance~ Ending | Hello Hello"
-      }
-    ]
-  },
-  {
-    "title": "Amanchu! ~Advance~ Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=zDL20UDZ6IA",
         "name": "Amanchu! ~Advance~ Opening | Crosswalk"
@@ -425,17 +403,12 @@
     ]
   },
   {
-    "title": "An Archdemon’s Dilemma: How to Love Your Elf Bride",
+    "title": "An Archdemon's Dilemma : How To Love Your Elf Bride",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=wPyWzilRwKo",
         "name": "An Archdemon’s Dilemma: How to Love Your Elf Bride - Ending | Tweedia (Blue Star)"
-      }
-    ]
-  },
-  {
-    "title": "An Archdemon’s Dilemma: How to Love Your Elf Bride Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=gE6smsmPh_U",
         "name": "An Archdemon’s Dilemma: How to Love Your Elf Bride Opening | Wakaranai Ai"
@@ -504,17 +477,12 @@
     ]
   },
   {
-    "title": "AQUARION: Myth of Emotions Ending",
+    "title": "Aquarion: Myth Of Emotions",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=E-ZWPXhWHVA",
         "name": "AQUARION: Myth of Emotions Ending | Kokuhaku"
-      }
-    ]
-  },
-  {
-    "title": "AQUARION: Myth of Emotions Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=LxxbWSSof5E",
         "name": "AQUARION: Myth of Emotions Opening | Aquarion: Myth of Emotions Ver."
@@ -596,12 +564,7 @@
       {
         "url": "https://www.youtube.com/watch?v=tNZ-6xLUoCA",
         "name": "Assassination Classroom - Opening 2 | Jiriki Hongan Revolution"
-      }
-    ]
-  },
-  {
-    "title": "Assassination Classroom Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=iug12DnMNHQ",
         "name": "Assassination Classroom Season 2 - Opening | QUESTION"
@@ -648,17 +611,12 @@
     ]
   },
   {
-    "title": "Attack on Titan",
+    "title": "Attack On Titan",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=QBlYYOsdG-U",
         "name": "Attack on Titan - Ending 1 | Utsukushiki Zankoku na Sekai"
-      }
-    ]
-  },
-  {
-    "title": "Attack on Titan Final Season",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=EtjQVqXUPHo",
         "name": "Attack on Titan Final Season - Opening 2 | The Rumbling"
@@ -670,30 +628,15 @@
       {
         "url": "https://www.youtube.com/watch?v=HKfOzM_xj3g",
         "name": "Attack on Titan Final Season - Ending 1 | Shock"
-      }
-    ]
-  },
-  {
-    "title": "Attack on Titan Opening 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=8OkpRK2_gVs",
         "name": "Attack on Titan Opening 1 | Feuerroter Pfeil und Bogen"
-      }
-    ]
-  },
-  {
-    "title": "Attack on Titan Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=PbWFpzi8C94",
         "name": "Attack on Titan Opening 2 | Jiyuu no Tsubasa by Linked Horizon"
-      }
-    ]
-  },
-  {
-    "title": "Attack on Titan: Junior High",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=pwmqlb8KY18",
         "name": "Attack on Titan: Junior High - Opening | Seishun wa Hanabi no you ni"
@@ -744,17 +687,12 @@
     ]
   },
   {
-    "title": "BARTENDER Glass of God",
+    "title": "Bartender Glass Of God",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=5aSmz9wMvvo",
         "name": "BARTENDER Glass of God - Ending | Spica"
-      }
-    ]
-  },
-  {
-    "title": "BARTENDER Glass of God Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=BJM509u4RNQ",
         "name": "BARTENDER Glass of God Opening | Stardust Memory"
@@ -767,12 +705,7 @@
       {
         "url": "https://www.youtube.com/watch?v=s6Lo1AU4K0g",
         "name": "BBK/BRNK - Ending | Anger/Anger"
-      }
-    ]
-  },
-  {
-    "title": "BBK/BRNK Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=oIe7_utfqR4",
         "name": "BBK/BRNK Opening | Beat your Heart"
@@ -793,17 +726,12 @@
     ]
   },
   {
-    "title": "Beautiful Bones -Sakurako's Investigation- Ending",
+    "title": "Beautiful Bones -Sakurako's Investigation",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=1aE89MF_AG4",
         "name": "Beautiful Bones -Sakurako's Investigation- Ending | Uchiyoserareta Bokyaku no Zankyō ni"
-      }
-    ]
-  },
-  {
-    "title": "Beautiful Bones -Sakurako's Investigation- Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=9H13M7OYre8",
         "name": "Beautiful Bones -Sakurako's Investigation- Opening | Dear Answer"
@@ -828,12 +756,7 @@
       {
         "url": "https://www.youtube.com/watch?v=8UnPyrNJB_s",
         "name": "Berserk - Ending 2 | Issai wa Monogatari"
-      }
-    ]
-  },
-  {
-    "title": "Berserk of Gluttony",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=X44Ovss0yLE",
         "name": "Berserk of Gluttony - Opening | Jekyll & Hyde"
@@ -884,44 +807,24 @@
     ]
   },
   {
-    "title": "Black Butler -Emerald Witch Arc- Ending",
+    "title": "Black Butler",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=9JIZnEOubUU",
         "name": "Black Butler -Emerald Witch Arc- Ending | \"WALTZ\" by RYUGUJO"
-      }
-    ]
-  },
-  {
-    "title": "Black Butler -Emerald Witch Arc- Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=KmAT3soCBFQ",
         "name": "Black Butler -Emerald Witch Arc- Opening | \"MAISIE\" by Cö shu Nie feat. HYDE"
-      }
-    ]
-  },
-  {
-    "title": "Black Butler -Public School Arc- Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=I3K-LQ20MnQ",
         "name": "Black Butler -Public School Arc- Ending | Shokuzai (Atonement)"
-      }
-    ]
-  },
-  {
-    "title": "Black Butler -Public School Arc- Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=OBGVjMxFBE0",
         "name": "Black Butler -Public School Arc- Opening | Fanatic Parade - The Parade of Battlers"
-      }
-    ]
-  },
-  {
-    "title": "Black Butler: Book of Circus",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=M22jx3PNxr0",
         "name": "Black Butler: Book of Circus - Opening | Enamel"
@@ -1022,42 +925,26 @@
       {
         "url": "https://www.youtube.com/watch?v=Ix414TSFmhA",
         "name": "Black Clover - Ending 9 | Jinsei wa Senjou da"
-      }
-    ]
-  },
-  {
-    "title": "Black Clover Opening 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=_6KZI74zKfE",
         "name": "Black Clover Opening 1 | Haruka Mirai by Kankaku Piero"
-      }
-    ]
-  },
-  {
-    "title": "Black Clover Opening 10",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=XMeQeIG_rQg",
         "name": "Black Clover Opening 10 | Black Catcher"
-      }
-    ]
-  },
-  {
-    "title": "Black Clover Opening 13",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=aaZq6SXXNt4",
         "name": "Black Clover Opening 13 | Grandeur by Snow Man"
-      }
-    ]
-  },
-  {
-    "title": "Black Clover Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=5zSx8QD-fkA",
         "name": "Black Clover Opening 2 | PAiNT it BLACK"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=vem4dMT6GXM",
+        "name": "Squishy! Black Clover - Opening | POSSIBLE"
       }
     ]
   },
@@ -1107,12 +994,7 @@
       {
         "url": "https://www.youtube.com/watch?v=4J8jcI0WtzM",
         "name": "Blood Blockade Battlefront - Opening | Hello, World!"
-      }
-    ]
-  },
-  {
-    "title": "Blood Blockade Battlefront & Beyond",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=_16vOCt-sYk",
         "name": "Blood Blockade Battlefront & Beyond - Opening | Fake Town Baby"
@@ -1120,12 +1002,7 @@
       {
         "url": "https://www.youtube.com/watch?v=ItMyxevtk2s",
         "name": "Blood Blockade Battlefront & Beyond - Ending | Step Up Love"
-      }
-    ]
-  },
-  {
-    "title": "Blood Blockade Battlefront Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=j3SlUmr_T4g",
         "name": "Blood Blockade Battlefront Ending | Sugar Song to Bitter Step"
@@ -1133,7 +1010,7 @@
     ]
   },
   {
-    "title": "BLUE LOCK",
+    "title": "Blue Lock",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=5Iv3Fi8eb7w",
@@ -1146,30 +1023,15 @@
       {
         "url": "https://www.youtube.com/watch?v=y9wJSeLL-D0",
         "name": "BLUE LOCK - Ending 2 | Numbness like a ginger"
-      }
-    ]
-  },
-  {
-    "title": "BLUE LOCK 2nd Season Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=czus8cVT0ZQ",
         "name": "BLUE LOCK 2nd Season Ending | One by Snow Man"
-      }
-    ]
-  },
-  {
-    "title": "BLUE LOCK 2nd Season Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=qU1XxZ37j7g",
         "name": "BLUE LOCK 2nd Season Opening | Boujaku no Charisma"
-      }
-    ]
-  },
-  {
-    "title": "BLUE LOCK Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=hPmuITfvbYM",
         "name": "BLUE LOCK Opening 2 | Judgement by ASH DA HERO"
@@ -1208,12 +1070,7 @@
       {
         "url": "https://www.youtube.com/watch?v=MVTMQbd4shI",
         "name": "BOFURI - Opening | Kyūkyoku Unbalance"
-      }
-    ]
-  },
-  {
-    "title": "BOFURI Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=rOmPNZ6ZW9w",
         "name": "BOFURI Season 2  - Opening | Kono Tate ni, Kakuremasu"
@@ -1281,19 +1138,6 @@
     ]
   },
   {
-    "title": "BUBUKI/BURANKI: The Gentle Giants of the Galaxy",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=uMgLARkTqo8",
-        "name": "BUBUKI/BURANKI: The Gentle Giants of the Galaxy - Opening | Reiro taru Junketsu wa 'Koen' no Kairai"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=eOy4hEhc8Jk",
-        "name": "BUBUKI/BURANKI: The Gentle Giants of the Galaxy - Ending | so beautiful ;- )"
-      }
-    ]
-  },
-  {
     "title": "Buddy Daddies",
     "openings": [
       {
@@ -1338,21 +1182,11 @@
       {
         "url": "https://www.youtube.com/watch?v=3KHDisO_ixk",
         "name": "Bye Bye Earth - Ending 2 | MOONWORK"
-      }
-    ]
-  },
-  {
-    "title": "Bye Bye, Earth",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=LG2Ld_x3ynY",
         "name": "Bye Bye, Earth - Ending | I LUV U 2"
-      }
-    ]
-  },
-  {
-    "title": "Bye Bye, Earth Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=ZbHDl2NkY5w",
         "name": "Bye Bye, Earth Opening | FACELESS"
@@ -1409,12 +1243,7 @@
       {
         "url": "https://www.youtube.com/watch?v=IcCJgmLZYkE",
         "name": "Chihayafuru - Opening | Youthful"
-      }
-    ]
-  },
-  {
-    "title": "Chihayafuru 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=tgTaux0p7gI",
         "name": "Chihayafuru 2 - Opening | Star"
@@ -1479,12 +1308,7 @@
       {
         "url": "https://www.youtube.com/watch?v=tUxKNNcV5Sk",
         "name": "Classroom of the Elite - Ending | Beautiful Soldier"
-      }
-    ]
-  },
-  {
-    "title": "Classroom of the Elite Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=9deedzO71hk",
         "name": "Classroom of the Elite Season 2 - Opening | Dance in the Game"
@@ -1492,12 +1316,7 @@
       {
         "url": "https://www.youtube.com/watch?v=NZaSmoeRj2E",
         "name": "Classroom of the Elite Season 2 - Ending | Hito Jibai"
-      }
-    ]
-  },
-  {
-    "title": "Classroom of the Elite Season 3",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=RkkGHJUpJCw",
         "name": "Classroom of the Elite Season 3 - Opening | Minor Piece"
@@ -1522,7 +1341,7 @@
     ]
   },
   {
-    "title": "Clevatess Opening",
+    "title": "Clevatess",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=jQnIPTsWyC4",
@@ -1531,7 +1350,7 @@
     ]
   },
   {
-    "title": "Code Geass Opening",
+    "title": "Code Geass",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=G8CFuZ9MseQ",
@@ -1579,17 +1398,12 @@
     ]
   },
   {
-    "title": "DAN DA DAN Ending",
+    "title": "DAN DA DAN",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=ovW7yRi1iJ8",
         "name": "DAN DA DAN Ending | TAIDADA by ZUTOMAYO"
-      }
-    ]
-  },
-  {
-    "title": "DAN DA DAN Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=a4na2opArGY",
         "name": "DAN DA DAN Opening | Otonoke by Creepy Nuts"
@@ -1622,12 +1436,7 @@
       {
         "url": "https://www.youtube.com/watch?v=N7VjqtrRnbU",
         "name": "DARLING in the FRANXX - Ending 5 | Escape"
-      }
-    ]
-  },
-  {
-    "title": "DARLING in the FRANXX Opening 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=A4kLcDWBYcQ",
         "name": "DARLING in the FRANXX Opening 1 | KISS OF DEATH"
@@ -1640,21 +1449,11 @@
       {
         "url": "https://www.youtube.com/watch?v=6GW0wXMt2CQ",
         "name": "Date A Live - Opening | Date a Live"
-      }
-    ]
-  },
-  {
-    "title": "Date A Live II",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=JT0OXWLozz8",
         "name": "Date A Live II - Opening | Trust in you"
-      }
-    ]
-  },
-  {
-    "title": "Date A Live III",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=gHTqQSW_g4k",
         "name": "Date A Live III - Opening | I Swear"
@@ -1675,37 +1474,6 @@
       {
         "url": "https://www.youtube.com/watch?v=D1NQVa7YkPU",
         "name": "Dawn of the Witch - Ending | Imprinting"
-      }
-    ]
-  },
-  {
-    "title": "DAYS",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=cyfUQ8B6_9o",
-        "name": "DAYS - Opening 2 | Higher Climber"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=bm2ILhvGV6A",
-        "name": "DAYS - Ending 2 | DAYS"
-      }
-    ]
-  },
-  {
-    "title": "Days with My Stepsister",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=FeebPyzIqnI",
-        "name": "Days with My Stepsister - Ending | Suisou no Buranko"
-      }
-    ]
-  },
-  {
-    "title": "Days with My Stepsister Opening",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=1SrBWYo9BmM",
-        "name": "Days with My Stepsister Opening | Tenshi-tachi no Uta"
       }
     ]
   },
@@ -1775,7 +1543,7 @@
     ]
   },
   {
-    "title": "DON'T TOY WITH ME MISS NAGATORO 2nd Attack",
+    "title": "DON'T TOY WITH ME MISS NAGATORO",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=u_oKAzgtbOA",
@@ -1784,12 +1552,7 @@
       {
         "url": "https://www.youtube.com/watch?v=XLugjk_uTWc",
         "name": "DON'T TOY WITH ME MISS NAGATORO 2nd Attack - Opening | Love Crazy"
-      }
-    ]
-  },
-  {
-    "title": "DON'T TOY WITH ME, MISS NAGATORO",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=7Ewk3Oxyhgk",
         "name": "DON'T TOY WITH ME, MISS NAGATORO - Opening | EASY LOVE"
@@ -1814,17 +1577,12 @@
     ]
   },
   {
-    "title": "Dr. Ramune -Mysterious Disease Specialist- Ending",
+    "title": "Dr. Ramune -Mysterious Disease Specialist-",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=Wk3C1WfT474",
         "name": "Dr. Ramune -Mysterious Disease Specialist- Ending | Arcacia"
-      }
-    ]
-  },
-  {
-    "title": "Dr. Ramune -Mysterious Disease Specialist- Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=6c0_naQMI8c",
         "name": "Dr. Ramune -Mysterious Disease Specialist- Opening | SHAKE! SHAKE! SHAKE!"
@@ -1832,7 +1590,7 @@
     ]
   },
   {
-    "title": "Dr. STONE NEW WORLD",
+    "title": "Dr. STONE",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=gvVo_gjXMEM",
@@ -1849,12 +1607,7 @@
       {
         "url": "https://www.youtube.com/watch?v=eKeoHejslp0",
         "name": "Dr. STONE NEW WORLD - Opening 1 | Wasuregataki"
-      }
-    ]
-  },
-  {
-    "title": "Dr. STONE SCIENCE FUTURE",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=XW8NWufeP3c",
         "name": "Dr. STONE SCIENCE FUTURE - Opening | CASANOVA POSSE"
@@ -1862,12 +1615,7 @@
       {
         "url": "https://www.youtube.com/watch?v=27Dv8mfvOB4",
         "name": "Dr. STONE SCIENCE FUTURE - Ending | Rolling Stone"
-      }
-    ]
-  },
-  {
-    "title": "Dr. STONE Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=fkAL_LeCsZs",
         "name": "Dr. STONE Season 2 - Opening | Rakuen"
@@ -1879,7 +1627,7 @@
     ]
   },
   {
-    "title": "Dropkick on My Devil!! Dash",
+    "title": "Dropkick on My Devil!!",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=rAgQJ_5WvB8",
@@ -1888,12 +1636,7 @@
       {
         "url": "https://www.youtube.com/watch?v=DDA2H2a4GD0",
         "name": "Dropkick on My Devil!! Dash - Ending | Love Satisfaction"
-      }
-    ]
-  },
-  {
-    "title": "Dropkick on My Devil!!! X",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=QD4AsGSwzpc",
         "name": "Dropkick on My Devil!!! X - Opening | Are Kore Drastic"
@@ -1957,7 +1700,7 @@
     ]
   },
   {
-    "title": "ESTAB LIFE: Great Escape",
+    "title": "ESTAB LIFE",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=b_DNQWrZxXM",
@@ -2054,12 +1797,7 @@
       {
         "url": "https://www.youtube.com/watch?v=KQNBhCHL2TY",
         "name": "Fairy Tail - Opening 5 | Egao No Mahou"
-      }
-    ]
-  },
-  {
-    "title": "Fairy Tail Final Season",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=8z5YOOLDJAU",
         "name": "Fairy Tail Final Season - Opening 2 | DOWN BY LAW"
@@ -2075,12 +1813,7 @@
       {
         "url": "https://www.youtube.com/watch?v=e2Xg4HaQgC8",
         "name": "Fairy Tail Final Season - Ending 1 | Endless Harmony"
-      }
-    ]
-  },
-  {
-    "title": "Fairy Tail Opening 15",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=aqRuzjIBkxY",
         "name": "Fairy Tail Opening 15 | Masayume Chasing"
@@ -2101,62 +1834,32 @@
     ]
   },
   {
-    "title": "Fire Force Ending 1",
+    "title": "Fire Force",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=geE49ne2mQg",
         "name": "Fire Force Ending 1 | \"Veil\" by Keina Suda"
-      }
-    ]
-  },
-  {
-    "title": "Fire Force Ending 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=jbTO40J4ENs",
         "name": "Fire Force Ending 2 | \"Nounai\" by Lenny code fiction"
-      }
-    ]
-  },
-  {
-    "title": "Fire Force Opening 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=JBqxVX_LXvk",
         "name": "Fire Force Opening 1 | Inferno by Mrs.GREEN APPLE"
-      }
-    ]
-  },
-  {
-    "title": "Fire Force Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=t0WClcc-aVs",
         "name": "Fire Force Opening 2 | MAYDAY"
-      }
-    ]
-  },
-  {
-    "title": "Fire Force Season 2 Opening 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=xLGtT8WuidM",
         "name": "Fire Force Season 2 Opening 1 | SPARK-AGAIN by Aimer"
-      }
-    ]
-  },
-  {
-    "title": "Fire Force Season 3 Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=u3EDKUM8rUw",
         "name": "Fire Force Season 3 Ending | \"Urusiren\" by Umeda Cypher"
-      }
-    ]
-  },
-  {
-    "title": "Fire Force Season 3 Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=nv_Ghx0Jk-I",
         "name": "Fire Force Season 3 Opening | \"Tsuyobi\" by Queen Bee"
@@ -2277,7 +1980,7 @@
     ]
   },
   {
-    "title": "Free! Dive to the Future",
+    "title": "Free!",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=EZoVJ8VEFaM",
@@ -2286,21 +1989,11 @@
       {
         "url": "https://www.youtube.com/watch?v=QyL14DeeJJs",
         "name": "Free! Dive to the Future - Opening | Heading to Over"
-      }
-    ]
-  },
-  {
-    "title": "Free! Iwatobi Swim Club",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=oveSIRPMJYA",
         "name": "Free! Iwatobi Swim Club - Opening | Rage on"
-      }
-    ]
-  },
-  {
-    "title": "Free! Iwatobi Swim Club Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=ojPKvzQdo7k",
         "name": "Free! Iwatobi Swim Club Ending | SPLASH FREE"
@@ -2308,7 +2001,7 @@
     ]
   },
   {
-    "title": "Fruits Basket Season 2",
+    "title": "Fruits Basket",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=jI7hI9yUXL0",
@@ -2400,6 +2093,10 @@
       {
         "url": "https://www.youtube.com/watch?v=-bJMPrbiT6c",
         "name": "GATE - Ending | Prism Communicate"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=1xJbdY9B3A8",
+        "name": "Steins;Gate - Opening | Fatima"
       }
     ]
   },
@@ -2622,7 +2319,7 @@
     ]
   },
   {
-    "title": "Girlfriend Girlfriend Season 2",
+    "title": "Girlfriend, Girlfriend",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=KguhiQwYe6U",
@@ -2631,12 +2328,7 @@
       {
         "url": "https://www.youtube.com/watch?v=mvEAe5dSBP4",
         "name": "Girlfriend Girlfriend Season 2 - Ending | Forira"
-      }
-    ]
-  },
-  {
-    "title": "Girlfriend, Girlfriend",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=Wi6YA3bd1Z4",
         "name": "Girlfriend, Girlfriend - Opening | Fuzaketenai ze"
@@ -2683,12 +2375,7 @@
       {
         "url": "https://www.youtube.com/watch?v=wtIOVH8OC94",
         "name": "GOBLIN SLAYER - Ending | Gin no Kisei"
-      }
-    ]
-  },
-  {
-    "title": "GOBLIN SLAYER II",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=M6sIAFQ8Mno",
         "name": "GOBLIN SLAYER II - Ending | Kasumi no Mukou e"
@@ -2701,12 +2388,7 @@
       {
         "url": "https://www.youtube.com/watch?v=Ux5NOykSADI",
         "name": "Gods’ Games We Play - Ending | I'm Game!"
-      }
-    ]
-  },
-  {
-    "title": "Gods’ Games We Play Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=zuNTiftJFTU",
         "name": "Gods’ Games We Play Opening | NewGame by AliA"
@@ -2743,17 +2425,12 @@
     ]
   },
   {
-    "title": "Good Bye, Dragon Life Ending",
+    "title": "Good Bye, Dragon Life",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=Z3S3pk-VmrQ",
         "name": "Good Bye, Dragon Life Ending | Kimi to Mita Keshiki"
-      }
-    ]
-  },
-  {
-    "title": "Good Bye, Dragon Life Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=euPk4GW7xuM",
         "name": "Good Bye, Dragon Life Opening | Together Forever"
@@ -2787,17 +2464,12 @@
     ]
   },
   {
-    "title": "Grisaia: Phantom Trigger Ending",
+    "title": "Grisaia: Phantom Trigger",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=jKI9gvguT80",
         "name": "Grisaia: Phantom Trigger Ending | Dandelion"
-      }
-    ]
-  },
-  {
-    "title": "Grisaia: Phantom Trigger Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=AHZ-9ezOolU",
         "name": "Grisaia: Phantom Trigger Opening | Zero Ignition"
@@ -2843,17 +2515,12 @@
     ]
   },
   {
-    "title": "GUILTY GEAR STRIVE: DUAL RULERS Ending",
+    "title": "GUILTY GEAR STRIVE: DUAL RULERS",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=y6KnYx6UhDQ",
         "name": "GUILTY GEAR STRIVE: DUAL RULERS Ending | \"Arika\" by Nowlu"
-      }
-    ]
-  },
-  {
-    "title": "GUILTY GEAR STRIVE: DUAL RULERS Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=p8M6-0UTeu4",
         "name": "GUILTY GEAR STRIVE: DUAL RULERS Opening | \"AXCLUSION\" by Ulma Sound Junction"
@@ -2874,12 +2541,7 @@
       {
         "url": "https://www.youtube.com/watch?v=5dqhHQHcHK4",
         "name": "Haikyu!! - Ending 2 | Leo"
-      }
-    ]
-  },
-  {
-    "title": "Haikyu!! Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=7aNg8cV65Os",
         "name": "Haikyu!! Season 2 - Opening 2 | Fly High!!"
@@ -2895,21 +2557,11 @@
       {
         "url": "https://www.youtube.com/watch?v=eG-qyX5hJGU",
         "name": "Haikyu!! Season 2 - Ending 2 | Hatsunetsu"
-      }
-    ]
-  },
-  {
-    "title": "Haikyu!! Season 3",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=rBSfI10pXHM",
         "name": "Haikyu!! Season 3 - Opening | Hikari Are"
-      }
-    ]
-  },
-  {
-    "title": "HAIKYU!! TO THE TOP",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=HTh9MI8eqPo",
         "name": "HAIKYU!! TO THE TOP - Opening 2 | Toppako"
@@ -2925,7 +2577,7 @@
     ]
   },
   {
-    "title": "Hajime no Ippo: The Fighting",
+    "title": "Hajime no Ippo",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=NWl5glbSCY4",
@@ -2938,12 +2590,7 @@
       {
         "url": "https://www.youtube.com/watch?v=YdNQxJ2ab0w",
         "name": "Hajime no Ippo: The Fighting - Ending 2 | 360°"
-      }
-    ]
-  },
-  {
-    "title": "Hajime No Ippo: The Fighting!",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=SlszuKyonXM",
         "name": "Hajime No Ippo: The Fighting! - Rising - Opening | Yakan Hikou"
@@ -3099,12 +2746,7 @@
       {
         "url": "https://www.youtube.com/watch?v=fZeQe_vEVCc",
         "name": "How Heavy Are the Dumbbells You Lift? - Ending | Macho a Name?"
-      }
-    ]
-  },
-  {
-    "title": "How Heavy Are the Dumbbells You Lift? Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=ULjbIMvP6A0",
         "name": "How Heavy Are the Dumbbells You Lift? Opening | Onegai Muscle"
@@ -3117,12 +2759,7 @@
       {
         "url": "https://www.youtube.com/watch?v=hV4xCjKpQzo",
         "name": "How Not to Summon a Demon Lord - Opening | SUMMONARS 2+"
-      }
-    ]
-  },
-  {
-    "title": "How Not to Summon a Demon Lord Ω",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=xGOJfEGQdrE",
         "name": "How Not to Summon a Demon Lord Ω - Opening | EVERYBODY! EVERYBODY!"
@@ -3201,12 +2838,7 @@
       {
         "url": "https://www.youtube.com/watch?v=kc6MHszfb2I",
         "name": "Hunter X Hunter - Ending 4 | Nagareboshi Kirari"
-      }
-    ]
-  },
-  {
-    "title": "Hunter X Hunter Opening 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=faqmNf_fZlE",
         "name": "Hunter X Hunter Opening 1 | Departure!"
@@ -3214,17 +2846,12 @@
     ]
   },
   {
-    "title": "I Left My A-Rank Party Ending",
+    "title": "I Left My A-Rank Party",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=jA4NhAZBZRM",
         "name": "I Left My A-Rank Party Ending | Treasure Chest"
-      }
-    ]
-  },
-  {
-    "title": "I Left My A-Rank Party Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=ORUawR48j-o",
         "name": "I Left My A-Rank Party Opening | Enter"
@@ -3237,12 +2864,7 @@
       {
         "url": "https://www.youtube.com/watch?v=v8mgsvGfEmg",
         "name": "I Was Reincarnated as the 7th Prince - Ending | Happy no Himitsu (The Secret of Happiness)"
-      }
-    ]
-  },
-  {
-    "title": "I Was Reincarnated as the 7th Prince Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=EJhEv31c8mk",
         "name": "I Was Reincarnated as the 7th Prince Opening | Kyunrious"
@@ -3250,17 +2872,12 @@
     ]
   },
   {
-    "title": "I'll Become a Villainess That Will Go Down in History Ending",
+    "title": "I'll Become a Villainess That Will Go Down in History",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=SMnsCPAiY_c",
         "name": "I'll Become a Villainess That Will Go Down in History Ending | Wacchu Ane?"
-      }
-    ]
-  },
-  {
-    "title": "I'll Become a Villainess That Will Go Down in History Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=szZnKFGwqV8",
         "name": "I'll Become a Villainess That Will Go Down in History Opening | Baddududu"
@@ -3286,12 +2903,7 @@
       {
         "url": "https://www.youtube.com/watch?v=EAC2kBMAhbw",
         "name": "I'm the Villainess, so I'm Taming the Final Boss - Ending | Nomick"
-      }
-    ]
-  },
-  {
-    "title": "I'm the Villainess, So I'm Taming the Final Boss",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=eWPySWPBOtk",
         "name": "I'm the Villainess, So I'm Taming the Final Boss - Opening | Kyо̄kan Sarenakute mo Ii Janai"
@@ -3343,12 +2955,7 @@
       {
         "url": "https://www.youtube.com/watch?v=FI2kUA78mRU",
         "name": "In/Spectre - Opening | Mononoke in the Fiction"
-      }
-    ]
-  },
-  {
-    "title": "In/Spectre Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=A3nMGt_l7NM",
         "name": "In/Spectre Season 2 - Opening | Yotogibanashi"
@@ -3369,12 +2976,7 @@
       {
         "url": "https://www.youtube.com/watch?v=AEU2nskSucQ",
         "name": "Is It Wrong to Try to Pick Up Girls in a Dungeon? - Ending | Right Light Rise"
-      }
-    ]
-  },
-  {
-    "title": "Is It Wrong to Try to Pick Up Girls in a Dungeon? II",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=qqIXfl_CnYI",
         "name": "Is It Wrong to Try to Pick Up Girls in a Dungeon? II - Opening | Hello to Dream"
@@ -3382,12 +2984,7 @@
       {
         "url": "https://www.youtube.com/watch?v=qBrML3-PF04",
         "name": "Is It Wrong to Try to Pick Up Girls in a Dungeon? II - Ending | Sasayakana Shukusai"
-      }
-    ]
-  },
-  {
-    "title": "Is It Wrong to Try to Pick Up Girls in a Dungeon? III",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=4l7_18rysBM",
         "name": "Is It Wrong to Try to Pick Up Girls in a Dungeon? III - Ending | Evergreen"
@@ -3417,17 +3014,12 @@
     ]
   },
   {
-    "title": "Iwakakeru -Sport Climbing Girls- Ending",
+    "title": "Iwakakeru -Sport Climbing Girls-",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=odJxIxrqx3c",
         "name": "Iwakakeru -Sport Climbing Girls- Ending | LET'S CLIMB↑"
-      }
-    ]
-  },
-  {
-    "title": "Iwakakeru -Sport Climbing Girls- Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=jY1MTT9VI5s",
         "name": "Iwakakeru -Sport Climbing Girls- Opening | Motto Takaku"
@@ -3496,35 +3088,20 @@
     ]
   },
   {
-    "title": "JUJUTSU KAISEN Ending",
+    "title": "JUJUTSU KAISEN",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=6riDJMI-Y8U",
         "name": "JUJUTSU KAISEN Ending | Lost in Paradise feat. AKLO"
-      }
-    ]
-  },
-  {
-    "title": "JUJUTSU KAISEN Ending 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=f8JWhakG2Pc",
         "name": "JUJUTSU KAISEN Ending 2 | Give it Back"
-      }
-    ]
-  },
-  {
-    "title": "JUJUTSU KAISEN Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=GwaRztMaoY0",
         "name": "JUJUTSU KAISEN Opening | Kaikai Kitan by Eve"
-      }
-    ]
-  },
-  {
-    "title": "JUJUTSU KAISEN Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=LFTE4W--Htk",
         "name": "JUJUTSU KAISEN Opening 2 | Vivid Vice"
@@ -3593,35 +3170,20 @@
     ]
   },
   {
-    "title": "Kakuriyo -Bed & Breakfast for Spirits- Ending 1",
+    "title": "Kakuriyo -Bed & Breakfast for Spirits-",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=m0lMQ0nB_rk",
         "name": "Kakuriyo -Bed & Breakfast for Spirits- Ending 1 | Sai -color-"
-      }
-    ]
-  },
-  {
-    "title": "Kakuriyo -Bed & Breakfast for Spirits- Ending 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=gKHw9MjUv1w",
         "name": "Kakuriyo -Bed & Breakfast for Spirits- Ending 2 | Shiranai Kimochi"
-      }
-    ]
-  },
-  {
-    "title": "Kakuriyo -Bed & Breakfast for Spirits- Opening 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=507GUYqfT48",
         "name": "Kakuriyo -Bed & Breakfast for Spirits- Opening 1 | Tomoshibi no Manimani"
-      }
-    ]
-  },
-  {
-    "title": "Kakuriyo -Bed & Breakfast for Spirits- Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=R-1ZsB74ZuE",
         "name": "Kakuriyo -Bed & Breakfast for Spirits- Opening 2 | Utsushiyo no Yume"
@@ -3638,21 +3200,11 @@
       {
         "url": "https://www.youtube.com/watch?v=H8MKaZ6GHq4",
         "name": "KamiErabi GOD.app - Ending | Bleed My Heart"
-      }
-    ]
-  },
-  {
-    "title": "KamiErabi GOD.app Season 2 Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=r1M3zKfmrSU",
         "name": "KamiErabi GOD.app Season 2 Ending | Kofuku no Susume"
-      }
-    ]
-  },
-  {
-    "title": "KamiErabi GOD.app Season 2 Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=8U3t7SDCMtA",
         "name": "KamiErabi GOD.app Season 2 Opening | Fuka"
@@ -3686,12 +3238,7 @@
       {
         "url": "https://www.youtube.com/watch?v=i2TnlfmzS2I",
         "name": "Keep Your Hands Off Eizouken! - Ending | Namae no Nai Ao"
-      }
-    ]
-  },
-  {
-    "title": "Keep Your Hands Off Eizouken! Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=8-91y7BJ8QA",
         "name": "Keep Your Hands Off Eizouken! Opening | Easy Breezy"
@@ -3721,12 +3268,7 @@
       {
         "url": "https://www.youtube.com/watch?v=B2XR7BLcoBY",
         "name": "Kemono Friends - Ending | My Friend"
-      }
-    ]
-  },
-  {
-    "title": "Kemono Friends 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=dXFzymqh_uo",
         "name": "Kemono Friends 2 - Opening | Notteke~ Japari Beat"
@@ -3760,12 +3302,7 @@
       {
         "url": "https://www.youtube.com/watch?v=PBMjgnTBOrc",
         "name": "King's Game - Opening | Feed the Fire"
-      }
-    ]
-  },
-  {
-    "title": "Kings Game",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=b0ETwSItt8E",
         "name": "Kings Game - Ending | Lost Paradise"
@@ -3773,17 +3310,12 @@
     ]
   },
   {
-    "title": "Kino's Journey -the Beautiful World- Ending",
+    "title": "Kino's Journey -the Beautiful World-",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=9tjgxfny9wo",
         "name": "Kino's Journey -the Beautiful World- Ending | Satodama no Tsuki"
-      }
-    ]
-  },
-  {
-    "title": "Kino's Journey -the Beautiful World- Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=-rBNn0q6u_A",
         "name": "Kino's Journey -the Beautiful World- Opening | Here and There"
@@ -3809,21 +3341,11 @@
       {
         "url": "https://www.youtube.com/watch?v=sc3wwucDFUg",
         "name": "KONOSUBA - An Explosion on This Wonderful World! - Ending | Jump In"
-      }
-    ]
-  },
-  {
-    "title": "KONOSUBA -An Explosion on This Wonderful World!",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=IfiQMJ3QlG4",
         "name": "KONOSUBA -An Explosion on This Wonderful World! - Opening | STAY FREE"
-      }
-    ]
-  },
-  {
-    "title": "KONOSUBA -God's blessing on this wonderful world!",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=fpG3BPNQepY",
         "name": "KONOSUBA -God's blessing on this wonderful world! - Opening | Fantastic Dreamer"
@@ -3831,30 +3353,15 @@
       {
         "url": "https://www.youtube.com/watch?v=JhiU4IAZtug",
         "name": "KONOSUBA -God's blessing on this wonderful world! - Ending | Chisana Boken-sha"
-      }
-    ]
-  },
-  {
-    "title": "KONOSUBA -God's blessing on this wonderful world! 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=vdcddjV0l5o",
         "name": "KONOSUBA -God's blessing on this wonderful world! 2 - Opening | Tomorrow"
-      }
-    ]
-  },
-  {
-    "title": "KONOSUBA -God's Blessing on This Wonderful World! 3",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=hX0h3G2OTRs",
         "name": "KONOSUBA -God's Blessing on This Wonderful World! 3 - Ending | Ano Hi no Mama no Bokura"
-      }
-    ]
-  },
-  {
-    "title": "KONOSUBA -God's Blessing on This Wonderful World! 3  Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=JdAUmKsxxJk",
         "name": "KONOSUBA -God's Blessing on This Wonderful World! 3  Opening | Growing Up"
@@ -3862,17 +3369,12 @@
     ]
   },
   {
-    "title": "Kowloon Generic Romance Ending",
+    "title": "Kowloon Generic Romance",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=PqaxAGC7gZE",
         "name": "Kowloon Generic Romance Ending | \"Koi no Retronym\" by Mekakushe"
-      }
-    ]
-  },
-  {
-    "title": "Kowloon Generic Romance Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=XBByBaC1WbM",
         "name": "Kowloon Generic Romance Opening | \"Summertime Ghost\" by Wednesday Campanella"
@@ -3950,12 +3452,7 @@
       {
         "url": "https://www.youtube.com/watch?v=CrTmHil72ls",
         "name": "Laid-Back Camp - Ending | Fuyu Biyori"
-      }
-    ]
-  },
-  {
-    "title": "Laid-Back Camp Season 3",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=ZZOpQVgJY08",
         "name": "Laid-Back Camp Season 3 - Opening | Laid-Back Journey"
@@ -3963,12 +3460,7 @@
       {
         "url": "https://www.youtube.com/watch?v=-M0wilE14d4",
         "name": "Laid-Back Camp Season 3 - Ending | So Precious"
-      }
-    ]
-  },
-  {
-    "title": "LAID-BACK CAMP SEASON2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=pNNwudhgvEY",
         "name": "LAID-BACK CAMP SEASON2 - Opening | Seize The Day"
@@ -3985,12 +3477,7 @@
       {
         "url": "https://www.youtube.com/watch?v=Vh5QtQNzwUc",
         "name": "Level 2 Super Cheat Powers - Ending | Utopia Gaku-Gairon"
-      }
-    ]
-  },
-  {
-    "title": "Level 2 Super Cheat Powers Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=UIXlunMkhVg",
         "name": "Level 2 Super Cheat Powers Opening | Dannasama to no Love Love Love Song"
@@ -4011,7 +3498,7 @@
     ]
   },
   {
-    "title": "Link Click Season 2",
+    "title": "Link Click",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=mas76qT3JVM",
@@ -4020,21 +3507,11 @@
       {
         "url": "https://www.youtube.com/watch?v=ILGsRUS5Xtw",
         "name": "Link Click Season 2 - Ending | The Tides"
-      }
-    ]
-  },
-  {
-    "title": "Link Click: Bridon Arc Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=hk0tw2GWSCM",
         "name": "Link Click: Bridon Arc Ending | Lull"
-      }
-    ]
-  },
-  {
-    "title": "Link Click: Bridon Arc Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=5xwnTO6A79o",
         "name": "Link Click: Bridon Arc Opening | The Eye"
@@ -4042,7 +3519,7 @@
     ]
   },
   {
-    "title": "Lord of Mysteries Ending",
+    "title": "Lord of Mysteries",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=8z5GCgW4yrM",
@@ -4120,7 +3597,7 @@
     ]
   },
   {
-    "title": "Lucky Star Opening",
+    "title": "Lucky Star",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=qwhSJF1jCmU",
@@ -4232,12 +3709,7 @@
       {
         "url": "https://www.youtube.com/watch?v=Lj706jveQ5M",
         "name": "Masamune-kun's Revenge - Ending | Elemental World"
-      }
-    ]
-  },
-  {
-    "title": "Masamune-kun's Revenge R",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=To_dQ2oMqA0",
         "name": "Masamune-kun's Revenge R - Opening | Please, please!"
@@ -4254,12 +3726,7 @@
       {
         "url": "https://www.youtube.com/watch?v=iT23OaakVeU",
         "name": "MAYONAKA PUNCH - Ending | Henshuten"
-      }
-    ]
-  },
-  {
-    "title": "MAYONAKA PUNCH Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=MK1NU5PXXuA",
         "name": "MAYONAKA PUNCH Opening | Gimi Gimi"
@@ -4354,21 +3821,11 @@
       {
         "url": "https://www.youtube.com/watch?v=Ku5fgOHy1JY",
         "name": "Miss Kobayashi's Dragon Maid - Opening | Blue Sky Rhapsody"
-      }
-    ]
-  },
-  {
-    "title": "Miss Kobayashi's Dragon Maid S",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=IuAeQvzx1H4",
         "name": "Miss Kobayashi's Dragon Maid S - Ending | Maid With Dragons"
-      }
-    ]
-  },
-  {
-    "title": "Miss Kobayashi's Dragon Maid S Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=KVV5Hh2RHoA",
         "name": "Miss Kobayashi's Dragon Maid S Opening | Ai no Supreme!"
@@ -4381,30 +3838,15 @@
       {
         "url": "https://www.youtube.com/watch?v=HSUljcXSdvI",
         "name": "Mob Psycho 100 - Ending | Refrain Boy"
-      }
-    ]
-  },
-  {
-    "title": "Mob Psycho 100 II",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=4p_OmTMlZXw",
         "name": "Mob Psycho 100 II - Ending | Memosepia"
-      }
-    ]
-  },
-  {
-    "title": "Mob Psycho 100 II Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=epZaT8B31-g",
         "name": "Mob Psycho 100 II Opening | 99.9 by Mob Choir"
-      }
-    ]
-  },
-  {
-    "title": "Mob Psycho 100 III",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=umqzznKblJ0",
         "name": "Mob Psycho 100 III - Opening | 1"
@@ -4412,12 +3854,7 @@
       {
         "url": "https://www.youtube.com/watch?v=yaM36TDteFI",
         "name": "Mob Psycho 100 III - Ending | Cobalt"
-      }
-    ]
-  },
-  {
-    "title": "Mob Psycho 100 Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=Bw-5Lka7gPE",
         "name": "Mob Psycho 100 Opening | 99"
@@ -4535,6 +3972,34 @@
       {
         "url": "https://www.youtube.com/watch?v=aGSk5xOWpIA",
         "name": "mono - Ending | Weekendroll"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=t32SLAtDZ6A",
+        "name": "Ron Kamonohashi’s Forbidden Deductions Season 2 Ending | Labyrinth"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=sQVLl7kHMYA",
+        "name": "Ron Kamonohashi’s Forbidden Deductions Season 2 Opening | Feedback wo Narashite"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=bf8fWraY1rE",
+        "name": "The Morose Mononokean - Ending | Tobira no Muko"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Ap3BaNwEwEU",
+        "name": "The Morose Mononokean II - Ending | 1%"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=pzwAYcT4b6s",
+        "name": "The Morose Mononokean II - Opening | Long Time Traveler"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=u6ggH-0fVf8",
+        "name": "Utawarerumono Mask of Truth - Opening | Hito Nanda"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=ApOvEm6jELw",
+        "name": "Utawarerumono Mask of Truth - Ending | Hyakunichisou"
       }
     ]
   },
@@ -4620,12 +4085,7 @@
       {
         "url": "https://www.youtube.com/watch?v=xlLqYGkRZlE",
         "name": "Mr. Osomatsu - Ending 4 | Otona÷6×Kodomo×6"
-      }
-    ]
-  },
-  {
-    "title": "Mr. Osomatsu 3rd Season",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=McWRB_HwxDc",
         "name": "Mr. Osomatsu 3rd Season - Opening | Nice to NEET You!"
@@ -4658,17 +4118,12 @@
     ]
   },
   {
-    "title": "Mushoku Tensei: Jobless Reincarnation Season 2 Part 2",
+    "title": "Mushoku Tensei: Jobless Reincarnation",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=8h3XAZosWfw",
         "name": "Mushoku Tensei: Jobless Reincarnation Season 2 Part 2 - Ending | Mamoritai Mono"
-      }
-    ]
-  },
-  {
-    "title": "Mushoku Tensei: Jobless Reincarnation Season 2 Part 2 Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=xWdHduL8vVQ",
         "name": "Mushoku Tensei: Jobless Reincarnation Season 2 Part 2 Opening | On the Frontline"
@@ -4702,12 +4157,7 @@
       {
         "url": "https://www.youtube.com/watch?v=bMZcyHR_Rk8",
         "name": "My Appraisal Skill as a Reincarnated Aristocrat - Ending | Finally"
-      }
-    ]
-  },
-  {
-    "title": "My Appraisal Skill as a Reincarnated Aristocrat Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=9R9Y62E53ds",
         "name": "My Appraisal Skill as a Reincarnated Aristocrat Opening | Blue Days"
@@ -4872,12 +4322,7 @@
       {
         "url": "https://www.youtube.com/watch?v=yLwJZ0OSpwU",
         "name": "My Next Life as a Villainess: All Routes Lead to Doom! - Ending | Bad End"
-      }
-    ]
-  },
-  {
-    "title": "My Next Life as a Villainess: All Routes Lead to Doom! X",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=nbu3FPgXQI8",
         "name": "My Next Life as a Villainess: All Routes Lead to Doom! X - Opening | Andante ni Koi o Shite!"
@@ -4920,21 +4365,11 @@
       {
         "url": "https://www.youtube.com/watch?v=M8FLKLeoFng",
         "name": "My Teen Romantic Comedy SNAFU - Opening | Yukitoki"
-      }
-    ]
-  },
-  {
-    "title": "My Teen Romantic Comedy SNAFU Climax!",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=KoRbMr4sYQw",
         "name": "My Teen Romantic Comedy SNAFU Climax! - Opening | Megumi no Ame"
-      }
-    ]
-  },
-  {
-    "title": "My Teen Romantic Comedy SNAFU TOO!",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=wbcSa2RWpNw",
         "name": "My Teen Romantic Comedy SNAFU TOO! - Opening | Harumodoki"
@@ -5408,7 +4843,7 @@
     ]
   },
   {
-    "title": "Negative Positive Angler Ending",
+    "title": "Negative Positive Angler",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=L8xTYv0lE7M",
@@ -5426,12 +4861,7 @@
       {
         "url": "https://www.youtube.com/watch?v=kr6zyU0FP_c",
         "name": "NEW GAME! - Ending | Now Loading!!!"
-      }
-    ]
-  },
-  {
-    "title": "NEW GAME!!",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=Ee439rxfiaM",
         "name": "NEW GAME!! - Opening | Step by Step Up ↑↑↑↑"
@@ -5443,7 +4873,7 @@
     ]
   },
   {
-    "title": "Nichijou My Ordinary Life Opening",
+    "title": "Nichijou My Ordinary Life",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=qUk1ZoCGqsA",
@@ -5465,17 +4895,12 @@
     ]
   },
   {
-    "title": "Nina the Starry Bride Ending",
+    "title": "Nina the Starry Bride",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=P2aovpbs8Io",
         "name": "Nina the Starry Bride Ending | Hoshi no Dengon by Nao Tōyama"
-      }
-    ]
-  },
-  {
-    "title": "Nina the Starry Bride Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=BkRg33I3_Ec",
         "name": "Nina the Starry Bride Opening | nina by Maaya Sakamoto"
@@ -5496,7 +4921,7 @@
     ]
   },
   {
-    "title": "No Game No Life Opening",
+    "title": "No Game No Life",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=6CBp4qylX6I",
@@ -5540,12 +4965,7 @@
       {
         "url": "https://www.youtube.com/watch?v=6bNbIVDPWCw",
         "name": "Non Non Biyori - Ending | Non Non Biyori"
-      }
-    ]
-  },
-  {
-    "title": "Non Non Biyori Nonstop",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=0k3gpzgzsAU",
         "name": "Non Non Biyori Nonstop - Opening | Tsugihagi Moyo"
@@ -5553,12 +4973,7 @@
       {
         "url": "https://www.youtube.com/watch?v=W4U-I3HFCMo",
         "name": "Non Non Biyori Nonstop - Ending | Tadaima"
-      }
-    ]
-  },
-  {
-    "title": "Non Non Biyori Repeat",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=rd1LarIC1BY",
         "name": "Non Non Biyori Repeat - Opening | Kodama Kotodama"
@@ -5575,30 +4990,15 @@
       {
         "url": "https://www.youtube.com/watch?v=qefTKsUpVjY",
         "name": "Noragami - Ending | Heart Realize"
-      }
-    ]
-  },
-  {
-    "title": "Noragami Aragoto",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=I5xBgZZKH04",
         "name": "Noragami Aragoto - Ending | Nirvana"
-      }
-    ]
-  },
-  {
-    "title": "Noragami Aragoto Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=3oFTHxkOzjE",
         "name": "Noragami Aragoto Opening | Kyōran Hey Kids!! by Oral Cigarettes"
-      }
-    ]
-  },
-  {
-    "title": "Noragami Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=gWCnKoEgfP0",
         "name": "Noragami Opening | Goya wa Machiawase"
@@ -5641,26 +5041,16 @@
     ]
   },
   {
-    "title": "One Piece Opening 20",
+    "title": "One Piece",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=Oo52vQyAR6w",
         "name": "One Piece Opening 20 | Hope by Namie Amuro"
-      }
-    ]
-  },
-  {
-    "title": "One Piece Opening 21",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=t7xHamn5inQ",
         "name": "One Piece Opening 21 | Super Powers by V6"
-      }
-    ]
-  },
-  {
-    "title": "One Piece Opening 22",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=PwVT67T5Xt4",
         "name": "One Piece Opening 22 | OVER THE TOP"
@@ -5750,17 +5140,12 @@
     ]
   },
   {
-    "title": "Our Last Crusade or the Rise of a New World Season 2",
+    "title": "Our Last Crusade or the Rise of a New World",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=rxO4NuJ1UyQ",
         "name": "Our Last Crusade or the Rise of a New World Season 2 - Ending"
-      }
-    ]
-  },
-  {
-    "title": "Our Last Crusade Season 2 Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=FvXS3ChGpdE",
         "name": "Our Last Crusade Season 2 Opening | Senaka Awase by AliA"
@@ -5782,12 +5167,7 @@
       {
         "url": "https://www.youtube.com/watch?v=ChayFwyFvPk",
         "name": "Overlord - Ending | L.L.L."
-      }
-    ]
-  },
-  {
-    "title": "Overlord II",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=v4OKxyQdTvg",
         "name": "Overlord II - Opening | Go Cry Go"
@@ -5795,30 +5175,15 @@
       {
         "url": "https://www.youtube.com/watch?v=_H0Ifow6VBo",
         "name": "Overlord II - Ending | Hydra"
-      }
-    ]
-  },
-  {
-    "title": "Overlord III",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=UptDZeIeVOI",
         "name": "Overlord III - Ending | Silent Solitude"
-      }
-    ]
-  },
-  {
-    "title": "Overlord III Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=vci9YwpFFcA",
         "name": "Overlord III Opening | VORACITY"
-      }
-    ]
-  },
-  {
-    "title": "Overlord IV",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=erCxCAh8Wcw",
         "name": "Overlord IV - Opening | HOLLOW HUNGER"
@@ -5826,12 +5191,7 @@
       {
         "url": "https://www.youtube.com/watch?v=5D2EBvVGUVE",
         "name": "Overlord IV - Ending | No Man's Dawn"
-      }
-    ]
-  },
-  {
-    "title": "Overlord Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=KOWcj7XKnfQ",
         "name": "Overlord Opening | Clattanoia by OxT"
@@ -5839,7 +5199,7 @@
     ]
   },
   {
-    "title": "Parasyte -the maxim- Ending",
+    "title": "Parasyte -the maxim-",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=EVndDcpk1A0",
@@ -5879,12 +5239,7 @@
       {
         "url": "https://www.youtube.com/watch?v=TmrosfxGifQ",
         "name": "Pop Team Epic - Opening | POP TEAM EPIC"
-      }
-    ]
-  },
-  {
-    "title": "POP TEAM EPIC Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=OAbxKKGdWno",
         "name": "POP TEAM EPIC Season 2 - Opening | PSYCHO:LOGY"
@@ -5922,12 +5277,7 @@
       {
         "url": "https://www.youtube.com/watch?v=ERWfIjbs18Y",
         "name": "Quality Assurance in Another World - Ending | Loop"
-      }
-    ]
-  },
-  {
-    "title": "Quality Assurance in Another World Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=Y4zH_eWkmQU",
         "name": "Quality Assurance in Another World Opening | No Complete"
@@ -5948,12 +5298,7 @@
       {
         "url": "https://www.youtube.com/watch?v=dbGTcoQ0ACc",
         "name": "RADIANT - Ending 2 | Your Future"
-      }
-    ]
-  },
-  {
-    "title": "RADIANT Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=lF0gFgHR4Fk",
         "name": "RADIANT Season 2 - Opening | Naraku"
@@ -5974,12 +5319,7 @@
       {
         "url": "https://www.youtube.com/watch?v=Os71rA9TJ_8",
         "name": "Ranking of Kings - Ending 2 | Flare"
-      }
-    ]
-  },
-  {
-    "title": "Ranking of Kings: The Treasure Chest of Courage",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=GXmZWg3mNRg",
         "name": "Ranking of Kings: The Treasure Chest of Courage - Opening | Gold"
@@ -6009,12 +5349,7 @@
       {
         "url": "https://www.youtube.com/watch?v=MEaUh3BJFQs",
         "name": "Re:Monster - Ending | Sadame"
-      }
-    ]
-  },
-  {
-    "title": "Re:Monster Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=dr2akE4Ei50",
         "name": "Re:Monster Opening | Into the Fire"
@@ -6027,39 +5362,19 @@
       {
         "url": "https://www.youtube.com/watch?v=0Vwwr3VGsYg",
         "name": "Re:ZERO - Starting Life in Another World Opening 1 | Redo"
-      }
-    ]
-  },
-  {
-    "title": "Re:ZERO -Starting Life in Another World- Ending 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=gIGEbitYqL0",
         "name": "Re:ZERO -Starting Life in Another World- Ending 1 | Styx Helix"
-      }
-    ]
-  },
-  {
-    "title": "Re:ZERO -Starting Life in Another World- Ending 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=b5Nud2MMRo4",
         "name": "Re:ZERO -Starting Life in Another World- Ending 2 | Stay Alive"
-      }
-    ]
-  },
-  {
-    "title": "Re:ZERO -Starting Life in Another World- Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=iu_0kOfMGD0",
         "name": "Re:ZERO -Starting Life in Another World- Opening 2 | Paradisus-Paradoxum"
-      }
-    ]
-  },
-  {
-    "title": "Re:ZERO -Starting Life in Another World- Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=w-RUTZBbGwM",
         "name": "Re:ZERO -Starting Life in Another World- Season 2 - Opening 1 | Realize"
@@ -6079,21 +5394,11 @@
       {
         "url": "https://www.youtube.com/watch?v=o_MT4YLhZxM",
         "name": "Re:ZERO -Starting Life in Another World- Season 2 - Ending 2 | Believe In You"
-      }
-    ]
-  },
-  {
-    "title": "Re:ZERO -Starting Life in Another World- Season 3 Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=9nFoF88EwVk",
         "name": "Re:ZERO -Starting Life in Another World- Season 3 Ending | \"Nox Lux\" by Myth & Roid"
-      }
-    ]
-  },
-  {
-    "title": "Re:ZERO -Starting Life in Another World- Season 3 Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=hCxZx7uHO1I",
         "name": "Re:ZERO -Starting Life in Another World- Season 3 Opening | \"Reweave\" by Konomi Suzuki"
@@ -6153,12 +5458,7 @@
       {
         "url": "https://www.youtube.com/watch?v=rFGkTnDnlRQ",
         "name": "Rent-a-Girlfriend - Ending 3 | Ienai"
-      }
-    ]
-  },
-  {
-    "title": "Rent-a-Girlfriend Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=cM1WSovcn4I",
         "name": "Rent-a-Girlfriend Opening | Centimeter by the peggies"
@@ -6179,7 +5479,7 @@
     ]
   },
   {
-    "title": "Restaurant to Another World 2",
+    "title": "Restaurant to Another World",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=oRUwxFMMiII",
@@ -6201,35 +5501,20 @@
     ]
   },
   {
-    "title": "Rokka -Braves of the Six Flowers- Ending 2",
+    "title": "Rokka -Braves of the Six Flowers-",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=_1R1meRmX4I",
         "name": "Rokka -Braves of the Six Flowers- Ending 2 | Dance in the Fake"
-      }
-    ]
-  },
-  {
-    "title": "Rokka -Braves of the Six Flowers- Ending 3",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=khwdDCN26Ok",
         "name": "Rokka -Braves of the Six Flowers- Ending 3 | Nameless Heart"
-      }
-    ]
-  },
-  {
-    "title": "Rokka -Braves of the Six Flowers- Opening 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=BtbhExrKCKc",
         "name": "Rokka -Braves of the Six Flowers- Opening 1 | Cry for the Truth"
-      }
-    ]
-  },
-  {
-    "title": "Rokka -Braves of the Six Flowers- Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=5g74RJ27mEU",
         "name": "Rokka -Braves of the Six Flowers- Opening 2 | Black Swallowtail"
@@ -6246,24 +5531,6 @@
       {
         "url": "https://www.youtube.com/watch?v=tXKx50cC02k",
         "name": "Rokudo's Bad Girls - Ending | Love Will Find A Way"
-      }
-    ]
-  },
-  {
-    "title": "Ron Kamonohashi’s Forbidden Deductions Season 2 Ending",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=t32SLAtDZ6A",
-        "name": "Ron Kamonohashi’s Forbidden Deductions Season 2 Ending | Labyrinth"
-      }
-    ]
-  },
-  {
-    "title": "Ron Kamonohashi’s Forbidden Deductions Season 2 Opening",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=sQVLl7kHMYA",
-        "name": "Ron Kamonohashi’s Forbidden Deductions Season 2 Opening | Feedback wo Narashite"
       }
     ]
   },
@@ -6360,12 +5627,7 @@
       {
         "url": "https://www.youtube.com/watch?v=mQAfG3DgG7M",
         "name": "Samurai Champloo - Ending | Shiki No Uta"
-      }
-    ]
-  },
-  {
-    "title": "Samurai Champloo Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=Eq6EYcpWB_c",
         "name": "Samurai Champloo Opening | Battlecry"
@@ -6408,7 +5670,7 @@
     ]
   },
   {
-    "title": "Science Fell in Love So I Tried to Prove It r=1-sinθ",
+    "title": "Science Fell in Love, So I Tried to Prove it",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=nNrCMzD04JI",
@@ -6417,12 +5679,7 @@
       {
         "url": "https://www.youtube.com/watch?v=PeMc-L4dGO0",
         "name": "Science Fell in Love So I Tried to Prove It r=1-sinθ - Opening | Love-Evidence"
-      }
-    ]
-  },
-  {
-    "title": "Science Fell in Love, So I Tried to Prove it",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=POKhar54nYU",
         "name": "Science Fell in Love, So I Tried to Prove it - Opening | PARADOX"
@@ -6434,35 +5691,20 @@
     ]
   },
   {
-    "title": "Seirei Gensouki: Spirit Chronicles Ending",
+    "title": "Seirei Gensouki: Spirit Chronicles",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=R3ZoJC4-NHo",
         "name": "Seirei Gensouki: Spirit Chronicles Ending | Elder flower by Aguri Onishi"
-      }
-    ]
-  },
-  {
-    "title": "Seirei Gensouki: Spirit Chronicles Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=3BSBgI2NgVw",
         "name": "Seirei Gensouki: Spirit Chronicles Opening | New story by Marika Kouno"
-      }
-    ]
-  },
-  {
-    "title": "Seirei Gensouki: Spirit Chronicles Season 2 Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=vUZlbH9OJHw",
         "name": "Seirei Gensouki: Spirit Chronicles Season 2 Ending | Shuntaika by Nanaka Suwa"
-      }
-    ]
-  },
-  {
-    "title": "Seirei Gensouki: Spirit Chronicles Season 2 Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=l5Bi1JLXqpc",
         "name": "Seirei Gensouki: Spirit Chronicles Season 2 Opening | Auftakt by Aguri Ōnishi"
@@ -6475,21 +5717,11 @@
       {
         "url": "https://www.youtube.com/watch?v=LIdpJtJPAbg",
         "name": "Seraph of the End: Vampire Reign - Ending | scaPEGoat"
-      }
-    ]
-  },
-  {
-    "title": "Seraph of the End: Vampire Reign Part 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=3wKydg3Jq_M",
         "name": "Seraph of the End: Vampire Reign Part 2 - Opening | Two souls -toward the truth-"
-      }
-    ]
-  },
-  {
-    "title": "Seraph of the End: Vampire Reign – Opening Theme – X.U.",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=aNgT6MxOURQ",
         "name": "Seraph of the End: Vampire Reign – Opening Theme – X.U."
@@ -6540,39 +5772,19 @@
       {
         "url": "https://www.youtube.com/watch?v=YlPW2eUAoCA",
         "name": "Shangri-la Frontier - Ending 2 | Gajumaru: Heaven in the Rain"
-      }
-    ]
-  },
-  {
-    "title": "Shangri-la Frontier Season 2 Ending 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=zlS0sT34IBk",
         "name": "Shangri-la Frontier Season 2 Ending 1 | Anya no Dancer: Dancer in the Dark Night by Otoha"
-      }
-    ]
-  },
-  {
-    "title": "Shangri-la Frontier Season 2 Ending 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=0dvHqTf8xkE",
         "name": "Shangri-la Frontier Season 2 Ending 2 | RealitYhurts"
-      }
-    ]
-  },
-  {
-    "title": "Shangri-la Frontier Season 2 Opening 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=Fwx_3JsOmiQ",
         "name": "Shangri-la Frontier Season 2 Opening 1 | Queen by LiSA"
-      }
-    ]
-  },
-  {
-    "title": "Shangri-la Frontier Season 2 Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=R_7Okd4X1lU",
         "name": "Shangri-la Frontier Season 2 Opening 2 | Frontiers"
@@ -6702,12 +5914,7 @@
       {
         "url": "https://www.youtube.com/watch?v=XjtTsCCTZUY",
         "name": "Snow White with the Red Hair - Opening | Yasashii Kibou"
-      }
-    ]
-  },
-  {
-    "title": "Snow White with the Red Hair Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=YKnDzLHZHkU",
         "name": "Snow White with the Red Hair Season 2 - Opening | Sono Koe ga Chizu ni Naru"
@@ -6741,30 +5948,15 @@
       {
         "url": "https://www.youtube.com/watch?v=CRZsOOOvg1I",
         "name": "Solo Leveling - Ending | \"Request\" by Krage"
-      }
-    ]
-  },
-  {
-    "title": "Solo Leveling Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=XqD0oCHLIF8",
         "name": "Solo Leveling Opening | \"LEveL\" by Hiroyuki Sawano [nZk] and TOMORROW X TOGETHER"
-      }
-    ]
-  },
-  {
-    "title": "Solo Leveling Season 2 -Arise from the Shadow- Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=KxeHOxO3A3I",
         "name": "Solo Leveling Season 2 -Arise from the Shadow- Ending | \"Un-Apex\" by TK from Ling Tosite Sigure"
-      }
-    ]
-  },
-  {
-    "title": "Solo Leveling Season 2 -Arise from the Shadow- Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=C0zMWogztQs",
         "name": "Solo Leveling Season 2 -Arise from the Shadow- Opening | \"ReawakeR\" by LiSA feat Felix of Stray Kids"
@@ -6789,21 +5981,11 @@
       {
         "url": "https://www.youtube.com/watch?v=AefEZWOWMeY",
         "name": "Soul Eater - Ending 2 | Style"
-      }
-    ]
-  },
-  {
-    "title": "Soul Eater Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=zzJ8U8OtEsE",
         "name": "Soul Eater Opening | Resonance by T.M. Revolution"
-      }
-    ]
-  },
-  {
-    "title": "Soul Eater Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=-eYK3YP524A",
         "name": "Soul Eater Opening 2 | Papermoon"
@@ -6820,12 +6002,7 @@
       {
         "url": "https://www.youtube.com/watch?v=ryw6tMXFuso",
         "name": "Sound! Euphonium - Ending | Tutti!"
-      }
-    ]
-  },
-  {
-    "title": "Sound! Euphonium 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=ED66vOZg9t4",
         "name": "Sound! Euphonium 2 - Opening | Soundscape"
@@ -6833,24 +6010,6 @@
       {
         "url": "https://www.youtube.com/watch?v=bjl17e-dKP8",
         "name": "Sound! Euphonium 2 - Ending | Vivace!"
-      }
-    ]
-  },
-  {
-    "title": "Squishy! Black Clover",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=vem4dMT6GXM",
-        "name": "Squishy! Black Clover - Opening | POSSIBLE"
-      }
-    ]
-  },
-  {
-    "title": "Steins;Gate",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=1xJbdY9B3A8",
-        "name": "Steins;Gate - Opening | Fatima"
       }
     ]
   },
@@ -6912,12 +6071,7 @@
       {
         "url": "https://www.youtube.com/watch?v=1hstk0ASfGY",
         "name": "Tadaima Okaeri - Ending | Tsunagiai"
-      }
-    ]
-  },
-  {
-    "title": "Tadaima Okaeri Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=ZaasZ4-_KUI",
         "name": "Tadaima Okaeri Opening | Futatsu no Kotoba by MADKID"
@@ -6995,12 +6149,7 @@
       {
         "url": "https://www.youtube.com/watch?v=kBWDyLheNqg",
         "name": "TERRAFORMARS - Ending | Lightning"
-      }
-    ]
-  },
-  {
-    "title": "TERRAFORMARS REVENGE",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=3z49pyuGId0",
         "name": "TERRAFORMARS REVENGE - Opening 2 | Planet / The Hell"
@@ -7050,12 +6199,7 @@
       {
         "url": "https://www.youtube.com/watch?v=C83_rZh_QS4",
         "name": "That Time I Got Reincarnated as a Slime - Ending 1 | Another colony"
-      }
-    ]
-  },
-  {
-    "title": "That Time I Got Reincarnated as a Slime Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=jEDQmD7nhyQ",
         "name": "That Time I Got Reincarnated as a Slime Season 2 - Opening 2 | Like Flames"
@@ -7071,12 +6215,7 @@
       {
         "url": "https://www.youtube.com/watch?v=xYzj0Z76oww",
         "name": "That Time I Got Reincarnated as a Slime Season 2 - Ending 2 | Reincarnate"
-      }
-    ]
-  },
-  {
-    "title": "That Time I Got Reincarnated as a Slime Season 3",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=d8rWV88FWFk",
         "name": "That Time I Got Reincarnated as a Slime Season 3 - Opening 1 | PEACEKEEPER"
@@ -7088,15 +6227,14 @@
       {
         "url": "https://www.youtube.com/watch?v=ncbV-kMqKDo",
         "name": "That Time I Got Reincarnated as a Slime Season 3 - Ending 2 | Miracle Soup"
-      }
-    ]
-  },
-  {
-    "title": "That Time I Got Reincarnated as a Slime Season 3 Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=zOar39luoQU",
         "name": "That Time I Got Reincarnated as a Slime Season 3 Opening 2 | Renacer Serenade"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=huuLekCNAGk",
+        "name": "The Slime Diaries - Opening | Brand new diary"
       }
     ]
   },
@@ -7131,12 +6269,7 @@
       {
         "url": "https://www.youtube.com/watch?v=TG2Cn07SU6c",
         "name": "The Ancient Magus' Bride - Ending 1 | Wa –cycle-"
-      }
-    ]
-  },
-  {
-    "title": "The Ancient Magus' Bride Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=6_7upsfU8sk",
         "name": "The Ancient Magus' Bride Season 2 - Opening | Dear"
@@ -7144,12 +6277,7 @@
       {
         "url": "https://www.youtube.com/watch?v=NM8RqhwmIA0",
         "name": "The Ancient Magus' Bride Season 2 - Ending | Mubansou"
-      }
-    ]
-  },
-  {
-    "title": "The Ancient Magus' Bride Season 2 Part 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=ri3rOZUIpIo",
         "name": "The Ancient Magus' Bride Season 2 Part 2 - Opening | Nemurasareta Lineage"
@@ -7234,17 +6362,12 @@
     ]
   },
   {
-    "title": "The Beginning After the End Ending",
+    "title": "The Beginning After the End",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=PBuEya9wY2w",
         "name": "The Beginning After the End Ending | Mahiru no Tsuki"
-      }
-    ]
-  },
-  {
-    "title": "The Beginning After the End Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=FkgC37ERJCY",
         "name": "The Beginning After the End Opening | KINGSBLOOD"
@@ -7278,17 +6401,12 @@
     ]
   },
   {
-    "title": "The Devil is a Part-Timer Season 2",
+    "title": "The Devil is a Part-Timer!",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=LqfclmAUFSA",
         "name": "The Devil is a Part-Timer Season 2 - Opening | Hikari no Nai Machi"
-      }
-    ]
-  },
-  {
-    "title": "The Devil is a Part-Timer!",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=oe9gQt-x_BE",
         "name": "The Devil is a Part-Timer! - Opening | ZERO!!"
@@ -7344,12 +6462,7 @@
       {
         "url": "https://www.youtube.com/watch?v=LVpg7QKO-BQ",
         "name": "The Faraway Paladin - Ending | Shirushibi"
-      }
-    ]
-  },
-  {
-    "title": "The Faraway Paladin: The Lord of Rust Mountain",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=V1jhJrx1l24",
         "name": "The Faraway Paladin: The Lord of Rust Mountain - Opening | Meika"
@@ -7414,12 +6527,7 @@
       {
         "url": "https://www.youtube.com/watch?v=OJCAaOcNl1U",
         "name": "The God of High School - Opening | Contradiction V2"
-      }
-    ]
-  },
-  {
-    "title": "The God of High School Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=eRJyYfAq2tk",
         "name": "The God of High School Opening | Contradiction (feat. Tyler Carter) by KSUKE"
@@ -7540,17 +6648,12 @@
     ]
   },
   {
-    "title": "The Magical Revolution of the Reincarnated Princess and the Genius Young Lady- Ending",
+    "title": "The Magical Revolution of the Reincarnated Princess and the Genius Young Lady",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=u6Jtm-4QzP4",
         "name": "The Magical Revolution of the Reincarnated Princess and the Genius Young Lady- Ending | Only for You"
-      }
-    ]
-  },
-  {
-    "title": "The Magical Revolution of the Reincarnated Princess and the Genius Young Lady- Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=lWKqVmq2f-I",
         "name": "The Magical Revolution of the Reincarnated Princess and the Genius Young Lady- Opening | Arc-en-Ciel"
@@ -7585,28 +6688,6 @@
       {
         "url": "https://www.youtube.com/watch?v=5PTENYkHBnM",
         "name": "The Master of Ragnarok & Blesser of Einherjar - Opening | Bright Way"
-      }
-    ]
-  },
-  {
-    "title": "The Morose Mononokean",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=bf8fWraY1rE",
-        "name": "The Morose Mononokean - Ending | Tobira no Muko"
-      }
-    ]
-  },
-  {
-    "title": "The Morose Mononokean II",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=Ap3BaNwEwEU",
-        "name": "The Morose Mononokean II - Ending | 1%"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=pzwAYcT4b6s",
-        "name": "The Morose Mononokean II - Opening | Long Time Traveler"
       }
     ]
   },
@@ -7659,12 +6740,7 @@
       {
         "url": "https://www.youtube.com/watch?v=3_2J9wkieEE",
         "name": "The Quintessential Quintuplets - Ending | Sign"
-      }
-    ]
-  },
-  {
-    "title": "The Quintessential Quintuplets 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=2oQSUoGhEBg",
         "name": "The Quintessential Quintuplets 2 - Opening | Gotobun no Katachi"
@@ -7702,74 +6778,35 @@
     ]
   },
   {
-    "title": "The Rising of the Shield Hero Ending 1",
+    "title": "The Rising of the Shield Hero",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=CzANwOt3M4k",
         "name": "The Rising of the Shield Hero Ending 1 | \"Kimi no Namae\" by Chiai Fujikawa"
-      }
-    ]
-  },
-  {
-    "title": "The Rising of the Shield Hero Ending 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=O52bI0Ngf10",
         "name": "The Rising of the Shield Hero Ending 2 | \"Atashi ga Tonari ni Iru Uchi ni\" by Chiai Fujikawa"
-      }
-    ]
-  },
-  {
-    "title": "The Rising of the Shield Hero Opening 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=Plo0RvICDDI",
         "name": "The Rising of the Shield Hero Opening 1 | \"RISE\" by MADKID"
-      }
-    ]
-  },
-  {
-    "title": "The Rising of the Shield Hero Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=OzKLiHJGZbw",
         "name": "The Rising of the Shield Hero Opening 2 | \"FAITH\" by MADKID"
-      }
-    ]
-  },
-  {
-    "title": "The Rising of the Shield Hero Season 2 Ending",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=Ik05E-XvNMQ",
         "name": "The Rising of the Shield Hero Season 2 Ending | \"Yuzurenai\" by Chiai Fujikawa"
-      }
-    ]
-  },
-  {
-    "title": "The Rising of the Shield Hero Season 2 Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=hn4Z45mYFQw",
         "name": "The Rising of the Shield Hero Season 2 Opening | \"Bring Back\" by MADKID"
-      }
-    ]
-  },
-  {
-    "title": "The Rising of the Shield Hero Season 3 Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=-ZGrwqpwSQs",
         "name": "The Rising of the Shield Hero Season 3 Opening | \"Sin\" by MADKID"
-      }
-    ]
-  },
-  {
-    "title": "The Slime Diaries",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=huuLekCNAGk",
-        "name": "The Slime Diaries - Opening | Brand new diary"
       }
     ]
   },
@@ -7787,7 +6824,7 @@
     ]
   },
   {
-    "title": "The Vampire Dies in No Time Season 2",
+    "title": "The Vampire Dies in No Time",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=XciMC1lg_Y0",
@@ -7866,12 +6903,7 @@
       {
         "url": "https://www.youtube.com/watch?v=O1knEeeDIAo",
         "name": "Thunderbolt Fantasy - Opening | Raimei"
-      }
-    ]
-  },
-  {
-    "title": "Thunderbolt Fantasy Sword Seekers2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=wpsgc3m__zg",
         "name": "Thunderbolt Fantasy Sword Seekers2 - Opening | His/Story"
@@ -7897,12 +6929,7 @@
       {
         "url": "https://www.youtube.com/watch?v=d77wpCIuC6k",
         "name": "Toilet-bound Hanako-kun - Ending | Tiny Light"
-      }
-    ]
-  },
-  {
-    "title": "Toilet-bound Hanako-kun Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=oUH4zhH7NOM",
         "name": "Toilet-bound Hanako-kun Season 2 - Opening | L’oN"
@@ -7919,21 +6946,11 @@
       {
         "url": "https://www.youtube.com/watch?v=kSkSvK6Zx_I",
         "name": "Tokyo Ghoul - Ending | Saints"
-      }
-    ]
-  },
-  {
-    "title": "Tokyo Ghoul Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=7aMOurgDB-o",
         "name": "Tokyo Ghoul Opening | Unravel"
-      }
-    ]
-  },
-  {
-    "title": "Tokyo Ghoul √A",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=qM8wxM_mcRw",
         "name": "Tokyo Ghoul √A - Opening | Munou"
@@ -7954,12 +6971,7 @@
       {
         "url": "https://www.youtube.com/watch?v=EqiPN0t54Uo",
         "name": "Tokyo Revengers - Ending 2 | Tokyo Wonder"
-      }
-    ]
-  },
-  {
-    "title": "Tokyo Revengers Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=By_JYrhx-WY",
         "name": "Tokyo Revengers Opening | Cry Baby"
@@ -8006,12 +7018,7 @@
       {
         "url": "https://www.youtube.com/watch?v=1dVfPq0wnrA",
         "name": "TONIKAWA: Over The Moon For You - Ending | Tsuki to Hoshizora"
-      }
-    ]
-  },
-  {
-    "title": "TONIKAWA: Over The Moon For You Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=Rrni7T7sGZk",
         "name": "TONIKAWA: Over The Moon For You Season 2 - Opening | Setsuna no Chikai"
@@ -8049,30 +7056,15 @@
       {
         "url": "https://www.youtube.com/watch?v=fnmlLIxPwzw",
         "name": "Tower of God - Ending | SLUMP English ver."
-      }
-    ]
-  },
-  {
-    "title": "Tower of God Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=BJOKdLHQumk",
         "name": "Tower of God Season 2 - Ending 2 | Falling Up by Stray Kids"
-      }
-    ]
-  },
-  {
-    "title": "Tower of God Season 2 Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=PVYxZgyQkIM",
         "name": "Tower of God Season 2 Opening | RISE UP by NiziU"
-      }
-    ]
-  },
-  {
-    "title": "Tower of God Season 2 Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=owH6Vph2C7g",
         "name": "Tower of God Season 2 Opening 2 | NIGHT by Stray Kids"
@@ -8093,17 +7085,12 @@
     ]
   },
   {
-    "title": "TRILLION GAME Ending",
+    "title": "TRILLION GAME",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=-2LmFdiZEvo",
         "name": "TRILLION GAME Ending | Unbelievable by Klang Ruler"
-      }
-    ]
-  },
-  {
-    "title": "TRILLION GAME Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=OmR7oIlnLL0",
         "name": "TRILLION GAME Opening | Beat the odds by &TEAM"
@@ -8158,26 +7145,16 @@
     ]
   },
   {
-    "title": "TSUKIMICHI -Moonlit Fantasy- Ending",
+    "title": "TSUKIMICHI -Moonlit Fantasy-",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=uzcC-jyEG24",
         "name": "TSUKIMICHI -Moonlit Fantasy- Ending | Aa Jinsei ni Namida Ari"
-      }
-    ]
-  },
-  {
-    "title": "TSUKIMICHI -Moonlit Fantasy- Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=i80OoZ73p5g",
         "name": "TSUKIMICHI -Moonlit Fantasy- Opening | Gamble"
-      }
-    ]
-  },
-  {
-    "title": "TSUKIMICHI -Moonlit Fantasy- Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=AsIdplxLieo",
         "name": "TSUKIMICHI -Moonlit Fantasy- Season 2 - Opening | Utopia"
@@ -8189,12 +7166,7 @@
       {
         "url": "https://www.youtube.com/watch?v=r6UpYnp5N_c",
         "name": "TSUKIMICHI -Moonlit Fantasy- Season 2 - Ending 2 | Joushiki Hazure Human"
-      }
-    ]
-  },
-  {
-    "title": "TSUKIMICHI -Moonlit Fantasy- Season 2 Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=sf1MwMjRoMI",
         "name": "TSUKIMICHI -Moonlit Fantasy- Season 2 Opening 2 | Reversal"
@@ -8207,12 +7179,7 @@
       {
         "url": "https://www.youtube.com/watch?v=34aJFkrh3Eo",
         "name": "Twilight Out of Focus - Ending | Unchain×Unchain"
-      }
-    ]
-  },
-  {
-    "title": "Twilight Out of Focus Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=THFuhvafsH8",
         "name": "Twilight Out of Focus Opening | CRANK UP"
@@ -8279,12 +7246,7 @@
       {
         "url": "https://www.youtube.com/watch?v=wyw2OZAVBa4",
         "name": "Umamusume: Pretty Derby - Ending | Grow Up Shine!"
-      }
-    ]
-  },
-  {
-    "title": "Umamusume: Pretty Derby Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=8MOfaq51nm0",
         "name": "Umamusume: Pretty Derby Season 2 - Opening | Yume wo Kakeru!"
@@ -8339,19 +7301,6 @@
     ]
   },
   {
-    "title": "Utawarerumono Mask of Truth",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=u6ggH-0fVf8",
-        "name": "Utawarerumono Mask of Truth - Opening | Hito Nanda"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=ApOvEm6jELw",
-        "name": "Utawarerumono Mask of Truth - Ending | Hyakunichisou"
-      }
-    ]
-  },
-  {
     "title": "Uzaki-Chan Wants to Hang Out! Season 2",
     "openings": [
       {
@@ -8387,30 +7336,15 @@
       {
         "url": "https://www.youtube.com/watch?v=A28JWbwyWN8",
         "name": "VINLAND SAGA - Ending 1 | Torches"
-      }
-    ]
-  },
-  {
-    "title": "VINLAND SAGA Opening 1",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=l5wAdQ-UkWY",
         "name": "VINLAND SAGA Opening 1 | Mukanjyo by Survive Said the Prophet"
-      }
-    ]
-  },
-  {
-    "title": "VINLAND SAGA Opening 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=c2L6D1-Dif8",
         "name": "VINLAND SAGA Opening 2 | Dark Crow by Man with a Mission"
-      }
-    ]
-  },
-  {
-    "title": "VINLAND SAGA SEASON 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=honOJloqesA",
         "name": "VINLAND SAGA SEASON 2 - Opening 1 | River"
@@ -8431,12 +7365,7 @@
       {
         "url": "https://www.youtube.com/watch?v=jIu9fh7lis4",
         "name": "Viral Hit - Ending | Viral Hack"
-      }
-    ]
-  },
-  {
-    "title": "Viral Hit Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=38avSW77y9k",
         "name": "Viral Hit Opening | Wild Boy"
@@ -8505,12 +7434,7 @@
       {
         "url": "https://www.youtube.com/watch?v=wHErtjUhliA",
         "name": "Welcome to Demon School! Iruma-kun - Ending | Debikyu"
-      }
-    ]
-  },
-  {
-    "title": "Welcome to Demon School! Iruma-kun Season 2",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=DEAjG94U-Vk",
         "name": "Welcome to Demon School! Iruma-kun Season 2 - Opening | No! No! Satisfaction!"
@@ -8518,12 +7442,7 @@
       {
         "url": "https://www.youtube.com/watch?v=iGMGzJGi8ls",
         "name": "Welcome to Demon School! Iruma-kun Season 2 - Ending | Kokoro Show Time"
-      }
-    ]
-  },
-  {
-    "title": "Welcome to Demon School! Iruma-kun Season 3",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=RapvVfKmEUM",
         "name": "Welcome to Demon School! Iruma-kun Season 3 - Opening | Girigiri Ride it Out"
@@ -8574,17 +7493,12 @@
     ]
   },
   {
-    "title": "WIND BREAKER Season 2 Ending",
+    "title": "WIND BREAKER",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=cqwlIiwctkc",
         "name": "WIND BREAKER Season 2 Ending | \"It's myself\" by shytaupe"
-      }
-    ]
-  },
-  {
-    "title": "WIND BREAKER Season 2 Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=yKwc6FKO7kc",
         "name": "WIND BREAKER Season 2 Opening | \"Boyz\" by SixTONES"
@@ -8597,12 +7511,7 @@
       {
         "url": "https://www.youtube.com/watch?v=26e_WDyapKg",
         "name": "Wistoria: Wand and Sword - Ending | Frozen"
-      }
-    ]
-  },
-  {
-    "title": "Wistoria: Wand and Sword Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=Fm_u3IrBzQg",
         "name": "Wistoria: Wand and Sword Opening | Fire and Fear"
@@ -8619,26 +7528,12 @@
     ]
   },
   {
-    "title": "X",
-    "openings": [
-      {
-        "url": "https://www.youtube.com/watch?v=_GY986rvHhY",
-        "name": "X - Opening | eX Dream"
-      }
-    ]
-  },
-  {
-    "title": "Yakuza Fiancé Ending",
+    "title": "Yakuza Fiancé",
     "openings": [
       {
         "url": "https://www.youtube.com/watch?v=iL9va_rRgKg",
         "name": "Yakuza Fiancé Ending | Naniwarotonnen"
-      }
-    ]
-  },
-  {
-    "title": "Yakuza Fiancé Opening",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=MbUoIAqpzV8",
         "name": "Yakuza Fiancé Opening | Under and Over"
@@ -8753,12 +7648,7 @@
       {
         "url": "https://www.youtube.com/watch?v=O9VOud8y3tg",
         "name": "ZOMBIE LAND SAGA - Opening | Adabana Necromancy"
-      }
-    ]
-  },
-  {
-    "title": "ZOMBIE LAND SAGA REVENGE",
-    "openings": [
+      },
       {
         "url": "https://www.youtube.com/watch?v=jDHGwnVWpJA",
         "name": "ZOMBIE LAND SAGA REVENGE - Opening | Taiga yo Tomo ni Naite Kure"
