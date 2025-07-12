@@ -1412,7 +1412,27 @@
       {
         "url": "https://www.youtube.com/watch?v=G8CFuZ9MseQ",
         "name": "Code Geass Opening | COLORS by FLOW"
-      }
+      },
+      {
+        "url": "https://youtu.be/YBhsDtFUgdM",
+        "name": "Code Geass Opening 2"
+      },
+      {
+        "url": "https://youtu.be/xh_SoTWBVHU?list=RDxh_SoTWBVHU",
+        "name": "Code Geass Opening 3"
+      },
+      {
+        "url": "https://youtu.be/bTU9RfI8WBk?list=RDbTU9RfI8WBk",
+        "name": "code geass opening 4"
+      },
+      {
+        "url": "https://youtu.be/mvFWDUhzrSo?list=RDmvFWDUhzrSo",
+        "name": "Code Geass R2 Opening 5:「World's End」by Flow"
+      },
+      {
+        "url": "https://youtu.be/wjqpmKhi0zU?list=RDwjqpmKhi0zU",
+        "name": "Code Geass ED / Ending 1"
+      },
     ]
   },
   {
@@ -6195,6 +6215,22 @@
       {
         "url": "https://www.youtube.com/watch?v=MuVVmOm5FYY",
         "name": "The Apothecary Diaries - Ending | Aikotoba"
+      },
+      {
+        "url": "https://youtu.be/z-UPUXGYYqo?list=RDz-UPUXGYYqo",
+        "name": "The Apothecary Diaries - Opening 2"
+      },
+      {
+        "url": "https://youtu.be/sYC5BfJy2nw?list=RDsYC5BfJy2nw",
+        "name": "The Apothecary Diaries OP - Opening 3"
+      },
+      {
+        "url": "https://youtu.be/HrRxvh4bkHE?list=RDHrRxvh4bkHE",
+        "name": "The Apothecary Diaries OP - Opening 4"
+      },
+      {
+        "url": "https://youtu.be/2ujbjT7k6ak?list=RD2ujbjT7k6ak",
+        "name": "The Apothecary Diaries - Ending 2"
       }
     ]
   },
@@ -7544,6 +7580,180 @@
         "url": "https://youtu.be/HEwAiwttN10?list=RDHEwAiwttN10",
         "name": "CHAINSAW MAN #3 Ending│マキシマム ザ ホルモン 「刃渡り2億センチ」"
       }
+    ]
+  },
+  {
+    "title": "Frieren: Beyond Journey's End",
+    "openings": [
+      {
+        "url": "https://youtu.be/OIBODIPC_8Y?list=RDOIBODIPC_8Y",
+        "name": "Frieren: Beyond Journey's End OP / Opening 1"
+      },
+      {
+        "url": "https://youtu.be/iqsnJJK8GA4?list=RDiqsnJJK8GA4",
+        "name": "Frieren:Beyond Journey's End Anime Opening Movie Vo.2 "
+      },
+      {
+        "url": "https://youtu.be/7pmd0kt3FOs?list=RD7pmd0kt3FOs",
+        "name": "Frieren: Beyond Journey's End Non-telop Ending"
+      },
+      {
+        "url": "https://youtu.be/HAOQDCF0jQE?list=RDHAOQDCF0jQE",
+        "name": "Frieren: Beyond Journey's End Non-telop Ending Movie Vol.2"
+      }
+    ]
+  },
+  {
+    "title": "Fullmetal Alchemist",
+    "openings": [
+      {
+        "url": "https://youtu.be/elyXcwunIYA?list=RDelyXcwunIYA",
+        "name": "Fullmetal Alchemist: Brotherhood - Opening 1"
+      },
+      {
+        "url": "https://youtu.be/YJDtIoCdpVk?list=RDYJDtIoCdpVk",
+        "name": "Fullmetal Alchemist Brotherhood Opening 2"
+      },
+      {
+        "url": "https://youtu.be/tLVK83HWNAk?list=RDtLVK83HWNAk",
+        "name": "Fullmetal Alchemist Brotherhood - Opening 4"
+      },
+      {
+        "url": "https://youtu.be/KazwnVki7L4?list=RDKazwnVki7L4",
+        "name": "Full Metal Alchemist Brotherhood full opening 5"
+      },
+      {
+        "url": "https://youtu.be/Jzfd-jQDCZI?list=RDJzfd-jQDCZI",
+        "name": "Fullmetal Alchemist: Brotherhood - Ending 1"
+      }
+    ]
+  },
+  {
+    "title": "Kaguya-sama: Love Is War",
+    "openings": [
+      {
+        "url": "https://youtu.be/WZof19wk4Ec?list=RDWZof19wk4Ec",
+        "name": "Kaguya-sama: Love is War - Opening 1"
+      },
+      {
+        "url": "https://youtu.be/lTlzDfhPtFA?list=RDlTlzDfhPtFA",
+        "name": "Kaguya-sama: Love Is War? Opening 2"
+      },
+      {
+        "url": "https://youtu.be/j3p6sXq_uUM?list=RDj3p6sXq_uUM",
+        "name": "Kaguya-sama: Love is War - Opening 3"
+      },
+      {
+        "url": "https://youtu.be/eqjFmsZGBSc?list=RDeqjFmsZGBSc",
+        "name": "Kaguya-sama: Love is War Ending 2"
+      }
+    ]
+  },
+  {
+    "title": "Monster",
+    "openings": [
+      {
+        "url": "https://youtu.be/Fi8x171IZZ0",
+        "name": "Monster - Opening"
+      }
+    ]
+  },
+  {
+    "title": "Violet Evergarden",
+    "openings": [
+      {
+        "url": "https://youtu.be/ZAKuyZEyZjY?list=RDZAKuyZEyZjY",
+        "name": "Violet Evergarden Opening"
+      }
+    ]
+  },
+  {
+    "title": "Grand Blue",
+    "openings": [
+      {
+        "url": "https://youtu.be/kHfGSs6A3xU?list=RDkHfGSs6A3xU",
+        "name": "Grand Blue OP 2"
+      },
+      {
+        "url": "https://youtu.be/BU3Uvy-YX8Q?list=RDBU3Uvy-YX8Q",
+        "name": "Grand Blue OP 1"
+      }
+    ]
+  },
+  {
+    "title": "Hajime no Ippo",
+    "openings": [
+      {
+        "url": "https://youtu.be/-LD0SUdJfeU?list=RD-LD0SUdJfeU",
+        "name": "Hajime no Ippo: The Fighting - Opening 1 | under star by Shocking Lemon"
+      },
+      {
+        "url": "https://youtu.be/rapewtS7bcE?list=RDrapewtS7bcE",
+        "name": "Hajime no Ippo Ending 1"
+      }
+    ]
+  },
+  {
+    "title": "Haikyuu!!",
+    "openings": [
+      {
+        "url": "https://youtu.be/KBkqRCn4INY?list=PL4JNVIu9gXUgGpMBBFjdC07kFNw6-C6Pj",
+        "name": "Haikyuu!!「AMV」- Opening 1: Imagination"
+      },
+      {
+        "url": "https://youtu.be/5cwL3Ml8LEg?list=PL4JNVIu9gXUgGpMBBFjdC07kFNw6-C6Pj",
+        "name": "Haikyuu Opening 2 (Ah Yeah!! - Sukima Switch)"
+      },
+      {
+        "url": "https://youtu.be/OTio-0LwlXE?list=RDOTio-0LwlXE",
+        "name": "Haiykuu!! Opening 05"
+      },
+      {
+        "url": "https://youtu.be/kDfqdmrRRSA",
+        "name": "Haikyuu!!  Season 2 Opening 4  Fly High"
+      },
+      {
+        "url": "https://youtu.be/k3avkDzoPp8?list=RDk3avkDzoPp8",
+        "name": "Haikyuu!! -「AMV」- 3 opening (full version)"
+      },
+      {
+        "url": "https://youtu.be/M5bKaHHD_Ls",
+        "name": "HAIKYU!! TO THE TOP l OPENING"
+      },
+      {
+        "url": "https://youtu.be/odPRf2FRfRM?list=RDodPRf2FRfRM",
+        "name": "Opening 2 l HAIKYU!! TO THE TOP"
+      }
+    ]
+  },
+  {
+    "title": "Danger In My Heart",
+    "openings": [
+      {
+        "url": "https://youtu.be/Za2FmwuIEwY?list=RDZa2FmwuIEwY",
+        "name": "Danger In My Heart Opening 1"
+      },
+      {
+        "url": "https://youtu.be/A0tKGpKOU4Y?list=RDA0tKGpKOU4Y",
+        "name": "Danger In My Heart Opening 2"
+      }
+    ]
+  },
+  {
+    "title": "",
+    "openings": [
+      {
+        "url": "https://youtu.be/iw4-v7gbOPw?list=RDiw4-v7gbOPw",
+        "name": "スラムダンク (SLAMDUNK) ED - 煌めく瞬間に捕われて"
+      },
+      {
+        "url": "https://youtu.be/8rreetbeDzA?list=RD8rreetbeDzA",
+        "name": "Slam Dunk Opening 2 HD"
+      },
+      {
+        "url": "https://youtu.be/m_QP5_rdH_g?list=RDm_QP5_rdH_g",
+        "name": "Slam Dunk Opening 1 HD"
+      },
     ]
   },
   {
