@@ -3862,34 +3862,6 @@
       {
         "url": "https://www.youtube.com/watch?v=aGSk5xOWpIA",
         "name": "mono - Ending | Weekendroll"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=t32SLAtDZ6A",
-        "name": "Ron Kamonohashi’s Forbidden Deductions Season 2 Ending | Labyrinth"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=sQVLl7kHMYA",
-        "name": "Ron Kamonohashi’s Forbidden Deductions Season 2 Opening | Feedback wo Narashite"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=bf8fWraY1rE",
-        "name": "The Morose Mononokean - Ending | Tobira no Muko"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=Ap3BaNwEwEU",
-        "name": "The Morose Mononokean II - Ending | 1%"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=pzwAYcT4b6s",
-        "name": "The Morose Mononokean II - Opening | Long Time Traveler"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=u6ggH-0fVf8",
-        "name": "Utawarerumono Mask of Truth - Opening | Hito Nanda"
-      },
-      {
-        "url": "https://www.youtube.com/watch?v=ApOvEm6jELw",
-        "name": "Utawarerumono Mask of Truth - Ending | Hyakunichisou"
       }
     ]
   },
@@ -7437,6 +7409,10 @@
       {
         "url": "https://www.youtube.com/watch?v=yKwc6FKO7kc",
         "name": "WIND BREAKER Season 2 Opening | \"Boyz\" by SixTONES"
+      },
+      {
+        "url": "https://youtu.be/IuSAC8ZDf1A?list=RDIuSAC8ZDf1A",
+        "name": "WIND BREAKER Season 1 Opening"
       }
     ]
   },
@@ -9452,12 +9428,110 @@
     ]
   },
     {
-    "title": "",
+    "title": "The Summer Hikaru Died",
     "openings": [
       {
-        "url": "",
-        "name": ""
+        "url": "https://youtu.be/UP7la6a1H1g?list=RDUP7la6a1H1g",
+        "name": "Vaundy：The Summer Hikaru Died Opening"
       }
+    ]
+  },
+  {
+    "title": "Go! Go! Loser Ranger!",
+    "openings": [
+      {
+        "url": "https://youtu.be/bG0cGW35-TI?list=RDbG0cGW35-TI",
+        "name": "Go! Go! Loser Ranger! OPENING 1"
+      },
+      {
+        "url": "https://youtu.be/TGgGPPQmtk4?list=RDTGgGPPQmtk4",
+        "name": "Go! Go! Loser Ranger! OPENING 2"
+      }
+    ]
+  },
+  {
+    "title": "YAIBA: Samurai Legend",
+    "openings": [
+      {
+        "url": "https://youtu.be/aWGC4AvH7Sw?list=RDaWGC4AvH7Sw",
+        "name": "YAIBA: Samurai Legend Creditless OP / BLUE ENCOUNT BLADE"
+      }
+    ]
+  },
+  {
+    "title": "Ranma1/2",
+    "openings": [
+      {
+        "url": "https://youtu.be/RFYP-tY6xOg?list=RDRFYP-tY6xOg",
+        "name": "Ranma1/2 Opening 1"
+      }
+    ]
+  },
+  {
+    "title": "TOUGEN ANKI",
+    "openings": [
+      {
+        "url": "https://youtu.be/ypZ30V6y1rA?list=RDypZ30V6y1rA",
+        "name": "TOUGEN ANKI Opening 1"
+      }
+    ]
+  },
+  {
+    "title": "Makeine: Too Many Losing Heroines",
+    "openings": [
+      {
+        "url": "https://youtu.be/7GJOBkIgWHc?list=RD7GJOBkIgWHc",
+        "name": "Makeine: Too Many Losing Heroines Opening Full - Tsuyogaru Girl by Botchi Boromaru"
+      }
+    ]
+  },
+  {
+    "title": "The Elusive Samurai",
+    "openings": [
+      {
+        "url": "https://youtu.be/XmpgKUcm2nI?list=RDXmpgKUcm2nI",
+        "name": "The Elusive Samurai Opening"
+      }
+    ]
+  },
+  {
+    "title": "Suicide Squad Isekai",
+    "openings": [
+      {
+        "url": "https://youtu.be/9NFZl9Splbo?list=RD9NFZl9Splbo",
+        "name": "Suicide Squad Isekai OP / Opening"
+      }
+    ]
+  },
+  {
+    "title": "The Fable",
+    "openings": [
+      {
+        "url": "https://youtu.be/C8548IZvdTE?list=RDC8548IZvdTE",
+        "name": "The Fable OP"
+      }
+    ]
+  },
+  {
+    "title": "Oblivion Battery",
+    "openings": [
+      {
+        "url": "https://youtu.be/Bcy8yp6iYGI?list=RDBcy8yp6iYGI",
+        "name": "Oblivion Battery - Opening FULL Lilac by Mrs. GREEN APPLE"
+      }
+    ]
+  },
+  {
+    "title": "Ron Kamonohashi’s Forbidden Deductions",
+    "openings": [
+      {
+        "url": "https://www.youtube.com/watch?v=t32SLAtDZ6A",
+        "name": "Ron Kamonohashi’s Forbidden Deductions Season 2 Ending | Labyrinth"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=sQVLl7kHMYA",
+        "name": "Ron Kamonohashi’s Forbidden Deductions Season 2 Opening | Feedback wo Narashite"
+      },
     ]
   },
   {
@@ -9623,110 +9697,32 @@
     ]
   },
   {
-    "title": "",
+    "title": "The Morose Mononokean",
     "openings": [
       {
-        "url": "",
-        "name": ""
+        "url": "https://www.youtube.com/watch?v=bf8fWraY1rE",
+        "name": "The Morose Mononokean - Ending | Tobira no Muko"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Ap3BaNwEwEU",
+        "name": "The Morose Mononokean II - Ending | 1%"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=pzwAYcT4b6s",
+        "name": "The Morose Mononokean II - Opening | Long Time Traveler"
       }
     ]
   },
   {
-    "title": "",
+    "title": "Utawarerumono Mask of Truth",
     "openings": [
       {
-        "url": "",
-        "name": ""
-      }
-    ]
-  },
-  {
-    "title": "",
-    "openings": [
+        "url": "https://www.youtube.com/watch?v=u6ggH-0fVf8",
+        "name": "Utawarerumono Mask of Truth - Opening | Hito Nanda"
+      },
       {
-        "url": "",
-        "name": ""
-      }
-    ]
-  },
-  {
-    "title": "",
-    "openings": [
-      {
-        "url": "",
-        "name": ""
-      }
-    ]
-  },
-  {
-    "title": "",
-    "openings": [
-      {
-        "url": "",
-        "name": ""
-      }
-    ]
-  },
-  {
-    "title": "",
-    "openings": [
-      {
-        "url": "",
-        "name": ""
-      }
-    ]
-  },
-  {
-    "title": "",
-    "openings": [
-      {
-        "url": "",
-        "name": ""
-      }
-    ]
-  },
-  {
-    "title": "",
-    "openings": [
-      {
-        "url": "",
-        "name": ""
-      }
-    ]
-  },
-  {
-    "title": "",
-    "openings": [
-      {
-        "url": "",
-        "name": ""
-      }
-    ]
-  },
-  {
-    "title": "",
-    "openings": [
-      {
-        "url": "",
-        "name": ""
-      }
-    ]
-  },
-  {
-    "title": "",
-    "openings": [
-      {
-        "url": "",
-        "name": ""
-      }
-    ]
-  },
-  {
-    "title": "",
-    "openings": [
-      {
-        "url": "",
-        "name": ""
+        "url": "https://www.youtube.com/watch?v=ApOvEm6jELw",
+        "name": "Utawarerumono Mask of Truth - Ending | Hyakunichisou"
       }
     ]
   },
