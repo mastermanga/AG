@@ -30,15 +30,14 @@
           <input type="text" id="animeInput" placeholder="Entrez le nom d'un anime..." autocomplete="off" />
           <div id="suggestions" class="suggestions"></div>
           <div id="counter">Tentatives : 0</div>
-          <!-- NOUVELLE BARRE D'INDICES -->
-          <div id="indices-bar" style="display: flex; gap: 10px; margin: 16px 0;">
-            <button id="btnIndiceStudio" class="indice-btn" disabled>Indice Studio (-150)</button>
-            <button id="btnIndiceSaison" class="indice-btn" disabled>Indice Année (-150)</button>
-            <button id="btnIndiceGenres" class="indice-btn" disabled>Indice Genres/Thèmes (-150)</button>
-            <button id="btnIndiceScore" class="indice-btn" disabled>Indice Score (-150)</button>
+          <!-- BARRE D'INDICES -->
+          <div id="indices-bar" style="display: flex; gap: 10px; margin: 16px 0; flex-wrap:wrap; justify-content:center;">
+            <button id="btnIndiceStudio" class="indice-btn" disabled>Indice Studio (-300)</button>
+            <button id="btnIndiceSaison" class="indice-btn" disabled>Indice Année (-300)</button>
+            <button id="btnIndiceGenres" class="indice-btn" disabled>Indice Genres/Thèmes (-300)</button>
+            <button id="btnIndiceScore" class="indice-btn" disabled>Indice Score (-300)</button>
           </div>
         </div>
-        <!-- Ancien bloc indices supprimé ici -->
         <div id="results"></div>
       </div>
     </div>
@@ -52,3 +51,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
