@@ -59,7 +59,7 @@ header h1 {
   margin: 0;
   box-shadow: 0 1px 4px #1115;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
   opacity: 0.85;
 }
 .indice-btn:hover:not(:disabled) {
@@ -72,6 +72,12 @@ header h1 {
   color: #ddd;
   cursor: not-allowed;
   opacity: 0.65;
+}
+.indice-btn.used {
+  background: #bbb !important;
+  color: #666 !important;
+  opacity: 0.5 !important;
+  cursor: default !important;
 }
 
 body.light .indice-btn {
@@ -88,6 +94,7 @@ body.light .indice-btn:hover:not(:disabled) {
   gap: 10px;
   margin: 16px 0;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* ========== DAILY BANNER ========== */
