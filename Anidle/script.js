@@ -429,7 +429,11 @@ function guessAnime() {
     cellScore.textContent = `✅ ${gScore}`;
   } else if (Math.abs(gScore - tScore) <= 0.30) {
     cellScore.classList.add("orange");
-    cellScore.textContent = `🟧 ${gScore}`;
+    if (gScore < tScore) {
+      cellScore.textContent = `🟧🔼 ${gScore}`;
+    } else {
+      cellScore.textContent = `🟧 ${gScore} 🔽`;
+    }
   } else {
     cellScore.classList.add("red");
     cellScore.textContent = gScore < tScore ? `🔼 ${gScore}` : `${gScore} 🔽`;
