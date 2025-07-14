@@ -297,7 +297,7 @@ function guessAnime() {
   // 2. Saison/Année (cellule orange)
   const [gs, gy] = guessedAnime.season.split(" ");
   const [ts, ty] = targetAnime.season.split(" ");
-  if (!indicesActivated.saison && gy === ty && (gs !== ts || gy !== ty)) {
+  if (!indicesActivated.saison && gy === ty) {
     indicesAvailable.saison = true;
     document.getElementById("btnIndiceSaison").disabled = false;
   }
