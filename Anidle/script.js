@@ -313,20 +313,26 @@ function guessAnime() {
     indicesAvailable.genres = true;
     document.getElementById("btnIndiceGenres").disabled = false;
   }
-  // 4. Score (orange)
+  // 4. Score (orange ou vert)
   const gScore = parseFloat(guessedAnime.score);
   const tScore = parseFloat(targetAnime.score);
-  let isScoreOrange = false;
+  let isScoreMatchOrClose = false;
+  
   if (gScore === tScore) {
-    isScoreOrange = false;
+    isScoreMatchOrClose = true;
+    indicesScoreRangeActivation = [
+      gScore - 0.30,
+      gScore + 0.30
+    ];
   } else if (Math.abs(gScore - tScore) <= 0.30) {
-    isScoreOrange = true;
+    isScoreMatchOrClose = true;
     indicesScoreRangeActivation = [
       Math.min(gScore, tScore) - 0.30,
       Math.max(gScore, tScore) + 0.30
     ];
   }
-  if (!indicesActivated.score && isScoreOrange) {
+  
+  if (!indicesActivated.score && isScoreMatchOrClose) {
     indicesAvailable.score = true;
     document.getElementById("btnIndiceScore").disabled = false;
   }
