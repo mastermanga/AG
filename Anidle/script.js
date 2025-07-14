@@ -63,6 +63,10 @@ let indicesYearAtActivation = null;
 let indicesStudioAtActivation = null;
 let indicesScoreRange = null;
 
+// Pour capturer l'ensemble unique des genres/thèmes trouvés (dans les tentatives)
+let indicesGenresFoundSet = new Set();
+let indicesScoreRangeActivation = [0,0]; // [min, max]
+
 // -- Mode switch --
 let isDaily = true;
 const DAILY_BANNER = document.getElementById("daily-banner");
@@ -138,9 +142,11 @@ function setupGame() {
   indicesActivated = { studio: false, saison: false, genres: false, score: false };
   indicesAvailable = { studio: false, saison: false, genres: false, score: false };
   indicesGenresFound = [];
+  indicesGenresFoundSet = new Set();
   indicesYearAtActivation = null;
   indicesStudioAtActivation = null;
   indicesScoreRange = null;
+  indicesScoreRangeActivation = [0,0];
 
   document.getElementById("animeInput").value = "";
   document.getElementById("suggestions").innerHTML = "";
@@ -149,11 +155,22 @@ function setupGame() {
   document.getElementById("successContainer").style.display = "none";
   document.getElementById("animeInput").disabled = false;
 
+  // Affiche le coût d'une tentative
+  if (!document.getElementById("tentative-cost")) {
+    const div = document.createElement("div");
+    div.id = "tentative-cost";
+    div.style = "font-size:0.98rem; color:#ffc107; margin-top:2px; margin-bottom:8px;";
+    div.innerHTML = "Chaque tentative coûte <b>300</b> points";
+    document.getElementById("counter").after(div);
+  }
+
   // Reset boutons indices
   ["btnIndiceStudio", "btnIndiceSaison", "btnIndiceGenres", "btnIndiceScore"].forEach(id => {
     const btn = document.getElementById(id);
-    btn.disabled = true;
-    btn.classList.remove('used');
+    if(btn) {
+      btn.disabled = true;
+      btn.classList.remove('used');
+    }
   });
 
   updateAideList(); // suggestions toutes au début
@@ -162,13 +179,13 @@ function setupGame() {
 function lockDailyInputs() {
   document.getElementById("animeInput").disabled = true;
   ["btnIndiceStudio", "btnIndiceSaison", "btnIndiceGenres", "btnIndiceScore"].forEach(id => {
-    document.getElementById(id).disabled = true;
+    if(document.getElementById(id)) document.getElementById(id).disabled = true;
   });
 }
 function unlockClassicInputs() {
   document.getElementById("animeInput").disabled = false;
   ["btnIndiceStudio", "btnIndiceSaison", "btnIndiceGenres", "btnIndiceScore"].forEach(id => {
-    document.getElementById(id).disabled = false;
+    if(document.getElementById(id)) document.getElementById(id).disabled = false;
   });
 }
 
@@ -243,7 +260,6 @@ document.getElementById("btnIndiceSaison").addEventListener("click", function() 
 document.getElementById("btnIndiceGenres").addEventListener("click", function() {
   if (!indicesAvailable.genres || indicesActivated.genres) return;
   indicesActivated.genres = true;
-  // Capture la liste à l'instant
   indicesGenresFound = [...indicesGenresFoundSet];
   this.disabled = true;
   this.classList.add('used');
@@ -257,10 +273,6 @@ document.getElementById("btnIndiceScore").addEventListener("click", function() {
   this.classList.add('used');
   updateAideList();
 });
-
-// Pour capturer l'ensemble unique des genres/thèmes trouvés (dans les tentatives)
-let indicesGenresFoundSet = new Set();
-let indicesScoreRangeActivation = [0,0]; // [min, max]
 
 // ========== FONCTION PRINCIPALE DE JEU ==========
 function guessAnime() {
@@ -292,11 +304,9 @@ function guessAnime() {
   // 3. Genres/Thèmes : on update le set, si on trouve un nouveau, rendre activable
   const allGuessed = [...guessedAnime.genres, ...guessedAnime.themes];
   const allTarget = [...targetAnime.genres, ...targetAnime.themes];
-  let foundNow = false;
   allGuessed.forEach(g => {
     if (allTarget.includes(g) && !indicesGenresFoundSet.has(g)) {
       indicesGenresFoundSet.add(g);
-      foundNow = true;
     }
   });
   if (!indicesActivated.genres && indicesGenresFoundSet.size > 0) {
@@ -432,15 +442,15 @@ function guessAnime() {
     gameOver = true;
     document.getElementById("animeInput").disabled = true;
     ["btnIndiceStudio", "btnIndiceSaison", "btnIndiceGenres", "btnIndiceScore"].forEach(id => {
-      document.getElementById(id).disabled = true;
+      if(document.getElementById(id)) document.getElementById(id).disabled = true;
     });
     showSuccessMessage();
 
     if (isDaily && !dailyPlayed) {
       let score = 3000;
-      score -= (attemptCount - 1) * 150;
+      score -= (attemptCount - 1) * 300;
       let indiceCount = Object.values(indicesActivated).filter(Boolean).length;
-      score -= indiceCount * 150;
+      score -= indiceCount * 300;
       if (score < 0) score = 0;
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
@@ -545,7 +555,7 @@ function showSuccessMessageClassic() {
       <span style="font-size:2.3rem;">🎉</span>
     </div>
     <div style="text-align:center;">
-      <button id="nextBtn" style="font-size:1.1rem; margin: 0 auto 1rem auto;">${isDaily ? "Retour menu" : "Rejouer"}</button>
+      <button id="nextBtn" class="menu-btn" style="font-size:1.1rem; margin: 0 auto 1rem auto;">${isDaily ? "Retour menu" : "Rejouer"}</button>
     </div>
   `;
   container.style.display = "block";
@@ -571,6 +581,7 @@ function launchParcoursRound() {
   indicesYearAtActivation = null;
   indicesStudioAtActivation = null;
   indicesScoreRange = null;
+  indicesScoreRangeActivation = [0,0];
 
   document.getElementById("animeInput").value = "";
   document.getElementById("suggestions").innerHTML = "";
@@ -580,8 +591,10 @@ function launchParcoursRound() {
   document.getElementById("animeInput").disabled = false;
   ["btnIndiceStudio", "btnIndiceSaison", "btnIndiceGenres", "btnIndiceScore"].forEach(id => {
     const btn = document.getElementById(id);
-    btn.disabled = true;
-    btn.classList.remove('used');
+    if(btn) {
+      btn.disabled = true;
+      btn.classList.remove('used');
+    }
   });
 
   // PATCH random : random avec parcoursIndex
@@ -600,7 +613,7 @@ function showSuccessMessageParcours(roundScore) {
       <span style="font-size:2.3rem;">🎉</span>
     </div>
     <div style="text-align:center;">
-      <button id="nextParcoursBtn" style="font-size:1.1rem; margin: 0 auto 1rem auto;">${parcoursIndex+1 < parcoursCount ? "Suivant" : "Terminer"}</button>
+      <button id="nextParcoursBtn" class="menu-btn" style="font-size:1.1rem; margin: 0 auto 1rem auto;">${parcoursIndex+1 < parcoursCount ? "Suivant" : "Terminer"}</button>
     </div>
   `;
   container.style.display = "block";
@@ -627,7 +640,7 @@ function showSuccessMessageParcours(roundScore) {
 
 // --- Choix du message selon le mode
 function showSuccessMessage() {
-  let roundScore = 3000 - (attemptCount - 1) * 150 - (Object.values(indicesActivated).filter(Boolean).length) * 150;
+  let roundScore = 3000 - (attemptCount - 1) * 300 - (Object.values(indicesActivated).filter(Boolean).length) * 300;
   if (roundScore < 0) roundScore = 0;
   if (isParcours) {
     parcoursTotalScore += roundScore;
