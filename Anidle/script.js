@@ -160,7 +160,7 @@ function setupGame() {
     const div = document.createElement("div");
     div.id = "tentative-cost";
     div.style = "font-size:0.98rem; color:#ffc107; margin-top:2px; margin-bottom:8px;";
-    div.innerHTML = "Chaque tentative coûte <b>300</b> points";
+    div.innerHTML = "Chaque tentative coûte <b>150</b> points";
     document.getElementById("counter").after(div);
   }
 
@@ -448,7 +448,7 @@ function guessAnime() {
 
     if (isDaily && !dailyPlayed) {
       let score = 3000;
-      score -= (attemptCount - 1) * 300;
+      score -= (attemptCount - 1) * 150;
       let indiceCount = Object.values(indicesActivated).filter(Boolean).length;
       score -= indiceCount * 300;
       if (score < 0) score = 0;
@@ -640,7 +640,7 @@ function showSuccessMessageParcours(roundScore) {
 
 // --- Choix du message selon le mode
 function showSuccessMessage() {
-  let roundScore = 3000 - (attemptCount - 1) * 300 - (Object.values(indicesActivated).filter(Boolean).length) * 300;
+  let roundScore = 3000 - (attemptCount - 1) * 150 - (Object.values(indicesActivated).filter(Boolean).length) * 300;
   if (roundScore < 0) roundScore = 0;
   if (isParcours) {
     parcoursTotalScore += roundScore;
