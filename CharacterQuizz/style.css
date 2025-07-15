@@ -133,7 +133,7 @@ header h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .character-img {
@@ -268,6 +268,56 @@ footer {
   transition: color 0.3s;
 }
 
+#score-bar-container {
+  background: #21272b;
+  border-radius: 2rem;
+  padding: 6px 0 5px 0;
+  margin: 18px 0 20px 0;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+  width: 97%;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+#score-bar {
+  height: 28px;
+  border-radius: 2rem;
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.10);
+  transition: width 0.45s cubic-bezier(.5,2,.1,1), background 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg,#70ffba,#3b82f6 90%);
+  width: 100%;
+}
+#score-bar-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  color: #0a3346;
+  font-weight: bold;
+  font-size: 0.92rem;
+  text-shadow: 0 2px 7px #fff8;
+  pointer-events: none;
+  white-space: nowrap;
+}
+body.light #score-bar-container {
+  background: #f2f6fd;
+  box-shadow: 0 2px 7px #42a5f533;
+}
+body.light #score-bar {
+  background: linear-gradient(90deg,#81e6d9,#90caf9 90%);
+}
+body.light #score-bar-label {
+  color: #1a4573;
+  text-shadow: 0 2px 7px #fff5;
+}
+
+
 /* MODE CLAIR */
 body.light {
   background-color: #f5f5f5;
@@ -327,4 +377,19 @@ body.light footer {
 
 body, input, button, .character-img {
   transition: background 0.3s, color 0.2s, border 0.2s;
+}
+
+
+@media (max-width: 600px) {
+  #container { 
+    width: 98vw; min-width: 0; max-width: 99vw; padding: 1.3rem 1vw;
+    margin-top: 2rem;
+  }
+  header h1 { font-size: 1.19rem; }
+  #score-bar-container {
+    max-width: 97vw;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
