@@ -86,14 +86,8 @@ body {
 }
 
 body.light {
-  background: #f5f5f5;
-  background-image:
-    radial-gradient(rgba(66,165,245,0.09) 1.2px, transparent 1.7px),
-    radial-gradient(rgba(66,165,245,0.07) 1.2px, transparent 1.7px);
-  background-size: 48px 48px, 96px 96px;
-  background-position: 0 0, 24px 24px;
+  background: radial-gradient(circle at 45% 10%, #e3f6fc 0%, #f5f5f5 100%);
   color: #222;
-  transition: background 0.3s, color 0.2s;
 }
 
 header {
