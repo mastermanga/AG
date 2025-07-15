@@ -101,6 +101,13 @@ fetch('../data/animes.json')
     }
   });
 
+function resetScoreBar() {
+  const scoreBar = document.getElementById('score-bar');
+  const scoreBarLabel = document.getElementById('score-bar-label');
+  if (scoreBar) scoreBar.style.width = '100%';
+  if (scoreBarLabel) scoreBarLabel.textContent = "3000 / 3000";
+}
+
 function setupGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
@@ -131,6 +138,7 @@ function setupGame() {
   }
 
   attemptCount = 0;
+  resetScoreBar();
   gameOver = false;
   indicesActivated = { studio: false, saison: false, genres: false, score: false };
   indicesAvailable = { studio: false, saison: false, genres: false, score: false };
@@ -269,6 +277,16 @@ document.getElementById("btnIndiceScore").addEventListener("click", function() {
   updateAideList();
 });
 
+function updateScoreBar() {
+  const scoreBar = document.getElementById('score-bar');
+  const scoreBarLabel = document.getElementById('score-bar-label');
+  let score = 3000 - (attemptCount - 1) * 150;
+  if (score < 0) score = 0;
+  let width = (score / 3000 * 100);
+  if (scoreBar) scoreBar.style.width = width + '%';
+  if (scoreBarLabel) scoreBarLabel.textContent = score + " / 3000";
+}
+
 // ========== FONCTION PRINCIPALE DE JEU ==========
 function guessAnime() {
   if (gameOver || (isDaily && dailyPlayed)) return;
@@ -282,7 +300,7 @@ function guessAnime() {
 
   attemptCount++;
   document.getElementById("counter").textContent = "Tentatives : " + attemptCount;
-
+  updateScoreBar();
   // --- Indices: recalcul disponibilité
   // 1. Studio
   if (!indicesActivated.studio && guessedAnime.studio === targetAnime.studio) {
