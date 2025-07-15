@@ -206,6 +206,7 @@ body.light .main-block {
   align-items: flex-start;
   width: 320px;
   max-width: 48vw;
+  gap: 1.5rem;
 }
 
 #duel-container .anime img {
@@ -218,8 +219,8 @@ body.light .main-block {
 
 /* Spécial pour les vidéos (openings) - tu peux adapter la largeur/hauteur ici */
 #duel-container .opening iframe {
-  width: 420px;   /* ou 450px, ou plus */
-  height: 250px;  /* ajuste pour le ratio YouTube, genre 236px pour 420px */
+  width: 700px;   /* ou 450px, ou plus */
+  height: 394px;  /* ajuste pour le ratio YouTube, genre 236px pour 420px */
   max-width: 98vw;
   object-fit: cover;
   border-radius: 8px;
