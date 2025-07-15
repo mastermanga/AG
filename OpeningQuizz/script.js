@@ -69,16 +69,13 @@ function afficherIndiceOptions(nb) {
   // Affiche
   const list = document.createElement("div");
   list.id = "indice-options-list";
-  list.style.display = "flex";
-  list.style.flexWrap = "wrap";
-  list.style.gap = "10px";
-  list.style.justifyContent = "center";
-  list.style.marginTop = "15px";
+  // ICI : plus de style JS, tout est géré dans le CSS
+
   propositions.forEach(title => {
     const btn = document.createElement("button");
     btn.textContent = title;
     btn.className = "indice-btn";
-    btn.style.minWidth = "120px";
+    // btn.style.minWidth = "120px";  // <- inutile si géré en CSS
     btn.onclick = () => {
       checkAnswer(title);
       list.remove();
