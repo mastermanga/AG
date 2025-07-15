@@ -446,7 +446,7 @@ body.light footer {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-bottom: 30px; /* optionnel, pour espace sous les boutons */
+  padding-bottom: 80px; /* optionnel, pour espace sous les boutons */
 }
 
 .anime-container {
