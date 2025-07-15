@@ -82,31 +82,30 @@ header h1.victoire {
 
 /* === BARRE DE SCORE === */
 #score-bar-container {
-  width: 98%;
-  max-width: 360px;
-  height: 18px;
-  background: #192642;
-  border-radius: 9px;
-  margin: 0.2rem auto 0.9rem auto;
-  box-shadow: 0 0 8px #00eaff44;
-  overflow: hidden;
-  position: relative;
-  z-index: 2;
+  background: #21272b;
+  border-radius: 2rem;
+  padding: 6px 0 5px 0;
+  margin: 14px 0 20px 0;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+  width: 95%;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #score-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #24f589, #00eaff 90%);
-  border-radius: 9px 0 0 9px;
-  width: 100%;
-  transition: width 0.4s cubic-bezier(.62,.39,.13,.98);
+  height: 34px;
+  background: linear-gradient(90deg, #7ee787, #3b82f6 90%);
+  border-radius: 2rem;
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.10);
+  transition: width 0.45s cubic-bezier(.5,2,.1,1);
   display: flex;
   align-items: center;
-  padding-left: 14px;
-  font-weight: bold;
-  color: #021b25;
-  font-size: 1rem;
-  text-shadow: 0 2px 7px #fff8;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  justify-content: center;
 }
+
 #score-bar-label {
   position: absolute;
   left: 50%;
