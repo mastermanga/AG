@@ -249,11 +249,11 @@ body.light input[type="text"] {
   font-size: 1.03rem;
 }
 .cell-image { min-width: 100px; max-width: 100px; }
-.cell-title { min-width: 240px; max-width: 280px; }
-.cell-genre, .cell-theme { min-width: 170px; max-width: 200px; text-align: left; }
-.cell-studio { min-width: 120px; max-width: 160px; }
-.cell-season { min-width: 110px; max-width: 130px; }
-.cell-score { min-width: 120px; max-width: 150px; }
+.cell-title { min-width: 180px; max-width: 180px; white-space: normal; word-break: break-word; }
+.cell-season { min-width: 120px; max-width: 120px; }
+.cell-studio { min-width: 140px; max-width: 140px; white-space: normal; word-break: break-word; text-align: center; }
+.cell-genre, .cell-theme { min-width: 170px; max-width: 170px; white-space: normal; word-break: break-word; }
+.cell-score { min-width: 110px; max-width: 110px; font-size: 1.15rem; }
 .green { background-color: #27ae60 !important; color: white; }
 .red { background-color: #e74c3c !important; color: white; }
 .orange { background-color: #ff9800 !important; color: white; }
