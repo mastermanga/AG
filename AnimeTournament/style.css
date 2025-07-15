@@ -152,7 +152,7 @@ body.light #mode-select button:hover {
 .main-block {
   max-width: 1500px;
   width: 98vw;
-  background: linear-gradient(120deg, #233554f3 80%, #00bcd411 100%);
+  background: #161e27ef;
   border-radius: 20px;
   box-shadow: 0 0 32px 5px #00bcd444;
   border: 1.5px solid #00bcd455;
