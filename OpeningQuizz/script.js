@@ -19,8 +19,8 @@ function updateScoreBar(score = null) {
     if (tries === 1) { percent = 100; label = "3000 / 3000"; currentScore = 3000; }
     else if (tries === 2) { percent = 66.66; label = "2000 / 3000"; currentScore = 2000; }
     else if (tries === 3 && !indice6Used && !indice3Used) { percent = 50; label = "1500 / 3000"; currentScore = 1500; }
-    else if (tries === 3 && indice3Used) { percent = 33.3; label = "1000 / 3000"; currentScore = 500; }
-    else if (tries === 3 && indice6Used) { percent = 16.7; label = "500 / 3000"; currentScore = 1000; }
+    else if (tries === 3 && indice3Used) { percent = 33.3; label = "500 / 3000"; currentScore = 500; }
+    else if (tries === 3 && indice6Used) { percent = 16.7; label = "1000 / 3000"; currentScore = 1000; }
     else { percent = 0; label = "0 / 3000"; currentScore = 0; }
   } else {
     currentScore = score;
