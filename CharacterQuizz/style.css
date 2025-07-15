@@ -72,7 +72,12 @@ body.light #switch-mode-btn:hover {
 }
 
 body {
-  background-color: #121212;
+  background: #121212;
+  background-image:
+    radial-gradient(rgba(102,196,255,0.11) 1px, transparent 1.6px),
+    radial-gradient(rgba(102,196,255,0.09) 1px, transparent 1.5px);
+  background-size: 48px 48px, 96px 96px;
+  background-position: 0 0, 24px 24px;
   color: #eee;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0; padding: 0;
@@ -81,6 +86,18 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  transition: background 0.3s, color 0.2s;
+}
+
+body.light {
+  background: #f5f5f5;
+  background-image:
+    radial-gradient(rgba(66,165,245,0.09) 1.2px, transparent 1.7px),
+    radial-gradient(rgba(66,165,245,0.07) 1.2px, transparent 1.7px);
+  background-size: 48px 48px, 96px 96px;
+  background-position: 0 0, 24px 24px;
+  color: #222;
+  transition: background 0.3s, color 0.2s;
 }
 
 header {
