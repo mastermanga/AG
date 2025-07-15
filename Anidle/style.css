@@ -67,6 +67,46 @@ header h1 {
   letter-spacing: 1px;
   text-shadow: 0 2px 8px #00bcd466, 0 0 10px #fff1;
 }
+/* === Effet Glow Victoire sur le Titre === */
+header h1.victoire {
+  color: #24f589;
+  text-shadow: 0 0 18px #41ffa5, 0 0 12px #24f589, 0 2px 8px #00bcd488;
+  transition: color 0.3s, text-shadow 0.3s;
+  animation: titre-victoire 1.4s cubic-bezier(.32,.93,.47,1.26) 1;
+}
+@keyframes titre-victoire {
+  0% { letter-spacing: 2px; transform: scale(1.13);}
+  70% { letter-spacing: 5px;}
+  100% { letter-spacing: 1px; transform: scale(1);}
+}
+
+/* === BARRE DE SCORE === */
+#score-bar-container {
+  width: 100%;
+  max-width: 460px;
+  height: 17px;
+  background: #1c2940;
+  border-radius: 9px;
+  margin: 0 auto 15px auto;
+  box-shadow: 0 0 8px #00eaff44;
+  position: relative;
+  overflow: hidden;
+}
+#score-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #24f589, #00eaff 90%);
+  border-radius: 9px 0 0 9px;
+  width: 100%;
+  transition: width 0.4s cubic-bezier(.62,.39,.13,.98);
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
+  font-weight: bold;
+  color: #021b25;
+  letter-spacing: 0.4px;
+  font-size: 1.07rem;
+  text-shadow: 0 2px 7px #fff8;
+}
 
 /* === BOUTONS PRINCIPAUX === */
 .menu-btn,
@@ -190,6 +230,12 @@ body.light input[type="text"] {
   display: flex;
   justify-content: center;
   margin-bottom: 6px;
+  transition: box-shadow 0.18s, transform 0.16s;
+}
+.row:hover {
+  box-shadow: 0 0 13px #00eaff66, 0 0 1px #00bcd455;
+  transform: scale(1.018);
+  z-index: 1;
 }
 .cell {
   padding: 9px;
@@ -259,9 +305,6 @@ body.light input[type="text"] {
   font-weight: 500;
   letter-spacing: 0.15px;
 }
-
-/* == FIREWORKS CANVAS == */
-#fireworks { /* déjà stylé */ }
 
 /* == FOOTER == */
 footer {
