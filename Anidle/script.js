@@ -300,7 +300,7 @@ function guessAnime() {
   }
 
   attemptCount++;
-  document.getElementById("counter").textContent = `Tentatives : ${attemptCount} (-150})`;
+  document.getElementById("counter").textContent = `Tentatives : ${attemptCount} (-150)`;
   // --- Indices: recalcul disponibilité
   // 1. Studio
   if (!indicesActivated.studio && guessedAnime.studio === targetAnime.studio) {
