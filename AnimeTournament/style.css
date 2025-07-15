@@ -1,4 +1,5 @@
 body {
+  background: radial-gradient(circle at 50% 25%, #263859 0%, #121212 100%);
   background-color: #121212;
   color: #eee;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -9,6 +10,24 @@ body {
   padding: 2rem 1rem;
   margin: 0;
   transition: background-color 0.3s, color 0.3s;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, #00fff94d 2px, transparent 3px) 30vw 20vh/120px 120px repeat,
+    radial-gradient(circle, #42a5f577 1.5px, transparent 3px) 70vw 75vh/90px 90px repeat;
+  animation: moveParticles 18s linear infinite alternate;
+  opacity: 0.24;
+}
+@keyframes moveParticles {
+  0%   { background-position: 30vw 20vh, 70vw 75vh; }
+  100% { background-position: 33vw 22vh, 68vw 78vh; }
 }
 
 header {
@@ -24,29 +43,45 @@ header {
 }
 
 header h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   text-align: center;
   flex-grow: 1;
   margin: 0 1rem;
+  letter-spacing: 1px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 800;
+  text-shadow:
+    0 0 6px #00eaff,
+    0 0 18px #00eaff99,
+    0 2px 8px #00bcd477,
+    0 0 10px #fff1;
 }
 
 .menu-btn,
 .toggle-btn {
-  background-color: #00bcd4;
-  color: #121212;
+  background: linear-gradient(120deg, #00bcd4 75%, #1e88e5 100%);
+  color: #fff;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  padding: 0.54rem 1.05rem;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s ease;
-  flex-shrink: 0;
+  font-size: 1.18rem;
+  box-shadow: 0 1px 7px #00bcd466;
+  transition: 
+    background 0.21s,
+    color 0.16s,
+    box-shadow 0.18s,
+    border 0.16s;
+  outline: none;
 }
-
-.menu-btn:hover,
-.toggle-btn:hover {
-  background-color: #0097a7;
-  color: white;
+.menu-btn:hover, .menu-btn:focus,
+.toggle-btn:hover, .toggle-btn:focus {
+  background: linear-gradient(120deg, #1de9b6 80%, #1565c0 100%);
+  color: #fff;
+  text-shadow: 0 0 10px #fff9, 0 2px 6px #fff8;
+  box-shadow: 0 10px 34px #00eaffd7, 0 2.5px 14px #1976d277;
+  border: 2px solid #fff5;
 }
 
 /* Mode clair */
@@ -56,12 +91,15 @@ body.light {
 }
 body.light .menu-btn,
 body.light .toggle-btn {
-  background-color: #1565c0;
-  color: white;
+  background: linear-gradient(120deg, #42a5f5 70%, #00bcd4 100%);
+  color: #f5f5f5;
 }
 body.light .menu-btn:hover,
 body.light .toggle-btn:hover {
-  background-color: #0d47a1;
+  background: linear-gradient(120deg, #81d4fa 70%, #1976d2 100%);
+  color: #fff;
+  text-shadow: 0 0 8px #fff9;
+  border: 2px solid #1976d277;
 }
 
 #mode-select {
@@ -71,22 +109,77 @@ body.light .toggle-btn:hover {
 }
 
 #mode-select button {
-  background-color: #00bcd4;
-  color: #121212;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
-  cursor: pointer;
+  background: linear-gradient(120deg, #00bcd4 75%, #1e88e5 100%);
+  color: #fff;
+  border-radius: 15px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  padding: 0.86em 1.34em;
+  font-size: 1.14rem;
+  box-shadow: 0 2px 14px #00bcd455, 0 1.5px 10px #1e88e588;
+  border: none;
+  outline: none;
+  transition:
+    transform 0.16s cubic-bezier(.4,2,.5,1),
+    box-shadow 0.16s,
+    background 0.21s,
+    color 0.16s;
 }
-#mode-select button:hover {
-  background-color: #0097a7;
-  color: white;
-}
+#mode-select button:hover,
+#mode-select button:focus,
 #mode-select button.active {
-  background-color: #0097a7;
-  color: white;
+  background: linear-gradient(120deg, #1de9b6 80%, #1565c0 100%);
+  color: #fff;
+  box-shadow: 0 10px 34px #00eaffd7, 0 2.5px 14px #1976d277;
+  border: 2px solid #fff5;
+  transform: translateY(-4px) scale(1.045) rotate(-1deg);
+  text-shadow: 0 0 10px #fff9, 0 2px 6px #fff8;
+}
+
+body.light #mode-select button {
+  background: linear-gradient(120deg, #42a5f5 70%, #00bcd4 100%);
+  color: #f5f5f5;
+  box-shadow: 0 1px 8px #42a5f5bb;
+}
+body.light #mode-select button.active,
+body.light #mode-select button:focus,
+body.light #mode-select button:hover {
+  background: linear-gradient(120deg, #81d4fa 70%, #1976d2 100%);
+  color: #fff;
+  text-shadow: 0 0 8px #fff9;
+  border: 2px solid #1976d277;
+}
+
+.main-block {
+  background: linear-gradient(120deg, #233554f3 80%, #00bcd411 100%);
+  border-radius: 19px;
+  box-shadow: 0 2px 16px #00bcd440;
+  padding: 1.5rem 1.2rem;
+  margin: 1.1rem auto;
+  width: 370px;
+  max-width: 98vw;
+  text-align: center;
+  border: 1.5px solid #00bcd455;
+  z-index: 2;
+  position: relative;
+  transition: background 0.25s;
+}
+
+.main-block, .menu-btn, .toggle-btn, #mode-select button {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.6s cubic-bezier(.47,1.64,.41,.8) 0.14s forwards;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+body.light .main-block {
+  background: linear-gradient(120deg, #e0f7fa 90%, #1565c01a 100%);
+  box-shadow: 0 2px 14px #42a5f54b;
+  border: 1.5px solid #42a5f577;
 }
 
 #duel-container {
@@ -335,11 +428,28 @@ footer {
   text-align: center;
   user-select: none;
   width: 100%;
-  max-width: 350px;
+  max-width: 370px;
   margin-left: auto;
   margin-right: auto;
   transition: color 0.3s;
 }
 body.light footer {
   color: #888;
+}
+
+h2, .section-title {
+  color: #00eaff;
+  text-align: center;
+  text-shadow:
+    0 0 7px #00eaff,
+    0 0 18px #00eaff99,
+    0 1px 4px #1de9b68e;
+}
+
+@media (max-width: 520px) {
+  .main-block {
+    width: 98vw;
+    padding: 1rem 2vw 1.2rem 2vw;
+  }
+  header, footer { max-width: 99vw; }
 }
