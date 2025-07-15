@@ -1,3 +1,89 @@
+// ==== VARIABLES INDICES ====
+let indice6Used = false;
+let indice3Used = false;
+let optionsList = [];
+let indiceActive = false;
+
+// ==== BARRE DE SCORE ====
+function updateScoreBar(score = null) {
+  let percent = 100, label = "3000 / 3000";
+  if (score === null) {
+    if (tries === 1) { percent = 100; label = "3000 / 3000"; }
+    else if (tries === 2) { percent = 66.66; label = "2000 / 3000"; }
+    else if (tries === 3 && !indice6Used && !indice3Used) { percent = 50; label = "1500 / 3000"; }
+    else if (tries === 3 && indice3Used) { percent = 33.3; label = "1000 / 3000"; }
+    else if (tries === 3 && indice6Used) { percent = 16.7; label = "500 / 3000"; }
+  } else {
+    if (score === 3000) { percent = 100; label = "3000 / 3000"; }
+    else if (score === 2000) { percent = 66.66; label = "2000 / 3000"; }
+    else if (score === 1500) { percent = 50; label = "1500 / 3000"; }
+    else if (score === 1000) { percent = 33.3; label = "1000 / 3000"; }
+    else if (score === 500) { percent = 16.7; label = "500 / 3000"; }
+    else { percent = 0; label = "0 / 3000"; }
+  }
+  document.getElementById("score-bar-label").textContent = label;
+  document.getElementById("score-bar").style.width = percent + "%";
+}
+
+// ==== INDICES BOUTONS ====
+document.getElementById("btnIndice6").addEventListener("click", () => {
+  if (indice6Used || indice3Used || !indiceActive) return;
+  indice6Used = true;
+  indiceActive = false;
+  document.getElementById("btnIndice6").classList.add("used");
+  document.getElementById("btnIndice3").disabled = true;
+  afficherIndiceOptions(6);
+  updateScoreBar();
+});
+document.getElementById("btnIndice3").addEventListener("click", () => {
+  if (indice6Used || indice3Used || !indiceActive) return;
+  indice3Used = true;
+  indiceActive = false;
+  document.getElementById("btnIndice3").classList.add("used");
+  document.getElementById("btnIndice6").disabled = true;
+  afficherIndiceOptions(3);
+  updateScoreBar();
+});
+function afficherIndiceOptions(nb) {
+  // Efface anciennes options
+  const old = document.getElementById("indice-options-list");
+  if (old) old.remove();
+  // Génère propositions
+  let titles = animeList.map(a => a.title);
+  titles = titles.filter(t => t !== currentAnime.title);
+  shuffleArray(titles);
+  let propositions = titles.slice(0, nb - 1);
+  propositions.push(currentAnime.title);
+  shuffleArray(propositions);
+  // Affiche
+  const list = document.createElement("div");
+  list.id = "indice-options-list";
+  list.style.display = "flex";
+  list.style.flexWrap = "wrap";
+  list.style.gap = "10px";
+  list.style.justifyContent = "center";
+  list.style.marginTop = "15px";
+  propositions.forEach(title => {
+    const btn = document.createElement("button");
+    btn.textContent = title;
+    btn.className = "indice-btn";
+    btn.style.minWidth = "120px";
+    btn.onclick = () => {
+      checkAnswer(title);
+      list.remove();
+      document.getElementById("openingInput").value = "";
+    };
+    list.appendChild(btn);
+  });
+  document.getElementById("container").appendChild(list);
+}
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 // ======= DARK/LIGHT MODE + MENU =======
 document.getElementById("back-to-menu").addEventListener("click", function() {
   window.location.href = "../index.html";
@@ -129,6 +215,7 @@ function nextParcoursRound() {
   document.getElementById("playTry3").disabled = true;
   document.getElementById("nextBtn").style.display = "none";
   document.getElementById("suggestions").innerHTML = "";
+  resetIndice();
 
   currentIndex = getParcoursIndex(animeList.length);
   currentAnime = animeList[currentIndex];
@@ -230,6 +317,9 @@ function blockInputsAll() {
   document.getElementById("playTry2").disabled = true;
   document.getElementById("playTry3").disabled = true;
   document.getElementById("suggestions").innerHTML = "";
+  document.getElementById("indice-buttons").style.display = "none";
+  const old = document.getElementById("indice-options-list");
+  if (old) old.remove();
 }
 
 // ============ RESTE IDENTIQUE ============
@@ -282,7 +372,22 @@ function resetControls() {
   document.getElementById("playTry3").disabled = true;
   document.getElementById("nextBtn").style.display = "none";
   document.getElementById("suggestions").innerHTML = "";
+  resetIndice();
+  updateScoreBar();
   resizeContainer();
+}
+
+function resetIndice() {
+  indice6Used = false;
+  indice3Used = false;
+  indiceActive = false;
+  document.getElementById("indice-buttons").style.display = "none";
+  document.getElementById("btnIndice6").classList.remove("used");
+  document.getElementById("btnIndice3").classList.remove("used");
+  document.getElementById("btnIndice6").disabled = false;
+  document.getElementById("btnIndice3").disabled = false;
+  const old = document.getElementById("indice-options-list");
+  if (old) old.remove();
 }
 
 function playTry(n) {
@@ -297,6 +402,21 @@ function playTry(n) {
   document.getElementById("result").textContent = "";
   document.getElementById("result").className = "";
   clearInterval(stopInterval);
+
+  // Affiche indices à l'écoute 3 uniquement
+  if (tries === 3) {
+    document.getElementById("indice-buttons").style.display = "flex";
+    indiceActive = true;
+    document.getElementById("btnIndice6").disabled = indice6Used || indice3Used;
+    document.getElementById("btnIndice3").disabled = indice6Used || indice3Used;
+    document.getElementById("btnIndice6").classList.toggle("used", indice6Used);
+    document.getElementById("btnIndice3").classList.toggle("used", indice3Used);
+  } else {
+    document.getElementById("indice-buttons").style.display = "none";
+    indiceActive = false;
+    const opt = document.getElementById("indice-options-list");
+    if (opt) opt.remove();
+  }
 
   let start = 0;
   if (tries === 2) start = 0;
@@ -313,6 +433,7 @@ function playTry(n) {
   document.getElementById("playTry1").disabled = true;
   document.getElementById("playTry2").disabled = (tries !== 1);
   document.getElementById("playTry3").disabled = (tries !== 2);
+  updateScoreBar();
   resizeContainer();
 }
 
@@ -324,13 +445,17 @@ function checkAnswer(selectedTitle) {
     if (isParcours) {
       if (tries === 1) score = 3000;
       else if (tries === 2) score = 2000;
-      else if (tries === 3) score = 1000;
+      else if (tries === 3 && indice6Used) score = 500;
+      else if (tries === 3 && indice3Used) score = 1000;
+      else if (tries === 3) score = 1500;
       parcoursTotalScore += score;
       showVictoryParcours(score);
     } else if (isDaily && !dailyPlayed) {
       if (tries === 1) score = 3000;
       else if (tries === 2) score = 2000;
-      else if (tries === 3) score = 1000;
+      else if (tries === 3 && indice6Used) score = 500;
+      else if (tries === 3 && indice3Used) score = 1000;
+      else if (tries === 3) score = 1500;
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
       dailyScore = score;
@@ -341,6 +466,7 @@ function checkAnswer(selectedTitle) {
     }
     blockInputsAll();
     showNextButton();
+    updateScoreBar(score);
     resizeContainer();
   } else {
     failedAnswers.push(selectedTitle);
@@ -373,6 +499,7 @@ function revealAnswer() {
   }
   blockInputsAll();
   showNextButton();
+  updateScoreBar(0);
   resizeContainer();
 }
 function showNextButton() {
@@ -393,7 +520,6 @@ function showVictoryParcours(roundScore) {
   resultDiv.className = roundScore > 0 ? "correct" : "incorrect";
   if (roundScore > 0) launchFireworks();
 
-  // Affiche TOUJOURS le bouton
   document.getElementById("nextBtn").style.display = "block";
   document.getElementById("nextBtn").textContent = (parcoursIndex + 1 < parcoursCount) ? "Suivant" : "Terminer";
 
