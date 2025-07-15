@@ -9,37 +9,44 @@
   </head>
   <body>
     <header>
-      <div class="header-group">
-        <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
-        <h1>CharacterQuizz</h1>
-        <button id="themeToggle" class="toggle-btn">🌓</button>
-      </div>
+      <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
+      <h1>🧑‍🎤 CharacterQuizz</h1>
+      <button id="themeToggle" class="toggle-btn">🌓</button>
     </header>
 
-    <!-- Bandeau daily juste après le header -->
+    <!-- Bandeau daily -->
     <div id="daily-banner" style="display:none; margin-bottom: 1.2rem; margin-top: 1rem;">
       <span id="daily-status"></span>
       <span id="daily-score"></span>
       <button id="switch-mode-btn" class="toggle-btn" style="margin-left:14px;">Passer en mode Classique</button>
     </div>
 
-    <div id="character-container"></div>
-
-    <div id="controls">
-      <div class="input-container">
-        <input type="text" id="characterInput" placeholder="Entrez le nom de l'anime..." autocomplete="off" />
-        <div id="suggestions" class="suggestions"></div>
+    <!-- Score bar -->
+    <div id="score-bar-container">
+      <div id="score-bar">
+        <span id="score-bar-label">3000 / 3000</span>
       </div>
-      <button id="submit-btn" disabled>Valider</button>
-      <button id="restart-btn" style="display:none;">Rejouer</button>
     </div>
 
-    <p id="timer">Chargement...</p>
-    <p id="feedback"></p>
+    <!-- Container principal -->
+    <div id="container">
+      <div id="character-container"></div>
+      <div id="controls">
+        <div class="input-container">
+          <input type="text" id="characterInput" placeholder="Entrez le nom de l'anime..." autocomplete="off" />
+          <div id="suggestions" class="suggestions"></div>
+        </div>
+        <button id="submit-btn" disabled>Valider</button>
+        <button id="restart-btn" style="display:none;">Rejouer</button>
+      </div>
+      <p id="timer">Chargement...</p>
+      <p id="feedback"></p>
+    </div>
 
     <footer>
       © 2025 mastermanga
     </footer>
+    <canvas id="fireworks"></canvas>
     <script src="script.js"></script>
   </body>
 </html>
