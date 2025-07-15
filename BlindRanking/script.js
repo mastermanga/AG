@@ -126,12 +126,19 @@ function displayCurrentItem() {
     const container = document.getElementById("anime-item");
     const nextBtn = document.getElementById("next-btn");
     const ytDiv = document.getElementById('yt-player-1');
-    const playerZone = document.getElementById('player-zone'); // AJOUT
-
+    const playerZone = document.getElementById('player-zone');
+  
+    // AJOUT : adapte le style du container selon le mode
+    if (rankingMode === "opening") {
+      container.classList.add("large-opening");
+    } else {
+      container.classList.remove("large-opening");
+    }
+  
     ytDiv.innerHTML = "";
     ytDiv.style.display = "none";
     document.getElementById('player-loader').style.display = "none";
-
+  
     if (currentIndex < selectedAnimes.length) {
       const item = selectedAnimes[currentIndex];
       if (rankingMode === "anime") {
@@ -149,8 +156,8 @@ function displayCurrentItem() {
         document.getElementById("anime-name").textContent = item.openingName || "";
         animeImg.style.display = "none";
         if (playerZone) {
-          playerZone.style.height = "225px";
-          playerZone.style.minHeight = "225px";
+          playerZone.style.height = "410px";      // ← GRAND PLAYER
+          playerZone.style.minHeight = "340px";
           playerZone.style.padding = "";
           playerZone.style.overflow = "";
         }
@@ -158,7 +165,7 @@ function displayCurrentItem() {
         ytDiv.style.display = "block";
         if (item.url) {
           const embedUrl = getYouTubeEmbedUrl(item.url);
-          ytDiv.innerHTML = `<iframe src="${embedUrl}" width="100%" height="225" frameborder="0" allowfullscreen style="border-radius:10px;background:#222;box-shadow:0 2px 12px #1114;"></iframe>`;
+          ytDiv.innerHTML = `<iframe src="${embedUrl}" width="100%" height="410" frameborder="0" allowfullscreen style="border-radius:10px;background:#222;box-shadow:0 2px 12px #1114;"></iframe>`;
         }
       }
       container.style.display = "flex";
@@ -172,6 +179,7 @@ function displayCurrentItem() {
       finishGame();
     }
   }, 120);
+
 }
 
 // ==== ASSIGNATION RANG ====
