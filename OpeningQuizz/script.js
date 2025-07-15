@@ -15,6 +15,12 @@ function getScoreBarColor(score) {
 // ==== BARRE DE SCORE ====
 function updateScoreBar(score = null) {
   let percent = 100, label = "3000 / 3000", currentScore = 3000;
+  if (tries === 0) {
+    document.getElementById("score-bar-label").textContent = "3000 / 3000";
+    document.getElementById("score-bar").style.width = "100%";
+    document.getElementById("score-bar").style.background = getScoreBarColor(3000);
+    return;
+  }
   if (score === null) {
     if (tries === 1) { percent = 100; label = "3000 / 3000"; currentScore = 3000; }
     else if (tries === 2) { percent = 66.66; label = "2000 / 3000"; currentScore = 2000; }
