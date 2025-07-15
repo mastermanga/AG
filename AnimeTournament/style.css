@@ -259,6 +259,10 @@ body.light #next-match-btn:hover {
   position: relative;
 }
 
+#classement:empty {
+  display: none;
+}
+
 /* Classement card */
 .classement-item {
   position: relative;
