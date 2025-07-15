@@ -253,7 +253,7 @@ body.light input[type="text"] {
 .cell-genre, .cell-theme { min-width: 170px; max-width: 200px; text-align: left; }
 .cell-studio { min-width: 120px; max-width: 160px; }
 .cell-season { min-width: 110px; max-width: 130px; }
-.cell-score { min-width: 80px; max-width: 100px; }
+.cell-score { min-width: 120px; max-width: 150px; }
 .green { background-color: #27ae60 !important; color: white; }
 .red { background-color: #e74c3c !important; color: white; }
 .orange { background-color: #ff9800 !important; color: white; }
