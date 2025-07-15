@@ -240,7 +240,6 @@ function startNewGame() {
 
   // --- NOUVELLE SÉLECTION DE PERSOS À AFFICHER ---
   let selectedCharacters = pickRandomPerGroup(currentAnime.characters);
-  updateScoreBar(3000);
   // Reset de tout
   container.innerHTML = '';
   feedback.textContent = '';
@@ -464,6 +463,9 @@ function checkGuess() {
   const answer = currentAnime.title.toLowerCase();
 
   if (normalizedGuess === answer) {
+    let malus = (revealedCount - 1) * 500;
+    let score = Math.max(3000 - malus, 0);
+    updateScoreBar(score);
     if (score > 0) launchFireworks();
     feedback.textContent = `🎉 Bonne réponse ! C'était bien "${currentAnime.title}"`;
     feedback.className = "success";
@@ -472,9 +474,6 @@ function checkGuess() {
       document.getElementById("char-" + i).style.display = "block";
     }
     if (isDaily && !dailyPlayed) {
-      let malus = (revealedCount - 1) * 500;
-      let score = Math.max(3000 - malus, 0);
-      updateScoreBar(score);
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
       dailyScore = score;
@@ -495,7 +494,7 @@ function checkGuess() {
         localStorage.setItem(SCORE_KEY, 0);
         dailyPlayed = true;
         dailyScore = 0;
-        updateScoreBar(s0);
+        updateScoreBar(0);
         showDailyBanner();
       }
       feedback.textContent += ` Tu as épuisé tous les indices. C'était "${currentAnime.title}".`;
@@ -546,9 +545,9 @@ function showFeedbackParcours(isWin) {
   }
   let roundScore = 0;
   if (isWin) {
-    if (roundScore > 0) launchFireworks();
     let malus = (revealedCount - 1) * 500;
     roundScore = Math.max(3000 - malus, 0);
+    if (roundScore > 0) launchFireworks();
     updateScoreBar(roundScore);
     feedback.textContent = `🎉 Bonne réponse ! "${currentAnime.title}" | Score : ${roundScore}`;
     feedback.className = "success";
