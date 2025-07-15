@@ -156,8 +156,8 @@ function displayCurrentItem() {
         document.getElementById("anime-name").textContent = item.openingName || "";
         animeImg.style.display = "none";
         if (playerZone) {
-          playerZone.style.height = "410px";      // ← GRAND PLAYER
-          playerZone.style.minHeight = "340px";
+          playerZone.style.height = "";      // ← GRAND PLAYER
+          playerZone.style.minHeight = "";
           playerZone.style.padding = "";
           playerZone.style.overflow = "";
         }
