@@ -193,6 +193,7 @@ body.light .main-block {
   flex-direction: row !important;
   gap: 5rem;
   justify-content: center;
+  align-items: flex-start;
   margin-bottom: 2rem;
   width: 100%;
   max-width: 1600px;
