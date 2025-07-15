@@ -36,7 +36,7 @@ body::before {
 /* === Header et titre néon === */
 header {
   width: 100%;
-  max-width: 370px;
+  max-width: 1100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,6 +47,7 @@ header {
 }
 header h1 {
   font-size: 2rem;
+  white-space: nowrap;
   flex-grow: 1;
   margin: 0 1rem 0 0;
   letter-spacing: 1px;
