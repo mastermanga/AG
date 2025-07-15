@@ -426,18 +426,19 @@ body.light footer {
   }
 }
 
-.anime-item.large-opening {
-  max-width: 800px;
-}
-.anime-container {
-  max-width: 840px;
-  width: 100%;
-}
 .anime-item.large-opening #yt-player-1,
 .anime-item.large-opening #yt-player-2,
 .anime-item.large-opening #player-zone {
+  width: 888px;
   height: 500px;
   min-height: 320px;
+  max-width: 100%;      /* Pour le responsive ! */
+}
+.anime-item.large-opening {
+  max-width: 900px;
+}
+.anime-container {
+  max-width: 920px;
 }
 
 /* Loader animation (optionnel) */
