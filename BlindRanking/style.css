@@ -441,7 +441,7 @@ body.light footer {
 .anime-item.large-opening {
   max-width: 630px; /* 600px + padding/marges éventuels */
   width: 100%;
-  min-height: 520px; /* Hauteur augmentée pour plus d’espace */
+  min-height: 600px; /* Hauteur augmentée pour plus d’espace */
   display: flex;
   flex-direction: column;
   align-items: center;
