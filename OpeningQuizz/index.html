@@ -24,6 +24,12 @@
   </div>
 
   <div id="container">
+    <!-- BARRE DE SCORE -->
+    <div id="score-bar-container" style="margin-bottom:12px;">
+      <div id="score-bar" style="width:100%;position:relative;">
+        <span id="score-bar-label" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-weight:bold;">3000 / 3000</span>
+      </div>
+    </div>
     <div id="successContainer" style="display:none;"></div>
     <div class="input-container">
       <input type="text" id="openingInput" placeholder="Entrez le nom d'un anime..." autocomplete="off" />
@@ -34,6 +40,13 @@
       <button id="playTry2" disabled>Écoute 2 (15s)</button>
       <button id="playTry3" disabled>Écoute 3 (15s)</button>
     </div>
+  
+    <!-- INDICES ÉCOUTE 3 -->
+    <div id="indice-buttons" style="display:none;justify-content:center;gap:14px;margin-bottom:12px;">
+      <button id="btnIndice6" class="indice-btn" style="min-width:120px;">Indice 6 choix</button>
+      <button id="btnIndice3" class="indice-btn" style="min-width:120px;">Indice 3 choix</button>
+    </div>
+  
     <div id="failedAttempts"></div>
     <div id="result"></div>
     <div id="timer"></div>
@@ -41,6 +54,7 @@
     <canvas id="fireworks"></canvas>
     <div id="playerWrapper" style="display:none;"></div>
   </div>
+
 
   <footer>
     © 2025 mastermanga
