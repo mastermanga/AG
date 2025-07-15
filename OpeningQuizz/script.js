@@ -4,16 +4,26 @@ let indice3Used = false;
 let optionsList = [];
 let indiceActive = false;
 
+function getScoreBarColor(score) {
+  if (score >= 2500) return "linear-gradient(90deg,#70ffba,#3b82f6 90%)";
+  if (score >= 1500) return "linear-gradient(90deg,#fff96a,#ffc34b 90%)";
+  if (score >= 1000) return "linear-gradient(90deg,#ffb347,#fd654c 90%)";
+  if (score > 0)     return "linear-gradient(90deg,#fd654c,#cb202d 90%)";
+  return "linear-gradient(90deg,#444,#333 90%)";
+}
+
 // ==== BARRE DE SCORE ====
 function updateScoreBar(score = null) {
-  let percent = 100, label = "3000 / 3000";
+  let percent = 100, label = "3000 / 3000", currentScore = 3000;
   if (score === null) {
-    if (tries === 1) { percent = 100; label = "3000 / 3000"; }
-    else if (tries === 2) { percent = 66.66; label = "2000 / 3000"; }
-    else if (tries === 3 && !indice6Used && !indice3Used) { percent = 50; label = "1500 / 3000"; }
-    else if (tries === 3 && indice3Used) { percent = 33.3; label = "1000 / 3000"; }
-    else if (tries === 3 && indice6Used) { percent = 16.7; label = "500 / 3000"; }
+    if (tries === 1) { percent = 100; label = "3000 / 3000"; currentScore = 3000; }
+    else if (tries === 2) { percent = 66.66; label = "2000 / 3000"; currentScore = 2000; }
+    else if (tries === 3 && !indice6Used && !indice3Used) { percent = 50; label = "1500 / 3000"; currentScore = 1500; }
+    else if (tries === 3 && indice3Used) { percent = 33.3; label = "1000 / 3000"; currentScore = 500; }
+    else if (tries === 3 && indice6Used) { percent = 16.7; label = "500 / 3000"; currentScore = 1000; }
+    else { percent = 0; label = "0 / 3000"; currentScore = 0; }
   } else {
+    currentScore = score;
     if (score === 3000) { percent = 100; label = "3000 / 3000"; }
     else if (score === 2000) { percent = 66.66; label = "2000 / 3000"; }
     else if (score === 1500) { percent = 50; label = "1500 / 3000"; }
@@ -23,6 +33,7 @@ function updateScoreBar(score = null) {
   }
   document.getElementById("score-bar-label").textContent = label;
   document.getElementById("score-bar").style.width = percent + "%";
+  document.getElementById("score-bar").style.background = getScoreBarColor(currentScore);
 }
 
 // ==== INDICES BOUTONS ====
@@ -445,16 +456,16 @@ function checkAnswer(selectedTitle) {
     if (isParcours) {
       if (tries === 1) score = 3000;
       else if (tries === 2) score = 2000;
-      else if (tries === 3 && indice6Used) score = 500;
-      else if (tries === 3 && indice3Used) score = 1000;
+      else if (tries === 3 && indice6Used) score = 1000;
+      else if (tries === 3 && indice3Used) score = 500;
       else if (tries === 3) score = 1500;
       parcoursTotalScore += score;
       showVictoryParcours(score);
     } else if (isDaily && !dailyPlayed) {
       if (tries === 1) score = 3000;
       else if (tries === 2) score = 2000;
-      else if (tries === 3 && indice6Used) score = 500;
-      else if (tries === 3 && indice3Used) score = 1000;
+      else if (tries === 3 && indice6Used) score = 1000;
+      else if (tries === 3 && indice3Used) score = 500;
       else if (tries === 3) score = 1500;
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
