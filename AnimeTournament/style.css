@@ -199,7 +199,15 @@ body.light .main-block {
   max-width: 1600px;
 }
 
-#duel-container .anime,
+#duel-container .anime {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 320px;
+  max-width: 48vw;
+  gap: 1.5rem;
+}
+
 #duel-container .opening {
   display: flex;
   flex-direction: column;
