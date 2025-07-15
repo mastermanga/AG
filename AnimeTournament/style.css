@@ -460,7 +460,7 @@ h2, .section-title {
 }
 
 .tournament-title {
-  padding: 0 2em;
+  padding: 0 0.5em;
   white-space: nowrap;
 }
 
