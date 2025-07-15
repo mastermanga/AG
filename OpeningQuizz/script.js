@@ -20,19 +20,23 @@ let parcoursIndex = 0;
 let parcoursTotalScore = 0;
 
 // ======= DAILY / CLASSIC MODE LOGIC =======
-const GAME_ID = "openingquizz"; // Modifie ce nom pour chaque jeu différent sur la même base
+const GAME_ID = "openingquizz";
 let isDaily = !isParcours;
 const DAILY_BANNER = document.getElementById("daily-banner");
 const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
 const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
 
-function todayKey() {
-  const d = new Date();
-  return `${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2, "0")}-${d.getDate().toString().padStart(2,"0")}`;
+function getTodayString() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
 }
-const SCORE_KEY = `dailyScore_${GAME_ID}_${todayKey()}`;
-const STARTED_KEY = `dailyStarted_${GAME_ID}_${todayKey()}`;
+const todayString = getTodayString();
+const SCORE_KEY = `dailyScore_${GAME_ID}_${todayString}`;
+const STARTED_KEY = `dailyStarted_${GAME_ID}_${todayString}`;
 
 let dailyPlayed = false;
 let dailyScore = null;
@@ -45,6 +49,12 @@ function simpleHash(str) {
     hash = hash & 0xFFFFFFFF; // force 32bit
   }
   return Math.abs(hash);
+}
+
+function getDailyIndex(len) {
+  const dateStr = getTodayString();
+  const hash = simpleHash(dateStr + "|" + GAME_ID);
+  return hash % len;
 }
 
 // ====== OPENING QUIZZ LOGIC =======
@@ -65,7 +75,7 @@ const tryDurations = [3, 15, 15];
 let failedAnswers = [];
 let playerReady = false;
 
-// ======= CHARGEMENT NOUVEAU FORMAT JSON =======
+// ======= CHARGEMENT JSON =======
 fetch('../data/openings.json')
   .then(res => res.json())
   .then(data => {
@@ -88,7 +98,7 @@ fetch('../data/openings.json')
     }
   });
 
-// ====== MODE PARCOURS : seed "random" pour chaque round
+// ====== MODE PARCOURS ======
 function seededRandom(seed) {
   return function() {
     seed = (seed * 9301 + 49297) % 233280;
@@ -99,13 +109,11 @@ function getParcoursIndex(n) {
   const baseSeed = Date.now() + parcoursIndex * 37;
   return Math.floor(seededRandom(baseSeed)() * n);
 }
-
 function startParcoursGame() {
   document.getElementById("back-to-menu").style.display = "none";
   if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
   nextParcoursRound();
 }
-
 function nextParcoursRound() {
   tries = 0;
   failedAnswers = [];
@@ -125,11 +133,8 @@ function nextParcoursRound() {
   currentIndex = getParcoursIndex(animeList.length);
   currentAnime = animeList[currentIndex];
 
-  if (player && typeof player.destroy === "function") {
-    player.destroy();
-  }
+  if (player && typeof player.destroy === "function") player.destroy();
   playerReady = false;
-
   if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
     window.onYouTubeIframeAPIReady = initPlayer;
   } else {
@@ -138,24 +143,13 @@ function nextParcoursRound() {
   resizeContainer();
 }
 
-// =========== DAILY CLASSIC LOGIC ============
-// ===> NOUVEAU SYSTEME D'INDEX DAILY <===
-function getDailyIndex(len) {
-  const d = new Date();
-  const dateStr = d.getFullYear() + "-" + (d.getMonth()+1).toString().padStart(2,"0") + "-" + d.getDate().toString().padStart(2,"0");
-  const hash = simpleHash(dateStr + "|" + GAME_ID);
-  return hash % len;
-}
-
+// ============ DAILY CLASSIC LOGIC ============
 function setupGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
 
   if (isDaily) {
-    // NOUVEAU: index calculé par hash date+GAME_ID
     currentIndex = getDailyIndex(animeList.length);
-
-    // on marque "joué" si déjà fait
     if (localStorage.getItem(STARTED_KEY) && !localStorage.getItem(SCORE_KEY)) {
       dailyPlayed = true;
       dailyScore = 0;
@@ -185,11 +179,8 @@ function setupGame() {
 
   currentAnime = animeList[currentIndex];
 
-  if (player && typeof player.destroy === "function") {
-    player.destroy();
-  }
+  if (player && typeof player.destroy === "function") player.destroy();
   playerReady = false;
-
   if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
     window.onYouTubeIframeAPIReady = initPlayer;
   } else {
@@ -198,7 +189,6 @@ function setupGame() {
   resetControls();
   resizeContainer();
 }
-
 function showDailyBanner() {
   if (!DAILY_BANNER) return;
   DAILY_BANNER.style.display = "flex";
@@ -241,6 +231,9 @@ function blockInputsAll() {
   document.getElementById("playTry3").disabled = true;
   document.getElementById("suggestions").innerHTML = "";
 }
+
+// ============ RESTE IDENTIQUE ============
+
 
 // ============ PLAYER LOGIC ===========
 function initPlayer() {
