@@ -14,4 +14,4 @@ Ce projet regroupe **plusieurs mini-jeux web** autour de l'univers anime, jouabl
 ### 📦 Données incluses 📦 : 
 
 - 🎵 **+1000 Openings and +500 Endings** (dans `openings.json`)
-- 🎬 **200 Animes** (dans `animes.json`)
+- 🎬 **+500 Animes** (dans `animes.json`)
