@@ -293,7 +293,6 @@ function updateScoreBar() {
   let score = 3000 - (attemptCount - 1) * 150 - indiceCount * 300;
   if (score < 0) score = 0;
   let width = (score / 3000 * 100);
-  if (scoreBar) scoreBar.style.width = width + '%';
   if (scoreBarLabel) scoreBarLabel.textContent = score + " / 3000";
 
   let percent = score / 3000;
