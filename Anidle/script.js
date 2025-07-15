@@ -152,7 +152,6 @@ function setupGame() {
     const div = document.createElement("div");
     div.id = "tentative-cost";
     div.style = "font-size:0.98rem; color:#ffc107; margin-top:2px; margin-bottom:8px;";
-    div.innerHTML = "Chaque tentative coûte <b>150</b> points";
     document.getElementById("counter").after(div);
   }
 
