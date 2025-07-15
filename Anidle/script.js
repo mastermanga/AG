@@ -144,7 +144,7 @@ function setupGame() {
   document.getElementById("animeInput").value = "";
   document.getElementById("suggestions").innerHTML = "";
   document.getElementById("results").innerHTML = "";
-  document.getElementById("counter").textContent = "Tentatives : 0";
+  document.getElementById("counter").textContent = "Tentatives : 0 (-150)";
   document.getElementById("successContainer").style.display = "none";
   document.getElementById("animeInput").disabled = false;
 
