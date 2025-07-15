@@ -3,18 +3,17 @@
   display: none;
   background: linear-gradient(90deg, #1565c0 40%, #00bcd4 100%);
   color: #fff;
-  border-radius: 9px;
-  box-shadow: 0 4px 15px #00bcd4cc;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 30px #00bcd4bb;
   font-weight: bold;
   text-align: center;
-  font-size: 1.2rem;
-  padding: 12px 20px 10px 20px;
-  margin: 0 auto 22px auto;
-  margin-top: 1.3rem 
-  margin-bottom: 2.3rem 
-  max-width: 440px;
-  width: 95%;
-  letter-spacing: 0.4px;
+  font-size: 1.13rem;
+  padding: 18px 18px 13px 18px;
+  margin: 0 auto 2.4rem auto;
+  margin-top: 1.4rem;
+  max-width: 650px;    /* <<< même valeur que #container */
+  width: 98vw;
+  letter-spacing: 0.3px;
   gap: 10px;
   position: relative;
   z-index: 3;
@@ -22,6 +21,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  transition: box-shadow 0.22s, background 0.28s;
 }
 #daily-banner .score {
   margin-top: 5px;
@@ -30,34 +30,35 @@
   font-weight: bold;
 }
 #switch-mode-btn {
-  background-color: #42a5f5;
+  background: #42a5f5;
   color: #fff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  margin-left: 16px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  margin-left: 18px;
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
-  box-shadow: 0 1px 8px #1565c088;
-  transition: background 0.2s, color 0.2s;
-  outline: none;
+  box-shadow: 0 2px 12px #38d43033;
+  transition: background 0.22s, color 0.18s, box-shadow 0.16s;
 }
 #switch-mode-btn:hover {
-  background: #1976d2;
+  background: linear-gradient(90deg, #38d430 60%, #00bcd4 100%);
   color: #fff;
+  box-shadow: 0 4px 20px #38d43099;
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   #daily-banner {
     max-width: 98vw;
     font-size: 1rem;
-    padding: 10px 3vw 10px 3vw;
+    padding: 13px 3vw 13px 3vw;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
+    border-radius: 1.1rem;
   }
   #switch-mode-btn {
     margin-left: 0;
-    margin-top: 8px;
+    margin-top: 9px;
     width: 100%;
   }
 }
@@ -67,10 +68,12 @@ body.light #daily-banner {
   box-shadow: 0 4px 15px #42a5f566;
 }
 body.light #switch-mode-btn {
-  background-color: #1565c0;
+  background: #1565c0;
 }
 body.light #switch-mode-btn:hover {
-  background: #0d47a1;
+  background: linear-gradient(90deg, #5fee94 60%, #1565c0 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px #56f7a488;
 }
 
 body {
