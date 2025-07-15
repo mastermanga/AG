@@ -437,6 +437,32 @@ body.light footer {
   box-shadow: none !important;
 }
 
+#indice-options-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px 20px;
+  justify-items: center;
+  margin-top: 18px;
+  width: 100%;
+  max-width: 500px;
+}
+#indice-options-list .indice-btn {
+  width: 100%;
+  min-width: 0;
+  max-width: 200px;
+  font-size: 1.11rem;
+  padding: 0.7rem 0.5rem;
+  border-radius: 16px;
+  box-sizing: border-box;
+  margin: 0;
+}
+#indice-options-list .indice-btn:hover:not(:disabled) {
+  background: linear-gradient(120deg, #fff29b 70%, #ffd600 100%);
+  color: #000 !important;
+  box-shadow: 0 6px 22px #ffd60099;
+  filter: brightness(1.09);
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   #container { 
