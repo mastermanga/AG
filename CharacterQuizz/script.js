@@ -409,9 +409,9 @@ function revealNextCharacter() {
   if (revealedCount < (currentAnime.visibleCharacters ? currentAnime.visibleCharacters.length : 0)) {
     const img = document.getElementById("char-" + revealedCount);
     if (img) img.style.display = "block";
-    revealedCount++;
     let potentialScore = Math.max(3000 - (revealedCount) * 500, 0);
     updateScoreBar(potentialScore);
+    revealedCount++;
     resetTimer();
   }
 }
