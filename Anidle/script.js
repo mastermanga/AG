@@ -575,12 +575,6 @@ function showSuccessMessageClassic() {
   container.style.display = "block";
   container.scrollIntoView({behavior: "smooth", block: "start"});
 
-  // Effet glow sur le titre
-  const titreHeader = document.querySelector("header h1");
-  if (titreHeader) {
-    titreHeader.classList.add("victoire");
-    setTimeout(() => titreHeader.classList.remove("victoire"), 1700);
-  }
   // Barre animée
   setTimeout(() => {
     const bar = document.getElementById('score-bar');
@@ -652,12 +646,6 @@ function showSuccessMessageParcours(roundScore) {
   container.style.display = "block";
   container.scrollIntoView({behavior: "smooth", block: "start"});
 
-  // Glow titre header
-  const titreHeader = document.querySelector("header h1");
-  if (titreHeader) {
-    titreHeader.classList.add("victoire");
-    setTimeout(() => titreHeader.classList.remove("victoire"), 1700);
-  }
   setTimeout(() => {
     const bar = document.getElementById('score-bar');
     if(bar) bar.style.width = (roundScore/totalScore*100) + '%';
