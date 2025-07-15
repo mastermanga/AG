@@ -256,6 +256,7 @@ document.getElementById("btnIndiceStudio").addEventListener("click", function() 
   this.disabled = true;
   this.classList.add('used');
   updateAideList();
+  updateScoreBar();
 });
 document.getElementById("btnIndiceSaison").addEventListener("click", function() {
   if (!indicesAvailable.saison || indicesActivated.saison) return;
@@ -264,6 +265,7 @@ document.getElementById("btnIndiceSaison").addEventListener("click", function() 
   this.disabled = true;
   this.classList.add('used');
   updateAideList();
+  updateScoreBar();
 });
 document.getElementById("btnIndiceGenres").addEventListener("click", function() {
   if (!indicesAvailable.genres || indicesActivated.genres) return;
@@ -272,6 +274,7 @@ document.getElementById("btnIndiceGenres").addEventListener("click", function() 
   this.disabled = true;
   this.classList.add('used');
   updateAideList();
+  updateScoreBar();
 });
 document.getElementById("btnIndiceScore").addEventListener("click", function() {
   if (!indicesAvailable.score || indicesActivated.score) return;
@@ -280,6 +283,7 @@ document.getElementById("btnIndiceScore").addEventListener("click", function() {
   this.disabled = true;
   this.classList.add('used');
   updateAideList();
+  updateScoreBar();
 });
 
 function updateScoreBar() {
@@ -654,11 +658,6 @@ function showSuccessMessageParcours(roundScore) {
   `;
   container.style.display = "block";
   container.scrollIntoView({behavior: "smooth", block: "start"});
-
-  setTimeout(() => {
-    const bar = document.getElementById('score-bar');
-    if(bar) bar.style.width = (roundScore/totalScore*100) + '%';
-  }, 80);
 
   document.getElementById("nextParcoursBtn").onclick = () => {
     parcoursIndex++;
