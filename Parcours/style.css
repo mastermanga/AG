@@ -1,299 +1,372 @@
-/* === Corps & background identique au menu === */
-body, html {
-  background: radial-gradient(circle at 50% 25%, #263859 0%, #121212 100%);
+html, body {
+  background: #181818 !important;
   color: #eee;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
   margin: 0;
-  padding: 2rem 1rem;
+  padding: 0;
   width: 100vw;
   box-sizing: border-box;
   overflow-x: hidden;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background 0.4s;
+}
+
+body {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
 }
 
-/* Particules animées en fond */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle, #00fff94d 2px, transparent 3px) 30vw 20vh/120px 120px repeat,
-    radial-gradient(circle, #42a5f577 1.5px, transparent 3px) 70vw 75vh/90px 90px repeat;
-  animation: moveParticles 18s linear infinite alternate;
-  opacity: 0.27;
-}
-@keyframes moveParticles {
-  0% { background-position: 30vw 20vh, 70vw 75vh; }
-  100% { background-position: 33vw 22vh, 68vw 78vh; }
+body.light, html.light {
+  background: #f5f5f5 !important;
+  color: #234;
 }
 
-/* === Header et titre néon === */
+/* HEADER */
 header {
-  width: 100%;
-  max-width: 1100px;
+  width: 100vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: 2rem;
+  background: none;
+  border: none;
+}
+.header-group {
+  display: flex;
   align-items: center;
-  margin-bottom: 0.5rem;
-  padding: 0 1rem;
-  position: relative;
-  z-index: 2;
+  gap: 1.3rem;
 }
 header h1 {
-  font-size: 2rem;
-  white-space: nowrap;
-  flex-grow: 1;
-  margin: 0 1rem 0 0;
-  letter-spacing: 1px;
-  font-weight: 800;
-  color: #fff;
-  text-shadow:
-    0 0 6px #00eaff,
-    0 0 18px #00eaff99,
-    0 2px 8px #00bcd477,
-    0 0 10px #fff1;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* === Boutons dégradés et hover comme menu === */
-.menu-btn, .toggle-btn, button {
-  background: linear-gradient(120deg, #00bcd4 75%, #1e88e5 100%);
-  color: #fff;
-  border-radius: 10px;
+  font-size: 2.2rem;
   font-weight: bold;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+.menu-btn, .toggle-btn {
+  background-color: #00bcd4;
+  color: #121212;
   border: none;
-  outline: none;
-  box-shadow: 0 1px 7px #00bcd466;
-  font-size: 1.13rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 7px;
   cursor: pointer;
-  padding: 0.6rem 1.3rem;
-  transition:
-    background 0.21s,
-    color 0.16s,
-    box-shadow 0.18s,
-    border 0.16s;
-  display: inline-flex;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.4rem;
 }
-.menu-btn:hover, .toggle-btn:hover, button:hover,
-.menu-btn:focus, .toggle-btn:focus, button:focus {
-  background: linear-gradient(120deg, #1de9b6 80%, #1565c0 100%);
+.menu-btn:hover, .toggle-btn:hover {
+  background-color: #0097a7;
   color: #fff;
-  text-shadow: 0 0 10px #fff9, 0 2px 6px #fff8;
-  box-shadow: 0 10px 34px #00eaffd7, 0 2.5px 14px #1976d277;
-  border: 2px solid #fff5;
 }
 
-/* === Builder & Recap container stylés comme menu === */
+/* BUILDER / RECAP */
 #parcours-builder, #recap {
-  background-color: #161e27ef;
-  border-radius: 20px;
-  box-shadow: 0 0 32px 5px #00bcd444;
-  border: 1.5px solid #00bcd455;
+  background: #191f28;
+  color: #eee;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px #00bcd455;
   max-width: 520px;
   width: 97vw;
   margin: 28px auto 20px auto;
-  padding: 2rem 2.2rem 2.2rem 2.2rem;
+  padding: 30px 26px 20px 26px;
   position: relative;
-  color: #eee;
-  z-index: 2;
 }
-
-/* === Titres H2 avec néon bleu === */
+body.light #parcours-builder, body.light #recap {
+  background: #fff;
+  color: #234;
+  box-shadow: 0 4px 18px #42a5f522;
+}
 h2 {
+  margin: 0 0 22px 0;
   font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 1.4rem;
+  font-weight: bold;
   text-align: center;
-  color: #00eaff;
-  text-shadow:
-    0 0 6px #00eaff,
-    0 0 18px #00eaff99,
-    0 2px 8px #00bcd477,
-    0 0 10px #fff1;
 }
-
-/* === Builder row et champs === */
+label {
+  font-weight: 500;
+  margin-right: 12px;
+}
 .builder-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
   align-items: center;
+  gap: 16px;
+  margin-bottom: 17px;
   justify-content: center;
-  margin-bottom: 1.4rem;
-}
-label {
-  font-weight: 600;
-  color: #cceeff;
-  margin-right: 0.5rem;
 }
 select, input[type="number"] {
-  border-radius: 12px;
-  border: 1.5px solid #00bcd4;
-  background: #222c3b;
-  color: #cceeff;
-  font-size: 1.05rem;
-  padding: 0.5rem 1rem;
+  padding: 7px 14px;
+  border-radius: 7px;
+  border: 1px solid #00bcd4;
+  background: #232323;
+  color: #fff;
+  font-size: 1rem;
   outline: none;
-  transition: border-color 0.3s;
-  min-width: 110px;
+  transition: border 0.2s;
+  margin-right: 6px;
 }
 select:focus, input[type="number"]:focus {
-  border-color: #1de9b6;
-  box-shadow: 0 0 12px #00eaff99;
+  border-color: #42a5f5;
 }
-
-/* === Steps list === */
-#steps-list {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  min-height: 30px;
+body.light select, body.light input[type="number"] {
+  background: #f5faff;
+  color: #234;
+  border-color: #b6cdfc;
 }
-.step-line {
-  background: #191f28;
-  border-radius: 15px;
-  box-shadow: 0 0 14px #00bcd422;
-  padding: 12px 20px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.8rem;
-  color: #d1eaff;
-  font-weight: 600;
-  font-size: 1.1rem;
-  user-select: none;
-}
-.step-controls button {
-  background: linear-gradient(120deg, #00bcd4 75%, #1e88e5 100%);
+button {
+  padding: 10px 18px;
+  font-size: 1.05rem;
+  border-radius: 8px;
   border: none;
-  border-radius: 10px;
-  padding: 0.5rem 1rem;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1rem;
+  background-color: #00bcd4;
+  color: #121212;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s;
+  box-shadow: 0 1px 5px #1113;
+  margin-right: 6px;
+  margin-top: 6px;
+  transition: background 0.3s;
 }
-.step-controls button:hover:not(:disabled) {
-  background: linear-gradient(120deg, #1de9b6 80%, #1565c0 100%);
-  box-shadow: 0 6px 20px #00eaffcc;
-}
-.step-controls button:disabled {
+button:disabled {
   background: #666;
   color: #ccc;
   cursor: not-allowed;
 }
+button:hover:enabled {
+  background: #0097a7;
+  color: #fff;
+}
 
-/* === Recap list styling === */
+/* Step list */
+#steps-list {
+  margin-top: 16px;
+  margin-bottom: 12px;
+  min-height: 28px;
+}
+.step-line {
+  background: #222c37;
+  border-radius: 7px;
+  padding: 11px 15px;
+  margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  box-shadow: 0 1px 4px #0ff2;
+}
+body.light .step-line {
+  background: #ecf5fc;
+}
+.step-label {
+  font-size: 1.07rem;
+  font-weight: 500;
+}
+.step-controls button {
+  font-size: 1rem;
+  padding: 4px 10px;
+  margin: 0 1px;
+  border-radius: 5px;
+}
+.step-controls button:disabled {
+  opacity: 0.6;
+}
+.empty {
+  color: #aaa;
+  padding: 18px 0 14px 0;
+  text-align: center;
+  font-size: 1.06rem;
+}
+
+/* Récap Parcours */
+#recap {
+  display: none;
+  text-align: center;
+}
 #parcoursRecapList {
-  max-width: 420px;
-  margin: 0 auto 1.5rem auto;
-  padding: 0 0.6rem;
+  text-align: left;
+  margin: 20px auto 26px auto;
+  max-width: 400px;
+  padding: 0 8px;
   list-style: none;
   counter-reset: steps;
-  color: #bbe6ff;
 }
 #parcoursRecapList li {
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding-left: 2rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 8px;
+  font-size: 1.08rem;
   position: relative;
-  user-select: none;
+  padding-left: 19px;
 }
 #parcoursRecapList li:before {
   counter-increment: steps;
   content: counter(steps) ".";
   position: absolute;
-  left: 0;
-  top: 0;
-  font-weight: 700;
+  left: 0; top: 0;
   color: #00bcd4;
-  text-shadow: 0 0 6px #00eaff;
+  font-weight: bold;
 }
 
-/* === Parcours container (iframe) === */
+/* === Container d'iframe pour Parcours === */
 #parcours-container {
   width: 100vw;
-  min-width: 1200px;  /* laisse la largeur minimum plus grande */
-  max-width: 1600px;
   max-width: none;
-  margin: 0 auto;
+  min-width: 0;
+  margin: 0;
   padding: 0;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  opacity: 1;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  position: relative;
-  z-index: 2;
-  overflow: visible;
 }
 
+#parcours-container.active {
+  opacity: 1;
+  display: flex;
+}
+
+/* Style de l'iframe pour qu'il prenne bien la place et reste lisible */
 #parcours-iframe {
   width: 98vw;
-  max-width: 1500px;  /* largeur max plus grande */
-  height: 90vh;       /* hauteur grande pour voir plus */
-  min-height: 700px;  /* hauteur minimum pour éviter trop petit */
-  border-radius: 14px;
-  border: none;
-  background: #181818;
-  box-shadow: 0 0 32px 5px #00bcd444;
+  max-width: 98vw;
+  min-width: 0;
+  margin: 0;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #181818 !important;
   display: block;
   opacity: 1;
-  transition: opacity 0.3s;
-  z-index: 10;
+  z-index: 2;
+  height: 90vh;
 }
 body.light #parcours-iframe {
   background: #fafcff !important;
 }
 
-/* === Score & finish recap === */
+/* Score & finish recap */
 #parcours-score {
-  background: #161e27;
-  color: #bbe6ff;
-  border-radius: 14px;
-  box-shadow: 0 0 22px 5px #00bcd444;
-  max-width: 520px;
-  margin: 2rem auto 0 auto;
-  padding: 1.4rem 1.7rem;
+  background: #181d25;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 14px #00bcd422;
+  max-width: 500px;
+  margin: 18px auto 0 auto;
+  padding: 28px 30px;
   text-align: center;
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.1rem;
   display: none;
-  user-select: none;
+}
+body.light #parcours-score {
+  background: #f3f8fe;
+  color: #234;
 }
 #parcours-finish {
-  margin: 1rem auto 2rem auto;
-  text-align: center;
   display: none;
-  user-select: none;
+  text-align: center;
+  margin-top: 14px;
 }
 
-/* === Responsive === */
-@media (max-width: 600px) {
-  #parcours-builder, #recap {
-    width: 95vw;
-    padding: 1.5rem 1rem;
-  }
-  header {
-    max-width: 95vw;
-  }
+/* Responsive */
+@media (max-width: 1000px) {
   #parcours-iframe {
-    width: 95vw;
+    width: 99vw;
+    max-width: 99vw;
+    min-height: 320px;
     height: 60vh;
-    max-width: none;
+    border-radius: 8px;
+  }
+}
+@media (max-width: 900px) {
+  #parcours-iframe {
+    height: 420px;
+    max-width: 99vw;
   }
   #parcours-score {
-    width: 95vw;
-    margin: 1.5rem auto 0 auto;
-    padding: 1rem 1rem;
+    max-width: 94vw;
+    padding: 10px 4vw;
   }
+}
+@media (max-width: 600px) {
+  #parcours-builder, #recap {
+    padding: 18px 2vw 18px 2vw;
+    max-width: 99vw;
+  }
+  .step-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 7px;
+  }
+  #parcours-iframe {
+    height: 260px;
+    min-width: 98vw;
+    max-width: 99vw;
+  }
+  #parcours-score {
+    padding: 13px 3vw;
+    font-size: 0.95rem;
+  }
+}
+
+/* Garde le fond noir sur tout l'écran même si body n'est pas assez haut */
+html {
+  min-height: 100vh;
+  background: #181818 !important;
+}
+
+body.parcours-fullscreen header {
+  display: none !important;
+}
+
+body.parcours-fullscreen #parcours-container {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  width: 100vw !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+}
+
+body.parcours-fullscreen #parcours-iframe {
+  width: 100vw !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #181818 !important;
+  display: block !important;
+  height: 95vh !important; /* change 95vh par 100vh si tu veux VRAIMENT tout */
+  opacity: 1 !important;
+}
+
+footer {
+  margin-top: auto;
+  padding: 1.2rem 0 0.4rem 0;
+  color: #555;
+  font-size: 0.95rem;
+  text-align: center;
+  user-select: none;
+  width: 100%;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: color 0.3s;
+}
+body.light footer {
+  color: #888;
 }
