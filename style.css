@@ -131,14 +131,14 @@ header h1 {
   padding: 2px 0 2px 0;
 }
 #recap-total {
-  border-top: 1.5px solid #00eaffc2;
-  margin-top: 10px;
-  padding-top: 7px;
+  margin-top: 0px;
+  padding-top: 0px;
   font-size: 1.16rem;
   font-weight: bold;
   display: inline-block;
   color: #fff;
   text-shadow: 0 0 4px #00eaffb3;
+  vertical-align: middle; /* bien aligné */
 }
 
 /* --- MENU JEUX EN MODE "CARD" --- */
