@@ -295,6 +295,19 @@ function updateScoreBar() {
   let width = (score / 3000 * 100);
   if (scoreBar) scoreBar.style.width = width + '%';
   if (scoreBarLabel) scoreBarLabel.textContent = score + " / 3000";
+
+  let percent = score / 3000;
+  if (scoreBar) {
+    scoreBar.style.width = width + '%';
+    if(percent > 0.66)      scoreBar.style.background = "linear-gradient(90deg,#7ee787,#3b82f6 90%)";
+    else if(percent > 0.33) scoreBar.style.background = "linear-gradient(90deg,#ffd700,#ff9800 90%)";
+    else                    scoreBar.style.background = "linear-gradient(90deg,#ef4444,#f59e42 90%)";
+  }
+  if (scoreBar && score < 1000) {
+  scoreBar.classList.add('danger-pulse');
+  } else if (scoreBar) {
+    scoreBar.classList.remove('danger-pulse');
+  }
 }
 
 // ========== FONCTION PRINCIPALE DE JEU ==========
