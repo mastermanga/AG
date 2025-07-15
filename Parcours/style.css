@@ -223,6 +223,7 @@ select:focus, input[type="number"]:focus {
 /* === Parcours container (iframe) === */
 #parcours-container {
   width: 100vw;
+  min-width: 1200px;
   max-width: none;
   margin: 0 auto;
   padding: 0;
