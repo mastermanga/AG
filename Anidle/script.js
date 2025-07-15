@@ -290,7 +290,9 @@ function updateScoreBar() {
   const scoreBar = document.getElementById('score-bar');
   const scoreBarLabel = document.getElementById('score-bar-label');
   let indiceCount = Object.values(indicesActivated).filter(Boolean).length;
-  let score = 3000 - (attemptCount - 1) * 150 - indiceCount * 300;
+  let tentative = Math.max(0, attemptCount - 1);
+  let score = 3000 - tentative * 150 - indiceCount * 300;
+  score = Math.max(0, Math.min(score, 3000));
   if (score < 0) score = 0;
   let width = (score / 3000 * 100);
   if (scoreBarLabel) scoreBarLabel.textContent = score + " / 3000";
