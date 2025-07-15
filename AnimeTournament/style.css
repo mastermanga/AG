@@ -32,7 +32,7 @@ body::before {
 
 header {
   width: 100%;
-  max-width: 350px;
+  max-width: 720px;
   display: flex;
   justify-content: space-between;
   align-items: center;
