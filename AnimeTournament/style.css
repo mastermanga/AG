@@ -151,16 +151,21 @@ body.light #mode-select button:hover {
 
 .main-block {
   background: linear-gradient(120deg, #233554f3 80%, #00bcd411 100%);
-  border-radius: 19px;
-  box-shadow: 0 2px 16px #00bcd440;
-  padding: 1.5rem 1.2rem;
-  margin: 1.1rem auto;
-  width: 370px;
-  max-width: 98vw;
-  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 0 32px 5px #00bcd444;
   border: 1.5px solid #00bcd455;
-  z-index: 2;
+  padding: 2rem 2.1rem 2.1rem 2.1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  width: 96%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
   position: relative;
+  z-index: 2;
   transition: background 0.25s;
 }
 
@@ -450,10 +455,10 @@ h2, .section-title {
     0 1px 4px #1de9b68e;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 500px) {
   .main-block {
     width: 98vw;
-    padding: 1rem 2vw 1.2rem 2vw;
+    padding: 1.1rem 0.4rem 1.4rem 0.4rem;
+    box-shadow: 0 0 13px 2px #00bcd4;
   }
-  header, footer { max-width: 99vw; }
 }
