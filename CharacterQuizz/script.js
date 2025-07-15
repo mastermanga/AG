@@ -180,7 +180,7 @@ function showDailyBanner() {
   DAILY_BANNER.style.display = "flex";
   updateSwitchModeBtn();
   if (dailyPlayed) {
-    DAILY_STATUS.innerHTML = `<input type='checkbox' checked disabled style='accent-color:#38d430; margin-right:6px;vertical-align:-3px;'> <b>Daily du jour déjà jouée !</b>`;
+    DAILY_STATUS.innerHTML = `✅ <b>Daily du jour déjà jouée !</b>`;
     DAILY_SCORE.innerHTML = `Score : <b>${dailyScore} pts</b>`;
   } else {
     DAILY_STATUS.innerHTML = `<span style="font-size:1.25em;vertical-align:-2px;">🎲</span> <b>Daily du jour :</b>`;
