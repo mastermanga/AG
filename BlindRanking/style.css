@@ -445,6 +445,23 @@ body.light footer {
   width: 100%;
 }
 
+.anime-item.large-opening .rank-button {
+  width: 100%;
+  max-width: 600px;    /* Même largeur que la vidéo */
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.anime-item.large-opening #rank-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 /* Loader animation (optionnel) */
 @keyframes loaderFade {
   0% { opacity: 0.3; }
