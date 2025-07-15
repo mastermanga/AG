@@ -212,17 +212,18 @@ body.light #listen-buttons button:disabled {
   background: #161e27ee;
   border-radius: 22px;
   box-shadow: 0 0 32px 5px #00bcd466;
-  max-width: 480px;
+  max-width: 650px;
   width: 98vw;
-  margin: 0 auto 1.5rem auto;
-  padding: 2.1rem 2.3rem;
+  margin: 2.7rem auto 1.5rem auto;
+  padding: 2.3rem 2.8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 410px;
+  min-height: 540px;
   position: relative;
   z-index: 1;
   text-align: center;
+  
 }
 body.light #container {
   background: #fff;
@@ -371,6 +372,68 @@ footer {
 }
 body.light footer {
   color: #888;
+}
+
+#score-bar-container {
+  background: #21272b;
+  border-radius: 2rem;
+  padding: 6px 0 5px 0;
+  margin: 14px 0 20px 0;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+  width: 97%;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#score-bar {
+  height: 28px;  /* un peu plus fin */
+  background: linear-gradient(90deg, #7ee787, #3b82f6 90%);
+  border-radius: 2rem;
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.10);
+  transition: width 0.45s cubic-bezier(.5,2,.1,1);
+  display: flex;
+  align-items: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  justify-content: center;
+  position: relative;
+}
+#score-bar-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  color: #0a3346;
+  font-weight: bold;
+  font-size: 1.04rem;
+  text-shadow: 0 2px 7px #fff8;
+  pointer-events: none;
+}
+
+.indice-btn {
+  background: linear-gradient(120deg, #ffd600 65%, #ff9800 100%);
+  color: #1a1a1a !important;
+  font-weight: bold;
+  border-radius: 12px;
+  font-size: 1.09rem;
+  padding: 0.63rem 1.1rem;
+  box-shadow: 0 2px 12px #ffbe0077;
+  border: none;
+  transition: background 0.18s, box-shadow 0.18s, color 0.16s;
+  outline: none;
+}
+.indice-btn:hover:not(:disabled) {
+  background: linear-gradient(120deg, #ffe082 70%, #ffa726 100%);
+  color: #000 !important;
+  box-shadow: 0 4px 18px #ff980055;
+}
+.indice-btn:disabled, .indice-btn.used {
+  background: #bbb !important;
+  color: #888 !important;
+  opacity: 0.58 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
 }
 
 /* Responsive */
