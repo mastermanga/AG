@@ -280,7 +280,8 @@ document.getElementById("btnIndiceScore").addEventListener("click", function() {
 function updateScoreBar() {
   const scoreBar = document.getElementById('score-bar');
   const scoreBarLabel = document.getElementById('score-bar-label');
-  let score = 3000 - (attemptCount - 1) * 150;
+  let indiceCount = Object.values(indicesActivated).filter(Boolean).length;
+  let score = 3000 - (attemptCount - 1) * 150 - indiceCount * 300;
   if (score < 0) score = 0;
   let width = (score / 3000 * 100);
   if (scoreBar) scoreBar.style.width = width + '%';
@@ -300,7 +301,6 @@ function guessAnime() {
 
   attemptCount++;
   document.getElementById("counter").textContent = "Tentatives : " + attemptCount;
-  updateScoreBar();
   // --- Indices: recalcul disponibilité
   // 1. Studio
   if (!indicesActivated.studio && guessedAnime.studio === targetAnime.studio) {
@@ -460,6 +460,7 @@ function guessAnime() {
   document.getElementById("suggestions").innerHTML = "";
 
   updateAideList();
+  updateScoreBar();
 
   if (isTitleMatch) {
     gameOver = true;
@@ -591,12 +592,6 @@ function showSuccessMessageClassic() {
   `;
   container.style.display = "block";
   container.scrollIntoView({behavior: "smooth", block: "start"});
-
-  // Barre animée
-  setTimeout(() => {
-    const bar = document.getElementById('score-bar');
-    if(bar) bar.style.width = (roundScore/totalScore*100) + '%';
-  }, 80);
 
   document.getElementById("nextBtn").onclick = () => {
     if (isDaily) {
