@@ -435,16 +435,24 @@ body.light footer {
   height: 338px;
   min-height: 220px;
   max-width: 100%; /* pour le responsive */
-}
-.anime-item.large-opening {
-  max-width: 800px; /* 600px + padding/marges éventuels */
-  width: 100%;
-}
-.anime-container {
-  max-width: 840px; /* un petit peu plus large que la vidéo */
-  width: 100%;
+  margin-bottom: 22px;
 }
 
+.anime-item.large-opening {
+  max-width: 630px; /* 600px + padding/marges éventuels */
+  width: 100%;
+  min-height: 520px; /* Hauteur augmentée pour plus d’espace */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 30px; /* optionnel, pour espace sous les boutons */
+}
+
+.anime-container {
+  max-width: 660px; /* un peu plus large que la vidéo */
+  width: 100%;
+}
 .anime-item.large-opening .rank-button {
   width: 100%;
   max-width: 600px;    /* Même largeur que la vidéo */
