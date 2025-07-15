@@ -12,6 +12,56 @@ window.addEventListener("DOMContentLoaded", () => {
   if (savedTheme === "light") document.body.classList.add("light");
 });
 
+function updateScoreBar(score = 3000) {
+  let percent = Math.max(0, Math.min(100, score / 3000 * 100));
+  document.getElementById("score-bar").style.width = percent + "%";
+  document.getElementById("score-bar-label").textContent = `${score} / 3000`;
+  // Pour la couleur dynamique :
+  if (score === 3000) document.getElementById("score-bar").style.background = "linear-gradient(90deg,#70ffba,#3b82f6 90%)";
+  else if (score >= 2000) document.getElementById("score-bar").style.background = "linear-gradient(90deg,#fff96a,#ffc34b 90%)";
+  else if (score >= 1000) document.getElementById("score-bar").style.background = "linear-gradient(90deg,#ffb347,#fd654c 90%)";
+  else if (score > 0) document.getElementById("score-bar").style.background = "linear-gradient(90deg,#fd654c,#cb202d 90%)";
+  else document.getElementById("score-bar").style.background = "linear-gradient(90deg,#444,#333 90%)";
+}
+
+function launchFireworks() {
+  const canvas = document.getElementById("fireworks");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const particles = [];
+  function createParticle(x, y) {
+    const angle = Math.random() * 2 * Math.PI;
+    const speed = Math.random() * 5 + 2;
+    return { x, y, dx: Math.cos(angle) * speed, dy: Math.sin(angle) * speed, life: 60 };
+  }
+  for (let i = 0; i < 80; i++) {
+    particles.push(createParticle(canvas.width / 2, canvas.height / 2));
+  }
+  function animate() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      ctx.fill();
+      p.x += p.dx;
+      p.y += p.dy;
+      p.dy += 0.05;
+      p.life--;
+    });
+    for (let i = particles.length - 1; i >= 0; i--) {
+      if (particles[i].life <= 0) particles.splice(i, 1);
+    }
+    if (particles.length > 0) requestAnimationFrame(animate);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  animate();
+}
+
+
 // === MODE PARCOURS ? ===
 const urlParams = new URLSearchParams(window.location.search);
 const isParcours = urlParams.get("parcours") === "1";
@@ -161,7 +211,7 @@ async function loadAnimes() {
 function startNewGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
-
+  updateScoreBar(3000);
   if (isDaily && allAnimes.length > 0) {
     // Marque le daily comme commencé si pas déjà fini
     if (localStorage.getItem(STARTED_KEY) && !localStorage.getItem(SCORE_KEY)) {
@@ -190,7 +240,7 @@ function startNewGame() {
 
   // --- NOUVELLE SÉLECTION DE PERSOS À AFFICHER ---
   let selectedCharacters = pickRandomPerGroup(currentAnime.characters);
-
+  updateScoreBar(3000);
   // Reset de tout
   container.innerHTML = '';
   feedback.textContent = '';
@@ -229,6 +279,7 @@ function startNewGame() {
 // === MODE PARCOURS ===
 function startNewParcoursRound() {
   document.getElementById("back-to-menu").style.display = "none";
+  updateScoreBar(3000);
   if (DAILY_BANNER) DAILY_BANNER.style.display = "none";
   if (parcoursPool.length === 0 || parcoursIndex >= parcoursCount) {
     showFinalRecapParcours();
@@ -413,6 +464,7 @@ function checkGuess() {
   const answer = currentAnime.title.toLowerCase();
 
   if (normalizedGuess === answer) {
+    if (score > 0) launchFireworks();
     feedback.textContent = `🎉 Bonne réponse ! C'était bien "${currentAnime.title}"`;
     feedback.className = "success";
     clearInterval(countdownInterval);
@@ -422,6 +474,7 @@ function checkGuess() {
     if (isDaily && !dailyPlayed) {
       let malus = (revealedCount - 1) * 500;
       let score = Math.max(3000 - malus, 0);
+      updateScoreBar(score);
       localStorage.setItem(SCORE_KEY, score);
       dailyPlayed = true;
       dailyScore = score;
@@ -442,6 +495,7 @@ function checkGuess() {
         localStorage.setItem(SCORE_KEY, 0);
         dailyPlayed = true;
         dailyScore = 0;
+        updateScoreBar(s0);
         showDailyBanner();
       }
       feedback.textContent += ` Tu as épuisé tous les indices. C'était "${currentAnime.title}".`;
@@ -492,11 +546,14 @@ function showFeedbackParcours(isWin) {
   }
   let roundScore = 0;
   if (isWin) {
+    if (roundScore > 0) launchFireworks();
     let malus = (revealedCount - 1) * 500;
     roundScore = Math.max(3000 - malus, 0);
+    updateScoreBar(roundScore);
     feedback.textContent = `🎉 Bonne réponse ! "${currentAnime.title}" | Score : ${roundScore}`;
     feedback.className = "success";
   } else {
+    updateScoreBar(0);
     feedback.textContent = `❌ Perdu. C'était "${currentAnime.title}". | Score : 0`;
     feedback.className = "error";
   }
