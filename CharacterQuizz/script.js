@@ -183,7 +183,7 @@ function showDailyBanner() {
     DAILY_STATUS.innerHTML = `✅ <b>Daily du jour déjà jouée !</b>`;
     DAILY_SCORE.innerHTML = `Score : <b>${dailyScore} pts</b>`;
   } else {
-    DAILY_STATUS.innerHTML = `<span style="font-size:1.25em;vertical-align:-2px;">🎲</span> <b>Daily du jour :</b>`;
+    DAILY_STATUS.innerHTML = "🎲 Daily du jour :";
     DAILY_SCORE.innerHTML = "";
   }
 }
