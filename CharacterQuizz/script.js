@@ -26,23 +26,28 @@ const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
 const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
 
+function getTodayString() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 function simpleHash(str) {
   let hash = 5381;
   for (let i = 0; i < str.length; i++) hash = ((hash << 5) + hash) + str.charCodeAt(i);
   return Math.abs(hash) >>> 0;
 }
 function getDailyIndex(len) {
-  const d = new Date();
-  const dateStr = d.getFullYear() + "-" + (d.getMonth()+1).toString().padStart(2,"0") + "-" + d.getDate().toString().padStart(2,"0");
+  const dateStr = getTodayString();
   const hash = simpleHash(dateStr + "|" + "characterquizz");
   return hash % len;
 }
-function todayKey() {
-  const d = new Date();
-  return `${d.getFullYear()}-${(d.getMonth()+1).toString().padStart(2,"0")}-${d.getDate().toString().padStart(2,"0")}`;
-}
-const SCORE_KEY = `dailyScore_characterquizz_${todayKey()}`;
-const STARTED_KEY = `dailyStarted_characterquizz_${todayKey()}`;
+
+const todayString = getTodayString();
+const SCORE_KEY = `dailyScore_characterquizz_${todayString}`;
+const STARTED_KEY = `dailyStarted_characterquizz_${todayString}`;
 
 let dailyPlayed = false;
 let dailyScore = null;
