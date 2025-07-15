@@ -16,8 +16,17 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ========= DAILY SEEDING LOGIC (simpleHash + GAME_ID) ==========
-const GAME_ID = "anidle"; // CHANGE CE NOM si tu clones pour un autre jeu !
+// ========= DAILY DATE FUNCTION ==========
+function getTodayString() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+// ========= DAILY SEEDING LOGIC ==========
+const GAME_ID = "anidle"; // Ne pas oublier de changer si tu clones pour un autre jeu
 function simpleHash(str) {
   let hash = 5381;
   for (let i = 0; i < str.length; i++) {
@@ -27,8 +36,7 @@ function simpleHash(str) {
   return Math.abs(hash);
 }
 function getDailyIndex(len) {
-  const d = new Date();
-  const dateStr = d.getFullYear() + "-" + (d.getMonth()+1).toString().padStart(2,"0") + "-" + d.getDate().toString().padStart(2,"0");
+  const dateStr = getTodayString();
   const hash = simpleHash(dateStr + "|" + GAME_ID);
   return hash % len;
 }
@@ -46,26 +54,14 @@ let attemptCount = 0;
 let gameOver = false;
 
 // -- Indices State --
-let indicesActivated = {
-  studio: false,
-  saison: false,
-  genres: false,
-  score: false
-};
-let indicesAvailable = {
-  studio: false,
-  saison: false,
-  genres: false,
-  score: false
-};
+let indicesActivated = { studio: false, saison: false, genres: false, score: false };
+let indicesAvailable = { studio: false, saison: false, genres: false, score: false };
 let indicesGenresFound = [];
 let indicesYearAtActivation = null;
 let indicesStudioAtActivation = null;
 let indicesScoreRange = null;
-
-// Pour capturer l'ensemble unique des genres/thèmes trouvés (dans les tentatives)
 let indicesGenresFoundSet = new Set();
-let indicesScoreRangeActivation = [0,0]; // [min, max]
+let indicesScoreRangeActivation = [0,0];
 
 // -- Mode switch --
 let isDaily = true;
@@ -74,15 +70,14 @@ const DAILY_STATUS = document.getElementById("daily-status");
 const DAILY_SCORE = document.getElementById("daily-score");
 const SWITCH_MODE_BTN = document.getElementById("switch-mode-btn");
 
-const today = new Date();
-const todayString = today.toISOString().split('T')[0];
+const todayString = getTodayString();
 const SCORE_KEY = `dailyScore_${GAME_ID}_${todayString}`;
 const STARTED_KEY = `dailyStarted_${GAME_ID}_${todayString}`;
 
 let dailyPlayed = false;
 let dailyScore = null;
 
-// ======== MODE PARCOURS (iframe) ========
+// ======== MODE PARCOURS ========
 const urlParams = new URLSearchParams(window.location.search);
 const isParcours = urlParams.get("parcours") === "1";
 const parcoursCount = parseInt(urlParams.get("count") || "1", 10);
@@ -110,7 +105,6 @@ function setupGame() {
   dailyScore = localStorage.getItem(SCORE_KEY);
   dailyPlayed = !!dailyScore;
 
-  // Si le daily a déjà été commencé mais pas fini, c'est perdu : score 0 et bloqué
   if (isDaily && localStorage.getItem(STARTED_KEY) && !localStorage.getItem(SCORE_KEY)) {
     dailyPlayed = true;
     dailyScore = 0;
@@ -138,7 +132,6 @@ function setupGame() {
 
   attemptCount = 0;
   gameOver = false;
-
   indicesActivated = { studio: false, saison: false, genres: false, score: false };
   indicesAvailable = { studio: false, saison: false, genres: false, score: false };
   indicesGenresFound = [];
@@ -155,7 +148,6 @@ function setupGame() {
   document.getElementById("successContainer").style.display = "none";
   document.getElementById("animeInput").disabled = false;
 
-  // Affiche le coût d'une tentative
   if (!document.getElementById("tentative-cost")) {
     const div = document.createElement("div");
     div.id = "tentative-cost";
@@ -164,7 +156,6 @@ function setupGame() {
     document.getElementById("counter").after(div);
   }
 
-  // Reset boutons indices
   ["btnIndiceStudio", "btnIndiceSaison", "btnIndiceGenres", "btnIndiceScore"].forEach(id => {
     const btn = document.getElementById(id);
     if(btn) {
@@ -173,8 +164,13 @@ function setupGame() {
     }
   });
 
-  updateAideList(); // suggestions toutes au début
+  updateAideList();
 }
+
+// === le reste du script (lockDailyInputs, unlockClassicInputs, showDailyBanner, updateSwitchModeBtn, etc.) reste inchangé ===
+// (tu peux laisser tout le reste tel quel)
+
+
 
 function lockDailyInputs() {
   document.getElementById("animeInput").disabled = true;
