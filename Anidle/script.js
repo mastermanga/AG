@@ -1,3 +1,7 @@
+const MAX_SCORE = 3000;
+const TENTATIVE_COST = 150;
+const INDICE_COST = 300;
+
 // ========== DARK/LIGHT MODE + MENU ==========
 document.getElementById("back-to-menu").addEventListener("click", function() {
   window.location.href = "../index.html";
@@ -172,6 +176,7 @@ function setupGame() {
   });
 
   updateAideList();
+  updateScoreBar()
 }
 
 // === le reste du script (lockDailyInputs, unlockClassicInputs, showDailyBanner, updateSwitchModeBtn, etc.) reste inchangé ===
@@ -581,10 +586,6 @@ function showSuccessMessageClassic() {
       Bravo ! C'était <u>${targetAnime.title}</u> en ${attemptCount} tentative${attemptCount > 1 ? 's' : ''}.
       <span style="font-size:2.3rem;">🎉</span>
     </div>
-    <div id="score-bar-container">
-      <div id="score-bar" style="width:0;">
-        ${roundScore} / ${totalScore}
-      </div>
     </div>
     <div style="text-align:center;">
       <button id="nextBtn" class="menu-btn" style="font-size:1.1rem; margin: 0 auto 1rem auto;">${isDaily ? "Retour menu" : "Rejouer"}</button>
@@ -635,6 +636,7 @@ function launchParcoursRound() {
   targetAnime = animeData[Math.floor(random * animeData.length)];
 
   updateAideList();
+  updateScoreBar();
 }
 
 function showSuccessMessageParcours(roundScore) {
@@ -645,11 +647,6 @@ function showSuccessMessageParcours(roundScore) {
       🎇 <span style="font-size:2.3rem;">🥳</span>
       Bravo ! C'était <u>${targetAnime.title}</u> en ${attemptCount} tentative${attemptCount > 1 ? 's' : ''}.
       <span style="font-size:2.3rem;">🎉</span>
-    </div>
-    <div id="score-bar-container">
-      <div id="score-bar" style="width:0;">
-        ${roundScore} / ${totalScore}
-      </div>
     </div>
     <div style="text-align:center;">
       <button id="nextParcoursBtn" class="menu-btn" style="font-size:1.1rem; margin: 0 auto 1rem auto;">${parcoursIndex+1 < parcoursCount ? "Suivant" : "Terminer"}</button>
