@@ -150,6 +150,8 @@ body.light #mode-select button:hover {
 }
 
 .main-block {
+  max-width: 1500px;
+  width: 98vw;
   background: linear-gradient(120deg, #233554f3 80%, #00bcd411 100%);
   border-radius: 20px;
   box-shadow: 0 0 32px 5px #00bcd444;
@@ -158,8 +160,6 @@ body.light #mode-select button:hover {
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.5rem;
-  width: 96%;
-  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -456,7 +456,7 @@ h2, .section-title {
 }
 
 .tournament-title {
-  padding: 0 1.5em;
+  padding: 0 6em;
 }
 
 @media (max-width: 500px) {
