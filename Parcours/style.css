@@ -224,7 +224,8 @@ select:focus, input[type="number"]:focus {
 /* === Parcours container (iframe) === */
 #parcours-container {
   width: 100vw;
-  min-width: 1200px;
+  min-width: 1200px;  /* laisse la largeur minimum plus grande */
+  max-width: 1600px;
   max-width: none;
   margin: 0 auto;
   padding: 0;
@@ -233,17 +234,19 @@ select:focus, input[type="number"]:focus {
   align-items: flex-start;
   position: relative;
   z-index: 2;
+  overflow: visible;
 }
 
 #parcours-iframe {
   width: 98vw;
-  max-width: 1000px;
-  height: 90vh;
+  max-width: 1500px;  /* largeur max plus grande */
+  height: 90vh;       /* hauteur grande pour voir plus */
+  min-height: 700px;  /* hauteur minimum pour éviter trop petit */
   border-radius: 14px;
   border: none;
   background: #181818;
   box-shadow: 0 0 32px 5px #00bcd444;
-  display: none;
+  display: block;
   opacity: 1;
   transition: opacity 0.3s;
   z-index: 10;
