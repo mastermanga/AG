@@ -189,7 +189,7 @@ body.light .main-block {
 
 #duel-container {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
   margin-bottom: 2rem;
   width: 100%;
