@@ -455,6 +455,10 @@ h2, .section-title {
     0 1px 4px #1de9b68e;
 }
 
+.tournament-title {
+  padding: 0 1.5em;
+}
+
 @media (max-width: 500px) {
   .main-block {
     width: 98vw;
