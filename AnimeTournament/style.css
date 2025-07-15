@@ -193,7 +193,7 @@ body.light .main-block {
   justify-content: center;
   margin-bottom: 2rem;
   width: 100%;
-  max-width: 950px;
+  max-width: 1600px;
 }
 
 #duel-container .anime,
@@ -201,7 +201,8 @@ body.light .main-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 330px;
+  width: 400px;
+  max-width: 45vw;
 }
 
 #duel-container .anime img,
