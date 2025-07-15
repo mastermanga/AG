@@ -191,7 +191,7 @@ body.light .main-block {
   flex-wrap: nowrap;
   display: flex;
   flex-direction: row !important;
-  gap: 5rem;
+  gap: 2rem;
   justify-content: center;
   align-items: flex-start;
   margin-bottom: 2rem;
@@ -204,8 +204,8 @@ body.light .main-block {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 320px;
-  max-width: 48vw;
+  width: 100%;
+  max-width: 600px;
   gap: 1.5rem;
 }
 
@@ -219,8 +219,8 @@ body.light .main-block {
 
 /* Spécial pour les vidéos (openings) - tu peux adapter la largeur/hauteur ici */
 #duel-container .opening iframe {
-  width: 700px;   /* ou 450px, ou plus */
-  height: 394px;  /* ajuste pour le ratio YouTube, genre 236px pour 420px */
+  width: 600px;   /* ou 450px, ou plus */
+  height: 338px;  /* ajuste pour le ratio YouTube, genre 236px pour 420px */
   max-width: 98vw;
   object-fit: cover;
   border-radius: 8px;
