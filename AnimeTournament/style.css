@@ -191,7 +191,7 @@ body.light .main-block {
   flex-wrap: nowrap;
   display: flex !important;
   flex-direction: row !important;
-  gap: 1rem;
+  gap: 5rem;
   justify-content: center;
   margin-bottom: 2rem;
   width: 100%;
