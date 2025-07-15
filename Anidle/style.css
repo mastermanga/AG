@@ -84,26 +84,34 @@ header h1.victoire {
 #score-bar-container {
   background: #21272b;
   border-radius: 2rem;
-  padding: 6px 0 5px 0;
-  margin: 14px 0 20px 0;
+  padding: 0;                /* Plus de padding ici : barre plus fine */
+  margin: 16px 0 20px 0;
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
   width: 95%;
   max-width: 440px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;        /* Important pour #score-bar-label */
+  height: 28px;              /* Contrôle la hauteur globale */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #score-bar {
-  height: 34px;
+  height: 18px;                       /* Barre fine ! */
   background: linear-gradient(90deg, #7ee787, #3b82f6 90%);
   border-radius: 2rem;
   box-shadow: 0 2px 7px 0 rgba(0,0,0,0.10);
-  transition: width 0.45s cubic-bezier(.5,2,.1,1);
+  transition: width 0.32s cubic-bezier(.5,2,.1,1);
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
   display: flex;
   align-items: center;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #fff;
   justify-content: center;
+  z-index: 1;
+  overflow: hidden;
 }
 
 #score-bar-label {
@@ -116,6 +124,9 @@ header h1.victoire {
   font-size: 1.04rem;
   text-shadow: 0 2px 7px #fff8;
   pointer-events: none;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
 }
 /* === BOUTONS PRINCIPAUX === */
 .menu-btn,
@@ -407,4 +418,10 @@ body.light #aideContainer {
     width: 100%;
   }
   .row { flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  #score-bar-container { max-width: 98vw; height: 18px; }
+  #score-bar { height: 12px; }
+  #score-bar-label { font-size: 0.94rem; }
 }
