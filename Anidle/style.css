@@ -374,6 +374,13 @@ body.light #aideContainer {
   box-shadow: 0 2px 8px #42a5f555;
 }
 
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #ff6565; }
+  70% { box-shadow: 0 0 12px 6px #ff65659f; }
+  100% { box-shadow: 0 0 0 0 #ff6565; }
+}
+.danger-pulse { animation: pulse 0.9s infinite; }
+
 /* == RESPONSIVE == */
 @media (max-width: 950px) {
   #container, .main-container {
