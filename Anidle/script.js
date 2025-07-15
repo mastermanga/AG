@@ -554,11 +554,19 @@ function launchFireworks() {
 
 function showSuccessMessageClassic() {
   const container = document.getElementById("successContainer");
+  let roundScore = 3000 - (attemptCount - 1) * 150 - (Object.values(indicesActivated).filter(Boolean).length) * 300;
+  if (roundScore < 0) roundScore = 0;
+  const totalScore = 3000;
   container.innerHTML = `
     <div id="winMessage" style="margin-bottom: 18px; font-size: 2rem; font-weight: bold; text-align: center;">
       🎇 <span style="font-size:2.3rem;">🥳</span>
       Bravo ! C'était <u>${targetAnime.title}</u> en ${attemptCount} tentative${attemptCount > 1 ? 's' : ''}.
       <span style="font-size:2.3rem;">🎉</span>
+    </div>
+    <div id="score-bar-container">
+      <div id="score-bar" style="width:0;">
+        ${roundScore} / ${totalScore}
+      </div>
     </div>
     <div style="text-align:center;">
       <button id="nextBtn" class="menu-btn" style="font-size:1.1rem; margin: 0 auto 1rem auto;">${isDaily ? "Retour menu" : "Rejouer"}</button>
@@ -566,6 +574,18 @@ function showSuccessMessageClassic() {
   `;
   container.style.display = "block";
   container.scrollIntoView({behavior: "smooth", block: "start"});
+
+  // Effet glow sur le titre
+  const titreHeader = document.querySelector("header h1");
+  if (titreHeader) {
+    titreHeader.classList.add("victoire");
+    setTimeout(() => titreHeader.classList.remove("victoire"), 1700);
+  }
+  // Barre animée
+  setTimeout(() => {
+    const bar = document.getElementById('score-bar');
+    if(bar) bar.style.width = (roundScore/totalScore*100) + '%';
+  }, 80);
 
   document.getElementById("nextBtn").onclick = () => {
     if (isDaily) {
@@ -575,6 +595,7 @@ function showSuccessMessageClassic() {
     }
   };
 }
+
 
 // --- Mode Parcours ---
 function launchParcoursRound() {
@@ -612,11 +633,17 @@ function launchParcoursRound() {
 
 function showSuccessMessageParcours(roundScore) {
   const container = document.getElementById("successContainer");
+  const totalScore = 3000;
   container.innerHTML = `
     <div id="winMessage" style="margin-bottom: 18px; font-size: 2rem; font-weight: bold; text-align: center;">
       🎇 <span style="font-size:2.3rem;">🥳</span>
       Bravo ! C'était <u>${targetAnime.title}</u> en ${attemptCount} tentative${attemptCount > 1 ? 's' : ''}.
       <span style="font-size:2.3rem;">🎉</span>
+    </div>
+    <div id="score-bar-container">
+      <div id="score-bar" style="width:0;">
+        ${roundScore} / ${totalScore}
+      </div>
     </div>
     <div style="text-align:center;">
       <button id="nextParcoursBtn" class="menu-btn" style="font-size:1.1rem; margin: 0 auto 1rem auto;">${parcoursIndex+1 < parcoursCount ? "Suivant" : "Terminer"}</button>
@@ -624,6 +651,17 @@ function showSuccessMessageParcours(roundScore) {
   `;
   container.style.display = "block";
   container.scrollIntoView({behavior: "smooth", block: "start"});
+
+  // Glow titre header
+  const titreHeader = document.querySelector("header h1");
+  if (titreHeader) {
+    titreHeader.classList.add("victoire");
+    setTimeout(() => titreHeader.classList.remove("victoire"), 1700);
+  }
+  setTimeout(() => {
+    const bar = document.getElementById('score-bar');
+    if(bar) bar.style.width = (roundScore/totalScore*100) + '%';
+  }, 80);
 
   document.getElementById("nextParcoursBtn").onclick = () => {
     parcoursIndex++;
@@ -643,6 +681,7 @@ function showSuccessMessageParcours(roundScore) {
     }
   };
 }
+
 
 // --- Choix du message selon le mode
 function showSuccessMessage() {
