@@ -148,7 +148,6 @@ body.light #container {
   margin-bottom: 0rem;
   width: 100%;
   max-width: 100%; 
-  max-width: 385px;
   text-align: left;
   transition: background 0.25s;
   z-index: 2;
