@@ -121,7 +121,8 @@ button:hover:enabled {
   background-color: #161e27ef;
   border-radius: 20px;
   padding: 2rem 2.1rem 2.1rem 2.1rem;
-  width: 375px;
+  width: 600px;
+  max-width: 98vw;
   box-shadow: 0 0 32px 5px #00bcd444;
   margin-left: auto;
   margin-right: auto;
@@ -146,6 +147,7 @@ body.light #container {
   padding: 1.25rem 1.1rem 1.15rem 1.1rem;
   margin-bottom: 0rem;
   width: 100%;
+  max-width: 100%; 
   max-width: 385px;
   text-align: left;
   transition: background 0.25s;
@@ -379,6 +381,7 @@ body.light #parcours-score {
     max-width: 98vw;
     padding: 1rem 5vw 1rem 5vw;
   }
+}
   header, footer { max-width: 99vw; }
   .step-line {
     flex-direction: column;
@@ -453,6 +456,41 @@ footer {
   position: relative;
   letter-spacing: 0.5px;
 }
+
+body.parcours-fullscreen header,
+body.parcours-fullscreen footer,
+body.parcours-fullscreen #container {
+  display: none !important;
+}
+body.parcours-fullscreen #parcours-container {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  width: 100vw !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+}
+body.parcours-fullscreen #parcours-iframe {
+  width: 100vw !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #181818 !important;
+  display: block !important;
+  height: 95vh !important; /* ou 100vh selon effet souhaité */
+  opacity: 1 !important;
+}
+
 body.light footer {
   color: #888;
 }
