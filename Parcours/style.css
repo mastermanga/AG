@@ -1,36 +1,50 @@
-html, body {
-  background: #181818 !important;
+body {
+  background: radial-gradient(circle at 50% 25%, #263859 0%, #121212 100%);
   color: #eee;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  transition: background 0.4s;
-}
-
-body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  width: 100vw;
+  align-items: center;
+  padding: 2rem 1rem;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, #00fff94d 2px, transparent 3px) 30vw 20vh/120px 120px repeat,
+    radial-gradient(circle, #42a5f577 1.5px, transparent 3px) 70vw 75vh/90px 90px repeat;
+  animation: moveParticles 18s linear infinite alternate;
+  opacity: 0.27;
+}
+@keyframes moveParticles {
+  0%   { background-position: 30vw 20vh, 70vw 75vh; }
+  100% { background-position: 33vw 22vh, 68vw 78vh; }
 }
 
-body.light, html.light {
-  background: #f5f5f5 !important;
-  color: #234;
+body.light {
+  background: radial-gradient(circle at 45% 10%, #e3f6fc 0%, #f5f5f5 100%);
+  color: #222;
 }
 
-/* HEADER */
 header {
-  width: 100vw;
+  width: 100%;
+  max-width: 370px;
   display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  background: none;
-  border: none;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  z-index: 2;
+  position: relative;
 }
 .header-group {
   display: flex;
@@ -38,54 +52,140 @@ header {
   gap: 1.3rem;
 }
 header h1 {
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin: 0;
+  font-size: 2rem;
   text-align: center;
-  letter-spacing: 1.2px;
+  flex-grow: 1;
+  margin-right: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 800;
+  text-shadow:
+    0 0 6px #00eaff,
+    0 0 18px #00eaff99,
+    0 2px 8px #00bcd477,
+    0 0 10px #fff1;
 }
-.menu-btn, .toggle-btn {
+body.light header h1 {
+  color: #1565c0;
+  text-shadow: 0 1px 4px #42a5f588;
+}
+
+/* === BOUTONS === */
+.toggle-btn {
   background-color: #00bcd4;
   color: #121212;
   border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 7px;
+  padding: 0.5rem 1rem;
+  border-radius: 9px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 1rem;
-  transition: background-color 0.3s, color 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, color 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+  box-shadow: 0 1px 7px #00bcd466;
+  margin: 0 0.5em 0 0.5em;
 }
-.menu-btn:hover, .toggle-btn:hover {
-  background-color: #0097a7;
+.toggle-btn:hover,
+.toggle-btn:focus {
+  background: linear-gradient(120deg, #1de9b6 80%, #1565c0 100%);
+  color: #fff;
+  text-shadow: 0 0 10px #fff9, 0 2px 6px #fff8;
+  box-shadow: 0 10px 34px #00eaffd7, 0 2.5px 14px #1976d277;
+  border: 2px solid #fff5;
+}
+body.light .toggle-btn {
+  background-color: #1565c0;
   color: #fff;
 }
+body.light .toggle-btn:hover,
+body.light .toggle-btn:focus {
+  background: linear-gradient(120deg, #81d4fa 70%, #1976d2 100%);
+  color: #fff;
+  text-shadow: 0 0 8px #fff9;
+  border: 2px solid #1976d277;
+}
 
-/* BUILDER / RECAP */
-#parcours-builder, #recap {
-  background: #191f28;
-  color: #eee;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px #00bcd455;
-  max-width: 520px;
-  width: 97vw;
-  margin: 28px auto 20px auto;
-  padding: 30px 26px 20px 26px;
+button:disabled {
+  background: #666;
+  color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  filter: grayscale(0.4) brightness(0.95);
+}
+button:hover:enabled {
+  filter: brightness(1.08);
+}
+
+/* === CONTAINER effet CARD === */
+#container {
+  background-color: #161e27ef;
+  border-radius: 20px;
+  padding: 2rem 2.1rem 2.1rem 2.1rem;
+  width: 375px;
+  box-shadow: 0 0 32px 5px #00bcd444;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
   position: relative;
+  z-index: 2;
 }
-body.light #parcours-builder, body.light #recap {
-  background: #fff;
-  color: #234;
-  box-shadow: 0 4px 18px #42a5f522;
+body.light #container {
+  background-color: #fff;
+  box-shadow: 0 0 22px #42a5f5;
 }
+
+/* === SECTIONS effet CARD === */
+.daily-recap-block {
+  background: linear-gradient(120deg, #233554f3 80%, #00bcd411 100%);
+  border-radius: 15px;
+  box-shadow: 0 2px 12px #00bcd430;
+  padding: 1.25rem 1.1rem 1.15rem 1.1rem;
+  margin-bottom: 0rem;
+  width: 100%;
+  max-width: 385px;
+  text-align: left;
+  transition: background 0.25s;
+  z-index: 2;
+  position: relative;
+  border: 1.5px solid #00bcd455;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(22px);
+  animation: fadeUp 0.55s cubic-bezier(.47,1.64,.41,.8) 0.12s forwards;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+body.light .daily-recap-block {
+  background: linear-gradient(120deg, #e0f7fa 90%, #1565c01a 100%);
+  box-shadow: 0 2px 14px #42a5f54b;
+  border: 1.5px solid #42a5f577;
+}
+
 h2 {
   margin: 0 0 22px 0;
-  font-size: 1.4rem;
+  font-size: 1.18rem;
   font-weight: bold;
   text-align: center;
+  color: #00eaff;
+  text-shadow:
+    0 0 7px #00eaff,
+    0 0 18px #00eaff99,
+    0 1px 4px #1de9b68e;
 }
+body.light h2 {
+  color: #1565c0;
+  text-shadow: 0 1px 4px #42a5f588;
+}
+
+/* === INPUTS === */
 label {
   font-weight: 500;
   margin-right: 12px;
@@ -116,29 +216,6 @@ body.light select, body.light input[type="number"] {
   background: #f5faff;
   color: #234;
   border-color: #b6cdfc;
-}
-button {
-  padding: 10px 18px;
-  font-size: 1.05rem;
-  border-radius: 8px;
-  border: none;
-  background-color: #00bcd4;
-  color: #121212;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 1px 5px #1113;
-  margin-right: 6px;
-  margin-top: 6px;
-  transition: background 0.3s;
-}
-button:disabled {
-  background: #666;
-  color: #ccc;
-  cursor: not-allowed;
-}
-button:hover:enabled {
-  background: #0097a7;
-  color: #fff;
 }
 
 /* Step list */
@@ -293,10 +370,16 @@ body.light #parcours-score {
   }
 }
 @media (max-width: 600px) {
-  #parcours-builder, #recap {
-    padding: 18px 2vw 18px 2vw;
-    max-width: 99vw;
+  #container {
+    width: 98vw;
+    padding: 1.1rem 0.4rem 1.4rem 0.4rem;
+    box-shadow: 0 0 13px 2px #00bcd4;
   }
+  .daily-recap-block {
+    max-width: 98vw;
+    padding: 1rem 5vw 1rem 5vw;
+  }
+  header, footer { max-width: 99vw; }
   .step-line {
     flex-direction: column;
     align-items: flex-start;
@@ -358,14 +441,17 @@ footer {
   margin-top: auto;
   padding: 1.2rem 0 0.4rem 0;
   color: #555;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   text-align: center;
   user-select: none;
   width: 100%;
-  max-width: 350px;
+  max-width: 375px;
   margin-left: auto;
   margin-right: auto;
   transition: color 0.3s;
+  z-index: 2;
+  position: relative;
+  letter-spacing: 0.5px;
 }
 body.light footer {
   color: #888;
