@@ -117,9 +117,9 @@ function renderSteps() {
     div.innerHTML = `
       <span class="step-badge">${txt}</span>
       <span class="step-controls">
-        <button class="upBtn" ${grouped.length === 1 || idx === 0 ? "disabled" : ""}>⬆️</button>
-        <button class="downBtn" ${grouped.length === 1 || idx === grouped.length-1 ? "disabled" : ""}>⬇️</button>
-        <button class="removeBtn">🗑️</button>
+        <button class="upBtn toggle-btn" ${grouped.length === 1 || idx === 0 ? "disabled" : ""}>⬆️</button>
+        <button class="downBtn toggle-btn" ${grouped.length === 1 || idx === grouped.length-1 ? "disabled" : ""}>⬇️</button>
+        <button class="removeBtn toggle-btn">🗑️</button>
       </span>
     `;
     div.querySelector(".upBtn").onclick = () => { moveStep(group.indices[0], -1); };
