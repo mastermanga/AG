@@ -237,9 +237,13 @@ body.light select, body.light input[type="number"] {
   margin-bottom: 7px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 10px;
   box-shadow: 0 1px 4px #0ff2;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 body.light .step-line {
   background: #ecf5fc;
@@ -253,6 +257,7 @@ body.light .step-line {
   padding: 4px 10px;
   margin: 0 1px;
   border-radius: 5px;
+  justify-content: center
 }
 .step-controls button:disabled {
   opacity: 0.6;
@@ -513,6 +518,9 @@ body.light footer {
   letter-spacing: 0.3px;
   transition: background 0.2s, box-shadow 0.2s;
   text-shadow: 0 0 6px #1de9b655, 0 1px 5px #00bcd488;
+  margin: 0 18px 0 0;  /* un peu d’espace à droite */
+  min-width: 180px;    /* largeur fixe pour bien aligner, ajuste si besoin */
+  text-align: center;
 }
 
 body.light .step-badge {
