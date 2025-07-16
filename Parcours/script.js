@@ -311,7 +311,7 @@ function showFinalRecap() {
   html += `<div style="font-size:1.3rem;margin-top:13px;"><b>Score total : ${totalScore} / ${maxScore} </b></div>`;
   parcoursScore.innerHTML = html;
 
-  parcoursFinish.innerHTML = `<button onclick="window.location.href='../index.html' class="toggle-btn">Retour menu</button>`;
+  parcoursFinish.innerHTML = `<button onclick="window.location.href='../index.html'" class="toggle-btn">Retour menu</button>`;
 }
 
 // Pour pouvoir être appelé depuis l’iframe :
