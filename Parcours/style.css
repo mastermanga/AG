@@ -498,3 +498,35 @@ body.parcours-fullscreen #parcours-iframe {
 body.light footer {
   color: #888;
 }
+
+.step-badge {
+  display: inline-block;
+  background: linear-gradient(120deg, #00bcd4 70%, #1976d2 100%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.08rem;
+  border-radius: 16px;
+  padding: 0.37em 1.18em 0.37em 1.18em;
+  margin-bottom: 0.5em;
+  box-shadow: 0 2px 12px #00eaff44, 0 1.5px 6px #1976d277;
+  border: 2px solid #00eaff44;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, box-shadow 0.2s;
+  text-shadow: 0 0 6px #1de9b655, 0 1px 5px #00bcd488;
+}
+
+body.light .step-badge {
+  background: linear-gradient(120deg, #81d4fa 70%, #1976d2 100%);
+  color: #fff;
+  border: 2px solid #42a5f566;
+  box-shadow: 0 2px 12px #42a5f555;
+  text-shadow: 0 1px 4px #1976d277;
+}
+
+.step-line:hover .step-badge {
+  background: linear-gradient(120deg, #1de9b6 70%, #1565c0 100%);
+  box-shadow: 0 4px 20px #00eaffaa, 0 2.5px 8px #1976d299;
+}
+body.light .step-line:hover .step-badge {
+  background: linear-gradient(120deg, #42a5f5 70%, #1de9b6 100%);
+}
