@@ -10,7 +10,7 @@
 <body>
   <header>
     <div class="header-group">
-      <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
+      <button id="back-to-menu" class="toggle-btn">⬅️ Menu</button>
       <h1>Mode Parcours</h1>
       <button id="themeToggle" class="toggle-btn">🌓</button>
     </div>
@@ -18,7 +18,7 @@
 
   <!-- === Builder Section === -->
   <div id="container">
-    <section id="parcours-builder">
+    <section id="parcours-builder" class="daily-recap-block">
       <h2>Construisez votre parcours personnalisé</h2>
       <div class="builder-row">
         <label for="gameType">Jeu</label>
@@ -32,18 +32,18 @@
         <select id="modeOption" style="display:none"></select>
         <label for="stepCount">Nombre</label>
         <input type="number" id="stepCount" min="1" value="1" style="width:70px;">
-        <button id="addStepBtn">Ajouter</button>
+        <button id="addStepBtn" class="toggle-btn">Ajouter</button>
       </div>
       <div id="steps-list"></div>
-      <button id="startParcoursBtn" style="display:none;margin:0 auto;display:block;">Lancer le Parcours</button>
+      <button id="startParcoursBtn" class="toggle-btn" style="display:none;margin:0 auto;">Lancer le Parcours</button>
     </section>
     <!-- === Recap Section === -->
-    <section id="recap" style="display:none;">
+    <section id="recap" class="daily-recap-block" style="display:none;">
       <h2>Récapitulatif du Parcours</h2>
       <ul id="parcoursRecapList"></ul>
       <div style="text-align:center;">
-        <button id="editParcoursBtn">Modifier</button>
-        <button id="launchConfirmedBtn" style="margin-left:12px;">Confirmer & Lancer</button>
+        <button id="editParcoursBtn" class="toggle-btn">Modifier</button>
+        <button id="launchConfirmedBtn" class="toggle-btn" style="margin-left:12px;">Confirmer & Lancer</button>
       </div>
     </section>
   </div>
