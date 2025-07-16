@@ -235,7 +235,6 @@ body.light select, body.light input[type="number"] {
   padding: 11px 15px;
   margin-bottom: 7px;
   display: flex;
-  align-items: center;
   justify-content: center;
   gap: 10px;
   box-shadow: 0 1px 4px #0ff2;
@@ -392,8 +391,6 @@ body.light #parcours-score {
 }
   header, footer { max-width: 99vw; }
   .step-line {
-    flex-direction: column;
-    align-items: flex-start;
     gap: 8px;
     padding: 10px 7px;
   }
