@@ -31,7 +31,6 @@ body::before {
 
 /* ==== HEADER + TITRE ==== */
 header {
-  width: 100%;
   max-width: 900px;
   margin: 0 auto 2.5rem auto;
   display: flex;
@@ -48,7 +47,11 @@ header h1 {
   margin: 0 1rem;
   letter-spacing: 1.2px;
   color: #fff;
-  text-shadow: 0 2px 8px #00bcd466, 0 0 10px #fff1;
+  text-shadow:
+    0 0 6px #00eaff,
+    0 0 18px #00eaff99,
+    0 2px 8px #00bcd477,
+    0 0 10px #fff1;
 }
 
 /* ==== BOUTONS PRINCIPAUX ==== */
