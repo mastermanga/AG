@@ -277,6 +277,7 @@ window.addEventListener("message", (e) => {
 
 // ========== AFFICHAGE FINAL ==========
 function showFinalRecap() {
+  document.getElementById("container").style.display = "none";
   parcoursIframe.style.display = "none";
   parcoursIframe.classList.remove("active");
   parcoursLoader.style.display = "none";
