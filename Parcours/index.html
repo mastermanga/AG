@@ -17,36 +17,36 @@
   </header>
 
   <!-- === Builder Section === -->
-  <section id="parcours-builder">
-    <h2>Construisez votre parcours personnalisé</h2>
-    <div class="builder-row">
-      <label for="gameType">Jeu</label>
-      <select id="gameType">
-        <option value="anidle">Anidle</option>
-        <option value="openingquizz">Opening Quizz</option>
-        <option value="characterquizz">Character Quizz</option>
-        <option value="animetournament">AnimeTournament</option>
-        <option value="blindranking">BlindRanking</option>
-      </select>
-      <select id="modeOption" style="display:none"></select>
-      <label for="stepCount">Nombre</label>
-      <input type="number" id="stepCount" min="1" value="1" style="width:70px;">
-      <button id="addStepBtn">Ajouter</button>
-    </div>
-    <div id="steps-list"></div>
-    <button id="startParcoursBtn" style="display:none;margin:0 auto;display:block;">Lancer le Parcours</button>
-  </section>
-
-  <!-- === Recap Section === -->
-  <section id="recap" style="display:none;">
-    <h2>Récapitulatif du Parcours</h2>
-    <ul id="parcoursRecapList"></ul>
-    <div style="text-align:center;">
-      <button id="editParcoursBtn">Modifier</button>
-      <button id="launchConfirmedBtn" style="margin-left:12px;">Confirmer & Lancer</button>
-    </div>
-  </section>
-
+  <div id="container">
+    <section id="parcours-builder">
+      <h2>Construisez votre parcours personnalisé</h2>
+      <div class="builder-row">
+        <label for="gameType">Jeu</label>
+        <select id="gameType">
+          <option value="anidle">Anidle</option>
+          <option value="openingquizz">Opening Quizz</option>
+          <option value="characterquizz">Character Quizz</option>
+          <option value="animetournament">AnimeTournament</option>
+          <option value="blindranking">BlindRanking</option>
+        </select>
+        <select id="modeOption" style="display:none"></select>
+        <label for="stepCount">Nombre</label>
+        <input type="number" id="stepCount" min="1" value="1" style="width:70px;">
+        <button id="addStepBtn">Ajouter</button>
+      </div>
+      <div id="steps-list"></div>
+      <button id="startParcoursBtn" style="display:none;margin:0 auto;display:block;">Lancer le Parcours</button>
+    </section>
+    <!-- === Recap Section === -->
+    <section id="recap" style="display:none;">
+      <h2>Récapitulatif du Parcours</h2>
+      <ul id="parcoursRecapList"></ul>
+      <div style="text-align:center;">
+        <button id="editParcoursBtn">Modifier</button>
+        <button id="launchConfirmedBtn" style="margin-left:12px;">Confirmer & Lancer</button>
+      </div>
+    </section>
+  </div>
   <!-- === Parcours Container (Jeu en cours) === -->
   <div id="parcours-container" style="display:none;flex-direction:column;align-items:center;">
     <iframe id="parcours-iframe"
