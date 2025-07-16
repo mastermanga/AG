@@ -115,7 +115,7 @@ function renderSteps() {
     const div = document.createElement("div");
     div.className = "step-line";
     div.innerHTML = `
-      <span class="step-label">${txt}</span>
+      <span class="step-badge">${txt}</span>
       <span class="step-controls">
         <button class="upBtn" ${grouped.length === 1 || idx === 0 ? "disabled" : ""}>⬆️</button>
         <button class="downBtn" ${grouped.length === 1 || idx === grouped.length-1 ? "disabled" : ""}>⬇️</button>
