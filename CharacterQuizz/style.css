@@ -136,6 +136,11 @@ header h1 {
   margin: 0 1.4rem;
   white-space: nowrap;
   text-align: center;
+  text-shadow:
+    0 0 6px #00eaff,
+    0 0 18px #00eaff99,
+    0 2px 8px #00bcd477,
+    0 0 10px #fff1;
 }
 
 .menu-btn, .toggle-btn {
