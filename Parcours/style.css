@@ -175,8 +175,8 @@ body.light .daily-recap-block {
 }
 
 h2 {
-  margin: 0 0 22px 0;
-  font-size: 1.18rem;
+  margin: 0 0 40px 0;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
   color: #00eaff;
@@ -345,7 +345,7 @@ body.light #parcours-iframe {
   margin: 18px auto 0 auto;
   padding: 28px 30px;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   display: none;
 }
 body.light #parcours-score {
