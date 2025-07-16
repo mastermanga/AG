@@ -40,7 +40,7 @@ header {
   justify-content: center;
   align-items: center;
   margin-bottom: 0.5rem;
-   margin-left: auto;
+  margin-left: auto;
   margin-right: auto;
   padding: 0.5rem 0 0 0; /* ou 0 si tu veux */
   z-index: 2;
@@ -51,8 +51,8 @@ header {
   max-width: 1200px; /* limite sur grand écran */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 1rem;
   margin: 0 auto;
   padding: 0 2vw;
 }
