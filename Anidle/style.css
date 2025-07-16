@@ -49,7 +49,6 @@ body::before {
 
 /* === HEADER === */
 header {
-  width: 100%;
   max-width: 1000px;
   margin: 0 auto 2rem auto;
   display: flex;
@@ -65,7 +64,11 @@ header h1 {
   flex-grow: 1;
   margin: 0 1rem;
   letter-spacing: 1px;
-  text-shadow: 0 2px 8px #00bcd466, 0 0 10px #fff1;
+  text-shadow:
+    0 0 6px #00eaff,
+    0 0 18px #00eaff99,
+    0 2px 8px #00bcd477,
+    0 0 10px #fff1;
 }
 /* === Effet Glow Victoire sur le Titre === */
 header h1.victoire {
