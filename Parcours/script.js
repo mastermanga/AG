@@ -308,7 +308,7 @@ function showFinalRecap() {
     html += `<li>${label} : <b>${grouped[label].score} / ${grouped[label].total}</b></li>`;
   }
   html += "</ul>";
-  html += `<div style="font-size:1.3rem;margin-top:13px;"><b>Score total : ${totalScore} / ${maxScore} </b></div>`;
+  html += `<div style="font-size:2rem;margin-top:13px;"><b>Score total : ${totalScore} / ${maxScore} </b></div>`;
   parcoursScore.innerHTML = html;
 
   parcoursFinish.innerHTML = `<button onclick="window.location.href='../index.html'" class="toggle-btn">Retour menu</button>`;
