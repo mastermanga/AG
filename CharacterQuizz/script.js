@@ -418,7 +418,7 @@ function revealNextCharacter() {
 
 // --- TIMER ---
 function resetTimer() {
-  countdown = 5;
+  countdown = 7;
   timerDisplay.textContent = `Temps restant : ${countdown} s`;
   if (countdownInterval) clearInterval(countdownInterval);
   countdownInterval = setInterval(() => {
