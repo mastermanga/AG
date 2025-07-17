@@ -649,6 +649,10 @@
     "image": "https://cdn.myanimelist.net/images/anime/1337/99013l.jpg",
     "characters": [
       {
+        "name": "Gigante, Botobai",
+        "image": "https://cdn.myanimelist.net/images/characters/12/252325.jpg?s=353632b87ea6d0f3fa0bc40741c25b0a"
+      },
+      {
         "name": "Gozu",
         "image": "https://cdn.myanimelist.net/images/characters/6/148469.jpg?s=cfacd5fd424ebc81f698312b7ecc9b63"
       },
@@ -657,8 +661,8 @@
         "image": "https://cdn.myanimelist.net/images/characters/8/206817.jpg?s=fecc3e90a43443ab4699ef4fe00a09f8"
       },
       {
-        "name": "Highland, Loupe",
-        "image": "https://cdn.myanimelist.net/images/characters/5/255859.jpg?s=48be57995e8e5325c6070980cf86e5b6"
+        "name": "Battera",
+        "image": "https://cdn.myanimelist.net/images/characters/10/146965.jpg?s=611ab1b10959052c1f330f2ad4ca075a"
       },
       {
         "name": "Bihorn",
@@ -669,20 +673,16 @@
         "image": "https://cdn.myanimelist.net/images/characters/12/156819.jpg?s=21a478bb11ac11da23050e0f0d32b2be"
       },
       {
-        "name": "Centipede",
-        "image": "https://cdn.myanimelist.net/images/characters/14/241723.jpg?s=51288bf4471cf6a57a5b478b0df30ff3"
-      },
-      {
-        "name": "Abe",
-        "image": "https://cdn.myanimelist.net/images/characters/11/136563.jpg?s=0d82eb2456938184b0777fd0a292a727"
-      },
-      {
         "name": "Barry",
         "image": "https://cdn.myanimelist.net/images/characters/13/198593.jpg?s=db2298fdcf39d5c14d70df0cddcf5a78"
       },
       {
         "name": "Bat",
         "image": "https://cdn.myanimelist.net/images/characters/9/241735.jpg?s=b14dc7b15e372802bb9341a5adb8f319"
+      },
+      {
+        "name": "Binolt",
+        "image": "https://cdn.myanimelist.net/images/characters/4/213791.jpg?s=0c7f2b2d5b61f57d6ac2e4c485b8ff0b"
       },
       {
         "name": "Pike",
@@ -1200,16 +1200,16 @@
         "image": "https://cdn.myanimelist.net/images/characters/10/412973.jpg?s=b198b983434246d5bea396b7502dc3eb"
       },
       {
+        "name": "Bushon",
+        "image": "https://cdn.myanimelist.net/images/characters/11/493136.jpg?s=5cc639be9deca821e9f9e4c64226f0d9"
+      },
+      {
         "name": "Busshiri",
         "image": "https://cdn.myanimelist.net/images/characters/2/412500.jpg?s=cfc0d22401353667cea18736c40b3117"
       },
       {
         "name": "Byron",
         "image": "https://cdn.myanimelist.net/images/characters/5/49102.jpg?s=eb1b090ceaf6509fb25ae557604dd064"
-      },
-      {
-        "name": "Caimanlady",
-        "image": "https://cdn.myanimelist.net/images/characters/8/593802.jpg?s=3bc8a9b32fe8af00d864c79c859967e4"
       },
       {
         "name": "Blenheim",
@@ -2479,12 +2479,12 @@
         "image": "https://cdn.myanimelist.net/images/characters/4/363308.jpg?s=1dfca2e46a7c34c46cb14ce3c279ab39"
       },
       {
-        "name": "Shiba, Kuukaku",
-        "image": "https://cdn.myanimelist.net/images/characters/3/33245.jpg?s=145d97b3688ca57b2ad743ddb6254ae2"
-      },
-      {
         "name": "Kurotsuchi, Nemu",
         "image": "https://cdn.myanimelist.net/images/characters/9/33239.jpg?s=de1a35debfb5cea80425f5238a46198f"
+      },
+      {
+        "name": "Shiba, Kuukaku",
+        "image": "https://cdn.myanimelist.net/images/characters/3/33245.jpg?s=145d97b3688ca57b2ad743ddb6254ae2"
       },
       {
         "name": "Muguruma, Kensei",
@@ -6955,7 +6955,76 @@
     "themes": [],
     "score": 8.67,
     "image": "https://cdn.myanimelist.net/images/anime/1355/147277l.jpg",
-    "characters": []
+    "characters": [
+      {
+        "name": "Hii",
+        "image": "https://cdn.myanimelist.net/images/characters/3/484538.jpg?s=7c012e498c3ef48c1a01bfb8d0491f65"
+      },
+      {
+        "name": "Kohroku",
+        "image": "https://cdn.myanimelist.net/images/characters/14/114310.jpg?s=fcfdcdb1e7a469b373ce960f5edde195"
+      },
+      {
+        "name": "Kiyo",
+        "image": "https://cdn.myanimelist.net/images/characters/7/533938.jpg?s=3c1e6b0d727e827196ba4be510392070"
+      },
+      {
+        "name": "Kaya",
+        "image": "https://cdn.myanimelist.net/images/characters/14/90260.jpg?s=856070cc420c4386eb9444c1e55486ae"
+      },
+      {
+        "name": "Nago",
+        "image": "https://cdn.myanimelist.net/images/characters/16/399568.jpg?s=6c97363b803213507a8de7be41dd830d"
+      },
+      {
+        "name": "Gonza",
+        "image": "https://cdn.myanimelist.net/images/characters/6/90258.jpg?s=5e4e6b05978f42a1bee3167c613ba596"
+      },
+      {
+        "name": "Jiko, Bou",
+        "image": "https://cdn.myanimelist.net/images/characters/6/484540.jpg?s=3c8c782a10df355418c89e60c388fab9"
+      },
+      {
+        "name": "Toki",
+        "image": "https://cdn.myanimelist.net/images/characters/15/58020.jpg?s=b006af32d42373f20848effc8d95ace4"
+      },
+      {
+        "name": "Okkoto",
+        "image": "https://cdn.myanimelist.net/images/characters/13/484525.jpg?s=fbf321c2b0f0bb07c4f3443e91c99181"
+      },
+      {
+        "name": "Kodama",
+        "image": "https://cdn.myanimelist.net/images/characters/9/484533.jpg?s=1092e2ef315692ebcc1e0763058ce291"
+      },
+      {
+        "name": "Yakul",
+        "image": "https://cdn.myanimelist.net/images/characters/8/484517.jpg?s=b6fe61e5b7e979561438d2ea5e34f183"
+      },
+      {
+        "name": "Moro",
+        "image": "https://cdn.myanimelist.net/images/characters/7/395789.jpg?s=fc59fa70f183f9b598b7585059858d43"
+      },
+      {
+        "name": "Ashitaka",
+        "image": "https://cdn.myanimelist.net/images/characters/12/484528.jpg?s=02bd43d3b3821b9abd804a4c88827919"
+      },
+      {
+        "name": "Gozen, Eboshi",
+        "image": "https://cdn.myanimelist.net/images/characters/12/90261.jpg?s=f935a2590d4f27bf59e817e76f87fed7"
+      },
+      {
+        "name": "San",
+        "image": "https://cdn.myanimelist.net/images/characters/10/198811.jpg?s=d483aacea5cd8cfca1a9821e044311d4"
+      },
+      {
+        "name": "The Forest Spirit",
+        "image": "https://cdn.myanimelist.net/images/characters/2/484521.jpg?s=fdd9f4a4e3ebd94a4463ca5cdcdf5d13"
+      },
+      {
+        "name": "Narrator",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      }
+    ]
   },
   {
     "title": "Dororo",
@@ -9440,7 +9509,80 @@
     "themes": [],
     "score": 8.01,
     "image": "https://cdn.myanimelist.net/images/anime/11/42773l.jpg",
-    "characters": []
+    "characters": [
+      {
+        "name": "Nadja",
+        "image": "https://cdn.myanimelist.net/images/characters/11/186743.jpg?s=e2da2c4db08283885e536d1aedf08b24"
+      },
+      {
+        "name": "Nando, S",
+        "image": "https://cdn.myanimelist.net/images/characters/5/186747.jpg?s=9e8417e9f2172a4f0114c40ac4ad7309"
+      },
+      {
+        "name": "Nando, L",
+        "image": "https://cdn.myanimelist.net/images/characters/4/339635.jpg?s=bfc86bf18ad07264d6a27b6191aeeae6"
+      },
+      {
+        "name": "Saluja, Abhmad",
+        "image": "https://cdn.myanimelist.net/images/characters/16/187055.jpg?s=d7cc84c6b0d11074034292f929bfc5c2"
+      },
+      {
+        "name": "Saluja, Rashid",
+        "image": "https://cdn.myanimelist.net/images/characters/4/194871.jpg?s=1d09aca936b7fcaad8455787e917cb22"
+      },
+      {
+        "name": "Tariq",
+        "image": "https://cdn.myanimelist.net/images/characters/14/411034.jpg?s=5ef8f2fb2f04cda703cd7ab1d4a1013e"
+      },
+      {
+        "name": "Dolge",
+        "image": "https://cdn.myanimelist.net/images/characters/16/185463.jpg?s=d572edd4eba270062cc6c234f75f7f90"
+      },
+      {
+        "name": "Isaac",
+        "image": "https://cdn.myanimelist.net/images/characters/5/200845.jpg?s=c703dd5eeda8652e1546adae886a6155"
+      },
+      {
+        "name": "Nando, M",
+        "image": "https://cdn.myanimelist.net/images/characters/8/230877.jpg?s=94608dc87f6c62e8a44d51a26238a594"
+      },
+      {
+        "name": "Drakon",
+        "image": "https://cdn.myanimelist.net/images/characters/2/195835.jpg?s=7d0596d30ce3c7d67cd6b18964f75209"
+      },
+      {
+        "name": "Musta'sim, Dunya",
+        "image": "https://cdn.myanimelist.net/images/characters/9/200855.jpg?s=c09d9ab35ce2a178fbd3db9d6275bd1f"
+      },
+      {
+        "name": "Pisti",
+        "image": "https://cdn.myanimelist.net/images/characters/5/201107.jpg?s=ed45bf97e79fe6f0509cc1b7404721b6"
+      },
+      {
+        "name": "Ren, Kouen",
+        "image": "https://cdn.myanimelist.net/images/characters/13/200849.jpg?s=1c6f1fabaf0ae8143841195857d9d62a"
+      },
+      {
+        "name": "Masrur",
+        "image": "https://cdn.myanimelist.net/images/characters/15/175313.jpg?s=cf432f0a87ca40339894b23f8bed53b7"
+      },
+      {
+        "name": "Yamraiha",
+        "image": "https://cdn.myanimelist.net/images/characters/4/203059.jpg?s=94cfb7a76aa8ec346e712e8c473bd1c3"
+      },
+      {
+        "name": "Saluja, Alibaba",
+        "image": "https://cdn.myanimelist.net/images/characters/2/171933.jpg?s=ce39258392271204c925b59edc687ec3"
+      },
+      {
+        "name": "Aladdin",
+        "image": "https://cdn.myanimelist.net/images/characters/4/186851.jpg?s=88895b2f148024f010f213d4713b57ec"
+      },
+      {
+        "name": "Judar",
+        "image": "https://cdn.myanimelist.net/images/characters/5/175489.jpg?s=801c073f0a95bf91372757036ccf1bd7"
+      }
+    ]
   },
   {
     "title": "Date A Live",
@@ -18036,7 +18178,80 @@
     "themes": [],
     "score": 7.89,
     "image": "https://cdn.myanimelist.net/images/anime/13/69455l.jpg",
-    "characters": []
+    "characters": [
+      {
+        "name": "Rei",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Satou",
+        "image": "https://cdn.myanimelist.net/images/characters/2/284835.jpg?s=b530f5999122eac7858b090bf2ce75e6"
+      },
+      {
+        "name": "Sunakawa, Mother",
+        "image": "https://cdn.myanimelist.net/images/characters/10/276108.jpg?s=0b8536089b045718b2c36207e3a16399"
+      },
+      {
+        "name": "Mana",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Mio",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Misaki",
+        "image": "https://cdn.myanimelist.net/images/characters/2/284651.jpg?s=b20faa7469f70b5282834d294a3a864b"
+      },
+      {
+        "name": "Isono, Unio",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Iwayama, Tsuyoshi",
+        "image": "https://cdn.myanimelist.net/images/characters/8/284508.jpg?s=ec6c9d2f0abefbf88729f59ac2859076"
+      },
+      {
+        "name": "Izumi",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Ichinose, Kouki",
+        "image": "https://cdn.myanimelist.net/images/characters/6/292160.jpg?s=16318b744ae520933c6e835d3a0bbb00"
+      },
+      {
+        "name": "Kurihara, Osamu",
+        "image": "https://cdn.myanimelist.net/images/characters/13/291377.jpg?s=6f1617a9e1309e982f81d0d5a95bcbc6"
+      },
+      {
+        "name": "Kayomi",
+        "image": "https://cdn.myanimelist.net/images/characters/5/284652.jpg?s=0f19bee54c30e5d8213740b1ade2fccd"
+      },
+      {
+        "name": "Gouda, Yuriko",
+        "image": "https://cdn.myanimelist.net/images/characters/10/284448.jpg?s=efc7cec1fd95ac2be4b9528446f6d512"
+      },
+      {
+        "name": "Saijou, Mariya",
+        "image": "https://cdn.myanimelist.net/images/characters/4/276798.jpg?s=e6b7d5c55fa778cfbc9febb09a224c7e"
+      },
+      {
+        "name": "Oda, Hayato",
+        "image": "https://cdn.myanimelist.net/images/characters/6/285893.jpg?s=fce100223598d5ef7e06a6b8c9f43189"
+      },
+      {
+        "name": "Gouda, Takeo",
+        "image": "https://cdn.myanimelist.net/images/characters/3/279776.jpg?s=9a18cc6ff9c1f3a6f8da671f60edf718"
+      },
+      {
+        "name": "Sunakawa, Makoto",
+        "image": "https://cdn.myanimelist.net/images/characters/10/279777.jpg?s=98994b15217bccd54dbddad7367fa937"
+      },
+      {
+        "name": "Yamato, Rinko",
+        "image": "https://cdn.myanimelist.net/images/characters/8/271401.jpg?s=dbfaa580fdd3b08c5be6618036405e6e"
+      }
+    ]
   },
   {
     "title": "Rosario to Vampire",
@@ -24331,7 +24546,80 @@
     "themes": [],
     "score": 8.21,
     "image": "https://cdn.myanimelist.net/images/anime/1121/133132l.jpg",
-    "characters": []
+    "characters": [
+      {
+        "name": "Street Food Man",
+        "image": "https://cdn.myanimelist.net/images/characters/10/566545.jpg?s=4c41ecf0ff74d653affeeb8b780cb6a8"
+      },
+      {
+        "name": "Tachibana, Ken",
+        "image": "https://cdn.myanimelist.net/images/characters/13/510609.jpg?s=ed001b6bd8ecae94f6b5d3dc5c0fec1a"
+      },
+      {
+        "name": "Taka",
+        "image": "https://cdn.myanimelist.net/images/characters/15/502340.jpg?s=62a3ce09d783d6764cda9a75412532b5"
+      },
+      {
+        "name": "Nikaidou",
+        "image": "https://cdn.myanimelist.net/images/characters/7/555345.jpg?s=9fb4712cdc57fb5608994036d74e9d7d"
+      },
+      {
+        "name": "Nurse A",
+        "image": "https://cdn.myanimelist.net/images/characters/8/575768.jpg?s=539b48b9003a69954c39f214c847471a"
+      },
+      {
+        "name": "Nurse B",
+        "image": "https://cdn.myanimelist.net/images/characters/14/575769.jpg?s=a1e5fdc81c4a6d322443f72d7f847cc8"
+      },
+      {
+        "name": "Kinjo",
+        "image": "https://cdn.myanimelist.net/images/characters/12/564435.jpg?s=2d42b253737c6e83b1e8a8276539d82f"
+      },
+      {
+        "name": "Kiriko's Fan",
+        "image": "https://cdn.myanimelist.net/images/characters/9/547353.jpg?s=d0c2cf7a5f6c2b67187786f681902ef0"
+      },
+      {
+        "name": "Kondou",
+        "image": "https://cdn.myanimelist.net/images/characters/6/546975.jpg?s=31dd59179eacf423eefc5cd2ed463c54"
+      },
+      {
+        "name": "Breeding Boar #13",
+        "image": "https://cdn.myanimelist.net/images/characters/14/552720.jpg?s=bc30a2af40abbdd2c3f3ff71125e3f5c"
+      },
+      {
+        "name": "Breeding Boar #14",
+        "image": "https://cdn.myanimelist.net/images/characters/10/552721.jpg?s=32b48c5cc7316dfaee171281bc8caf43"
+      },
+      {
+        "name": "Chief of Ibaraki",
+        "image": "https://cdn.myanimelist.net/images/characters/10/547352.jpg?s=aa1486f1ed46af9fbced72c4f3e04ae6"
+      },
+      {
+        "name": "Takezuka, Michika",
+        "image": "https://cdn.myanimelist.net/images/characters/9/515600.jpg?s=4522e19033c0de752387e6099442042f"
+      },
+      {
+        "name": "Mikura, Manaka",
+        "image": "https://cdn.myanimelist.net/images/characters/2/546970.jpg?s=21e3c1655dd195444581271c581bc881"
+      },
+      {
+        "name": "Breeding Boar #6",
+        "image": "https://cdn.myanimelist.net/images/characters/2/552717.jpg?s=a2067c8a1006bd66a41bbcfc9f049e4f"
+      },
+      {
+        "name": "Usami, Shun",
+        "image": "https://cdn.myanimelist.net/images/characters/11/511968.jpg?s=85830b8c838a0a565a1130bed3632488"
+      },
+      {
+        "name": "Shiro",
+        "image": "https://cdn.myanimelist.net/images/characters/15/502343.jpg?s=6d40e67a31e64ca664ff20a4b4e29e39"
+      },
+      {
+        "name": "Totori",
+        "image": "https://cdn.myanimelist.net/images/characters/2/510991.jpg?s=b08e08a2a84aca572ccd5bd1aa6b9573"
+      }
+    ]
   },
   {
     "title": "Absolute Duo",
@@ -26656,6 +26944,101 @@
     ]
   },
   {
+    "title": "The Familiar of Zero: Knight of the Twin Moons",
+    "mal_id": 1840,
+    "season": "summer 2007",
+    "studio": "J.C.Staff",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Romance",
+      "Ecchi"
+    ],
+    "themes": [
+      "Harem",
+      "Isekai",
+      "School"
+    ],
+    "score": 7.39,
+    "image": "https://cdn.myanimelist.net/images/anime/2/22740l.jpg",
+    "characters": [
+      {
+        "name": "Stanford, Henry",
+        "image": "https://cdn.myanimelist.net/images/characters/5/505721.jpg?s=e2b51e65f7990440c9ace42f597d4aed"
+      },
+      {
+        "name": "Cromwell, Oliver",
+        "image": "https://cdn.myanimelist.net/images/characters/14/568047.jpg?s=7eea5dd7011b81a5f985a5d656df875c"
+      },
+      {
+        "name": "de Grandple, Malicorne",
+        "image": "https://cdn.myanimelist.net/images/characters/9/505615.jpg?s=e278ae4ae949acf1fe2649bba653b30b"
+      },
+      {
+        "name": "Tudor, Wales",
+        "image": "https://cdn.myanimelist.net/images/characters/4/505672.jpg?s=e2f51b4e939213a20412e918e5de2d0d"
+      },
+      {
+        "name": "Jessica",
+        "image": "https://cdn.myanimelist.net/images/characters/11/505664.jpg?s=db2705da0d834d2d3ec7435ef27d7ad7"
+      },
+      {
+        "name": "Sheffield",
+        "image": "https://cdn.myanimelist.net/images/characters/6/50371.jpg?s=4ef836dd36e903c786733ba6146e4f9a"
+      },
+      {
+        "name": "Colbert, Jean",
+        "image": "https://cdn.myanimelist.net/images/characters/4/505614.jpg?s=9afaf726d4b7ec44ad0df61d1a40dfa9"
+      },
+      {
+        "name": "Osmond",
+        "image": "https://cdn.myanimelist.net/images/characters/13/505617.jpg?s=3b71397ff922d7f71d6c8b23f450f35d"
+      },
+      {
+        "name": "de La Fontaine, Cattleya Yvette La Baume Le Blanc",
+        "image": "https://cdn.myanimelist.net/images/characters/2/86010.jpg?s=10a50113067c0651d3b20d8ac56614bb"
+      },
+      {
+        "name": "Westwood, Tiffania",
+        "image": "https://cdn.myanimelist.net/images/characters/7/236931.jpg?s=38d090f53179fd7ec4f314571d9b9582"
+      },
+      {
+        "name": "von Anhalt-Zerbst, Kirche Augusta Frederica",
+        "image": "https://cdn.myanimelist.net/images/characters/10/550078.jpg?s=74baa50297331293b8e7cf8d90ad7cd0"
+      },
+      {
+        "name": "de Gramont, Guiche",
+        "image": "https://cdn.myanimelist.net/images/characters/13/160313.jpg?s=8c56cc7f047a87725a83e49330fe2d0d"
+      },
+      {
+        "name": "d'Orléans, Charlotte Hélène",
+        "image": "https://cdn.myanimelist.net/images/characters/16/70379.jpg?s=4374447ae0cc8ba0bc0bcd7fe4a393e3"
+      },
+      {
+        "name": "Derflinger",
+        "image": "https://cdn.myanimelist.net/images/characters/10/449194.jpg?s=abc45175bfb56d87b82771b66556a7da"
+      },
+      {
+        "name": "de Tristain, Henrietta",
+        "image": "https://cdn.myanimelist.net/images/characters/8/150483.jpg?s=4ab7d1c2659eda04f20f6616ffaefaca"
+      },
+      {
+        "name": "Le Blanc de La Vallière, Louise Françoise",
+        "image": "https://cdn.myanimelist.net/images/characters/12/514093.jpg?s=64ec86c68b00919ab2e20aa425e6d418"
+      },
+      {
+        "name": "Hiraga, Saito",
+        "image": "https://cdn.myanimelist.net/images/characters/13/50370.jpg?s=50558f47eb9059f7db714ff429f4a9bd"
+      },
+      {
+        "name": "Siesta",
+        "image": "https://cdn.myanimelist.net/images/characters/13/58755.jpg?s=9037652212be8748affd3c03672dc349"
+      }
+    ]
+  },
+  {
     "title": "Zombieland Saga",
     "mal_id": 37976,
     "season": "fall 2018",
@@ -28161,16 +28544,16 @@
         "image": "https://cdn.myanimelist.net/images/characters/10/539814.jpg?s=842845a57d4229941f350c3dc1758ea0"
       },
       {
+        "name": "Otta",
+        "image": "https://cdn.myanimelist.net/images/characters/2/550142.jpg?s=6ad15a30b6d5af3d90ae2631f8f60cb7"
+      },
+      {
         "name": "Resurrection Center Worker",
         "image": "https://cdn.myanimelist.net/images/characters/5/545515.jpg?s=ce0037d1ff9fae3e80d68fc7e51cba77"
       },
       {
         "name": "Tomas, Mickbell",
         "image": "https://cdn.myanimelist.net/images/characters/6/531010.jpg?s=6ed83e8b4dcccde0bafa51198eeff6b7"
-      },
-      {
-        "name": "Totan",
-        "image": "https://cdn.myanimelist.net/images/characters/15/463903.jpg?s=c72d6976377b19c8ac503e84296e0ec7"
       },
       {
         "name": "Floke, Kiki",
@@ -31104,7 +31487,7 @@
       },
       {
         "name": "Nezumi",
-        "image": "https://cdn.myanimelist.net/images/characters/6/115304.jpg?s=7644a5826a6d5e27b55b94a58668c254"
+        "image": "https://cdn.myanimelist.net/images/characters/6/123009.jpg?s=450c87aa3081b31fcd5853fc8ee25ede"
       },
       {
         "name": "Yamase",
@@ -32075,7 +32458,80 @@
     "themes": [],
     "score": 7.64,
     "image": "https://cdn.myanimelist.net/images/anime/4/75535l.jpg",
-    "characters": []
+    "characters": [
+      {
+        "name": "Equus",
+        "image": "https://cdn.myanimelist.net/images/characters/3/118285.jpg?s=4d6afb500ec0f44e950780b0617a50d6"
+      },
+      {
+        "name": "Grimm",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Kate",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Fang",
+        "image": "https://cdn.myanimelist.net/images/characters/15/542528.jpg?s=f3638f6bfa9d9ac0806a01e1ce5474a9"
+      },
+      {
+        "name": "Sinclair, Florence",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Vessalius, Zai",
+        "image": "https://cdn.myanimelist.net/images/characters/13/482581.jpg?s=bb796dfdb215ecac18f856542451417b"
+      },
+      {
+        "name": "Baskerville, Charlotte",
+        "image": "https://cdn.myanimelist.net/images/characters/4/542516.jpg?s=dc3dee83fc9bf5e172434fa1306b5c18"
+      },
+      {
+        "name": "Vessalius, Ada",
+        "image": "https://cdn.myanimelist.net/images/characters/13/100947.jpg?s=d9c91cb9666a54338022b929bf988041"
+      },
+      {
+        "name": "Lunettes, Reim",
+        "image": "https://cdn.myanimelist.net/images/characters/5/112124.jpg?s=c63809ee8551dce07a4d5149a350b922"
+      },
+      {
+        "name": "Echo",
+        "image": "https://cdn.myanimelist.net/images/characters/11/54427.jpg?s=faf74cb67f7bddc7fb9bc6c45d4f7146"
+      },
+      {
+        "name": "Cheshire Cat",
+        "image": "https://cdn.myanimelist.net/images/characters/14/542523.jpg?s=a3a685d4103cb25a71388a2cab4bf381"
+      },
+      {
+        "name": "Leo",
+        "image": "https://cdn.myanimelist.net/images/characters/14/112125.jpg?s=4529a739c260096c1b5973e30f6efc93"
+      },
+      {
+        "name": "Vessalius, Oz",
+        "image": "https://cdn.myanimelist.net/images/characters/10/323973.jpg?s=351a514dc4cda7d0827837d93b4ce166"
+      },
+      {
+        "name": "Nightray, Elliot",
+        "image": "https://cdn.myanimelist.net/images/characters/10/542532.jpg?s=67f8a4dc61800d792428ed772804a49a"
+      },
+      {
+        "name": "Vessalius, Jack",
+        "image": "https://cdn.myanimelist.net/images/characters/15/542541.jpg?s=12aaea5968bb91af1a4c3cb877312508"
+      },
+      {
+        "name": "Break, Xerxes",
+        "image": "https://cdn.myanimelist.net/images/characters/6/323769.jpg?s=2fe2faee767994c05413b887b2b58029"
+      },
+      {
+        "name": "Nightray, Gilbert",
+        "image": "https://cdn.myanimelist.net/images/characters/4/308572.jpg?s=6bfcea495a4c2772dfbe0ddbace0eba3"
+      },
+      {
+        "name": "Alice",
+        "image": "https://cdn.myanimelist.net/images/characters/8/542499.jpg?s=a47e35c0927387a261acef9d6b1ede46"
+      }
+    ]
   },
   {
     "title": "Le Garçon et La Bête",
@@ -37230,7 +37686,80 @@
     "themes": [],
     "score": 7.73,
     "image": "https://cdn.myanimelist.net/images/anime/1722/99235l.jpg",
-    "characters": []
+    "characters": [
+      {
+        "name": "Silver Shield",
+        "image": "https://cdn.myanimelist.net/images/characters/5/472834.jpg?s=08982967161d0fc162263aba1cd427bc"
+      },
+      {
+        "name": "Silver Tail",
+        "image": "https://cdn.myanimelist.net/images/characters/14/472832.jpg?s=2f38feb05971451be40c301a7b79f0cd"
+      },
+      {
+        "name": "Silver Wing",
+        "image": "https://cdn.myanimelist.net/images/characters/10/472830.jpg?s=dac99b089ebed0544df1517f8cad01a7"
+      },
+      {
+        "name": "Junk Food",
+        "image": "https://cdn.myanimelist.net/images/characters/13/440694.jpg?s=c5b8ca0578f2dbd388f6ff97f10fbca6"
+      },
+      {
+        "name": "Kanae",
+        "image": "https://cdn.myanimelist.net/images/characters/10/237921.jpg?s=d35e0af91ad05c62e5b4c9035ce824cd"
+      },
+      {
+        "name": "Lily",
+        "image": "https://cdn.myanimelist.net/images/characters/10/47008.jpg?s=320c1e8bcabf850f16d9e2dc9b75dfb4"
+      },
+      {
+        "name": "Ashil",
+        "image": "https://cdn.myanimelist.net/images/characters/3/339261.jpg?s=820cec400d568d1261c2fa2f7b798aaa"
+      },
+      {
+        "name": "Ball Boy",
+        "image": "https://cdn.myanimelist.net/images/characters/8/440697.jpg?s=c591e6003abc659f41da6dca25108a9e"
+      },
+      {
+        "name": "Blamuro",
+        "image": "https://cdn.myanimelist.net/images/characters/11/464327.jpg?s=f71860201218f6b5d07076f7067265db"
+      },
+      {
+        "name": "Anderson, Billy",
+        "image": "https://cdn.myanimelist.net/images/characters/3/100751.jpg?s=df4de83b6a39574f45228d26a4637eeb"
+      },
+      {
+        "name": "Ellie",
+        "image": "https://cdn.myanimelist.net/images/characters/7/448215.jpg?s=d6ce6293b4fb9457ae238dc4a7e7e728"
+      },
+      {
+        "name": "Gagarik, Zorya",
+        "image": "https://cdn.myanimelist.net/images/characters/4/463945.jpg?s=726187a1f3a96fcd143f5bff91dcea73"
+      },
+      {
+        "name": "Phauna, Marion",
+        "image": "https://cdn.myanimelist.net/images/characters/13/530818.jpg?s=5df0ce3958ccdef30ea5e354604966f8"
+      },
+      {
+        "name": "Lasso, Marco",
+        "image": "https://cdn.myanimelist.net/images/characters/4/81878.jpg?s=6eae205d396225454d6e76db396ae9ac"
+      },
+      {
+        "name": "Tamamura, Tamao",
+        "image": "https://cdn.myanimelist.net/images/characters/12/434156.jpg?s=d58486e3e19f5d438d740aa8b65881e1"
+      },
+      {
+        "name": "Faust VIII, Johann",
+        "image": "https://cdn.myanimelist.net/images/characters/12/110873.jpg?s=82739d47d1ae548dabf8f9d9766ca9fa"
+      },
+      {
+        "name": "Usui, Horokeu",
+        "image": "https://cdn.myanimelist.net/images/characters/13/81877.jpg?s=999ebe7a6489c232fe2e1f0aff4ac3db"
+      },
+      {
+        "name": "Amidamaru",
+        "image": "https://cdn.myanimelist.net/images/characters/3/60102.jpg?s=87d284729a18dff3ed84d97493484d1c"
+      }
+    ]
   },
   {
     "title": "Kaiji: Ultimate Survivor",
@@ -44339,7 +44868,76 @@
     "themes": [],
     "score": 8,
     "image": "https://cdn.myanimelist.net/images/anime/10/13776l.jpg",
-    "characters": []
+    "characters": [
+      {
+        "name": "Megu",
+        "image": "https://cdn.myanimelist.net/images/characters/9/234465.jpg?s=58e38d8409187fb7f11973625f7b6a1c"
+      },
+      {
+        "name": "Onozawa, Seiji",
+        "image": "https://cdn.myanimelist.net/images/characters/2/59953.jpg?s=cfb9932541b8afa398405923394e8020"
+      },
+      {
+        "name": "Risa",
+        "image": "https://cdn.myanimelist.net/images/characters/16/490303.jpg?s=0b62a4628405b161616ec6b591c549f1"
+      },
+      {
+        "name": "Kusakabe, Ryuuta",
+        "image": "https://cdn.myanimelist.net/images/characters/5/490237.jpg?s=ebe316defe8ad2cbbe7a68c36e7e53ce"
+      },
+      {
+        "name": "Kusakabe, Kazuyo",
+        "image": "https://cdn.myanimelist.net/images/characters/12/490224.jpg?s=7cbeb0d43e7f74b311ff75b0f698800e"
+      },
+      {
+        "name": "Mayu",
+        "image": "https://cdn.myanimelist.net/images/characters/12/63198.jpg?s=08d4758cfa549115b3dc789af6b0b4d2"
+      },
+      {
+        "name": "Kawasaki, Aya",
+        "image": "https://cdn.myanimelist.net/images/characters/11/60894.jpg?s=3d5f56502e7d17d25fb413278979e91d"
+      },
+      {
+        "name": "Kawashima, Itsuki",
+        "image": "https://cdn.myanimelist.net/images/characters/10/131187.jpg?s=ca00b5a0457ada346c5db6f12fc7036e"
+      },
+      {
+        "name": "Kusakabe, Hina",
+        "image": "https://cdn.myanimelist.net/images/characters/15/193471.jpg?s=c98113b7965ec5f3f7e67a4ec7c38310"
+      },
+      {
+        "name": "Furuichi, Masashi",
+        "image": "https://cdn.myanimelist.net/images/characters/13/93751.jpg?s=abc5319eb04641bf3e1aaf1269388182"
+      },
+      {
+        "name": "Nonomiya, Kento",
+        "image": "https://cdn.myanimelist.net/images/characters/11/88045.jpg?s=b04ebb7c1469aa7f87f8c444a35ad238"
+      },
+      {
+        "name": "Onozawa, Masami",
+        "image": "https://cdn.myanimelist.net/images/characters/4/59952.jpg?s=c7eab7b3a968a2bdce4746e69ed3d17e"
+      },
+      {
+        "name": "Kusakabe, Mari",
+        "image": "https://cdn.myanimelist.net/images/characters/12/141081.jpg?s=288c31eaef8ed41ed6c0d0402a0a6a0e"
+      },
+      {
+        "name": "Onozawa, Mirai",
+        "image": "https://cdn.myanimelist.net/images/characters/5/141883.jpg?s=0e88295a02f1572cd7860686d135761e"
+      },
+      {
+        "name": "Onozawa, Yuuki",
+        "image": "https://cdn.myanimelist.net/images/characters/6/143031.jpg?s=0629ad1cfa2c6a162c60fc46072a30c0"
+      },
+      {
+        "name": "Furuichi, Misako",
+        "image": "https://cdn.myanimelist.net/images/characters/3/490209.jpg?s=377b1dae561d3484d3367e2882b2db4c"
+      },
+      {
+        "name": "Yuka",
+        "image": "https://cdn.myanimelist.net/images/characters/15/256043.jpg?s=a09b6dc1f96a3e77fbb5515f5102aa40"
+      }
+    ]
   },
   {
     "title": "Dimension W",
@@ -46865,7 +47463,52 @@
     "themes": [],
     "score": 7.14,
     "image": "https://cdn.myanimelist.net/images/anime/1993/108967l.jpg",
-    "characters": []
+    "characters": [
+      {
+        "name": "B. Dipper, Roy",
+        "image": "https://cdn.myanimelist.net/images/characters/14/428877.jpg?s=3fdde784fa833ad7ab3f6d0e59750574"
+      },
+      {
+        "name": "Slashhaut, Wolfgang",
+        "image": "https://cdn.myanimelist.net/images/characters/5/422129.jpg?s=5ff3a4319f9198380bf2eac2fc3f7cf0"
+      },
+      {
+        "name": "Arkvine",
+        "image": "https://cdn.myanimelist.net/images/characters/15/547329.jpg?s=03ae74dfb165f60c2fb8d00bd1da1f1d"
+      },
+      {
+        "name": "Squire, Sullivan",
+        "image": "https://cdn.myanimelist.net/images/characters/4/428878.jpg?s=0a46110ffe7811f944a5a4f602f36cde"
+      },
+      {
+        "name": "Baljure, Macy",
+        "image": "https://cdn.myanimelist.net/images/characters/11/422128.jpg?s=8ee53611f4f27911f0e954249528ad60"
+      },
+      {
+        "name": "Parks, Balgo Ywain",
+        "image": "https://cdn.myanimelist.net/images/characters/9/417312.jpg?s=125b137fd4736d8f5321bac429b63975"
+      },
+      {
+        "name": "Banx Jr., Billy",
+        "image": "https://cdn.myanimelist.net/images/characters/12/403597.jpg?s=e85ddcbafa5218bd979714f26efd0a69"
+      },
+      {
+        "name": "Bangnyfe, Bruno",
+        "image": "https://cdn.myanimelist.net/images/characters/8/428879.jpg?s=29c4c16ac62bee853f61b778643ecd43"
+      },
+      {
+        "name": "Osushi-chan",
+        "image": "https://cdn.myanimelist.net/images/characters/3/417313.jpg?s=55e1dd151fc5708f40d1c173ff6c5d9c"
+      },
+      {
+        "name": "Niihashi, Noel",
+        "image": "https://cdn.myanimelist.net/images/characters/4/518474.jpg?s=942f345ee8a2672388299129b404418c"
+      },
+      {
+        "name": "Spangcole, Ninny",
+        "image": "https://cdn.myanimelist.net/images/characters/4/518486.jpg?s=e18ff7d9c6a319f1b3e5ee4973ff22c2"
+      }
+    ]
   },
   {
     "title": "Shadows House",
@@ -53670,7 +54313,7 @@
       "Sci-Fi"
     ],
     "themes": [],
-    "score": 7.07,
+    "score": 7.08,
     "image": "https://cdn.myanimelist.net/images/anime/10/79582l.jpg",
     "characters": [
       {
@@ -54010,6 +54653,2956 @@
       {
         "name": "Wakashimazu, Ken",
         "image": "https://cdn.myanimelist.net/images/characters/15/286898.jpg?s=c34777733e227dfc4efcd9e1841333ac"
+      }
+    ]
+  },
+  {
+    "title": "Metallic Rouge",
+    "mal_id": 54794,
+    "season": "winter 2024",
+    "studio": "Bones",
+    "genres": [
+      "Action",
+      "Sci-Fi"
+    ],
+    "themes": [],
+    "score": 6.2,
+    "image": "https://cdn.myanimelist.net/images/anime/1859/140210l.jpg",
+    "characters": [
+      {
+        "name": "Miguel and Emily's Grandmother",
+        "image": "https://cdn.myanimelist.net/images/characters/7/592168.jpg?s=99d761c3d2c42ef06f1b626bb552feea"
+      },
+      {
+        "name": "Puppeteer",
+        "image": "https://cdn.myanimelist.net/images/characters/11/533475.jpg?s=71d1d70f1a02ba9d030d5f84a2b09d5a"
+      },
+      {
+        "name": "Red Visitor",
+        "image": "https://cdn.myanimelist.net/images/characters/6/592401.jpg?s=41eff70aff0c836f8b775bf51b25f1e1"
+      },
+      {
+        "name": "Huey",
+        "image": "https://cdn.myanimelist.net/images/characters/10/540063.jpg?s=139f4dd8282b411d4f81d31e94253349"
+      },
+      {
+        "name": "Husband",
+        "image": "https://cdn.myanimelist.net/images/characters/3/592170.jpg?s=5b7b66d5603019d9e795facd0a1421ac"
+      },
+      {
+        "name": "Junghardt, Gene",
+        "image": "https://cdn.myanimelist.net/images/characters/12/532650.jpg?s=109bab5680dff6709d065b6d99166362"
+      },
+      {
+        "name": "Dahila",
+        "image": "https://cdn.myanimelist.net/images/characters/2/540061.jpg?s=d6a222a0fb5f1815899e6a0b903a2d1b"
+      },
+      {
+        "name": "Driver",
+        "image": "https://cdn.myanimelist.net/images/characters/4/592171.jpg?s=dedfb0511d5e7d1c3ce05f16829a258d"
+      },
+      {
+        "name": "Duma-171",
+        "image": "https://cdn.myanimelist.net/images/characters/13/592173.jpg?s=02032f6d25cf95223d38687b21cf90cd"
+      },
+      {
+        "name": "Acres, Rob",
+        "image": "https://cdn.myanimelist.net/images/characters/2/540067.jpg?s=f4bfcad476ab0e50e27d641a748915f3"
+      },
+      {
+        "name": "Amiral",
+        "image": "https://cdn.myanimelist.net/images/characters/7/592407.jpg?s=26072889ba05e3c7594c9b7119c62e9f"
+      },
+      {
+        "name": "Bashal, Afdal",
+        "image": "https://cdn.myanimelist.net/images/characters/6/532655.jpg?s=d104cdc710ace67628c68d4b286c85f1"
+      },
+      {
+        "name": "Bluestar, Cyan",
+        "image": "https://cdn.myanimelist.net/images/characters/4/533510.jpg?s=08ca1ad31e1888a9ebcd322540a8f3d4"
+      },
+      {
+        "name": "Machias, Aes",
+        "image": "https://cdn.myanimelist.net/images/characters/5/533513.jpg?s=b28521ed6de88df2ee68edf39174aaaa"
+      },
+      {
+        "name": "Noid-262",
+        "image": "https://cdn.myanimelist.net/images/characters/11/532658.jpg?s=360ebd468c0b7101bf20db89388c3f59"
+      },
+      {
+        "name": "Redstar, Rouge",
+        "image": "https://cdn.myanimelist.net/images/characters/14/532647.jpg?s=448213ead6e2cf236daae067a9a7ec84"
+      },
+      {
+        "name": "Orthmann, Naomi",
+        "image": "https://cdn.myanimelist.net/images/characters/10/532649.jpg?s=b1374824830c819e120dba977e4bb00a"
+      },
+      {
+        "name": "Opera",
+        "image": "https://cdn.myanimelist.net/images/characters/16/533508.jpg?s=5891af637cdee9d34184d0e38ae7fbb7"
+      }
+    ]
+  },
+  {
+    "title": "KADO: The Right Answer",
+    "mal_id": 32032,
+    "season": "spring 2017",
+    "studio": "Toei Animation",
+    "genres": [
+      "Sci-Fi"
+    ],
+    "themes": [
+      "Adult Cast"
+    ],
+    "score": 6.72,
+    "image": "https://cdn.myanimelist.net/images/anime/3/85255l.jpg",
+    "characters": [
+      {
+        "name": "Sasauchi, Naomi",
+        "image": "https://cdn.myanimelist.net/images/characters/3/331619.jpg?s=884036256f58941935727888a5299ce7"
+      },
+      {
+        "name": "Ubuka, Kiyotaka",
+        "image": "https://cdn.myanimelist.net/images/characters/7/331618.jpg?s=c8a04ca38c556a570aadffbcff9c5ed9"
+      },
+      {
+        "name": "Utamaru",
+        "image": "https://cdn.myanimelist.net/images/characters/15/331621.jpg?s=1f127e692ff28881216dcfa730b55a03"
+      },
+      {
+        "name": "Fukamizu, Sophie",
+        "image": "https://cdn.myanimelist.net/images/characters/13/331629.jpg?s=0d4852f24be70f69a6c0573c57748ab2"
+      },
+      {
+        "name": "Inutaba, Kouzou",
+        "image": "https://cdn.myanimelist.net/images/characters/10/331617.jpg?s=c54d3d1d9d1e39d90f9b859137fd0662"
+      },
+      {
+        "name": "Mifune, Tetsuhito",
+        "image": "https://cdn.myanimelist.net/images/characters/13/331623.jpg?s=afdb5ebc32491a6784bdca343d3f42b9"
+      },
+      {
+        "name": "Natsume, Ritsu",
+        "image": "https://cdn.myanimelist.net/images/characters/10/327381.jpg?s=8b687ea5e1f984fc2b68bbacfd56e453"
+      },
+      {
+        "name": "Agata, Atsuhiko",
+        "image": "https://cdn.myanimelist.net/images/characters/5/331627.jpg?s=1ddbb8f551a47c6c1de38dac178e9069"
+      },
+      {
+        "name": "Emi",
+        "image": "https://cdn.myanimelist.net/images/characters/12/331622.jpg?s=b8e7417130334cfc09ee30f7934cc69f"
+      },
+      {
+        "name": "Shinawa, Kanata",
+        "image": "https://cdn.myanimelist.net/images/characters/16/327382.jpg?s=473f36cd48328d9c86963e2e8da38731"
+      },
+      {
+        "name": "Asano, Shuuhei",
+        "image": "https://cdn.myanimelist.net/images/characters/3/327380.jpg?s=5efaf39026f1fdd285cd3ab5c82eea66"
+      },
+      {
+        "name": "Yukika",
+        "image": "https://cdn.myanimelist.net/images/characters/4/339357.jpg?s=abb7e09b7b3feaa3ad3ab943324f63ac"
+      },
+      {
+        "name": "Tsukai, Saraka",
+        "image": "https://cdn.myanimelist.net/images/characters/9/321561.jpg?s=51213b5a57715a40baa15190088c3b4b"
+      },
+      {
+        "name": "Shindou, Koujirou",
+        "image": "https://cdn.myanimelist.net/images/characters/14/321560.jpg?s=ecfe6ecd37b7fe35d3a8071adcab846d"
+      },
+      {
+        "name": "Hanamori, Shun",
+        "image": "https://cdn.myanimelist.net/images/characters/2/327379.jpg?s=75e95d5488d1e5b537f571ecb2d836cb"
+      },
+      {
+        "name": "Yaha-kui zaShunina",
+        "image": "https://cdn.myanimelist.net/images/characters/12/321559.jpg?s=8895a48117aa41e2182a6ea794fe8bb6"
+      },
+      {
+        "name": "Gonnou, Takumi",
+        "image": "https://cdn.myanimelist.net/images/characters/13/331620.jpg?s=83a9b9784775d56b6d9b59569d7df14a"
+      },
+      {
+        "name": "Ooishi, Tetsuo",
+        "image": "https://cdn.myanimelist.net/images/characters/8/331628.jpg?s=f2d680afcf29f17365f52e0e388c6b8e"
+      }
+    ]
+  },
+  {
+    "title": "I Have a Crush at Work",
+    "mal_id": 59361,
+    "season": "winter 2025",
+    "studio": "Blade",
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "themes": [
+      "Adult Cast",
+      "Workplace"
+    ],
+    "score": 7.53,
+    "image": "https://cdn.myanimelist.net/images/anime/1123/146384l.jpg",
+    "characters": [
+      {
+        "name": "Sakura, Yukiko",
+        "image": "https://cdn.myanimelist.net/images/characters/6/568076.jpg?s=0fb10f1f7521f29a78afeda6b69f390a"
+      },
+      {
+        "name": "Somei's Mother",
+        "image": "https://cdn.myanimelist.net/images/characters/16/584641.jpg?s=b344d6121b3413a139d8326630a22216"
+      },
+      {
+        "name": "Suzuki, Seiya",
+        "image": "https://cdn.myanimelist.net/images/characters/4/568077.jpg?s=e8bd485327e3669e7169588d1e762b46"
+      },
+      {
+        "name": "Mita, Itsurou",
+        "image": "https://cdn.myanimelist.net/images/characters/16/568080.jpg?s=51d9e441273615d6a4d58c6fb29b711c"
+      },
+      {
+        "name": "Mita, Rinon",
+        "image": "https://cdn.myanimelist.net/images/characters/8/585983.jpg?s=c83e2f904340b89c734bbd50b26fbdf1"
+      },
+      {
+        "name": "Mita, Kanon",
+        "image": "https://cdn.myanimelist.net/images/characters/9/585982.jpg?s=8b5fd9ff912e51b2c16fd0d08d543d63"
+      },
+      {
+        "name": "Kiribayashi, Hiromi",
+        "image": "https://cdn.myanimelist.net/images/characters/2/568078.jpg?s=2e3695f76846d03990446f216551faea"
+      },
+      {
+        "name": "Kuramatsu",
+        "image": "https://cdn.myanimelist.net/images/characters/3/576135.jpg?s=3cff16c3659077f1cb66bb889d7cf8b6"
+      },
+      {
+        "name": "Mita, Shiori",
+        "image": "https://cdn.myanimelist.net/images/characters/11/585984.jpg?s=e028b334165b0b19d94cc1c76f851679"
+      },
+      {
+        "name": "Hayakawa, Shizuno",
+        "image": "https://cdn.myanimelist.net/images/characters/5/567213.jpg?s=96e32aea1eb531a65d0178457c06aebf"
+      },
+      {
+        "name": "Utou, Chiharu",
+        "image": "https://cdn.myanimelist.net/images/characters/16/568079.jpg?s=1ab58f54fcb7783387b146216ccbca76"
+      },
+      {
+        "name": "Morizono, Maria",
+        "image": "https://cdn.myanimelist.net/images/characters/11/567214.jpg?s=735a110e38f2f7938215cfd1a665f17d"
+      },
+      {
+        "name": "Tateishi, Masugu",
+        "image": "https://cdn.myanimelist.net/images/characters/8/567211.jpg?s=2961e10fc22cdf0b7a50ce0679ef147e"
+      },
+      {
+        "name": "Somei, Keisuke",
+        "image": "https://cdn.myanimelist.net/images/characters/7/567215.jpg?s=5c4226514b3c7ac50f5436ed55647483"
+      },
+      {
+        "name": "Mitsuya, Yui",
+        "image": "https://cdn.myanimelist.net/images/characters/16/567210.jpg?s=23f1cd4bb396eccfafde021856de1c3d"
+      },
+      {
+        "name": "Tamura",
+        "image": "https://cdn.myanimelist.net/images/characters/16/576136.jpg?s=f3cd1c541a76e1eb219a406396380ee3"
+      }
+    ]
+  },
+  {
+    "title": "Honey Lemon Soda",
+    "mal_id": 58271,
+    "season": "winter 2025",
+    "studio": "J.C.Staff",
+    "genres": [
+      "Romance"
+    ],
+    "themes": [
+      "School"
+    ],
+    "score": 7.17,
+    "image": "https://cdn.myanimelist.net/images/anime/1382/144602l.jpg",
+    "characters": [
+      {
+        "name": "Serina's Teacher",
+        "image": "https://cdn.myanimelist.net/images/characters/16/588637.jpg?s=dc77beb9efec1188ee01a4af795e4be3"
+      },
+      {
+        "name": "Shiraishi, Moka",
+        "image": "https://cdn.myanimelist.net/images/characters/3/576636.jpg?s=62f227835a747c04749d6dd8f0f95aac"
+      },
+      {
+        "name": "Tonbo",
+        "image": "https://cdn.myanimelist.net/images/characters/15/575465.jpg?s=b160483dd942355abbd36a734682c118"
+      },
+      {
+        "name": "Mizuki",
+        "image": "https://cdn.myanimelist.net/images/characters/7/575464.jpg?s=a6c626b3a5719978e07a56c12bd36169"
+      },
+      {
+        "name": "Momo",
+        "image": "https://cdn.myanimelist.net/images/characters/5/577678.jpg?s=4eb08864001693b9894c571bbb847f4b"
+      },
+      {
+        "name": "Nagano",
+        "image": "https://cdn.myanimelist.net/images/characters/5/577675.jpg?s=9d27bdbc399c7dbf6872f45f2da1b621"
+      },
+      {
+        "name": "Kiyoshi",
+        "image": "https://cdn.myanimelist.net/images/characters/13/576646.jpg?s=9820a8aae5a5b7849a58d4576054be44"
+      },
+      {
+        "name": "Kojima, Remi",
+        "image": "https://cdn.myanimelist.net/images/characters/3/578535.jpg?s=967cb6aff92394ae85761a43233ea15d"
+      },
+      {
+        "name": "Masashi",
+        "image": "https://cdn.myanimelist.net/images/characters/6/582679.jpg?s=36518b2c9dcc7f432e692b86fe4d7abd"
+      },
+      {
+        "name": "Emcee",
+        "image": "https://cdn.myanimelist.net/images/characters/10/588638.jpg?s=1f3496b2a47dc5e666f388290c9e32e6"
+      },
+      {
+        "name": "English Teacher",
+        "image": "https://cdn.myanimelist.net/images/characters/2/580822.jpg?s=ec900fe0f377736cae5507f1fc369152"
+      },
+      {
+        "name": "Fujita, Marin",
+        "image": "https://cdn.myanimelist.net/images/characters/7/575458.jpg?s=967d486dd71dd94e1c5f5a4e0302c520"
+      },
+      {
+        "name": "Oikawa, Tao",
+        "image": "https://cdn.myanimelist.net/images/characters/11/576635.jpg?s=35fa8fabc462821fd5289e27b0e0fa82"
+      },
+      {
+        "name": "Takamine, Tomoya",
+        "image": "https://cdn.myanimelist.net/images/characters/10/561033.jpg?s=f7451cc14b04305dd11e87bcd2086d63"
+      },
+      {
+        "name": "Furuichi, Musashi",
+        "image": "https://cdn.myanimelist.net/images/characters/4/580800.jpg?s=7e606b330ffa3d0ddcd3f1dc548b4881"
+      },
+      {
+        "name": "Ishimori, Uka",
+        "image": "https://cdn.myanimelist.net/images/characters/12/557888.jpg?s=cc76670cea25c45eedb1c8d25c4368c0"
+      },
+      {
+        "name": "Kanno, Serina",
+        "image": "https://cdn.myanimelist.net/images/characters/14/561032.jpg?s=c1889e7b303acc01315a9fe234841fa4"
+      },
+      {
+        "name": "Endou, Ayumi",
+        "image": "https://cdn.myanimelist.net/images/characters/14/561031.jpg?s=3b0346f78af238b54ea6254219906854"
+      }
+    ]
+  },
+  {
+    "title": "365 Days to the Wedding",
+    "mal_id": 55887,
+    "season": "fall 2024",
+    "studio": "Ashi Productions",
+    "genres": [
+      "Romance"
+    ],
+    "themes": [
+      "Adult Cast",
+      "Workplace"
+    ],
+    "score": 7.13,
+    "image": "https://cdn.myanimelist.net/images/anime/1969/145469l.jpg",
+    "characters": [
+      {
+        "name": "Oohara, Haruko",
+        "image": "https://cdn.myanimelist.net/images/characters/8/566638.jpg?s=1793504327f1b84a244f792fd0f71923"
+      },
+      {
+        "name": "Oohara, Ikuko",
+        "image": "https://cdn.myanimelist.net/images/characters/14/566639.jpg?s=6961204510e528a98fe6c9bf6460e289"
+      },
+      {
+        "name": "Saitou, Akane",
+        "image": "https://cdn.myanimelist.net/images/characters/6/563969.jpg?s=e915309def6f9d41b5ad5728e2fe93ac"
+      },
+      {
+        "name": "Igashima, Akiko",
+        "image": "https://cdn.myanimelist.net/images/characters/5/572740.jpg?s=96e23d25f34ade8493d41c9d186ece86"
+      },
+      {
+        "name": "Keisuke, Itsuki",
+        "image": "https://cdn.myanimelist.net/images/characters/16/555361.jpg?s=a6a32c3e203442799288654391d7f818"
+      },
+      {
+        "name": "Kitagawa, Keiko",
+        "image": "https://cdn.myanimelist.net/images/characters/12/563970.jpg?s=94a31b237d9a84816497e62f7c4885b2"
+      },
+      {
+        "name": "Oohara, Izumi",
+        "image": "https://cdn.myanimelist.net/images/characters/9/565930.jpg?s=b81bec1afbc06a4238b85853838f53ca"
+      },
+      {
+        "name": "Takuya's Grandma",
+        "image": "https://cdn.myanimelist.net/images/characters/6/565929.jpg?s=fd9031ae1406ba3431355bfca7b93c8d"
+      },
+      {
+        "name": "Comet Master",
+        "image": "https://cdn.myanimelist.net/images/characters/12/568561.jpg?s=0b66e54cc8732a1f1e5faf6772df0501"
+      },
+      {
+        "name": "von Liechtbourg, Claudia Maria",
+        "image": "https://cdn.myanimelist.net/images/characters/13/567643.jpg?s=51f556829c5e9b6427ff9940689b78c4"
+      },
+      {
+        "name": "Dr. Senmori",
+        "image": "https://cdn.myanimelist.net/images/characters/3/565928.jpg?s=95d28747c958eb563fc498e81acb6e16"
+      },
+      {
+        "name": "Komiya, Natsumi",
+        "image": "https://cdn.myanimelist.net/images/characters/9/489649.jpg?s=e20283e6c5b8b1d597674dd96df2dbf6"
+      },
+      {
+        "name": "Oohara, Takuya",
+        "image": "https://cdn.myanimelist.net/images/characters/10/563965.jpg?s=57e0562212a0ea35abc56b8bde285778"
+      },
+      {
+        "name": "Kaori",
+        "image": "https://cdn.myanimelist.net/images/characters/10/569236.jpg?s=822943df8a574467dbfcfceaf7dc21ab"
+      },
+      {
+        "name": "George",
+        "image": "https://cdn.myanimelist.net/images/characters/6/555358.jpg?s=491822b4df3cdfc4bf4bfb92914096e0"
+      },
+      {
+        "name": "Honjouji, Rika",
+        "image": "https://cdn.myanimelist.net/images/characters/16/563967.jpg?s=6ec9d15016f499ee70900179e23592b6"
+      },
+      {
+        "name": "Kama",
+        "image": "https://cdn.myanimelist.net/images/characters/9/571832.jpg?s=becd766c4654268ed67c7587bd2d43c8"
+      },
+      {
+        "name": "Gonda, Hiromi",
+        "image": "https://cdn.myanimelist.net/images/characters/16/555360.jpg?s=898e70b6d97a791444e856a5fc51bc2c"
+      }
+    ]
+  },
+  {
+    "title": "Burning Kabaddi",
+    "mal_id": 42395,
+    "season": "spring 2021",
+    "studio": "TMS Entertainment",
+    "genres": [
+      "Comedy",
+      "Sports"
+    ],
+    "themes": [
+      "School",
+      "Team Sports"
+    ],
+    "score": 7.01,
+    "image": "https://cdn.myanimelist.net/images/anime/1936/114022l.jpg",
+    "characters": [
+      {
+        "name": "Kizaki, Shintarou",
+        "image": "https://cdn.myanimelist.net/images/characters/4/434165.jpg?s=00d652a938d0a02717d0b4d787b4d20e"
+      },
+      {
+        "name": "Muroya, Daisuke",
+        "image": "https://cdn.myanimelist.net/images/characters/16/434166.jpg?s=c92970d56957aaf94839464e5d90325b"
+      },
+      {
+        "name": "Rokugen, Ayumu",
+        "image": "https://cdn.myanimelist.net/images/characters/8/434167.jpg?s=b81afd0ad5f31c751a0ca38dc8d0ccda"
+      },
+      {
+        "name": "Hanai, Haru",
+        "image": "https://cdn.myanimelist.net/images/characters/6/589402.jpg?s=b5afbb594e687432c24163f6c6e3e5a8"
+      },
+      {
+        "name": "Ishida, Akinari",
+        "image": "https://cdn.myanimelist.net/images/characters/14/589400.jpg?s=18404d1d7376d3c87457d2444d3d3ca7"
+      },
+      {
+        "name": "Kaji, Kunikazu",
+        "image": "https://cdn.myanimelist.net/images/characters/4/589401.jpg?s=1be0f18375f4fe38c56639ee8411e27f"
+      },
+      {
+        "name": "Takaya, Ren",
+        "image": "https://cdn.myanimelist.net/images/characters/6/434168.jpg?s=e1b0a80dd53eba8b770207ac3c8cd424"
+      },
+      {
+        "name": "Ban, Nobutaka",
+        "image": "https://cdn.myanimelist.net/images/characters/13/430649.jpg?s=ef320dbb3910f067aebf2e1a9b423293"
+      },
+      {
+        "name": "Utou, Hiromoto",
+        "image": "https://cdn.myanimelist.net/images/characters/13/435694.jpg?s=323594ecf09dc71904da89f823271479"
+      },
+      {
+        "name": "Date, Shinji",
+        "image": "https://cdn.myanimelist.net/images/characters/4/435701.jpg?s=f8ee10bf4293b7f97ba7f79a00fe3081"
+      },
+      {
+        "name": "Misumi, Kyouhei",
+        "image": "https://cdn.myanimelist.net/images/characters/16/435696.jpg?s=5cffccfd5cd46b3b1c82c6f30aee4d88"
+      },
+      {
+        "name": "Sakura, Manabu",
+        "image": "https://cdn.myanimelist.net/images/characters/11/435695.jpg?s=7a71a17bf7ce3e6757bdd86cb6e117bd"
+      },
+      {
+        "name": "Iura, Kei",
+        "image": "https://cdn.myanimelist.net/images/characters/5/435699.jpg?s=a8a07d48e89f128ae63aaaf155de990a"
+      },
+      {
+        "name": "Azemichi, Souma",
+        "image": "https://cdn.myanimelist.net/images/characters/10/435700.jpg?s=4948e45acbe7d3f3407f2a43362538b4"
+      },
+      {
+        "name": "Hitomi, Yuuki",
+        "image": "https://cdn.myanimelist.net/images/characters/2/430650.jpg?s=4b490ca48b3e2955da0e6716c4e94fe8"
+      },
+      {
+        "name": "Oujou, Masato",
+        "image": "https://cdn.myanimelist.net/images/characters/3/435698.jpg?s=73fd388762f95d013a9361f9c4caa74d"
+      },
+      {
+        "name": "Yoigoshi, Tatsuya",
+        "image": "https://cdn.myanimelist.net/images/characters/14/435697.jpg?s=6cdbaae59d493e846c2fd69adc97df70"
+      },
+      {
+        "name": "Seki, Ryuuta",
+        "image": "https://cdn.myanimelist.net/images/characters/9/430651.jpg?s=f6a27bcd0b5bc84ad04ed47ccc5e4444"
+      }
+    ]
+  },
+  {
+    "title": "Ashita no Joe",
+    "mal_id": 2402,
+    "season": "spring 1970",
+    "studio": "Mushi Production",
+    "genres": [
+      "Drama",
+      "Sports"
+    ],
+    "themes": [
+      "Combat Sports"
+    ],
+    "score": 8.33,
+    "image": "https://cdn.myanimelist.net/images/anime/5/64671l.jpg",
+    "characters": [
+      {
+        "name": "Referee",
+        "image": "https://cdn.myanimelist.net/images/characters/9/528998.jpg?s=eba62a9d2f97e2e94451611314cccd9b"
+      },
+      {
+        "name": "Shark, Suzuki",
+        "image": "https://cdn.myanimelist.net/images/characters/6/577144.jpg?s=9d7ab4c469b5c4431c7b4b2a68591aec"
+      },
+      {
+        "name": "Shiraki, Mikinosuke",
+        "image": "https://cdn.myanimelist.net/images/characters/10/338159.jpg?s=b932c7b9b7bc883663a8a25093a78ca1"
+      },
+      {
+        "name": "Miss Oyama",
+        "image": "https://cdn.myanimelist.net/images/characters/15/577141.jpg?s=1f8b9c15b7a2fdacbbcea7e98f207325"
+      },
+      {
+        "name": "Mob Boss",
+        "image": "https://cdn.myanimelist.net/images/characters/3/577120.jpg?s=eaead25a457291ad412caa450c99b7df"
+      },
+      {
+        "name": "Murase, Takeo",
+        "image": "https://cdn.myanimelist.net/images/characters/8/577126.jpg?s=2c14bfa0706d7d63e2746a5e1a433d89"
+      },
+      {
+        "name": "Hirata",
+        "image": "https://cdn.myanimelist.net/images/characters/13/527578.jpg?s=c71579dd646bb18516e66ba72ba5b94a"
+      },
+      {
+        "name": "Hurricane",
+        "image": "https://cdn.myanimelist.net/images/characters/6/577137.jpg?s=b48dc4ce4e73cb92099be99f552a69b8"
+      },
+      {
+        "name": "Inagaki, Shohei",
+        "image": "https://cdn.myanimelist.net/images/characters/2/577150.jpg?s=45d32c79a2aec9548f1f578baebc9f3c"
+      },
+      {
+        "name": "Tarou",
+        "image": "https://cdn.myanimelist.net/images/characters/13/433149.jpg?s=467f0f2da2fc006e84596f17c0f39eaf"
+      },
+      {
+        "name": "Arai",
+        "image": "https://cdn.myanimelist.net/images/characters/14/577147.jpg?s=600c5fe2fcac699e6eb382099dba5a05"
+      },
+      {
+        "name": "Bear, Minezaki",
+        "image": "https://cdn.myanimelist.net/images/characters/13/577138.jpg?s=4e5b9f9cd72d4a5a9d8dc824d9fa5eab"
+      },
+      {
+        "name": "Kinoko",
+        "image": "https://cdn.myanimelist.net/images/characters/13/433150.jpg?s=a3c34d545800717fae1248a87da3dab2"
+      },
+      {
+        "name": "Sachi",
+        "image": "https://cdn.myanimelist.net/images/characters/11/338124.jpg?s=f4a05a17225dadec29b17b9656a9217f"
+      },
+      {
+        "name": "Tonkichi",
+        "image": "https://cdn.myanimelist.net/images/characters/6/338395.jpg?s=e3ece963986d54dc5758cf7c24e1632a"
+      },
+      {
+        "name": "Rikiishi, Tooru",
+        "image": "https://cdn.myanimelist.net/images/characters/5/419091.jpg?s=87ed37d80eb2b56a266cd597ce3c67fc"
+      },
+      {
+        "name": "Rivera, Carlos",
+        "image": "https://cdn.myanimelist.net/images/characters/15/338115.jpg?s=3e235e73e4cf5155684a3200e1ffffa4"
+      },
+      {
+        "name": "Tange, Danpei",
+        "image": "https://cdn.myanimelist.net/images/characters/4/126741.jpg?s=594b586ef58ccbf77fbc363ec5b91045"
+      }
+    ]
+  },
+  {
+    "title": "Scarlet Nexus",
+    "mal_id": 48492,
+    "season": "summer 2021",
+    "studio": "Sunrise",
+    "genres": [
+      "Action",
+      "Sci-Fi"
+    ],
+    "themes": [
+      "Military",
+      "Super Power"
+    ],
+    "score": 5.72,
+    "image": "https://cdn.myanimelist.net/images/anime/1314/116004l.jpg",
+    "characters": [
+      {
+        "name": "Narukami, Seto",
+        "image": "https://cdn.myanimelist.net/images/characters/3/466223.jpg?s=5bd630a3e4ee13cf35e13d02bb995f71"
+      },
+      {
+        "name": "Spring, Fubuki",
+        "image": "https://cdn.myanimelist.net/images/characters/10/571119.jpg?s=45112fb70d2debaf8e92036ac3c3c996"
+      },
+      {
+        "name": "Sumeragi, Wakana",
+        "image": "https://cdn.myanimelist.net/images/characters/2/590515.jpg?s=474cfeb5c4b6348ba0667fdd3877347b"
+      },
+      {
+        "name": "Frazer, Wataru",
+        "image": "https://cdn.myanimelist.net/images/characters/10/497843.jpg?s=10cfcac9d9a45986c33740d8a8029315"
+      },
+      {
+        "name": "Frazer, Haruka",
+        "image": "https://cdn.myanimelist.net/images/characters/3/590518.jpg?s=06027b2398001793cbadde4e6b7ce528"
+      },
+      {
+        "name": "Ichijou, Alice",
+        "image": "https://cdn.myanimelist.net/images/characters/7/590517.jpg?s=3134c0a3c2aa0692916b73b9ac036b62"
+      },
+      {
+        "name": "Donne, Kagerou",
+        "image": "https://cdn.myanimelist.net/images/characters/5/442651.jpg?s=dbb9b8c6030e0b72df021187e1e102c0"
+      },
+      {
+        "name": "Garrison, Gemma",
+        "image": "https://cdn.myanimelist.net/images/characters/5/442658.jpg?s=208b94854365784681db123f797507f3"
+      },
+      {
+        "name": "Ritter, Shiden",
+        "image": "https://cdn.myanimelist.net/images/characters/15/442656.jpg?s=57a73db298dac47fdc2ef9483d9be2bc"
+      },
+      {
+        "name": "Karman, Nagi",
+        "image": "https://cdn.myanimelist.net/images/characters/6/442652.jpg?s=979ea5ad868908d5560ca12a62e7f396"
+      },
+      {
+        "name": "Eden, Kyouka",
+        "image": "https://cdn.myanimelist.net/images/characters/14/442650.jpg?s=2ee09c1ce72bdc88d7fbe4f4d731ae3d"
+      },
+      {
+        "name": "Travers, Karen",
+        "image": "https://cdn.myanimelist.net/images/characters/8/448693.jpg?s=f5a27fda4bdf64601123531ae7d3dad7"
+      },
+      {
+        "name": "Spring, Arashi",
+        "image": "https://cdn.myanimelist.net/images/characters/10/442655.jpg?s=afaff75b18b2f827618c1b9c977da6ba"
+      },
+      {
+        "name": "Ichijou, Hanabi",
+        "image": "https://cdn.myanimelist.net/images/characters/3/442660.jpg?s=6baf86162ece4e848305f3162bbd43e4"
+      },
+      {
+        "name": "Nazar, Tsugumi",
+        "image": "https://cdn.myanimelist.net/images/characters/3/442657.jpg?s=cef46b00d5ebd63bb1c1f629d6007fe8"
+      },
+      {
+        "name": "Randall, Kasane",
+        "image": "https://cdn.myanimelist.net/images/characters/5/436695.jpg?s=dc1b67e3957e9b3bac70dadede60ae01"
+      },
+      {
+        "name": "Sumeragi, Yuito",
+        "image": "https://cdn.myanimelist.net/images/characters/15/436694.jpg?s=893c3bf8c21805b4d277822be8e8cb86"
+      },
+      {
+        "name": "Randall, Naomi",
+        "image": "https://cdn.myanimelist.net/images/characters/9/442654.jpg?s=9829556bcc3091c3ea2322ee4d9cd1bc"
+      }
+    ]
+  },
+  {
+    "title": "Broken Blade",
+    "mal_id": 22433,
+    "season": "spring 2014",
+    "studio": "Production I.G",
+    "genres": [
+      "Action",
+      "Fantasy"
+    ],
+    "themes": [
+      "Adult Cast",
+      "Mecha",
+      "Military"
+    ],
+    "score": 7.24,
+    "image": "https://cdn.myanimelist.net/images/anime/7/58635l.jpg",
+    "characters": [
+      {
+        "name": "G. Garf Ensance, Logen",
+        "image": "https://cdn.myanimelist.net/images/characters/4/111846.jpg?s=3092a19405ed015b828df0e0687c420f"
+      },
+      {
+        "name": "Io",
+        "image": "https://cdn.myanimelist.net/images/characters/16/111844.jpg?s=3d9ca346456a81d54f98bb90ef6fcbae"
+      },
+      {
+        "name": "Stryze, Nile",
+        "image": "https://cdn.myanimelist.net/images/characters/11/111845.jpg?s=31f69b8624d015c32aa5e99160c551a0"
+      },
+      {
+        "name": "Arrow, Regarz",
+        "image": "https://cdn.myanimelist.net/images/characters/4/97481.jpg?s=7a3167477a65a5284e70d62c3dd4dace"
+      },
+      {
+        "name": "Bades",
+        "image": "https://cdn.myanimelist.net/images/characters/10/118028.jpg?s=cd94c41059b3c181b3c226bd65a70c2d"
+      },
+      {
+        "name": "Ban",
+        "image": "https://cdn.myanimelist.net/images/characters/5/479503.jpg?s=4f927d2a60dae792db39b4bf54bcfb67"
+      },
+      {
+        "name": "Sakura",
+        "image": "https://cdn.myanimelist.net/images/characters/10/118029.jpg?s=0ad996b3a64728db5df5d0c5701714ef"
+      },
+      {
+        "name": "Leda",
+        "image": "https://cdn.myanimelist.net/images/characters/3/109505.jpg?s=fecd99bff76fb0618dfabddbe13c0655"
+      },
+      {
+        "name": "Leto",
+        "image": "https://cdn.myanimelist.net/images/characters/4/117975.jpg?s=540e4c394aed70eaf5b953e646ea40d2"
+      },
+      {
+        "name": "Hodr",
+        "image": "https://cdn.myanimelist.net/images/characters/8/99590.jpg?s=4991b10dbc6d8f80d1f749d6648521d6"
+      },
+      {
+        "name": "Baldr",
+        "image": "https://cdn.myanimelist.net/images/characters/15/109507.jpg?s=dc9f6b5fc6fffd61e03b9589d376907a"
+      },
+      {
+        "name": "True",
+        "image": "https://cdn.myanimelist.net/images/characters/13/111841.jpg?s=6c676979a4271f81aea470fdd18d5c34"
+      },
+      {
+        "name": "Zess",
+        "image": "https://cdn.myanimelist.net/images/characters/10/97482.jpg?s=5760e137acec6eb2ae3ea1aa48523b24"
+      },
+      {
+        "name": "Stryze, Narvi",
+        "image": "https://cdn.myanimelist.net/images/characters/12/111847.jpg?s=851c7cc7a99877415f7e7859800fc69f"
+      },
+      {
+        "name": "Borcuse",
+        "image": "https://cdn.myanimelist.net/images/characters/15/109506.jpg?s=045c71300655fd3424525bb9b690c288"
+      },
+      {
+        "name": "Erster, Sigyn",
+        "image": "https://cdn.myanimelist.net/images/characters/2/55875.jpg?s=47aa96406123f8dbae8ef49858bf49c0"
+      },
+      {
+        "name": "Arrow, Rygart",
+        "image": "https://cdn.myanimelist.net/images/characters/3/87402.jpg?s=21487ff034311db6fe770bc6650dc01f"
+      },
+      {
+        "name": "Girge",
+        "image": "https://cdn.myanimelist.net/images/characters/7/118100.jpg?s=052248ad1638fcae9092840ad258ec50"
+      }
+    ]
+  },
+  {
+    "title": "Urusei Yatsura",
+    "mal_id": 1293,
+    "season": "fall 1981",
+    "studio": "Pierrot",
+    "genres": [
+      "Comedy",
+      "Romance",
+      "Sci-Fi"
+    ],
+    "themes": [],
+    "score": 7.71,
+    "image": "https://cdn.myanimelist.net/images/anime/9/17573l.jpg",
+    "characters": [
+      {
+        "name": "Sakura's Mother",
+        "image": "https://cdn.myanimelist.net/images/characters/3/541003.jpg?s=1d8d9de37326414fd59294223299633c"
+      },
+      {
+        "name": "Shingo",
+        "image": "https://cdn.myanimelist.net/images/characters/2/374387.jpg?s=bf490a6aae59aa8b23a7202fd062e876"
+      },
+      {
+        "name": "Shinobu's Mother",
+        "image": "https://cdn.myanimelist.net/images/characters/16/500906.jpg?s=82ebc43ce33651bf5a0e4ea7cfe4f317"
+      },
+      {
+        "name": "Mendou's Grandfather",
+        "image": "https://cdn.myanimelist.net/images/characters/4/495013.jpg?s=38ff221edb851a6a0bef74b56eeefb1b"
+      },
+      {
+        "name": "Mendou's Father",
+        "image": "https://cdn.myanimelist.net/images/characters/9/374347.jpg?s=1b2691a927b58368e49552620e47e00e"
+      },
+      {
+        "name": "Mendou's Mother",
+        "image": "https://cdn.myanimelist.net/images/characters/6/374346.jpg?s=976869d41f732ba23ebb1c6cce88b65c"
+      },
+      {
+        "name": "Art Teacher",
+        "image": "https://cdn.myanimelist.net/images/characters/2/374321.jpg?s=339f2c445cd505362f6e6e70a3f4a8a0"
+      },
+      {
+        "name": "Asano, Yumi",
+        "image": "https://cdn.myanimelist.net/images/characters/11/374322.jpg?s=49ed5a65ec84631b1e9c5091843717fc"
+      },
+      {
+        "name": "B-Bo",
+        "image": "https://cdn.myanimelist.net/images/characters/7/540686.jpg?s=debb20220c2a17e8417d320b7fbb8cda"
+      },
+      {
+        "name": "CAO-2",
+        "image": "https://cdn.myanimelist.net/images/characters/9/374324.jpg?s=92c6caeae901cb625ab6ada495254aa9"
+      },
+      {
+        "name": "Ginger",
+        "image": "https://cdn.myanimelist.net/images/characters/16/504578.jpg?s=a9d2e79e0596ea4fe7b7892ab6b4305d"
+      },
+      {
+        "name": "Her Majesty the Queen",
+        "image": "https://cdn.myanimelist.net/images/characters/9/374331.jpg?s=a3e925644217f5bff514e7b8848710af"
+      },
+      {
+        "name": "Mendou, Ryouko",
+        "image": "https://cdn.myanimelist.net/images/characters/11/508594.jpg?s=95382ee2f2bc28338147267fb9483eb0"
+      },
+      {
+        "name": "Kotatsu-neko",
+        "image": "https://cdn.myanimelist.net/images/characters/13/341973.jpg?s=d51746cbefb87121ac53fe2c3aaac60f"
+      },
+      {
+        "name": "Kitsune",
+        "image": "https://cdn.myanimelist.net/images/characters/11/374340.jpg?s=9974348bf522f056dc41439a8f1ba79c"
+      },
+      {
+        "name": "Ran",
+        "image": "https://cdn.myanimelist.net/images/characters/2/483386.jpg?s=ced87f5ff74ca90ca9a9c4647adece7b"
+      },
+      {
+        "name": "Fujinami, Ryuunosuke",
+        "image": "https://cdn.myanimelist.net/images/characters/11/498935.jpg?s=d6321a9eb936d9a132d73f7fb6347a86"
+      },
+      {
+        "name": "Sakura",
+        "image": "https://cdn.myanimelist.net/images/characters/15/474086.jpg?s=5ffa6f10c7dbb98923ee94736558ca80"
+      }
+    ]
+  },
+  {
+    "title": "Crayon Shin-chan",
+    "mal_id": 966,
+    "season": "spring 1992",
+    "studio": "Shin-Ei Animation",
+    "genres": [
+      "Comedy",
+      "Ecchi"
+    ],
+    "themes": [
+      "School"
+    ],
+    "score": 7.81,
+    "image": "https://cdn.myanimelist.net/images/anime/10/59897l.jpg",
+    "characters": [
+      {
+        "name": "Atsukuru, Shiizou",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Kazama, Mineko",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Kitamoto",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Hatogaya, Micchi",
+        "image": "https://cdn.myanimelist.net/images/characters/5/300498.jpg?s=02d1880be5d691509b2028d49d35cb8d"
+      },
+      {
+        "name": "Kawamura, Yasuo",
+        "image": "https://cdn.myanimelist.net/images/characters/6/355815.jpg?s=638f7e3270682d7ab29a14749c05e26c"
+      },
+      {
+        "name": "Kuntam Robo",
+        "image": "https://cdn.myanimelist.net/images/characters/5/116351.jpg?s=8c6f476d9c1a5ba8fe7b1b90f2bf8d7d"
+      },
+      {
+        "name": "Oohara, Nanako",
+        "image": "https://cdn.myanimelist.net/images/characters/12/12533.jpg?s=de4f85428d15dda74002ce490282c98c"
+      },
+      {
+        "name": "Ageo, Masumi",
+        "image": "https://cdn.myanimelist.net/images/characters/4/163285.jpg?s=fd940b58136622995ec47faef0b60cf1"
+      },
+      {
+        "name": "Hatogaya, Yoshirin",
+        "image": "https://cdn.myanimelist.net/images/characters/15/172299.jpg?s=99d9bf162b893159149298b23e543bda"
+      },
+      {
+        "name": "Takakura, Bunta",
+        "image": "https://cdn.myanimelist.net/images/characters/15/12551.jpg?s=97b80353e1bde7a0947ebd5891668120"
+      },
+      {
+        "name": "Matsuzaka, Ume",
+        "image": "https://cdn.myanimelist.net/images/characters/11/312257.jpg?s=fc2eb0e6895f5ab03f1da9ea22bfc45e"
+      },
+      {
+        "name": "Happiness Bunny",
+        "image": "https://cdn.myanimelist.net/images/characters/7/41484.jpg?s=63258c8c52e1292ac579d413a96a3c66"
+      },
+      {
+        "name": "Nohara, Misae",
+        "image": "https://cdn.myanimelist.net/images/characters/8/128042.jpg?s=6c01038d51c09504751cc82dce53bec0"
+      },
+      {
+        "name": "Boo-chan",
+        "image": "https://cdn.myanimelist.net/images/characters/16/12520.jpg?s=a583018df9615cffbc23a198ddd834db"
+      },
+      {
+        "name": "Gou, Goutarou",
+        "image": "https://cdn.myanimelist.net/images/characters/4/282050.jpg?s=ea060c4db66151b5fbcf7f218195d3c0"
+      },
+      {
+        "name": "Nohara, Shinnosuke",
+        "image": "https://cdn.myanimelist.net/images/characters/12/137089.jpg?s=29752a1e415e2e122e2be29fd22aac75"
+      },
+      {
+        "name": "Nohara, Hiroshi",
+        "image": "https://cdn.myanimelist.net/images/characters/13/137107.jpg?s=dbce37e037e410d0d09abc7b074410c3"
+      },
+      {
+        "name": "Buriburizaemon",
+        "image": "https://cdn.myanimelist.net/images/characters/8/278659.jpg?s=964bc90c978e498427680d3e62033ce7"
+      }
+    ]
+  },
+  {
+    "title": "The Fable",
+    "mal_id": 55911,
+    "season": "spring 2024",
+    "studio": "Tezuka Productions",
+    "genres": [
+      "Comedy",
+      "Suspense"
+    ],
+    "themes": [
+      "Adult Cast",
+      "Organized Crime"
+    ],
+    "score": 8.13,
+    "image": "https://cdn.myanimelist.net/images/anime/1254/141155l.jpg",
+    "characters": [
+      {
+        "name": "Shuuichi's Underling",
+        "image": "https://cdn.myanimelist.net/images/characters/13/578075.jpg?s=99ac864a7a9c41eeca7faad19ecaa01f"
+      },
+      {
+        "name": "Snack Bar Mama",
+        "image": "https://cdn.myanimelist.net/images/characters/7/578076.jpg?s=addd8bf9ee6555bf18739b1df7e670c1"
+      },
+      {
+        "name": "Sunagawa, Souichi",
+        "image": "https://cdn.myanimelist.net/images/characters/12/542568.jpg?s=19def5b23c98ad9b32400ebf3d362644"
+      },
+      {
+        "name": "Kawahira, Kenji",
+        "image": "https://cdn.myanimelist.net/images/characters/6/577942.jpg?s=49fd03e755a234e204bf4e0db9e3b07c"
+      },
+      {
+        "name": "Kawai, Yuuki",
+        "image": "https://cdn.myanimelist.net/images/characters/3/542573.jpg?s=5c7c2a47ab24aae261daf8f1602bc163"
+      },
+      {
+        "name": "Kickboxer",
+        "image": "https://cdn.myanimelist.net/images/characters/12/578070.jpg?s=f1efbfc77299c2db839dca6b7aea5528"
+      },
+      {
+        "name": "Ex-Wrestler",
+        "image": "https://cdn.myanimelist.net/images/characters/11/578066.jpg?s=d407200c79a645a64cf0ab5d3983bedf"
+      },
+      {
+        "name": "Factory Interviewer",
+        "image": "https://cdn.myanimelist.net/images/characters/15/578067.jpg?s=a39b11962bedcb047514bb4fb0e6e7da"
+      },
+      {
+        "name": "Haga, Tatsuya",
+        "image": "https://cdn.myanimelist.net/images/characters/10/562129.jpg?s=287f5a1423d695ccbee34d1a0119bbc5"
+      },
+      {
+        "name": "Kojima, Kenji",
+        "image": "https://cdn.myanimelist.net/images/characters/8/536450.jpg?s=ae98b6dd4c7a035e890023536892e28e"
+      },
+      {
+        "name": "Master",
+        "image": "https://cdn.myanimelist.net/images/characters/8/542572.jpg?s=865155f3dd64badca144a29fe4a17c9b"
+      },
+      {
+        "name": "Suzuki, Hiroshi",
+        "image": "https://cdn.myanimelist.net/images/characters/9/564118.jpg?s=858f9080ddd79be7ba7d9669592ba393"
+      },
+      {
+        "name": "Jackal Tomioka",
+        "image": "https://cdn.myanimelist.net/images/characters/12/536453.jpg?s=8f35a1a580752cc8310ef37434c6bba9"
+      },
+      {
+        "name": "Kuroshio, Ryou",
+        "image": "https://cdn.myanimelist.net/images/characters/8/542716.jpg?s=ec1396735a8e25cd1b35a27c10a91d6d"
+      },
+      {
+        "name": "Boss",
+        "image": "https://cdn.myanimelist.net/images/characters/11/536452.jpg?s=fb1b54f89914fb4036a010cd8c436627"
+      },
+      {
+        "name": "Satou, Akira",
+        "image": "https://cdn.myanimelist.net/images/characters/13/576063.jpg?s=2da4a6028f686d8e47dce2343e7862ee"
+      },
+      {
+        "name": "Satou, Youko",
+        "image": "https://cdn.myanimelist.net/images/characters/15/536434.jpg?s=1015eb096322b087afd59f122f73a007"
+      },
+      {
+        "name": "Ebihara, Takeshi",
+        "image": "https://cdn.myanimelist.net/images/characters/10/536435.jpg?s=2e7a82ca5ae8eb62e369e78f9aa30be3"
+      }
+    ]
+  },
+  {
+    "title": "Revenger",
+    "mal_id": 53213,
+    "season": "winter 2023",
+    "studio": "Ajia-do",
+    "genres": [
+      "Action",
+      "Drama",
+      "Mystery"
+    ],
+    "themes": [
+      "Adult Cast",
+      "Historical",
+      "Organized Crime",
+      "Samurai"
+    ],
+    "score": 6.67,
+    "image": "https://cdn.myanimelist.net/images/anime/1884/131748l.jpg",
+    "characters": [
+      {
+        "name": "The Fire-Breathing Daruma",
+        "image": "https://cdn.myanimelist.net/images/characters/15/593792.jpg?s=2b208977b6cd4394531c37285c766a5d"
+      },
+      {
+        "name": "The Mighty Man of Stone",
+        "image": "https://cdn.myanimelist.net/images/characters/12/593790.jpg?s=51a1eebd02834e2254000ae099855e24"
+      },
+      {
+        "name": "Throwing Knife Tsukai",
+        "image": "https://cdn.myanimelist.net/images/characters/7/551089.jpg?s=dfdb42a667fadedfebb3f27b97ed79c1"
+      },
+      {
+        "name": "Nun",
+        "image": "https://cdn.myanimelist.net/images/characters/16/551087.jpg?s=c2f91fa1881c1e23ddbf87476ebe1f0f"
+      },
+      {
+        "name": "Sakata, Shuusui",
+        "image": "https://cdn.myanimelist.net/images/characters/7/548498.jpg?s=30aef43f718aa329a830375b8d5efd7a"
+      },
+      {
+        "name": "Seikuu",
+        "image": "https://cdn.myanimelist.net/images/characters/2/504060.jpg?s=8e8ed264c8f28074a2d7fd00c06624d5"
+      },
+      {
+        "name": "Itachi",
+        "image": "https://cdn.myanimelist.net/images/characters/15/593799.jpg?s=44e8561044331183e60853d64b1cf591"
+      },
+      {
+        "name": "Jirobee",
+        "image": "https://cdn.myanimelist.net/images/characters/11/551332.jpg?s=c4769de211bb3f93f5a03266038e53a5"
+      },
+      {
+        "name": "Kaoya",
+        "image": "https://cdn.myanimelist.net/images/characters/12/593786.jpg?s=68002f6f5834df0d4227ee55f8793269"
+      },
+      {
+        "name": "Azumiya’s Courtesan",
+        "image": "https://cdn.myanimelist.net/images/characters/14/593797.jpg?s=29869cdba31c116da50348b74eb84731"
+      },
+      {
+        "name": "Doan",
+        "image": "https://cdn.myanimelist.net/images/characters/3/593794.jpg?s=b31ec925d7426d480162438cdd60558e"
+      },
+      {
+        "name": "Hana",
+        "image": "https://cdn.myanimelist.net/images/characters/9/504499.jpg?s=7c2ee800f34be6b88b0a78978cbbb1d6"
+      },
+      {
+        "name": "Souji",
+        "image": "https://cdn.myanimelist.net/images/characters/16/491786.jpg?s=d7a329f1e613bdf28a8e36b14a99c9c1"
+      },
+      {
+        "name": "Henro no, Sada",
+        "image": "https://cdn.myanimelist.net/images/characters/2/504064.jpg?s=0ed8f07ac99a4e1a9d24a131f557d09c"
+      },
+      {
+        "name": "Liu",
+        "image": "https://cdn.myanimelist.net/images/characters/6/504063.jpg?s=0fe1095eb80cb5a49cc6cb916c8f2aa4"
+      },
+      {
+        "name": "Nio",
+        "image": "https://cdn.myanimelist.net/images/characters/16/491787.jpg?s=61529e07e46576161a2c6665692caf08"
+      },
+      {
+        "name": "Kurima, Raizou",
+        "image": "https://cdn.myanimelist.net/images/characters/6/491790.jpg?s=cabee67bd96ddb2e71a16506e7bd6d37"
+      },
+      {
+        "name": "Usui, Yuuen",
+        "image": "https://cdn.myanimelist.net/images/characters/10/491789.jpg?s=234d46d87a3b6265a9d82d975dbae7eb"
+      }
+    ]
+  },
+  {
+    "title": "Yasuke",
+    "mal_id": 43697,
+    "season": "spring 2021",
+    "studio": "MAPPA",
+    "genres": [
+      "Action",
+      "Fantasy"
+    ],
+    "themes": [
+      "Adult Cast",
+      "Gore",
+      "Historical",
+      "Samurai"
+    ],
+    "score": 5.75,
+    "image": "https://cdn.myanimelist.net/images/anime/1684/114647l.jpg",
+    "characters": [
+      {
+        "name": "Ichika",
+        "image": "https://cdn.myanimelist.net/images/characters/16/491644.jpg?s=e16f6432c79a8df04316f0527d2ae4f1"
+      },
+      {
+        "name": "Morisuke",
+        "image": "https://cdn.myanimelist.net/images/characters/16/441691.jpg?s=9818f15ed62c63af6247281652fdbdda"
+      },
+      {
+        "name": "Natsumaru",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Achoja",
+        "image": "https://cdn.myanimelist.net/images/characters/5/535882.jpg?s=5df820017e4e6609f4f7792e2eccabea"
+      },
+      {
+        "name": "Dark Lord",
+        "image": "https://cdn.myanimelist.net/images/characters/3/441692.jpg?s=9783b1ee94680825969c125fed212ffe"
+      },
+      {
+        "name": "Ishikawa",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Oda, Nobunaga",
+        "image": "https://cdn.myanimelist.net/images/characters/10/439530.jpg?s=5e9fdf9e0cdeda280c80261423caa56d"
+      },
+      {
+        "name": "Abraham",
+        "image": "https://cdn.myanimelist.net/images/characters/11/528672.jpg?s=72ac4b1b37f1dcd55d50cc9c2b9db77d"
+      },
+      {
+        "name": "Hart",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Yasuke",
+        "image": "https://cdn.myanimelist.net/images/characters/8/439531.jpg?s=bcd7658fbff8c62829925d87f6fedb2b"
+      },
+      {
+        "name": "Saki",
+        "image": "https://cdn.myanimelist.net/images/characters/10/441690.jpg?s=4892e7775e94736a9a365748cb80d9ff"
+      },
+      {
+        "name": "Nikita",
+        "image": "https://cdn.myanimelist.net/images/characters/3/513333.jpg?s=cb486e791584e86aca13f59fce708425"
+      }
+    ]
+  },
+  {
+    "title": "City Hunter",
+    "mal_id": 1470,
+    "season": "spring 1987",
+    "studio": "Sunrise",
+    "genres": [
+      "Action",
+      "Comedy",
+      "Mystery"
+    ],
+    "themes": [
+      "Adult Cast"
+    ],
+    "score": 7.91,
+    "image": "https://cdn.myanimelist.net/images/anime/8/20587l.jpg",
+    "characters": [
+      {
+        "name": "Tsuchiya",
+        "image": "https://cdn.myanimelist.net/images/characters/8/162347.jpg?s=ff883769e9e7c817a49a4914188fdf85"
+      },
+      {
+        "name": "Wakahime",
+        "image": "https://cdn.myanimelist.net/images/characters/8/161723.jpg?s=1fd88a8d8793d153a0a4b9db3f151809"
+      },
+      {
+        "name": "Washio, Hisako",
+        "image": "https://cdn.myanimelist.net/images/characters/2/162633.jpg?s=83a52f20d82987e64a1a0a5be588dc26"
+      },
+      {
+        "name": "Oohara, Midori",
+        "image": "https://cdn.myanimelist.net/images/characters/6/161111.jpg?s=9508e26a608de9a3471866bdc6d71713"
+      },
+      {
+        "name": "Oozora Boss",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Otora",
+        "image": "https://cdn.myanimelist.net/images/characters/14/162369.jpg?s=593903bb149df35d0780af5ab6d6c5ee"
+      },
+      {
+        "name": "Kurowada",
+        "image": "https://cdn.myanimelist.net/images/characters/10/162145.jpg?s=4f96eebfa44a0c07b25aaae357417a03"
+      },
+      {
+        "name": "Kyouko",
+        "image": "https://cdn.myanimelist.net/images/characters/14/162659.jpg?s=9f923ee5e3144137f098e55a35daa523"
+      },
+      {
+        "name": "Lily",
+        "image": "https://cdn.myanimelist.net/images/characters/10/161233.jpg?s=d0bb0a00a846b9c2b168124b53dacb56"
+      },
+      {
+        "name": "Garcia",
+        "image": "https://cdn.myanimelist.net/images/characters/3/161235.jpg?s=ae5dbce21a5118cb08727d52bdade23d"
+      },
+      {
+        "name": "Garland, Michael",
+        "image": "https://cdn.myanimelist.net/images/characters/2/162333.jpg?s=64a8b2a6dd75fe8e7b1347be591681c3"
+      },
+      {
+        "name": "Gen-san",
+        "image": "https://cdn.myanimelist.net/images/characters/13/162645.jpg?s=175f567486532d06a31c5e01ce64a61e"
+      },
+      {
+        "name": "Arnold",
+        "image": "https://cdn.myanimelist.net/images/characters/13/161493.jpg?s=054e692b14306ee54570129fb8abb003"
+      },
+      {
+        "name": "Art Dealer",
+        "image": "https://cdn.myanimelist.net/images/characters/14/162375.jpg?s=65169d04738a6ada7b4557e11183f42c"
+      },
+      {
+        "name": "Asou, Reijirou",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Mohamed",
+        "image": "https://cdn.myanimelist.net/images/characters/5/161213.jpg?s=1e45fdfc4edd2a5078af351f3c2c7d0d"
+      },
+      {
+        "name": "Nogami, Reika",
+        "image": "https://cdn.myanimelist.net/images/characters/2/17997.jpg?s=91d6539914169c4b2d832b687f557756"
+      },
+      {
+        "name": "Ginji",
+        "image": "https://cdn.myanimelist.net/images/characters/9/162647.jpg?s=148e1b63c1c91c271d6941487ffd5d59"
+      }
+    ]
+  },
+  {
+    "title": "Viral Hit",
+    "mal_id": 58080,
+    "season": "spring 2024",
+    "studio": "Okuruto Noboru",
+    "genres": [
+      "Action"
+    ],
+    "themes": [
+      "School"
+    ],
+    "score": 7.33,
+    "image": "https://cdn.myanimelist.net/images/anime/1594/142521l.jpg",
+    "characters": [
+      {
+        "name": "Pakgo",
+        "image": "https://cdn.myanimelist.net/images/characters/16/541876.jpg?s=7e66dc02c058babdac3dd4934785a783"
+      },
+      {
+        "name": "Cameraman of the Prank Channel",
+        "image": "https://cdn.myanimelist.net/images/characters/16/555232.jpg?s=c887dfab66b284f88f2f6aa195170219"
+      },
+      {
+        "name": "Hyeonsik",
+        "image": "https://cdn.myanimelist.net/images/characters/9/555229.jpg?s=72c798a7a509f11a19dd2de86ccec665"
+      },
+      {
+        "name": "Yeo, Rumi",
+        "image": "https://cdn.myanimelist.net/images/characters/11/541879.jpg?s=88f96862fb6aca8b70e1f09d710ad050"
+      },
+      {
+        "name": "Hwang, Mangi",
+        "image": "https://cdn.myanimelist.net/images/characters/6/556802.jpg?s=232690c6386678b15c9308bddc00e969"
+      },
+      {
+        "name": "Woo, Jihyeok",
+        "image": "https://cdn.myanimelist.net/images/characters/4/541866.jpg?s=c9606dbecedae09edebc94627250e170"
+      },
+      {
+        "name": "Kim, Moonsung",
+        "image": "https://cdn.myanimelist.net/images/characters/10/541880.jpg?s=999624f3ba0781160ba9f770cca6b3bd"
+      },
+      {
+        "name": "Lee, Gaeul",
+        "image": "https://cdn.myanimelist.net/images/characters/10/541867.jpg?s=35d149a87696db46b9a9e07bae93926a"
+      },
+      {
+        "name": "Choi, Bomi",
+        "image": "https://cdn.myanimelist.net/images/characters/3/516506.jpg?s=afd0d8d7d3071e23ad13d1f3b1632ddd"
+      },
+      {
+        "name": "Samdak",
+        "image": "https://cdn.myanimelist.net/images/characters/3/541882.jpg?s=79350c2f2147d2122ca06ca2c1de4cf0"
+      },
+      {
+        "name": "Seong, Taehoon",
+        "image": "https://cdn.myanimelist.net/images/characters/12/541877.jpg?s=8f866c479f9c91d3c2b1e4f07646559d"
+      },
+      {
+        "name": "Yoo, Hobin",
+        "image": "https://cdn.myanimelist.net/images/characters/9/541864.jpg?s=0fe9589e102452c710564c97af47e1ab"
+      },
+      {
+        "name": "Member of the Prank Channel",
+        "image": "https://cdn.myanimelist.net/images/characters/2/555231.jpg?s=15d0ed8e06c5dcd16f4c433e570db5b4"
+      }
+    ]
+  },
+  {
+    "title": "Area no Kishi",
+    "mal_id": 11697,
+    "season": "winter 2012",
+    "studio": "Shin-Ei Animation",
+    "genres": [
+      "Comedy",
+      "Sports"
+    ],
+    "themes": [
+      "School",
+      "Team Sports"
+    ],
+    "score": 7.15,
+    "image": "https://cdn.myanimelist.net/images/anime/6/73987l.jpg",
+    "characters": [
+      {
+        "name": "Nurse",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Sawamura, Yuuji",
+        "image": "https://cdn.myanimelist.net/images/characters/15/221611.jpg?s=255e9bc462fffcd37306f5eaea701cd9"
+      },
+      {
+        "name": "Shima, Ryosuke",
+        "image": "https://cdn.myanimelist.net/images/characters/8/181207.jpg?s=8bf9f110d3b383d0b0e85ba16ac89355"
+      },
+      {
+        "name": "Kaiouji, Gou",
+        "image": "https://cdn.myanimelist.net/images/characters/14/483468.jpg?s=79da75a87fffe835dfcb29ac070b6dfa"
+      },
+      {
+        "name": "Kunimatsu, Hiromi",
+        "image": "https://cdn.myanimelist.net/images/characters/5/155553.jpg?s=519581732924ae36a2e261092c6c4c46"
+      },
+      {
+        "name": "Kurebayashi, Reo",
+        "image": "https://cdn.myanimelist.net/images/characters/12/158383.jpg?s=d34ade3720a7dc901fc166516713bc3c"
+      },
+      {
+        "name": "Onimaru, Haruki",
+        "image": "https://cdn.myanimelist.net/images/characters/3/181205.jpg?s=f96b458461a10c952e787dba318dc184"
+      },
+      {
+        "name": "Ri, Akitoshi",
+        "image": "https://cdn.myanimelist.net/images/characters/16/177567.jpg?s=e861adc3794b58bf31d72d4616cd1939"
+      },
+      {
+        "name": "Saeki, Yuusuke",
+        "image": "https://cdn.myanimelist.net/images/characters/12/150669.jpg?s=df61c522549b6eccb0cc9edf69d1c742"
+      },
+      {
+        "name": "Matoba, Kaoru",
+        "image": "https://cdn.myanimelist.net/images/characters/13/158387.jpg?s=16bedff3e3005f2993c6cb40aedfbe5d"
+      },
+      {
+        "name": "Nakatsuka, Kouta",
+        "image": "https://cdn.myanimelist.net/images/characters/14/150665.jpg?s=1b0eefc1d464847982c638353aba86a4"
+      },
+      {
+        "name": "Takajo, Akira",
+        "image": "https://cdn.myanimelist.net/images/characters/3/161505.jpg?s=402574a9f126ce6714dc15c567df33d0"
+      },
+      {
+        "name": "Murasaki, Mai",
+        "image": "https://cdn.myanimelist.net/images/characters/11/162667.jpg?s=9a2a82d0156fb9b4dc056e698d667a2e"
+      },
+      {
+        "name": "Aizawa, Mito",
+        "image": "https://cdn.myanimelist.net/images/characters/15/155555.jpg?s=f076e276d46952ef7b5880b13d02d153"
+      },
+      {
+        "name": "Oda, Ryoma",
+        "image": "https://cdn.myanimelist.net/images/characters/12/155783.jpg?s=8e4a251931506e695d813afdbea3023a"
+      },
+      {
+        "name": "Aizawa, Kakeru",
+        "image": "https://cdn.myanimelist.net/images/characters/13/82114.jpg?s=9cf6e45db301f1db04809cf6c30ece6e"
+      },
+      {
+        "name": "Mishima, Nana",
+        "image": "https://cdn.myanimelist.net/images/characters/7/151021.jpg?s=e93702cb0134ed42c2156aa2763dbdc7"
+      },
+      {
+        "name": "Aizawa, Suguru",
+        "image": "https://cdn.myanimelist.net/images/characters/10/155557.jpg?s=313d443394e385e36ecf7ebb6618bd27"
+      }
+    ]
+  },
+  {
+    "title": "Under Ninja",
+    "mal_id": 49766,
+    "season": "fall 2023",
+    "studio": "Tezuka Productions",
+    "genres": [
+      "Action"
+    ],
+    "themes": [],
+    "score": 6.89,
+    "image": "https://cdn.myanimelist.net/images/anime/1915/137896l.jpg",
+    "characters": [
+      {
+        "name": "Ozu",
+        "image": "https://cdn.myanimelist.net/images/characters/14/520929.jpg?s=0af815e6efcea8e2f48d756307a2209c"
+      },
+      {
+        "name": "Saruta",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Taira",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Mako-chan",
+        "image": "https://cdn.myanimelist.net/images/characters/3/524670.jpg?s=edb9bee84ad3e66b38141920e12a622a"
+      },
+      {
+        "name": "Noguchi",
+        "image": "https://cdn.myanimelist.net/images/characters/8/520928.jpg?s=91bca75aef01555911da05250333c275"
+      },
+      {
+        "name": "Onikoube",
+        "image": "https://cdn.myanimelist.net/images/characters/8/538991.jpg?s=9bca5be476c5183a0634f29bb3f330e9"
+      },
+      {
+        "name": "Hibi, Ranran",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Hibi, Miracle",
+        "image": "https://cdn.myanimelist.net/images/characters/13/520922.jpg?s=f6f76587bc44ef2e58b11e0bef0d514c"
+      },
+      {
+        "name": "Junna",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Sasama",
+        "image": "https://cdn.myanimelist.net/images/characters/5/539209.jpg?s=0291ba070ef717eb74db927d84d45f37"
+      },
+      {
+        "name": "Suzuki",
+        "image": "https://cdn.myanimelist.net/images/characters/9/520923.jpg?s=711b49c00af89f202883d5072c44b7fd"
+      },
+      {
+        "name": "Azuma",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Kawado, Ai",
+        "image": "https://cdn.myanimelist.net/images/characters/5/520925.jpg?s=7d34c0364628308461958bea7c889bb4"
+      },
+      {
+        "name": "Hachiya, Shion",
+        "image": "https://cdn.myanimelist.net/images/characters/10/520924.jpg?s=4c6c1b5975c0c2b353ab06c393608ef8"
+      },
+      {
+        "name": "Katou",
+        "image": "https://cdn.myanimelist.net/images/characters/15/524669.jpg?s=85753db5dd1dd4f5e26e23cff5871669"
+      },
+      {
+        "name": "Kumogakure, Kurou",
+        "image": "https://cdn.myanimelist.net/images/characters/2/504103.jpg?s=074c4fdb4280932d902bf0829e77df8f"
+      },
+      {
+        "name": "Russian Foreigner",
+        "image": "https://cdn.myanimelist.net/images/characters/4/524728.jpg?s=55af17a677152208308ac4c1355f19d5"
+      },
+      {
+        "name": "Eita",
+        "image": "https://cdn.myanimelist.net/images/characters/10/520927.jpg?s=5fc469c6643aced0e47e0f624ae32434"
+      }
+    ]
+  },
+  {
+    "title": "Maria Watches Over Us",
+    "mal_id": 158,
+    "season": "winter 2004",
+    "studio": "Studio Deen",
+    "genres": [
+      "Drama",
+      "Girls Love"
+    ],
+    "themes": [
+      "School"
+    ],
+    "score": 7.28,
+    "image": "https://cdn.myanimelist.net/images/anime/1994/114208l.jpg",
+    "characters": [
+      {
+        "name": "Tomoko",
+        "image": "https://cdn.myanimelist.net/images/characters/14/156705.jpg?s=697255d76e80e7642d08a7f526465ed7"
+      },
+      {
+        "name": "Tsukiyama, Minako",
+        "image": "https://cdn.myanimelist.net/images/characters/5/156697.jpg?s=36f201e319ca932e8d55d5931f1e7c01"
+      },
+      {
+        "name": "Uzawa, Mifuyu",
+        "image": "https://cdn.myanimelist.net/images/characters/9/156701.jpg?s=43be48f75d113ce78181d5127206191e"
+      },
+      {
+        "name": "Former Rosa Gigantea",
+        "image": "https://cdn.myanimelist.net/images/characters/9/156683.jpg?s=e74b21ae9ee41121218d5dfa046d606e"
+      },
+      {
+        "name": "Kasuga, Seiko",
+        "image": "https://cdn.myanimelist.net/images/characters/2/156691.jpg?s=e23c0df4ae93cde45430954c2f75f883"
+      },
+      {
+        "name": "Oyamada, Miyuki",
+        "image": "https://cdn.myanimelist.net/images/characters/13/543672.jpg?s=15336fe45a52e71b9720bfa9e62756bb"
+      },
+      {
+        "name": "Kubo, Shiori",
+        "image": "https://cdn.myanimelist.net/images/characters/2/1688.jpg?s=d3c9862b29ba81cdddfd30622382bd40"
+      },
+      {
+        "name": "Takeshima, Tsutako",
+        "image": "https://cdn.myanimelist.net/images/characters/5/52292.jpg?s=8c39a01e479ce9172fc025161bf6b57e"
+      },
+      {
+        "name": "Katsura",
+        "image": "https://cdn.myanimelist.net/images/characters/12/156699.jpg?s=e28b50a3d9a5d4689a8a921ed0857743"
+      },
+      {
+        "name": "Hasekura, Rei",
+        "image": "https://cdn.myanimelist.net/images/characters/11/67174.jpg?s=70a4f0f100816f7f1f79b54d12d5c3bc"
+      },
+      {
+        "name": "Torii, Eriko",
+        "image": "https://cdn.myanimelist.net/images/characters/4/31736.jpg?s=2ba9b911f29262600d4a6ba3e75045c8"
+      },
+      {
+        "name": "Kanina, Shizuka",
+        "image": "https://cdn.myanimelist.net/images/characters/3/233291.jpg?s=a38684a213ebd399c7d41712d96d8669"
+      },
+      {
+        "name": "Fukuzawa, Yumi",
+        "image": "https://cdn.myanimelist.net/images/characters/5/56568.jpg?s=e5fccfd46f87dc5160944250aaab6218"
+      },
+      {
+        "name": "Toudou, Shimako",
+        "image": "https://cdn.myanimelist.net/images/characters/10/176655.jpg?s=b5ccda4283d08019786ef341f4abbfaa"
+      },
+      {
+        "name": "Shimazu, Yoshino",
+        "image": "https://cdn.myanimelist.net/images/characters/5/101922.jpg?s=b139a89218823841bc421237a3720e20"
+      },
+      {
+        "name": "Satou, Sei",
+        "image": "https://cdn.myanimelist.net/images/characters/8/105543.jpg?s=08ee9f4a00c3072a30ef1f035139305b"
+      },
+      {
+        "name": "Ogasawara, Sachiko",
+        "image": "https://cdn.myanimelist.net/images/characters/9/115897.jpg?s=e2ab512884f4e6c71c54e1137ef031fd"
+      },
+      {
+        "name": "Mizuno, Youko",
+        "image": "https://cdn.myanimelist.net/images/characters/7/75462.jpg?s=02683af262287491d24953cf504c0512"
+      }
+    ]
+  },
+  {
+    "title": "Cheating Craft",
+    "mal_id": 33771,
+    "season": "fall 2016",
+    "studio": "Blade",
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "themes": [
+      "School"
+    ],
+    "score": 5.38,
+    "image": "https://cdn.myanimelist.net/images/anime/9/81891l.jpg",
+    "characters": [
+      {
+        "name": "Zhou, Lun Yu",
+        "image": "https://cdn.myanimelist.net/images/characters/16/314269.jpg?s=a0f169d09a71878752891d1b215bbd6c"
+      },
+      {
+        "name": "Xing, Li",
+        "image": "https://cdn.myanimelist.net/images/characters/3/314271.jpg?s=9d56764fc945df25fa27fe147c2725e5"
+      },
+      {
+        "name": "Wang",
+        "image": "https://cdn.myanimelist.net/images/characters/8/314273.jpg?s=64459b5c5a96fec4a52c0f5849e3c319"
+      },
+      {
+        "name": "Liu, Bai Jiu",
+        "image": "https://cdn.myanimelist.net/images/characters/12/314270.jpg?s=b9e8f9dbd0611df3017a69de6a605ab7"
+      },
+      {
+        "name": "Zhuge, Mu Ming",
+        "image": "https://cdn.myanimelist.net/images/characters/9/314267.jpg?s=7eea24eda411afe1953b250001011d5c"
+      },
+      {
+        "name": "Huang, Qiao Yi",
+        "image": "https://cdn.myanimelist.net/images/characters/6/314268.jpg?s=12c79e7f5ec91a15a7db8a001589369f"
+      },
+      {
+        "name": "Jun",
+        "image": "https://cdn.myanimelist.net/images/characters/9/314272.jpg?s=fdaaa82561f94e6f29f7fa9a8eb49c6c"
+      }
+    ]
+  },
+  {
+    "title": "Overtake!",
+    "mal_id": 54301,
+    "season": "fall 2023",
+    "studio": "TROYCA",
+    "genres": [
+      "Drama"
+    ],
+    "themes": [
+      "Racing"
+    ],
+    "score": 7.48,
+    "image": "https://cdn.myanimelist.net/images/anime/1487/139955l.jpg",
+    "characters": [
+      {
+        "name": "Satou's Boss",
+        "image": "https://cdn.myanimelist.net/images/characters/3/577261.jpg?s=ba0dbf051520ae12a3c01b7b6f16d069"
+      },
+      {
+        "name": "Shop Owner",
+        "image": "https://cdn.myanimelist.net/images/characters/11/577262.jpg?s=d72732c10528c40ef9c202299f852b0c"
+      },
+      {
+        "name": "Shouzou",
+        "image": "https://cdn.myanimelist.net/images/characters/13/577263.jpg?s=554333ecfaeb78b2eb7c414f0476afa8"
+      },
+      {
+        "name": "Kikuchi",
+        "image": "https://cdn.myanimelist.net/images/characters/7/577256.jpg?s=06db7cdaace77455d4f6e1f0db2c744a"
+      },
+      {
+        "name": "Momo",
+        "image": "https://cdn.myanimelist.net/images/characters/11/577257.jpg?s=39476642a0a9b36f5c71897e72020e66"
+      },
+      {
+        "name": "Race Commentator",
+        "image": "https://cdn.myanimelist.net/images/characters/15/577260.jpg?s=dbc2292d584421d985eabd940f6cb36e"
+      },
+      {
+        "name": "Baker",
+        "image": "https://cdn.myanimelist.net/images/characters/2/577251.jpg?s=e8fd6bbf53cc5ee01517a66cf8af67f4"
+      },
+      {
+        "name": "Ena, Noritsune",
+        "image": "https://cdn.myanimelist.net/images/characters/15/523652.jpg?s=2292fbefbf6342e86fcdc3c684dbbaf4"
+      },
+      {
+        "name": "Kagayama, Ryou",
+        "image": "https://cdn.myanimelist.net/images/characters/2/577265.jpg?s=4fa3c476700d7b0c3dae8f2b60fc10dc"
+      },
+      {
+        "name": "Mitsuzawa, Arisu",
+        "image": "https://cdn.myanimelist.net/images/characters/13/518870.jpg?s=0c70a8f8a534713de4a3900a5e5d3ed5"
+      },
+      {
+        "name": "Tokumaru, Toshiki",
+        "image": "https://cdn.myanimelist.net/images/characters/3/518871.jpg?s=21cccc0a79ff6f23145353b4fc22a893"
+      },
+      {
+        "name": "Komaki, Futoshi",
+        "image": "https://cdn.myanimelist.net/images/characters/11/523651.jpg?s=3725793beb27abd24386c74cea2b079c"
+      },
+      {
+        "name": "Madoka, Kouya",
+        "image": "https://cdn.myanimelist.net/images/characters/7/500866.jpg?s=09c2e2ccf736013af07e7e89483c9005"
+      },
+      {
+        "name": "Komaki, Koutarou",
+        "image": "https://cdn.myanimelist.net/images/characters/6/518873.jpg?s=47892a133bcf90cda55b895ad4c072d4"
+      },
+      {
+        "name": "Harunaga, Satsuki",
+        "image": "https://cdn.myanimelist.net/images/characters/12/518872.jpg?s=875ed23016b26c6156cc0a67a42b040b"
+      },
+      {
+        "name": "Asahina, Haruka",
+        "image": "https://cdn.myanimelist.net/images/characters/14/500865.jpg?s=a5b1c038709bc81c6c5a59a23021780b"
+      },
+      {
+        "name": "Yukihira, Saeko",
+        "image": "https://cdn.myanimelist.net/images/characters/10/523653.jpg?s=06057ff22a8430ebb5f8afc900b58565"
+      },
+      {
+        "name": "Satou",
+        "image": "https://cdn.myanimelist.net/images/characters/5/524939.jpg?s=8d3d1bda909620eb0837fe300d54449b"
+      }
+    ]
+  },
+  {
+    "title": "Doraemon",
+    "mal_id": 2471,
+    "season": "spring 1979",
+    "studio": "Shin-Ei Animation",
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Fantasy",
+      "Sci-Fi"
+    ],
+    "themes": [
+      "Anthropomorphic"
+    ],
+    "score": 7.87,
+    "image": "https://cdn.myanimelist.net/images/anime/3/3953l.jpg",
+    "characters": [
+      {
+        "name": "Suneo's Uncle",
+        "image": "https://cdn.myanimelist.net/images/characters/14/570688.jpg?s=94a8691a873d3b667f305040d7e9f021"
+      },
+      {
+        "name": "Suwa, Ganko",
+        "image": "https://cdn.myanimelist.net/images/characters/12/497796.jpg?s=85e8dbfdef520b5de09f1a8c26f5384c"
+      },
+      {
+        "name": "Tadashi",
+        "image": "https://cdn.myanimelist.net/images/characters/11/497149.jpg?s=3b655d51f3c339c0aa9ede44b2ab13ec"
+      },
+      {
+        "name": "Old Man's Daughter",
+        "image": "https://cdn.myanimelist.net/images/characters/4/571177.jpg?s=3f410d5bcd223df2975576de7c3e2164"
+      },
+      {
+        "name": "Oota",
+        "image": "https://cdn.myanimelist.net/images/characters/10/571057.jpg?s=734768283b32682bcc549ded57bd65c2"
+      },
+      {
+        "name": "Otoko",
+        "image": "https://cdn.myanimelist.net/images/characters/16/572124.jpg?s=746f560f198edadb5fac9b0b0f480eff"
+      },
+      {
+        "name": "Martian President",
+        "image": "https://cdn.myanimelist.net/images/characters/6/570813.jpg?s=c9fe0b7fc3cbb36797adc86a7968f995"
+      },
+      {
+        "name": "Marui, Mari",
+        "image": "https://cdn.myanimelist.net/images/characters/16/497645.jpg?s=8dd0c8fb130d2afafe6a2dcfb6fbb385"
+      },
+      {
+        "name": "Maruyo's Grandfather",
+        "image": "https://cdn.myanimelist.net/images/characters/13/572282.jpg?s=f2ef64ca0799a90548193446d6feb237"
+      },
+      {
+        "name": "Hideki",
+        "image": "https://cdn.myanimelist.net/images/characters/2/572804.jpg?s=501c6816eaab1c129a387832fbf9d29a"
+      },
+      {
+        "name": "Hideki's Mother",
+        "image": "https://cdn.myanimelist.net/images/characters/13/572807.jpg?s=75b1589bdc7ea5fcfcba7cb99a0ee787"
+      },
+      {
+        "name": "Hidetoshi's Father",
+        "image": "https://cdn.myanimelist.net/images/characters/16/496981.jpg?s=a9d344d1007bd2bdd6c1d1a34c3c7f57"
+      },
+      {
+        "name": "Charles",
+        "image": "https://cdn.myanimelist.net/images/characters/11/499671.jpg?s=b7500bf7800bdffc7a2c0e7e33709ce9"
+      },
+      {
+        "name": "Cinderella",
+        "image": "https://cdn.myanimelist.net/images/characters/11/496710.jpg?s=8ebc8357933a67895e14c9ec27e2d35a"
+      },
+      {
+        "name": "Cook",
+        "image": "https://cdn.myanimelist.net/images/characters/8/570782.jpg?s=3321a4754529b1464575625267d6e6ea"
+      },
+      {
+        "name": "Kibo",
+        "image": "https://cdn.myanimelist.net/images/characters/16/308700.jpg?s=07854da04f3986479e59baacfed47a1a"
+      },
+      {
+        "name": "Nobi, Nobisuke",
+        "image": "https://cdn.myanimelist.net/images/characters/12/282047.jpg?s=4c0f8c4875628e966c468267d2811443"
+      },
+      {
+        "name": "Gouda, Jaiko",
+        "image": "https://cdn.myanimelist.net/images/characters/7/301858.jpg?s=1430d5f9ddba6c93459bd7cfb589342b"
+      }
+    ]
+  },
+  {
+    "title": "Captain Earth",
+    "mal_id": 21677,
+    "season": "spring 2014",
+    "studio": "Bones",
+    "genres": [
+      "Action",
+      "Romance",
+      "Sci-Fi"
+    ],
+    "themes": [
+      "Mecha",
+      "Space"
+    ],
+    "score": 6.4,
+    "image": "https://cdn.myanimelist.net/images/anime/7/61051l.jpg",
+    "characters": [
+      {
+        "name": "Rin",
+        "image": "https://cdn.myanimelist.net/images/characters/9/250613.jpg?s=506533f764268ca248e0f7ea7d337ab2"
+      },
+      {
+        "name": "Setsuna",
+        "image": "https://cdn.myanimelist.net/images/characters/9/274129.jpg?s=67115f3a437ad4be25015ee9d65c814f"
+      },
+      {
+        "name": "Thunder",
+        "image": "https://cdn.myanimelist.net/images/characters/8/295936.jpg?s=fdb62d0c4ece7682a181a2e6ef183656"
+      },
+      {
+        "name": "Manatsu, Toshiaki",
+        "image": "https://cdn.myanimelist.net/images/characters/11/595962.jpg?s=38747e8d00a96f398f14a06418711434"
+      },
+      {
+        "name": "Manatsu, Taiyou",
+        "image": "https://cdn.myanimelist.net/images/characters/10/248085.jpg?s=c7ec4fd8c6f988f2250af12d20a07f78"
+      },
+      {
+        "name": "Mia",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Hino, Rita",
+        "image": "https://cdn.myanimelist.net/images/characters/15/337353.jpg?s=591118ce188bef9cb9b516e372f70887"
+      },
+      {
+        "name": "Hirosue, Reito",
+        "image": "https://cdn.myanimelist.net/images/characters/12/274785.jpg?s=a6e62c965230b3fd04a5c3625b893ddd"
+      },
+      {
+        "name": "Hitomi",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Baku",
+        "image": "https://cdn.myanimelist.net/images/characters/5/280165.jpg?s=a25c812dcdae98d9e177e274226b7904"
+      },
+      {
+        "name": "Yomatsuri, Tsubaki",
+        "image": "https://cdn.myanimelist.net/images/characters/2/248081.jpg?s=495255f3dcbd615f73348ec93aa2afd8"
+      },
+      {
+        "name": "Zin",
+        "image": "https://cdn.myanimelist.net/images/characters/8/248083.jpg?s=21fa1ac0c88d73ac1691d34d835afdcf"
+      },
+      {
+        "name": "Arashi, Teppei",
+        "image": "https://cdn.myanimelist.net/images/characters/8/238711.jpg?s=995f6ec2e02e733881447d3d8e7aa418"
+      },
+      {
+        "name": "Amara",
+        "image": "https://cdn.myanimelist.net/images/characters/6/246951.jpg?s=b3a04aa8554c566b865b011e434144cf"
+      },
+      {
+        "name": "Aizawa, Ayana",
+        "image": "https://cdn.myanimelist.net/images/characters/3/406887.jpg?s=d1513e22481d2b13994794cf4588c825"
+      },
+      {
+        "name": "Mutou, Hana",
+        "image": "https://cdn.myanimelist.net/images/characters/5/242803.jpg?s=ab01c07858b6760519ae146084cc3667"
+      },
+      {
+        "name": "Manatsu, Daichi",
+        "image": "https://cdn.myanimelist.net/images/characters/12/258743.jpg?s=4f39758ae36d9df31ac0ecd66c7ea711"
+      },
+      {
+        "name": "Yomatsuri, Akari",
+        "image": "https://cdn.myanimelist.net/images/characters/3/238719.jpg?s=245a3949d24c77c672fcd24308a16270"
+      }
+    ]
+  },
+  {
+    "title": "Medalist",
+    "mal_id": 55318,
+    "season": "winter 2025",
+    "studio": "ENGI",
+    "genres": [
+      "Drama",
+      "Sports"
+    ],
+    "themes": [
+      "Performing Arts"
+    ],
+    "score": 8.38,
+    "image": "https://cdn.myanimelist.net/images/anime/1029/146850l.jpg",
+    "characters": [
+      {
+        "name": "Takamine, Hitomi",
+        "image": "https://cdn.myanimelist.net/images/characters/15/572159.jpg?s=a7eb7f5bb6e7b1db2f9480dce0b7128b"
+      },
+      {
+        "name": "Uyama, Yuki",
+        "image": "https://cdn.myanimelist.net/images/characters/8/586134.jpg?s=adcbb9a17a61eaf540b4a1a32c2465fa"
+      },
+      {
+        "name": "Yamato, Ema",
+        "image": "https://cdn.myanimelist.net/images/characters/3/559267.jpg?s=6c90416dc4bbe6a70a8756bd95e15783"
+      },
+      {
+        "name": "Nachi, Mario",
+        "image": "https://cdn.myanimelist.net/images/characters/2/559266.jpg?s=56f89c0610507257b69fbb8701dee341"
+      },
+      {
+        "name": "Ritsuki’s Brother",
+        "image": "https://cdn.myanimelist.net/images/characters/13/587465.jpg?s=99f39d5bef172083f6062663d2cf723e"
+      },
+      {
+        "name": "Ryoka's Mother",
+        "image": "https://cdn.myanimelist.net/images/characters/7/587468.jpg?s=f33362d26d8fe53b71419fcd1b12a5ed"
+      },
+      {
+        "name": "Kago, Kouichi",
+        "image": "https://cdn.myanimelist.net/images/characters/2/586137.jpg?s=d42ef57e2e594f57b0d7ea13fff42af9"
+      },
+      {
+        "name": "Kamegaya, Choukaku",
+        "image": "https://cdn.myanimelist.net/images/characters/5/586140.jpg?s=33efd18c51cf122770c4e0ce27adbe25"
+      },
+      {
+        "name": "Kanayumi, Miho",
+        "image": "https://cdn.myanimelist.net/images/characters/12/586136.jpg?s=5b0961f0b5ccb18c49a0ffb3f5c88f02"
+      },
+      {
+        "name": "Kamoto, Suzu",
+        "image": "https://cdn.myanimelist.net/images/characters/7/572165.jpg?s=9a874f0e671a343988e187e127e65abf"
+      },
+      {
+        "name": "Kitora, Kanna",
+        "image": "https://cdn.myanimelist.net/images/characters/2/517318.jpg?s=2c186aa59f7fab9a96603ab71411d413"
+      },
+      {
+        "name": "Sekoma, Mamoru",
+        "image": "https://cdn.myanimelist.net/images/characters/14/572166.jpg?s=d5d34051e785b8350d763ae8c077b30b"
+      },
+      {
+        "name": "Sonidori, Riou",
+        "image": "https://cdn.myanimelist.net/images/characters/11/579730.jpg?s=b710886d447ef18243661176398aeb61"
+      },
+      {
+        "name": "Yodaka, Jun",
+        "image": "https://cdn.myanimelist.net/images/characters/7/572161.jpg?s=7bc7cb320722b4970dd6d263b392c2a9"
+      },
+      {
+        "name": "Miketa, Ryouka",
+        "image": "https://cdn.myanimelist.net/images/characters/16/559263.jpg?s=bfedd8e1394f151410ae9df22b43454f"
+      },
+      {
+        "name": "Yuitsuka, Inori",
+        "image": "https://cdn.myanimelist.net/images/characters/7/579734.jpg?s=dfa422860c5ef8de5125ef23c450a518"
+      },
+      {
+        "name": "Akeuraji, Tsukasa",
+        "image": "https://cdn.myanimelist.net/images/characters/8/517162.jpg?s=47dfe271283d84f167ca1a06c4fc1358"
+      },
+      {
+        "name": "Kamisaki, Hikaru",
+        "image": "https://cdn.myanimelist.net/images/characters/16/559262.jpg?s=74da40c3b6a2b5a203ff506113fde2b9"
+      }
+    ]
+  },
+  {
+    "title": "Bye Bye, Earth",
+    "mal_id": 53626,
+    "season": "summer 2024",
+    "studio": "LIDENFILMS",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "themes": [
+      "Anthropomorphic"
+    ],
+    "score": 6.06,
+    "image": "https://cdn.myanimelist.net/images/anime/1104/145564l.jpg",
+    "characters": [
+      {
+        "name": "Mist",
+        "image": "https://cdn.myanimelist.net/images/characters/7/593962.jpg?s=eb90acc4ae21c6894eb0ffaf64c51a96"
+      },
+      {
+        "name": "Perry",
+        "image": "https://cdn.myanimelist.net/images/characters/11/557990.jpg?s=7b9307ecdc3979f790fdd7b7b3bef6e1"
+      },
+      {
+        "name": "Pop",
+        "image": "https://cdn.myanimelist.net/images/characters/16/598038.jpg?s=ac04a8eba0d95bdc7b1a6861f4f1b7ac"
+      },
+      {
+        "name": "Haggis",
+        "image": "https://cdn.myanimelist.net/images/characters/4/556801.jpg?s=a6015233d172d33b2b7f4f8f0a1aba33"
+      },
+      {
+        "name": "Jaa",
+        "image": "https://cdn.myanimelist.net/images/characters/6/598044.jpg?s=4c5156e365f7debdeb03742737e86aaa"
+      },
+      {
+        "name": "King Rawhide",
+        "image": "https://cdn.myanimelist.net/images/characters/13/550058.jpg?s=74aded029fda2668d405aca0cc318f55"
+      },
+      {
+        "name": "Collins, Tom",
+        "image": "https://cdn.myanimelist.net/images/characters/6/558663.jpg?s=04c26639ba353818ed779586e3ced40c"
+      },
+      {
+        "name": "Coral",
+        "image": "https://cdn.myanimelist.net/images/characters/2/563338.jpg?s=b9ece37fad101ec96955580eaa20277f"
+      },
+      {
+        "name": "Drambuie",
+        "image": "https://cdn.myanimelist.net/images/characters/5/550057.jpg?s=ef7c09b10c41ce04be1025c8891be1eb"
+      },
+      {
+        "name": "Belle's Father",
+        "image": "https://cdn.myanimelist.net/images/characters/4/598046.jpg?s=5c53f1d5e4f80d86c917c76c6c66fd7e"
+      },
+      {
+        "name": "Belle's Mother",
+        "image": "https://cdn.myanimelist.net/images/characters/5/598045.jpg?s=64ad742af545125145bad73157c78c71"
+      },
+      {
+        "name": "Bellein",
+        "image": "https://cdn.myanimelist.net/images/characters/12/557506.jpg?s=a83bc4d7f9f5ecee65f85f07fd779037"
+      },
+      {
+        "name": "Guinness",
+        "image": "https://cdn.myanimelist.net/images/characters/16/542358.jpg?s=a800afe56b93e1f673bc38c1d6643c11"
+      },
+      {
+        "name": "Benedictine",
+        "image": "https://cdn.myanimelist.net/images/characters/11/542359.jpg?s=74554e1642910eab86d3c5310436d8ab"
+      },
+      {
+        "name": "Shandy, Gaff",
+        "image": "https://cdn.myanimelist.net/images/characters/9/542356.jpg?s=6ec2d6fa8bf4249cf5ecc6bb4870d07f"
+      },
+      {
+        "name": "Lablac, Belle",
+        "image": "https://cdn.myanimelist.net/images/characters/12/581325.jpg?s=716bdf079fbd939647342fa5d8842d9b"
+      },
+      {
+        "name": "Question, Adonis",
+        "image": "https://cdn.myanimelist.net/images/characters/5/542353.jpg?s=c40599af01f468f6dc63a96e0f77483b"
+      },
+      {
+        "name": "Kitty the All",
+        "image": "https://cdn.myanimelist.net/images/characters/5/542355.jpg?s=be44ab41963d3a1bd71ef209f29616ca"
+      }
+    ]
+  },
+  {
+    "title": "Ao no Orchestra",
+    "mal_id": 51614,
+    "season": "spring 2023",
+    "studio": "Nippon Animation",
+    "genres": [
+      "Drama"
+    ],
+    "themes": [
+      "Music",
+      "Performing Arts",
+      "School"
+    ],
+    "score": 7.16,
+    "image": "https://cdn.myanimelist.net/images/anime/1832/133754l.jpg",
+    "characters": [
+      {
+        "name": "Takahashi, Tsubasa",
+        "image": "https://cdn.myanimelist.net/images/characters/16/513640.jpg?s=546cc96d0e57aeb989b949bbfc53e625"
+      },
+      {
+        "name": "Takeda-sensei",
+        "image": "https://cdn.myanimelist.net/images/characters/11/508194.jpg?s=a6b065993b2658fbd037fcf5f8d71acd"
+      },
+      {
+        "name": "Takimoto, Kayo",
+        "image": "https://cdn.myanimelist.net/images/characters/10/513671.jpg?s=a07c39ad25e74dc16264becc1764818c"
+      },
+      {
+        "name": "Kimura, Takami",
+        "image": "https://cdn.myanimelist.net/images/characters/15/513641.jpg?s=9a11f57e6278f7c9ed3c71f601f04476"
+      },
+      {
+        "name": "Shibata, Osamu",
+        "image": "https://cdn.myanimelist.net/images/characters/9/508193.jpg?s=83856b46163261b8911891b893374161"
+      },
+      {
+        "name": "Susono, Himeko",
+        "image": "https://cdn.myanimelist.net/images/characters/12/513642.jpg?s=a71e2bf9d38e59f25f75c374d61eb5ab"
+      },
+      {
+        "name": "Aono, Mother",
+        "image": "https://cdn.myanimelist.net/images/characters/6/508191.jpg?s=f84a9d487a23f6ccb0d4b92b58d6243e"
+      },
+      {
+        "name": "Hatori, You",
+        "image": "https://cdn.myanimelist.net/images/characters/7/504214.jpg?s=0504c2f8c1a10c28cac29c6cb31a3078"
+      },
+      {
+        "name": "Iida, Sanae",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Machii, Mizuki",
+        "image": "https://cdn.myanimelist.net/images/characters/8/513639.jpg?s=b588fb6e505fd2e60c8e55cc6d7722ff"
+      },
+      {
+        "name": "Ayukawa, Hiroaki",
+        "image": "https://cdn.myanimelist.net/images/characters/9/508192.jpg?s=bbe5884d00bb52267eb490890b91edb2"
+      },
+      {
+        "name": "Aono, Ryuuji",
+        "image": "https://cdn.myanimelist.net/images/characters/7/504212.jpg?s=37d010846858bea4d1479c99a27602b5"
+      },
+      {
+        "name": "Saeki, Nao",
+        "image": "https://cdn.myanimelist.net/images/characters/8/514283.jpg?s=c7cadd26426a4c9388e8541d864bb0ab"
+      },
+      {
+        "name": "Kozakura, Haru",
+        "image": "https://cdn.myanimelist.net/images/characters/2/514282.jpg?s=12183b589f2cbff6a1687cddabf4f339"
+      },
+      {
+        "name": "Harada, Sou",
+        "image": "https://cdn.myanimelist.net/images/characters/9/504213.jpg?s=df206c7413a7915b3683de20ec416900"
+      },
+      {
+        "name": "Akine, Ritsuko",
+        "image": "https://cdn.myanimelist.net/images/characters/11/573758.jpg?s=713030bc1bcc0dcde0fa5f4aa6fbad85"
+      },
+      {
+        "name": "Aono, Hajime",
+        "image": "https://cdn.myanimelist.net/images/characters/4/509470.jpg?s=1feff212580058c7a9c2857689f182e4"
+      },
+      {
+        "name": "Yamada, Ichiro",
+        "image": "https://cdn.myanimelist.net/images/characters/12/514284.jpg?s=7a9a7a17cea03ae6378675fd52dbf582"
+      }
+    ]
+  },
+  {
+    "title": "Hamtaro",
+    "mal_id": 508,
+    "season": "summer 2000",
+    "studio": "TMS Entertainment",
+    "genres": [
+      "Adventure",
+      "Comedy"
+    ],
+    "themes": [
+      "Anthropomorphic"
+    ],
+    "score": 7.01,
+    "image": "https://cdn.myanimelist.net/images/anime/3/21562l.jpg",
+    "characters": [
+      {
+        "name": "Kimura, Taichi",
+        "image": "https://cdn.myanimelist.net/images/characters/10/295276.jpg?s=df6d0e109e3b4f8dbf02b173eed224fc"
+      },
+      {
+        "name": "Kururin-chan",
+        "image": "https://cdn.myanimelist.net/images/characters/5/497431.jpg?s=067c8d318d3b46e70377b2aa74d087b2"
+      },
+      {
+        "name": "Nijihamu-kun",
+        "image": "https://cdn.myanimelist.net/images/characters/10/497434.jpg?s=e0587d82107adccaefaa70941bf70cff"
+      },
+      {
+        "name": "Chourouham",
+        "image": "https://cdn.myanimelist.net/images/characters/4/327466.jpg?s=58b02a9dca298156a3aa7b73f030a426"
+      },
+      {
+        "name": "Cutie",
+        "image": "https://cdn.myanimelist.net/images/characters/16/581146.jpg?s=72ed267a4d1461a1d9727492f21ad5af"
+      },
+      {
+        "name": "Debihamu-kun",
+        "image": "https://cdn.myanimelist.net/images/characters/11/497433.jpg?s=8e1ff4020882b0e4211e37804ad3e6f1"
+      },
+      {
+        "name": "Tongari-kun",
+        "image": "https://cdn.myanimelist.net/images/characters/3/77496.jpg?s=440a925969fbdf78f73b206240003965"
+      },
+      {
+        "name": "Haruna, Hiromi",
+        "image": "https://cdn.myanimelist.net/images/characters/16/284546.jpg?s=c66bd1617846d489e7a56c82be89d559"
+      },
+      {
+        "name": "Haruna, Yumetaro",
+        "image": "https://cdn.myanimelist.net/images/characters/16/103689.jpg?s=379605ac56f5aa7abb1af7329c0ed955"
+      },
+      {
+        "name": "Panda-kun",
+        "image": "https://cdn.myanimelist.net/images/characters/10/11893.jpg?s=2de761d9d528927d6f96c76b2d5847e0"
+      },
+      {
+        "name": "Noppo-kun",
+        "image": "https://cdn.myanimelist.net/images/characters/3/59215.jpg?s=d728989b942def15d3c6effdee5903c6"
+      },
+      {
+        "name": "Brandon",
+        "image": "https://cdn.myanimelist.net/images/characters/6/581143.jpg?s=acc64b56da3e76c8577f71b2e36a17d6"
+      },
+      {
+        "name": "Koushi-kun",
+        "image": "https://cdn.myanimelist.net/images/characters/10/11888.jpg?s=8b11cb95ee5c486fd9dbe5da0c41d5a2"
+      },
+      {
+        "name": "Kaburu-kun",
+        "image": "https://cdn.myanimelist.net/images/characters/10/59214.jpg?s=86d219c104ec6343e414ff9cb5674d28"
+      },
+      {
+        "name": "Neteru-kun",
+        "image": "https://cdn.myanimelist.net/images/characters/2/18582.jpg?s=8a1c2f3fc1508ae26f30ae938b4d7940"
+      },
+      {
+        "name": "Hamtarou",
+        "image": "https://cdn.myanimelist.net/images/characters/12/105406.jpg?s=3a1a761114365eba09d8e9a4c84c47f6"
+      },
+      {
+        "name": "Ribon-chan",
+        "image": "https://cdn.myanimelist.net/images/characters/7/11885.jpg?s=d1ac99ed555ce88d2c6d49ef507524c0"
+      },
+      {
+        "name": "Chibimaru-chan",
+        "image": "https://cdn.myanimelist.net/images/characters/6/73190.jpg?s=0a46064de13fff3dcff163945006bca0"
+      }
+    ]
+  },
+  {
+    "title": "Ubel Blatt",
+    "mal_id": 58216,
+    "season": "winter 2025",
+    "studio": "Satelight",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "themes": [],
+    "score": 6.3,
+    "image": "https://cdn.myanimelist.net/images/anime/1647/146961l.jpg",
+    "characters": [
+      {
+        "name": "Rascheb",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Schemlje",
+        "image": "https://cdn.myanimelist.net/images/characters/8/297927.jpg?s=24fcd8d9982b05b6ac365d24419c1678"
+      },
+      {
+        "name": "Schtemwölech",
+        "image": "https://cdn.myanimelist.net/images/characters/15/572193.jpg?s=dd3abf4fb31a03c4c3a3fa77f7eebb4d"
+      },
+      {
+        "name": "Kscharlundo, Scharen",
+        "image": "https://cdn.myanimelist.net/images/characters/8/297940.jpg?s=59af2e98feb4a818ee47cd4cea10ce36"
+      },
+      {
+        "name": "Largor III",
+        "image": "https://cdn.myanimelist.net/images/characters/3/297925.jpg?s=e48659b299863cc1a44a55d545b8d0b9"
+      },
+      {
+        "name": "Lebelont",
+        "image": "https://cdn.myanimelist.net/images/characters/5/298100.jpg?s=b26921756cdc354a219bf5894f8d8827"
+      },
+      {
+        "name": "Eltzen",
+        "image": "https://cdn.myanimelist.net/images/characters/15/298078.jpg?s=8fccef9f431ff3bd1aa2aee5080ab78f"
+      },
+      {
+        "name": "Ergnach",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Fargo",
+        "image": "https://cdn.myanimelist.net/images/characters/14/572189.jpg?s=9dd251773b8b613eaa87d8584ec609d5"
+      },
+      {
+        "name": "Rozen",
+        "image": "https://cdn.myanimelist.net/images/characters/6/297926.jpg?s=95b5ee78bd7f2989ad47c1c34a3ef9f8"
+      },
+      {
+        "name": "Zeffi",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Algro",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Altea",
+        "image": "https://cdn.myanimelist.net/images/characters/16/568577.jpg?s=9c8efbde080d4f25f1f15b841181a946"
+      },
+      {
+        "name": "Geranpen",
+        "image": "https://cdn.myanimelist.net/images/characters/13/572188.jpg?s=c0a2b612c4767844f0d95aa7821c1b88"
+      },
+      {
+        "name": "Peepi",
+        "image": "https://cdn.myanimelist.net/images/characters/5/555421.jpg?s=1fad04627d06cce919fd0fa2a24d98d7"
+      },
+      {
+        "name": "Köinzell",
+        "image": "https://cdn.myanimelist.net/images/characters/13/555420.jpg?s=ff7aebf6ae86d6d7ff44852be1e83832"
+      },
+      {
+        "name": "Kscharlundo, Aht",
+        "image": "https://cdn.myanimelist.net/images/characters/10/568578.jpg?s=c8fcd815d5af40253c13225edb926f34"
+      },
+      {
+        "name": "Rahnclave, Elsaria",
+        "image": "https://cdn.myanimelist.net/images/characters/8/297881.jpg?s=a98968e7ed1d8894df08bc6b73ae635e"
+      }
+    ]
+  },
+  {
+    "title": "Battery",
+    "mal_id": 32947,
+    "season": "summer 2016",
+    "studio": "Zero-G",
+    "genres": [
+      "Drama",
+      "Sports"
+    ],
+    "themes": [
+      "Team Sports"
+    ],
+    "score": 5.71,
+    "image": "https://cdn.myanimelist.net/images/anime/6/79158l.jpg",
+    "characters": [
+      {
+        "name": "Nobunishi, Eiji",
+        "image": "https://cdn.myanimelist.net/images/characters/10/306885.jpg?s=464ee54ffbeec7b121a5b2e1b20e64b2"
+      },
+      {
+        "name": "Sawaguchi, Fumito",
+        "image": "https://cdn.myanimelist.net/images/characters/14/306890.jpg?s=66b3d7714c07c11f598dfc107f0e196f"
+      },
+      {
+        "name": "Yoshisada, Nobuhiro",
+        "image": "https://cdn.myanimelist.net/images/characters/2/306883.jpg?s=6ae7184bb22a47c02bcd762231585660"
+      },
+      {
+        "name": "Kadowaki, Shuugo",
+        "image": "https://cdn.myanimelist.net/images/characters/15/306887.jpg?s=5c73b87460e02646bd729e55090f69a8"
+      },
+      {
+        "name": "Kaionji, Kazuki",
+        "image": "https://cdn.myanimelist.net/images/characters/11/306889.jpg?s=73d8fd86563956ca568d64464c2337ec"
+      },
+      {
+        "name": "Tomura, Makoto",
+        "image": "https://cdn.myanimelist.net/images/characters/8/306882.jpg?s=4fa898c36dbf04b6088abd1942a5172d"
+      },
+      {
+        "name": "Higashidani, Keita",
+        "image": "https://cdn.myanimelist.net/images/characters/7/306893.jpg?s=e427e8ea06062dc53bb63ace769b147e"
+      },
+      {
+        "name": "Harada, Seiha",
+        "image": "https://cdn.myanimelist.net/images/characters/12/306886.jpg?s=0647604beac6b247d187b17ef34817b4"
+      },
+      {
+        "name": "Nagakura, Gou",
+        "image": "https://cdn.myanimelist.net/images/characters/9/306884.jpg?s=1792f47c6ce92677b17777cff10f9847"
+      },
+      {
+        "name": "Harada, Takumi",
+        "image": "https://cdn.myanimelist.net/images/characters/6/506011.jpg?s=93ac12a317a7f5ef547987d2b16b5736"
+      },
+      {
+        "name": "Mizugaki, Shunji",
+        "image": "https://cdn.myanimelist.net/images/characters/2/306888.jpg?s=ca95d979ad1011f4b873108ab6982903"
+      }
+    ]
+  },
+  {
+    "title": "Synduality: Noir",
+    "mal_id": 53026,
+    "season": "summer 2023",
+    "studio": "8bit",
+    "genres": [
+      "Action",
+      "Sci-Fi"
+    ],
+    "themes": [
+      "Mecha"
+    ],
+    "score": 6.83,
+    "image": "https://cdn.myanimelist.net/images/anime/1464/134806l.jpg",
+    "characters": [
+      {
+        "name": "Maam",
+        "image": "https://cdn.myanimelist.net/images/characters/2/517174.jpg?s=5a62d93fa9e85f1d30c452986482598b"
+      },
+      {
+        "name": "Michael",
+        "image": "https://cdn.myanimelist.net/images/characters/8/511942.jpg?s=57f3226985b47d7b1e85e14223e0c06f"
+      },
+      {
+        "name": "Morgan",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Daniel",
+        "image": "https://cdn.myanimelist.net/images/characters/2/523137.jpg?s=a713f24de9918288b59ceb64602efe6c"
+      },
+      {
+        "name": "Dolce",
+        "image": "https://cdn.myanimelist.net/images/characters/16/517176.jpg?s=d9ab75db0197b2b906f4217db231f17c"
+      },
+      {
+        "name": "Flamme",
+        "image": "https://cdn.myanimelist.net/images/characters/11/517792.jpg?s=086c7abc6919eb83de1e1a254bc0cd3f"
+      },
+      {
+        "name": "Weisheit",
+        "image": "https://cdn.myanimelist.net/images/characters/7/538026.jpg?s=5f35704acc2afb20b6f4b0bc0f35d9ca"
+      },
+      {
+        "name": "Ataro",
+        "image": "https://cdn.myanimelist.net/images/characters/15/523141.jpg?s=7ad7b3473203695badb2c30a03a311ab"
+      },
+      {
+        "name": "Bash",
+        "image": "https://cdn.myanimelist.net/images/characters/4/523140.jpg?s=339234e279aff1dd5a33f613c345e7e1"
+      },
+      {
+        "name": "Ange",
+        "image": "https://cdn.myanimelist.net/images/characters/9/501773.jpg?s=845d2d77bb1563206d21dd818fa40bd1"
+      },
+      {
+        "name": "Kurokamen",
+        "image": "https://cdn.myanimelist.net/images/characters/2/501774.jpg?s=7253a4da40f62fc01876f490a8802b8c"
+      },
+      {
+        "name": "Maria",
+        "image": "https://cdn.myanimelist.net/images/characters/6/511944.jpg?s=1a32862d83ac75bedc83384874625a78"
+      },
+      {
+        "name": "Kanata",
+        "image": "https://cdn.myanimelist.net/images/characters/4/501768.jpg?s=8a298bc4148a5961019e2be443bb8bb2"
+      },
+      {
+        "name": "Ada",
+        "image": "https://cdn.myanimelist.net/images/characters/10/520969.jpg?s=359c7b85bc8a6b383f262c79832fe0b5"
+      },
+      {
+        "name": "Claudia",
+        "image": "https://cdn.myanimelist.net/images/characters/9/517791.jpg?s=1a468d07795a43e4c915ff2b36a50ef9"
+      },
+      {
+        "name": "Noir",
+        "image": "https://cdn.myanimelist.net/images/characters/8/489219.jpg?s=c6fc5aceeab04142e95f0acc467385af"
+      },
+      {
+        "name": "Ciel",
+        "image": "https://cdn.myanimelist.net/images/characters/2/520245.jpg?s=a014df7afc6bd6d81714e4a44263917d"
+      },
+      {
+        "name": "Ellie",
+        "image": "https://cdn.myanimelist.net/images/characters/14/501772.jpg?s=6b1e486335eb7654efcd4359edef4cd9"
+      }
+    ]
+  },
+  {
+    "title": "Gilgamesh",
+    "mal_id": 385,
+    "season": "fall 2003",
+    "studio": "Group TAC",
+    "genres": [
+      "Drama",
+      "Sci-Fi",
+      "Suspense"
+    ],
+    "themes": [
+      "Psychological"
+    ],
+    "score": 6.59,
+    "image": "https://cdn.myanimelist.net/images/anime/13/6640l.jpg",
+    "characters": [
+      {
+        "name": "Quattuor",
+        "image": "https://cdn.myanimelist.net/images/characters/10/32522.jpg?s=102d7117fb82faeeeaaf2e187ed74971"
+      },
+      {
+        "name": "Tria",
+        "image": "https://cdn.myanimelist.net/images/characters/8/58181.jpg?s=170ded16e8abfae211d44a3533eb8fc1"
+      },
+      {
+        "name": "Tsukioka, Toru",
+        "image": "https://cdn.myanimelist.net/images/characters/7/56226.jpg?s=e151e5203eea2f859f6ea1a42c752d86"
+      },
+      {
+        "name": "Septem",
+        "image": "https://cdn.myanimelist.net/images/characters/3/32523.jpg?s=52a5d293f41669bcba18a76b129e4199"
+      },
+      {
+        "name": "Decem",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Duo",
+        "image": "https://cdn.myanimelist.net/images/characters/8/57870.jpg?s=a6e551329987a564a3f3c3da6531c861"
+      },
+      {
+        "name": "Yuki, Reiko",
+        "image": "https://cdn.myanimelist.net/images/characters/10/56453.jpg?s=37378c3bb4a1dcc70df372169df6c364"
+      },
+      {
+        "name": "Kazmatsuri, Hayato",
+        "image": "https://cdn.myanimelist.net/images/characters/6/56565.jpg?s=2ea30154b2697d4cd3c67d3ed3db7a55"
+      },
+      {
+        "name": "Octo",
+        "image": "https://cdn.myanimelist.net/images/characters/16/62127.jpg?s=688088fcae73071107d3ab33532b1d89"
+      },
+      {
+        "name": "Kageyama, Hiroko",
+        "image": "https://cdn.myanimelist.net/images/characters/8/54411.jpg?s=77ec312d2ac2b65e8fdcaf67288e6c00"
+      },
+      {
+        "name": "Madoka, Terumichi",
+        "image": "https://cdn.myanimelist.net/images/characters/11/57753.jpg?s=cbc7eddc5cc5fedf5cf10b50163fd094"
+      },
+      {
+        "name": "Omuro, Fuko",
+        "image": "https://cdn.myanimelist.net/images/characters/5/57163.jpg?s=4d1a270efb9652deb7b98d9b91582686"
+      },
+      {
+        "name": "Sex",
+        "image": "https://cdn.myanimelist.net/images/characters/16/62126.jpg?s=4b3c5ba0b778cc12a4da0df160b6e632"
+      },
+      {
+        "name": "Madoka, Kiyoko",
+        "image": "https://cdn.myanimelist.net/images/characters/8/54334.jpg?s=cb7b425a5d468bb8fbc5647748372943"
+      },
+      {
+        "name": "Madoka, Tatsuya",
+        "image": "https://cdn.myanimelist.net/images/characters/13/54370.jpg?s=04b119a9e5e9b9ebd4eb0a01c0b31ead"
+      },
+      {
+        "name": "Novem",
+        "image": "https://cdn.myanimelist.net/images/characters/3/53782.jpg?s=6453304691d96f4c4597ceef1a96ec9c"
+      },
+      {
+        "name": "Fujisaki, Isamu",
+        "image": "https://cdn.myanimelist.net/images/characters/7/47426.jpg?s=311582a4fe649cc2490140cc45069bc2"
+      },
+      {
+        "name": "Uno",
+        "image": "https://cdn.myanimelist.net/images/characters/11/54096.jpg?s=3abf47fd2e7b102b6f1ea019ca18941b"
+      }
+    ]
+  },
+  {
+    "title": "Your Forma",
+    "mal_id": 55995,
+    "season": "spring 2025",
+    "studio": "Geno Studio",
+    "genres": [
+      "Mystery",
+      "Sci-Fi"
+    ],
+    "themes": [
+      "Adult Cast",
+      "Detective"
+    ],
+    "score": 6.25,
+    "image": "https://cdn.myanimelist.net/images/anime/1577/147967l.jpg",
+    "characters": [
+      {
+        "name": "Sedov, German Markovich",
+        "image": "https://cdn.myanimelist.net/images/characters/7/591440.jpg?s=b62becae91c2aca3cdfd26f8f80ccae0"
+      },
+      {
+        "name": "Shubin, Kazimir Martinovich",
+        "image": "https://cdn.myanimelist.net/images/characters/4/587088.jpg?s=7307b66156a8d1bb44feb82c0903f4ff"
+      },
+      {
+        "name": "Shushunova, Beatrisa Viktorovna",
+        "image": "https://cdn.myanimelist.net/images/characters/9/595327.jpg?s=9d33c8183ff0861c65ed43b3f6ed8c43"
+      },
+      {
+        "name": "Napolov, Kuprian Valentinovich",
+        "image": "https://cdn.myanimelist.net/images/characters/5/587086.jpg?s=067c03d7c8a1dda39730e6d5126db016"
+      },
+      {
+        "name": "Narrator",
+        "image": "https://cdn.myanimelist.net/images/questionmark_23.gif?s=f7dcbc4a4603d18356d3dfef8abd655c"
+      },
+      {
+        "name": "Nikolai",
+        "image": "https://cdn.myanimelist.net/images/characters/16/595323.jpg?s=27d2088f5d85abf33e20b2c5806743a7"
+      },
+      {
+        "name": "Chernov, Sozon Arturovich",
+        "image": "https://cdn.myanimelist.net/images/characters/2/587087.jpg?s=c5f83eade798cf4bb135e233012dda45"
+      },
+      {
+        "name": "Chernova, Elena Alexavna",
+        "image": "https://cdn.myanimelist.net/images/characters/8/595321.jpg?s=b1953d8fc39eb4b105fe2198be3d493e"
+      },
+      {
+        "name": "Danel",
+        "image": "https://cdn.myanimelist.net/images/characters/3/592312.jpg?s=e5550fc9418913564870c3c95b86b02b"
+      },
+      {
+        "name": "Totoki, Ui",
+        "image": "https://cdn.myanimelist.net/images/characters/10/580782.jpg?s=d679edf4511897f9f64f1d8cb154867d"
+      },
+      {
+        "name": "Abaev, Alexei Savich",
+        "image": "https://cdn.myanimelist.net/images/characters/7/596068.jpg?s=4f93fa73343f6c33b2d3c0e5ed716d4d"
+      },
+      {
+        "name": "Allport, Marvin A.",
+        "image": "https://cdn.myanimelist.net/images/characters/3/594462.jpg?s=8cc52b2ece00b70e75a99e5e99c0800a"
+      },
+      {
+        "name": "Carter, Lexie Willow",
+        "image": "https://cdn.myanimelist.net/images/characters/7/580785.jpg?s=3eceabd909fb627b754fde3143cddb92"
+      },
+      {
+        "name": "Chernova, Darya Romanovna",
+        "image": "https://cdn.myanimelist.net/images/characters/6/580784.jpg?s=c4e80a635abc8a6980e5b2e0a8680b0f"
+      },
+      {
+        "name": "Fokine, Ivan Lukich",
+        "image": "https://cdn.myanimelist.net/images/characters/13/580783.jpg?s=966159ac701bf23a0209e344871c08b8"
+      },
+      {
+        "name": "Hieda, Echika",
+        "image": "https://cdn.myanimelist.net/images/characters/2/591678.jpg?s=ea376b3b72847be25c1d0bd4fb451827"
+      },
+      {
+        "name": "Lucraft, Harold W.",
+        "image": "https://cdn.myanimelist.net/images/characters/7/572429.jpg?s=52aaa3c1cfbcbeed8e8bc787ef896d48"
+      },
+      {
+        "name": "Bigga",
+        "image": "https://cdn.myanimelist.net/images/characters/9/580781.jpg?s=23dc403921bfd35d3253204cda214d84"
+      }
+    ]
+  },
+  {
+    "title": "Romeo's Blue Skies",
+    "mal_id": 2559,
+    "season": "winter 1995",
+    "studio": "Nippon Animation",
+    "genres": [
+      "Adventure",
+      "Drama"
+    ],
+    "themes": [
+      "Historical"
+    ],
+    "score": 8.31,
+    "image": "https://cdn.myanimelist.net/images/anime/4/17979l.jpg",
+    "characters": [
+      {
+        "name": "Pia",
+        "image": "https://cdn.myanimelist.net/images/characters/10/293580.jpg?s=712a0c8ae9fcd49f07cd64a6619ce1ef"
+      },
+      {
+        "name": "Piccalio, Mannio",
+        "image": "https://cdn.myanimelist.net/images/characters/9/222809.jpg?s=35621130a4d001652488723fcf9ecdfe"
+      },
+      {
+        "name": "Roberto",
+        "image": "https://cdn.myanimelist.net/images/characters/12/220129.jpg?s=1887095cefb6db6e77a6c02b35039119"
+      },
+      {
+        "name": "Martini, Patrizia",
+        "image": "https://cdn.myanimelist.net/images/characters/3/218447.jpg?s=1c702018ed6d37f37784a7f9ea0b9407"
+      },
+      {
+        "name": "Martini, Grazela",
+        "image": "https://cdn.myanimelist.net/images/characters/7/248349.jpg?s=5952852df6751428bc6ce82c328c7503"
+      },
+      {
+        "name": "Martini, Maurizio",
+        "image": "https://cdn.myanimelist.net/images/characters/15/248347.jpg?s=a4535ddf346a1c2324e831f1c6d5298f"
+      },
+      {
+        "name": "Giuliano",
+        "image": "https://cdn.myanimelist.net/images/characters/15/293639.jpg?s=1921acd50614285dec3813e1289fe051"
+      },
+      {
+        "name": "Jessica",
+        "image": "https://cdn.myanimelist.net/images/characters/3/293641.jpg?s=55328dd8cce440a2ee03201091ed924a"
+      },
+      {
+        "name": "King Carlo Alberto of Sardinia",
+        "image": "https://cdn.myanimelist.net/images/characters/4/242613.jpg?s=71cbde52088ef36dd27f6de0b6d0b6a8"
+      },
+      {
+        "name": "Augusto",
+        "image": "https://cdn.myanimelist.net/images/characters/11/218793.jpg?s=d86ca226793e83bd31bfdf08d17a9c8a"
+      },
+      {
+        "name": "Baregi",
+        "image": "https://cdn.myanimelist.net/images/characters/11/222813.jpg?s=81ac2f83043cdbb1cd7fbbba3af598a2"
+      },
+      {
+        "name": "Bartolo",
+        "image": "https://cdn.myanimelist.net/images/characters/2/293628.jpg?s=748857f92e49fb1a7174a5751ffda659"
+      },
+      {
+        "name": "Rossi, Marchelo",
+        "image": "https://cdn.myanimelist.net/images/characters/7/216465.jpg?s=ea97d9ad726a46c102aa823a444735c0"
+      },
+      {
+        "name": "Matteo",
+        "image": "https://cdn.myanimelist.net/images/characters/14/293602.jpg?s=ee34254ab647caf430cb1656a96ebfa9"
+      },
+      {
+        "name": "Pietro",
+        "image": "https://cdn.myanimelist.net/images/characters/6/216281.jpg?s=9fb2977a2cac85156c771ddb36ebbab8"
+      },
+      {
+        "name": "Nikita",
+        "image": "https://cdn.myanimelist.net/images/characters/12/167583.jpg?s=2995f6a8e9452f5e7ead3e2c54ea9646"
+      },
+      {
+        "name": "Giovanni",
+        "image": "https://cdn.myanimelist.net/images/characters/9/167579.jpg?s=6d3169919ef674a7c9d7dba6ad97dd29"
+      },
+      {
+        "name": "Montovani, Angeletta",
+        "image": "https://cdn.myanimelist.net/images/characters/7/293598.jpg?s=ce8d9de35c2cfc31733b3e0e4132dde3"
+      }
+    ]
+  },
+  {
+    "title": "Insomniacs After School",
+    "mal_id": 50796,
+    "season": "spring 2023",
+    "studio": "LIDENFILMS",
+    "genres": [
+      "Romance"
+    ],
+    "themes": [
+      "School"
+    ],
+    "score": 8.08,
+    "image": "https://cdn.myanimelist.net/images/anime/1402/134007l.jpg",
+    "characters": [
+      {
+        "name": "Police",
+        "image": "https://cdn.myanimelist.net/images/characters/8/580270.jpg?s=b3f279c4f34c0e5e014abd8754c51874"
+      },
+      {
+        "name": "Principal",
+        "image": "https://cdn.myanimelist.net/images/characters/9/580275.jpg?s=40bb9c0a61c41ffcb57522ece7392206"
+      },
+      {
+        "name": "Softball Club Advisor",
+        "image": "https://cdn.myanimelist.net/images/characters/8/580273.jpg?s=929243e0f60b573d92217abb559cb965"
+      },
+      {
+        "name": "Kanikawa's Mother",
+        "image": "https://cdn.myanimelist.net/images/characters/9/580267.jpg?s=5152540e540b13aa2725388f36a645c1"
+      },
+      {
+        "name": "Magari, Mother",
+        "image": "https://cdn.myanimelist.net/images/characters/3/508443.jpg?s=928368f5e4bfd4074946eda70dbcf8d7"
+      },
+      {
+        "name": "Nakami, Father",
+        "image": "https://cdn.myanimelist.net/images/characters/9/586328.jpg?s=5819e89204177b67b841ed8168e60243"
+      },
+      {
+        "name": "Haida, Rui",
+        "image": "https://cdn.myanimelist.net/images/characters/14/499072.jpg?s=fec73bf0901f8bc8ef145aa085b59a15"
+      },
+      {
+        "name": "Haida's Girlfriend",
+        "image": "https://cdn.myanimelist.net/images/characters/5/580274.jpg?s=9d9b94484c34c4fd389fef0ff4bcc621"
+      },
+      {
+        "name": "Hakui, Ken",
+        "image": "https://cdn.myanimelist.net/images/characters/11/509416.jpg?s=7b93676c5a01372dcb045c8097c1e352"
+      },
+      {
+        "name": "Anamizu, Kanami",
+        "image": "https://cdn.myanimelist.net/images/characters/2/499068.jpg?s=15cfb6d4d8bac5f774844ddc002185a3"
+      },
+      {
+        "name": "Kanikawa, Motoko",
+        "image": "https://cdn.myanimelist.net/images/characters/15/499069.jpg?s=3367e94b9a476c44b4ccf825a38c96ae"
+      },
+      {
+        "name": "Magari, Haya",
+        "image": "https://cdn.myanimelist.net/images/characters/4/512982.jpg?s=4c0fe30b14e220a9f37be176eaa5deb2"
+      },
+      {
+        "name": "Shiromaru, Yui",
+        "image": "https://cdn.myanimelist.net/images/characters/9/499066.jpg?s=25123357b5d54ccb59f8add129941eef"
+      },
+      {
+        "name": "Ukegawa, Tao",
+        "image": "https://cdn.myanimelist.net/images/characters/5/499067.jpg?s=e63ed1078b8b558802be887701d65327"
+      },
+      {
+        "name": "Kurashiki, Usako",
+        "image": "https://cdn.myanimelist.net/images/characters/10/499071.jpg?s=a858c9e12cc00f4be808394fbc6969c7"
+      },
+      {
+        "name": "Magari, Isaki",
+        "image": "https://cdn.myanimelist.net/images/characters/9/499097.jpg?s=603b569842e6eb5bcea756fba0dc4837"
+      },
+      {
+        "name": "Nakami, Ganta",
+        "image": "https://cdn.myanimelist.net/images/characters/2/476476.jpg?s=0f3ae130628c533b8988b145bac4f0cb"
+      },
+      {
+        "name": "Nono, Mina",
+        "image": "https://cdn.myanimelist.net/images/characters/9/499070.jpg?s=2116551b1595c604e6734743e1f316ad"
+      }
+    ]
+  },
+  {
+    "title": "Mignon",
+    "mal_id": 49430,
+    "season": "summer 2023",
+    "studio": "ABJ COMPANY",
+    "genres": [
+      "Boys Love",
+      "Drama"
+    ],
+    "themes": [
+      "Vampire"
+    ],
+    "score": 8.01,
+    "image": "https://cdn.myanimelist.net/images/anime/1054/137743l.jpg",
+    "characters": [
+      {
+        "name": "Master Woo",
+        "image": "https://cdn.myanimelist.net/images/characters/16/548061.jpg?s=5163cb11a5ce3824f1bcbc3d12bc02fa"
+      },
+      {
+        "name": "Coach",
+        "image": "https://cdn.myanimelist.net/images/characters/13/548057.jpg?s=6aae557b8a05a12ce5ab19cf51f7c783"
+      },
+      {
+        "name": "Referee",
+        "image": "https://cdn.myanimelist.net/images/characters/16/548082.jpg?s=8111b9543fef605a34971ee111daadab"
+      },
+      {
+        "name": "Oh, Young-One",
+        "image": "https://cdn.myanimelist.net/images/characters/15/519643.jpg?s=e7de60078284b571be6a992bd1d4f185"
+      },
+      {
+        "name": "Mignon",
+        "image": "https://cdn.myanimelist.net/images/characters/7/519644.jpg?s=8bbd3d93aa29c7d6296f38d0f05e273c"
       }
     ]
   }
