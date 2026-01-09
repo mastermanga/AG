@@ -182,7 +182,7 @@ header h1 {
   justify-content: center;
   width: 100%;
   z-index: 2;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 250px));
 }
 
 .menu .game-card {
