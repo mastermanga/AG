@@ -84,7 +84,7 @@ header h1 {
 #container {
   background-color: #161e27ef;
   border-radius: 20px;
-  padding: 2rem 2.1rem 2.1rem 2.1rem;
+  padding: 2rem 2rem;
   /* width: 375px; */
   width: 100%;          
   max-width: 1100px;    
