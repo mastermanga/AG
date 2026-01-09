@@ -182,7 +182,9 @@ header h1 {
   justify-content: center;
   width: 100%;
   z-index: 2;
-  grid-template-columns: repeat(3, minmax(0, 250px));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
 }
 
 .menu .game-card {
@@ -194,6 +196,8 @@ header h1 {
   font-weight: bold;
   text-align: left;
   width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
   height: 70px;
   transition: 
     transform 0.16s cubic-bezier(.4,2,.5,1),
