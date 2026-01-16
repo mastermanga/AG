@@ -530,6 +530,12 @@ body.light .info-icon:focus {
   }
 }
 
+.info-svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
 /* Lien Mode Classic (optionnel) */
 .classic-link {
   color: #8ac6d1;
