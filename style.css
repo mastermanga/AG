@@ -320,7 +320,7 @@ header h1 {
 
   /* IMPORTANT: forcer une typo "comme la carte" mais lisible */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 0.70rem;     /* proche de la carte, mais pas énorme */
+  font-size: 1rem;     /* proche de la carte, mais pas énorme */
   font-weight: 400;       /* comme la carte (bold) */
   line-height: 1.20;
   letter-spacing: 0.15px;
