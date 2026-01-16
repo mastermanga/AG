@@ -210,7 +210,7 @@ header h1 {
   outline: none;
 }
 
-.menu .game-card span {
+.menu .game-card > span:first-child {
   font-size: 1.52em;
   filter: drop-shadow(0 1px 2px #2229);
 }
