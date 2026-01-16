@@ -259,51 +259,73 @@ header h1 {
   pointer-events: auto;
 }
 
+/* ===== BOUTON ? (STYLE COHÉRENT AVEC TON UI) ===== */
 .info-icon {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #12121255;
-  border: 1.6px solid #ffffff66;
-  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(18, 30, 39, 0.55);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 0 10px rgba(0, 234, 255, 0.55),
+    0 0 24px rgba(0, 188, 212, 0.35),
+    inset 0 0 0 1px rgba(0, 234, 255, 0.18);
+
+  color: #eaffff;
   font-weight: 900;
   font-size: 0.95rem;
-  line-height: 22px;
-  text-align: center;
-  box-shadow: 0 0 10px #00eaff66, 0 0 18px #00bcd433;
+  line-height: 1;
+
   cursor: help;
   user-select: none;
-  transition: transform 0.16s, box-shadow 0.16s, background 0.16s;
+
+  transition: transform 0.16s, box-shadow 0.16s, background 0.16s, border-color 0.16s;
   pointer-events: auto;
 }
 
-.game-card:hover .info-icon,
-.game-card:focus .info-icon {
-  transform: scale(1.08);
-  background: #0b0f1480;
-  box-shadow: 0 0 12px #00eaffaa, 0 0 28px #00eaff55;
+.info-wrap:hover .info-icon,
+.info-icon:focus {
+  transform: scale(1.1) rotate(-6deg);
+  background: rgba(10, 18, 26, 0.72);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 0 12px rgba(0, 234, 255, 0.9),
+    0 0 32px rgba(0, 234, 255, 0.55),
+    inset 0 0 0 1px rgba(0, 234, 255, 0.25);
+  outline: none;
 }
 
-/* ===== TOOLTIP AU-DESSUS ===== */
+/* ===== TOOLTIP AU-DESSUS + TEXTE COMME LA CARTE ===== */
 .info-tip {
   position: absolute;
   bottom: calc(100% + 12px); /* AU-DESSUS */
+
   left: 50%;
   transform: translateX(-50%) translateY(6px) scale(0.98);
 
   width: 240px;
   padding: 10px 12px;
-  border-radius: 12px;
+  border-radius: 14px;
 
   background: linear-gradient(120deg, #233554f3 80%, #00bcd422 100%);
   border: 1.5px solid #00bcd455;
-  box-shadow: 0 10px 34px #00eaff55, 0 2.5px 14px #1976d255;
+  box-shadow: 0 10px 34px rgba(0, 234, 255, 0.32), 0 2.5px 14px rgba(25, 118, 210, 0.25);
   color: #fff;
 
-  font-size: 0.78rem;
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: 0.1px;
+  /* IMPORTANT: forcer une typo "comme la carte" mais lisible */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.92rem;     /* proche de la carte, mais pas énorme */
+  font-weight: 700;       /* comme la carte (bold) */
+  line-height: 1.25;
+  letter-spacing: 0.15px;
+
+  text-shadow: 0 0 10px rgba(255,255,255,0.10);
 
   opacity: 0;
   visibility: hidden;
@@ -321,7 +343,7 @@ header h1 {
   border-width: 7px 7px 0 7px;
   border-style: solid;
   border-color: #233554f3 transparent transparent transparent;
-  filter: drop-shadow(0 2px 2px #00eaff33);
+  filter: drop-shadow(0 2px 2px rgba(0, 234, 255, 0.18));
 }
 
 /* Affichage au survol du ? (pas sur toute la carte) */
@@ -332,6 +354,11 @@ header h1 {
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
+/* Align auto selon colonne (grille 3 colonnes)
+   - col 1: gauche
+   - col 2: centre
+   - col 3: droite
+*/
 .menu .game-card:nth-child(3n-2) .info-tip {
   left: 0;
   transform: translateX(0) translateY(6px) scale(0.98);
@@ -351,21 +378,6 @@ header h1 {
   right: 18px;
   transform: none;
 }
-
-
-@media (max-width: 500px) {
-  .info-tip {
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) translateY(0) scale(1) !important;
-  }
-  .info-tip::after {
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) !important;
-  }
-}
-
 
 /* --- Animation d'apparition douce --- */
 #daily-recap-block, .menu .game-card {
@@ -449,18 +461,31 @@ body.light .toggle-btn:focus {
 /* Tooltip en light mode */
 body.light .info-tip {
   background: linear-gradient(120deg, #e0f7fa 90%, #1565c01a 100%);
-  border: 1.5px solid #42a5f577;
-  box-shadow: 0 10px 34px #42a5f54b, 0 2.5px 14px #1976d233;
+  border: 1.5px solid rgba(66, 165, 245, 0.45);
+  box-shadow: 0 10px 34px rgba(66, 165, 245, 0.35), 0 2.5px 14px rgba(25, 118, 210, 0.18);
   color: #0b1a2a;
+  text-shadow: none;
 }
 body.light .info-tip::after {
-  border-color: transparent transparent #e0f7fa transparent;
+  border-color: #e0f7fa transparent transparent transparent;
 }
+
+/* Bouton ? en light mode (cohérent) */
 body.light .info-icon {
-  background: #ffffffaa;
+  background: rgba(255, 255, 255, 0.75);
   color: #1565c0;
-  border: 1.6px solid #1976d277;
-  box-shadow: 0 0 10px #42a5f588;
+  border: 1.5px solid rgba(25, 118, 210, 0.35);
+  box-shadow:
+    0 0 10px rgba(66, 165, 245, 0.55),
+    0 0 22px rgba(66, 165, 245, 0.30),
+    inset 0 0 0 1px rgba(66, 165, 245, 0.18);
+}
+body.light .info-wrap:hover .info-icon,
+body.light .info-icon:focus {
+  box-shadow:
+    0 0 12px rgba(66, 165, 245, 0.75),
+    0 0 30px rgba(66, 165, 245, 0.45),
+    inset 0 0 0 1px rgba(66, 165, 245, 0.22);
 }
 
 /* --- Responsive mobile --- */
@@ -471,7 +496,7 @@ body.light .info-icon {
     box-shadow: 0 0 13px 2px #00bcd4;
   }
 
-  /* IMPORTANT: menu est en grid, donc on passe en 1 colonne */
+  /* menu en grid -> 1 colonne */
   .menu {
     grid-template-columns: 1fr;
     row-gap: 0.8rem;
@@ -491,10 +516,17 @@ body.light .info-icon {
 
   header, footer { max-width: 99vw; }
 
-  /* évite que la bulle déborde trop sur petit écran */
+  /* Sur mobile: tooltip centré + largeur adaptée */
   .info-tip {
     width: min(240px, 86vw);
-    right: -6px;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) translateY(0) scale(1) !important;
+  }
+  .info-tip::after {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
   }
 }
 
