@@ -85,9 +85,8 @@ header h1 {
   background-color: #161e27ef;
   border-radius: 20px;
   padding: 2rem 2rem;
-  /* width: 375px; */
-  width: 100%;          
-  max-width: 1100px;    
+  width: 100%;
+  max-width: 1100px;
   box-shadow: 0 0 32px 5px #00bcd444;
   margin-left: auto;
   margin-right: auto;
@@ -109,13 +108,13 @@ header h1 {
   margin-bottom: 0rem;
   width: 100%;
   max-width: 385px;
-  text-align: left;
   transition: background 0.25s;
   z-index: 2;
   position: relative;
   border: 1.5px solid #00bcd455;
   text-align: center;
 }
+
 #daily-recap-block h2 {
   margin-top: 0;
   margin-bottom: 12px;
@@ -141,7 +140,6 @@ header h1 {
 .daily-title .emoji {
   font-size: 1.18em;
   filter: drop-shadow(0 0 3px #ffd600bb);
-  /* Tu peux ajouter plus de glow si tu veux ! */
 }
 
 #daily-recap-block ul {
@@ -157,7 +155,6 @@ header h1 {
   margin: 0.27rem 0;
   font-size: 1.07rem;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   gap: 0.8em;
   padding: 2px 0 2px 0;
@@ -171,13 +168,12 @@ header h1 {
   display: inline-block;
   color: #fff;
   text-shadow: 0 0 4px #00eaffb3;
-  vertical-align: middle; /* bien aligné */
+  vertical-align: middle;
 }
 
 /* --- MENU JEUX EN MODE "CARD" --- */
 .menu {
   display: grid;
-  flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
   width: 100%;
@@ -199,7 +195,7 @@ header h1 {
   max-width: 200px;
   margin: 0 auto;
   height: 70px;
-  transition: 
+  transition:
     transform 0.16s cubic-bezier(.4,2,.5,1),
     box-shadow 0.16s,
     background 0.21s,
@@ -213,10 +209,12 @@ header h1 {
   overflow: hidden;
   outline: none;
 }
+
 .menu .game-card span {
   font-size: 1.52em;
   filter: drop-shadow(0 1px 2px #2229);
 }
+
 .menu .game-card:hover,
 .menu .game-card:focus {
   transform: translateY(-8px) scale(1.045) rotate(-1deg);
@@ -226,6 +224,7 @@ header h1 {
   text-shadow: 0 0 10px #fff9, 0 2px 6px #fff8;
   border: 2px solid #fff5;
 }
+
 .menu .game-card:active {
   transform: scale(0.97);
   filter: brightness(0.92);
@@ -235,7 +234,7 @@ header h1 {
 /* ===== TOOLTIP STYLE "ANIME GLOW" ===== */
 .game-card.has-tip {
   position: relative;
-  padding-right: 2.3rem; /* un peu de place pour le ? */
+  padding-right: 2.3rem; /* place pour le ? */
 }
 
 .info-wrap {
@@ -246,6 +245,7 @@ header h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  pointer-events: auto;
 }
 
 .info-icon {
@@ -263,6 +263,7 @@ header h1 {
   cursor: help;
   user-select: none;
   transition: transform 0.16s, box-shadow 0.16s, background 0.16s;
+  pointer-events: auto;
 }
 
 .game-card:hover .info-icon,
@@ -272,7 +273,7 @@ header h1 {
   box-shadow: 0 0 12px #00eaffaa, 0 0 28px #00eaff55;
 }
 
-/* La bulle */
+/* Bulle */
 .info-tip {
   position: absolute;
   right: 0;
@@ -298,7 +299,6 @@ header h1 {
   pointer-events: none;
 }
 
-/* Petite flèche */
 .info-tip::after {
   content: "";
   position: absolute;
@@ -310,7 +310,7 @@ header h1 {
   filter: drop-shadow(0 2px 2px #00eaff33);
 }
 
-/* Affichage au survol du ? (et pas du lien entier) */
+/* Affichage au survol du ? (pas sur toute la carte) */
 .info-wrap:hover .info-tip,
 .info-wrap:focus-within .info-tip {
   opacity: 1;
@@ -318,21 +318,7 @@ header h1 {
   transform: translateY(0) scale(1);
 }
 
-/* Empêche le clic sur ? de lancer le lien (au cas où) */
-.info-icon {
-  pointer-events: auto;
-}
-.info-wrap {
-  pointer-events: auto;
-}
-
-
-
-
-
-
-
-/* Animation d'apparition douce */
+/* --- Animation d'apparition douce --- */
 #daily-recap-block, .menu .game-card {
   opacity: 0;
   transform: translateY(22px);
@@ -361,10 +347,9 @@ footer {
   position: relative;
   letter-spacing: 0.5px;
 }
-body.light footer {
-  color: #888;
-}
+body.light footer { color: #888; }
 
+/* ===== LIGHT MODE ===== */
 body.light {
   background: radial-gradient(circle at 45% 10%, #e3f6fc 0%, #f5f5f5 100%);
   color: #222;
@@ -399,6 +384,7 @@ body.light .menu .game-card:focus {
   text-shadow: 0 0 8px #fff9;
   border: 2px solid #1976d277;
 }
+
 body.light .toggle-btn {
   background-color: #1565c0;
   color: #fff;
@@ -410,6 +396,24 @@ body.light .toggle-btn:focus {
   text-shadow: 0 0 8px #fff9;
   border: 2px solid #1976d277;
 }
+
+/* Tooltip en light mode */
+body.light .info-tip {
+  background: linear-gradient(120deg, #e0f7fa 90%, #1565c01a 100%);
+  border: 1.5px solid #42a5f577;
+  box-shadow: 0 10px 34px #42a5f54b, 0 2.5px 14px #1976d233;
+  color: #0b1a2a;
+}
+body.light .info-tip::after {
+  border-color: transparent transparent #e0f7fa transparent;
+}
+body.light .info-icon {
+  background: #ffffffaa;
+  color: #1565c0;
+  border: 1.6px solid #1976d277;
+  box-shadow: 0 0 10px #42a5f588;
+}
+
 /* --- Responsive mobile --- */
 @media (max-width: 500px) {
   #container {
@@ -417,21 +421,32 @@ body.light .toggle-btn:focus {
     padding: 1.1rem 0.4rem 1.4rem 0.4rem;
     box-shadow: 0 0 13px 2px #00bcd4;
   }
+
+  /* IMPORTANT: menu est en grid, donc on passe en 1 colonne */
   .menu {
-    flex-direction: column;
-    gap: 0.8rem;
+    grid-template-columns: 1fr;
+    row-gap: 0.8rem;
   }
+
   #daily-recap-block {
     max-width: 98vw;
     padding: 1rem 5vw 1rem 5vw;
   }
+
   .menu .game-card {
     font-size: 1.02rem;
     min-width: 110px;
     max-width: unset;
     padding: 0.92rem 1rem;
   }
+
   header, footer { max-width: 99vw; }
+
+  /* évite que la bulle déborde trop sur petit écran */
+  .info-tip {
+    width: min(240px, 86vw);
+    right: -6px;
+  }
 }
 
 /* Lien Mode Classic (optionnel) */
@@ -447,9 +462,5 @@ body.light .toggle-btn:focus {
   color: #00bcd4;
   text-decoration: underline;
 }
-body.light .classic-link {
-  color: #1976d2;
-}
-body.light .classic-link:hover {
-  color: #1565c0;
-}
+body.light .classic-link { color: #1976d2; }
+body.light .classic-link:hover { color: #1565c0; }
