@@ -232,6 +232,106 @@ header h1 {
   border: 2px solid #00eaff;
 }
 
+/* ===== TOOLTIP STYLE "ANIME GLOW" ===== */
+.game-card.has-tip {
+  position: relative;
+  padding-right: 2.3rem; /* un peu de place pour le ? */
+}
+
+.info-wrap {
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #12121255;
+  border: 1.6px solid #ffffff66;
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.95rem;
+  line-height: 22px;
+  text-align: center;
+  box-shadow: 0 0 10px #00eaff66, 0 0 18px #00bcd433;
+  cursor: help;
+  user-select: none;
+  transition: transform 0.16s, box-shadow 0.16s, background 0.16s;
+}
+
+.game-card:hover .info-icon,
+.game-card:focus .info-icon {
+  transform: scale(1.08);
+  background: #0b0f1480;
+  box-shadow: 0 0 12px #00eaffaa, 0 0 28px #00eaff55;
+}
+
+/* La bulle */
+.info-tip {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: 240px;
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  background: linear-gradient(120deg, #233554f3 80%, #00bcd422 100%);
+  border: 1.5px solid #00bcd455;
+  box-shadow: 0 10px 34px #00eaff55, 0 2.5px 14px #1976d255;
+  color: #fff;
+
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.98);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index: 999;
+  pointer-events: none;
+}
+
+/* Petite flèche */
+.info-tip::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: 12px;
+  border-width: 0 7px 7px 7px;
+  border-style: solid;
+  border-color: transparent transparent #233554f3 transparent;
+  filter: drop-shadow(0 2px 2px #00eaff33);
+}
+
+/* Affichage au survol du ? (et pas du lien entier) */
+.info-wrap:hover .info-tip,
+.info-wrap:focus-within .info-tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Empêche le clic sur ? de lancer le lien (au cas où) */
+.info-icon {
+  pointer-events: auto;
+}
+.info-wrap {
+  pointer-events: auto;
+}
+
+
+
+
+
+
+
 /* Animation d'apparition douce */
 #daily-recap-block, .menu .game-card {
   opacity: 0;
