@@ -237,6 +237,17 @@ header h1 {
   padding-right: 2.3rem; /* place pour le ? */
 }
 
+/* FIX IMPORTANT : sinon le tooltip est coupé par overflow:hidden */
+.menu .game-card.has-tip {
+  overflow: visible;
+}
+
+/* BONUS : au survol, on passe au-dessus des autres cartes */
+.menu .game-card.has-tip:hover,
+.menu .game-card.has-tip:focus {
+  z-index: 50;
+}
+
 .info-wrap {
   position: absolute;
   right: 0.85rem;
