@@ -80,6 +80,15 @@ function loadDailyRecap() {
   recapTotal.textContent = playedAny ? (total + " pts") : "Aucun jeu fait aujourd’hui";
 }
 
+// ========== TOOLTIP (? AIDE) ==========
+// Empêche le clic sur "?" d’ouvrir le lien du jeu
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("info-icon")) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+});
+
 // ========== INITIALISATION ==========
 window.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme");
