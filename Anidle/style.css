@@ -47,7 +47,7 @@ body::before {
   min-height: 540px;
 }
 
-/* === HEADER === */
+/* === HEADER (fix placement: aide à droite du theme) === */
 header {
   max-width: 1000px;
   margin: 0 auto 2rem auto;
@@ -56,12 +56,15 @@ header {
   align-items: center;
   padding: 1.2rem 1rem 0.2rem 1rem;
   z-index: 3;
+  width: 100%;
 }
+
+/* Titre centré, sans pousser le bouton aide ailleurs */
 header h1 {
   font-size: 2.1rem;
   font-weight: bold;
   text-align: center;
-  flex-grow: 1;
+  flex: 1;
   margin: 0 1rem;
   letter-spacing: 1px;
   text-shadow:
@@ -70,6 +73,18 @@ header h1 {
     0 2px 8px #00bcd477,
     0 0 10px #fff1;
 }
+
+/* IMPORTANT: on n'utilise plus title-wrap ici */
+.title-wrap { display: contents; } /* au cas où tu l'as encore */
+
+/* Groupe à droite (Aide + 🌓) : à mettre autour dans le HTML */
+.header-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
 /* === Effet Glow Victoire sur le Titre === */
 header h1.victoire {
   color: #24f589;
@@ -121,6 +136,7 @@ header h1.victoire {
   pointer-events: none;
   white-space: nowrap;
 }
+
 /* === BOUTONS PRINCIPAUX === */
 .menu-btn,
 .toggle-btn,
@@ -134,7 +150,7 @@ header h1.victoire {
   cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
-  transition: 
+  transition:
     background 0.3s, color 0.2s, box-shadow 0.2s, opacity 0.2s;
   box-shadow: 0 1px 7px #00bcd455;
   opacity: 0.93;
@@ -378,6 +394,7 @@ body.light #aideContainer {
   box-shadow: 0 2px 8px #42a5f555;
 }
 
+/* Pulse score bas */
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 #ff6565; }
   70% { box-shadow: 0 0 12px 6px #ff65659f; }
@@ -398,6 +415,7 @@ body.light #aideContainer {
     padding: 1.1rem 0.2rem;
   }
   header, footer { max-width: 100vw; }
+
   #daily-banner {
     max-width: 98vw;
     font-size: 1rem;
@@ -419,14 +437,7 @@ body.light #aideContainer {
   #score-bar-label { font-size: 0.94rem; }
 }
 
-/* ========== BOUTON AIDE (SVG) + TOOLTIP ========== */
-
-/* Place le groupe aide dans le header, à côté du titre */
-.header-help {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
+/* ========== BOUTON AIDE (SVG) + TOOLTIP (ouvre vers le bas) ========== */
 
 /* Conteneur tooltip */
 .info-wrap {
@@ -460,7 +471,7 @@ body.light #aideContainer {
   transition: transform 0.16s, box-shadow 0.16s, background 0.16s, border-color 0.16s;
 }
 
-/* SVG => plus grand dans le cercle */
+/* SVG => taille dans le cercle */
 .info-svg {
   width: 18px;
   height: 18px;
@@ -480,12 +491,12 @@ body.light #aideContainer {
   outline: none;
 }
 
-/* TOOLTIP */
+/* TOOLTIP (ouvre vers le bas) */
 .info-tip {
   position: absolute;
-  bottom: calc(100% + 10px);
+  top: calc(100% + 10px);   /* ⬇️ AU-DESSOUS du bouton */
   left: 50%;
-  transform: translateX(-50%) translateY(6px) scale(0.98);
+  transform: translateX(-50%) translateY(-6px) scale(0.98);
 
   width: 320px;              /* + large => moins de lignes */
   padding: 10px 12px;
@@ -496,8 +507,7 @@ body.light #aideContainer {
   box-shadow: 0 10px 34px rgba(0, 234, 255, 0.32), 0 2.5px 14px rgba(25, 118, 210, 0.25);
   color: #fff;
 
-  /* ✅ Taille “comme le texte normal” (daily / UI), pas comme un titre */
-  font-size: 0.95rem;        /* proche du #counter / aide list */
+  font-size: 0.95rem;        /* taille “texte normal” */
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: 0.1px;
@@ -509,22 +519,23 @@ body.light #aideContainer {
   pointer-events: none;
 }
 
-/* flèche */
+/* flèche (pointe vers le haut) */
 .info-tip::after {
   content: "";
   position: absolute;
-  bottom: -7px;
+  top: -7px;
   left: 50%;
   transform: translateX(-50%);
-  border-width: 7px 7px 0 7px;
+  border-width: 0 7px 7px 7px;
   border-style: solid;
-  border-color: #233554f3 transparent transparent transparent;
+  border-color: transparent transparent #233554f3 transparent;
   filter: drop-shadow(0 2px 2px rgba(0, 234, 255, 0.18));
 }
 
-/* Affichage */
+/* Affichage (hover + focus + mode mobile .open) */
 .info-wrap:hover .info-tip,
-.info-wrap:focus-within .info-tip {
+.info-wrap:focus-within .info-tip,
+.info-wrap.open .info-tip {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0) scale(1);
