@@ -109,6 +109,17 @@ window.addEventListener("DOMContentLoaded", () => {
     return array;
   }
 
+  // RECOMPUTE des pools à partir des pertes (évite tout bug WB/LB)
+  function recomputePools() {
+    aliveWB = [];
+    aliveLB = [];
+    for (let i = 0; i < items.length; i++) {
+      if (losses[i] >= ELIM_LOSSES) continue; // OUT
+      if (losses[i] === 0) aliveWB.push(i);
+      else if (losses[i] === 1) aliveLB.push(i);
+    }
+  }
+
   async function loadDataAndStart() {
     const url = mode === "anime" ? "../data/animes.json" : "../data/openings.json";
     try {
@@ -139,9 +150,9 @@ window.addEventListener("DOMContentLoaded", () => {
       // init double elim
       losses = items.map(() => 0);
       played = items.map(() => new Set());
-      aliveWB = items.map((_, i) => i);
-      aliveLB = [];
       eliminationOrder = [];
+
+      recomputePools();
 
       roundNumber = 1;
       roundMatches = [];
@@ -260,7 +271,7 @@ window.addEventListener("DOMContentLoaded", () => {
   function buildNextRound() {
     const matches = [];
 
-    // Cas "finale": 1 WB vs 1 LB
+    // Cas "finale": 1 WB vs 1 LB (c'est normal uniquement à la fin)
     if (aliveWB.length === 1 && aliveLB.length === 1) {
       matches.push({ i1: aliveWB[0], i2: aliveLB[0], bracket: "GF" });
       roundMatches = shuffle(matches);
@@ -293,6 +304,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function showNextMatchInRound() {
     if (nextMatchBtn) nextMatchBtn.style.display = "none";
+
+    // Recalcule les pools au cas où (sécurité)
+    recomputePools();
 
     const aliveAll = aliveWB.concat(aliveLB);
     if (aliveAll.length <= 1) {
@@ -327,21 +341,13 @@ window.addEventListener("DOMContentLoaded", () => {
     // défaite
     losses[loserIndex]++;
 
-    // retirer les deux des pools
-    aliveWB = aliveWB.filter((x) => x !== winnerIndex && x !== loserIndex);
-    aliveLB = aliveLB.filter((x) => x !== winnerIndex && x !== loserIndex);
-
-    // remettre le gagnant
-    if (losses[winnerIndex] === 0) aliveWB.push(winnerIndex);
-    else if (losses[winnerIndex] === 1) aliveLB.push(winnerIndex);
-
-    // remettre le perdant si pas OUT
-    if (losses[loserIndex] === 1) {
-      aliveLB.push(loserIndex); // descend LB
-    } else if (losses[loserIndex] >= ELIM_LOSSES) {
-      // OUT -> on stocke l'ordre d'élimination (important pour le classement)
+    // si OUT maintenant, stocker l'ordre d'élimination (une seule fois)
+    if (losses[loserIndex] === ELIM_LOSSES) {
       eliminationOrder.push(loserIndex);
     }
+
+    // pools toujours corrects
+    recomputePools();
 
     showNextMatchInRound();
   }
@@ -379,21 +385,20 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    recomputePools();
     const aliveAll = aliveWB.concat(aliveLB);
-    const champ = (championIndex != null) ? championIndex : (aliveAll[0] ?? null);
+    const champ = championIndex != null ? championIndex : (aliveAll[0] ?? null);
 
     if (champ == null) {
-      // fallback extrême
       const fallback = items.map((_, i) => i);
       fallback.forEach((idx, pos) => displayClassementItem(idx, pos + 1));
       return;
     }
 
-    // ranking = [champion, runner-up, ...]
-    // runner-up = dernier éliminé => eliminationOrder[eliminationOrder.length - 1]
+    // ranking = [champion, runner-up, ...] via élimination inverse
     const ranking = [champ, ...eliminationOrder.slice().reverse()];
 
-    // sécurité si jamais il manque des indices (normalement non)
+    // sécurité si jamais il manque des indices
     if (ranking.length < items.length) {
       const seen = new Set(ranking);
       for (let i = 0; i < items.length; i++) {
