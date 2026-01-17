@@ -438,8 +438,8 @@ function playTry(n) {
   }
 
     let start = 0;
-    if (tries === 2) start = 0;
-    if (tries === 3) start = 50;
+    if (tries === 2) start = 50;
+    if (tries === 3) start = 0;
     currentAnime.startTime = start;
   
   const duration = tryDurations[tries - 1];
