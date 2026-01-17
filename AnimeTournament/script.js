@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let mode = urlParams.get("mode") || "anime";
 
   // ====== CONFIG TOURNOI ======
-  const TOTAL_ITEMS = 16;      // 16 participants
+  const TOTAL_ITEMS = 32;      // 16 participants
   const ELIM_LOSSES = 2;       // 2 défaites = OUT
 
   let data = [];
