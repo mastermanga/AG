@@ -171,7 +171,7 @@ let stopInterval;
 let currentAnime;
 let tries = 0;
 const maxTries = 3;
-const tryDurations = [3, 15, 15];
+const tryDurations = [15, 15, 15];
 let failedAnswers = [];
 let playerReady = false;
 
