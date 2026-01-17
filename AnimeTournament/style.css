@@ -488,6 +488,116 @@ h2, .section-title {
   flex-shrink:0;
 }
 
+/* ========== BOUTON AIDE (SVG) + TOOLTIP ========== */
+.info-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cercle */
+.info-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(18, 30, 39, 0.55);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 0 10px rgba(0, 234, 255, 0.55),
+    0 0 24px rgba(0, 188, 212, 0.35),
+    inset 0 0 0 1px rgba(0, 234, 255, 0.18);
+
+  color: #eaffff;
+  cursor: help;
+  user-select: none;
+  transition: transform 0.16s, box-shadow 0.16s, background 0.16s, border-color 0.16s;
+}
+
+/* SVG taille */
+.info-svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* Hover */
+.info-wrap:hover .info-icon,
+.info-icon:focus {
+  transform: scale(1.08) rotate(-6deg);
+  background: rgba(10, 18, 26, 0.72);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 0 12px rgba(0, 234, 255, 0.9),
+    0 0 32px rgba(0, 234, 255, 0.55),
+    inset 0 0 0 1px rgba(0, 234, 255, 0.25);
+  outline: none;
+}
+
+/* TOOLTIP (par défaut : s'ouvre vers le bas, donc pas de sortie écran en haut) */
+.info-tip {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  left: auto;
+  transform: translateY(-6px) scale(0.98);
+
+  width: 320px;
+  padding: 10px 12px;
+  border-radius: 14px;
+
+  background: linear-gradient(120deg, #233554f3 80%, #00bcd422 100%);
+  border: 1.5px solid #00bcd455;
+  box-shadow: 0 10px 34px rgba(0, 234, 255, 0.32), 0 2.5px 14px rgba(25, 118, 210, 0.25);
+  color: #fff;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0.1px;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Flèche en haut (pointe vers l'icône) */
+.info-tip::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: 10px;
+  border-width: 0 7px 7px 7px;
+  border-style: solid;
+  border-color: transparent transparent #233554f3 transparent;
+  filter: drop-shadow(0 2px 2px rgba(0, 234, 255, 0.18));
+}
+
+.info-wrap:hover .info-tip,
+.info-wrap:focus-within .info-tip,
+.info-wrap.open .info-tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .info-tip {
+    width: min(320px, 86vw);
+    right: 0;
+  }
+}
+
+
 @media (max-width: 500px) {
   .main-block {
     width: 98vw;
