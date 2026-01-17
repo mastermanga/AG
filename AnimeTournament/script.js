@@ -36,6 +36,10 @@ window.addEventListener("DOMContentLoaded", () => {
   let aliveWB = [];           // 0 défaite
   let aliveLB = [];           // 1 défaite
 
+  // IMPORTANT: ordre d'élimination pour un classement final correct
+  // eliminationOrder = [1er éliminé, ..., dernier éliminé]
+  let eliminationOrder = [];
+
   let roundNumber = 1;        // Round global affiché
   let roundMatches = [];      // matchs du round en cours (WB + LB mélangés)
   let roundMatchIndex = 0;
@@ -50,7 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const nextMatchBtn = document.getElementById("next-match-btn");
   const modeSelectDiv = document.getElementById("mode-select");
 
-  // (sera ajouté ensuite au HTML)
+  // (ajouté au HTML)
   const roundIndicator = document.getElementById("round-indicator");
 
   // ===== GESTION MODES =====
@@ -84,6 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
     played = [];
     aliveWB = [];
     aliveLB = [];
+    eliminationOrder = [];
 
     roundNumber = 1;
     roundMatches = [];
@@ -136,6 +141,7 @@ window.addEventListener("DOMContentLoaded", () => {
       played = items.map(() => new Set());
       aliveWB = items.map((_, i) => i);
       aliveLB = [];
+      eliminationOrder = [];
 
       roundNumber = 1;
       roundMatches = [];
@@ -244,12 +250,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function updateRoundUI() {
     if (roundIndicator) {
-      // bonus: match x/y dans le round
       const total = roundMatches.length || 0;
       const done = Math.min(roundMatchIndex, total);
-      roundIndicator.textContent = total > 0
-        ? `Round ${roundNumber} — Match ${done + 1}/${total}`
-        : `Round ${roundNumber}`;
+      roundIndicator.textContent =
+        total > 0 ? `Round ${roundNumber} — Match ${done + 1}/${total}` : `Round ${roundNumber}`;
     }
   }
 
@@ -335,13 +339,14 @@ window.addEventListener("DOMContentLoaded", () => {
     if (losses[loserIndex] === 1) {
       aliveLB.push(loserIndex); // descend LB
     } else if (losses[loserIndex] >= ELIM_LOSSES) {
-      // OUT
+      // OUT -> on stocke l'ordre d'élimination (important pour le classement)
+      eliminationOrder.push(loserIndex);
     }
 
     showNextMatchInRound();
   }
 
-  // ====== Classement final ======
+  // ====== Classement final (basé sur l'ordre d'élimination) ======
   function showClassementDoubleElim(championIndex) {
     duelContainer.style.display = "none";
     classementDiv.innerHTML = "";
@@ -374,17 +379,29 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    const indices = items.map((_, i) => i);
+    const aliveAll = aliveWB.concat(aliveLB);
+    const champ = (championIndex != null) ? championIndex : (aliveAll[0] ?? null);
 
-    // Champion #1, puis tri par pertes (0 puis 1 puis 2), puis random
-    indices.sort((a, b) => {
-      if (a === championIndex) return -1;
-      if (b === championIndex) return 1;
-      if (losses[a] !== losses[b]) return losses[a] - losses[b];
-      return Math.random() - 0.5;
-    });
+    if (champ == null) {
+      // fallback extrême
+      const fallback = items.map((_, i) => i);
+      fallback.forEach((idx, pos) => displayClassementItem(idx, pos + 1));
+      return;
+    }
 
-    indices.forEach((idx, pos) => displayClassementItem(idx, pos + 1));
+    // ranking = [champion, runner-up, ...]
+    // runner-up = dernier éliminé => eliminationOrder[eliminationOrder.length - 1]
+    const ranking = [champ, ...eliminationOrder.slice().reverse()];
+
+    // sécurité si jamais il manque des indices (normalement non)
+    if (ranking.length < items.length) {
+      const seen = new Set(ranking);
+      for (let i = 0; i < items.length; i++) {
+        if (!seen.has(i)) ranking.push(i);
+      }
+    }
+
+    ranking.forEach((idx, pos) => displayClassementItem(idx, pos + 1));
   }
 
   function displayClassementItem(idx, rank) {
