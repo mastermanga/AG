@@ -171,7 +171,7 @@ let stopInterval;
 let currentAnime;
 let tries = 0;
 const maxTries = 3;
-const tryDurations = [15, 15, 15];
+const tryDurations = [15, 15, null];
 let failedAnswers = [];
 let playerReady = false;
 
@@ -362,9 +362,14 @@ function initPlayer() {
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.PLAYING) {
     clearInterval(stopInterval);
+
+    // Si c'est la 3e écoute (durée null), on ne coupe pas
+    const duration = tryDurations[tries - 1];
+    if (duration == null) return;
+
     stopInterval = setInterval(() => {
       const currentTime = player.getCurrentTime();
-      if (currentTime >= (currentAnime.startTime + tryDurations[tries - 1])) {
+      if (currentTime >= (currentAnime.startTime + duration)) {
         player.pauseVideo();
         clearInterval(stopInterval);
       }
@@ -432,16 +437,24 @@ function playTry(n) {
     if (opt) opt.remove();
   }
 
-  let start = 0;
-  if (tries === 2) start = 0;
-  if (tries === 3) start = 50;
-  currentAnime.startTime = start;
-
-  player.loadVideoById({
+    let start = 0;
+    if (tries === 2) start = 0;
+    if (tries === 3) start = 50;
+    currentAnime.startTime = start;
+  
+  const duration = tryDurations[tries - 1];
+  
+  const payload = {
     videoId: currentAnime.videoId,
-    startSeconds: start,
-    endSeconds: start + tryDurations[tries - 1]
-  });
+    startSeconds: start
+  };
+  
+  // Coupe seulement pour les écoutes 1 et 2
+  if (duration != null) {
+    payload.endSeconds = start + duration;
+  }
+  
+  player.loadVideoById(payload);
   player.playVideo();
 
   document.getElementById("playTry1").disabled = true;
