@@ -685,3 +685,21 @@ function showResultMessage(msg, showGreen, block, isDailyDone) {
   if (block) blockInputsAll();
   if (isDailyDone) document.getElementById("nextBtn").style.display = "block";
 }
+
+// ========== TOOLTIP AIDE (icône info) ==========
+document.addEventListener("click", (e) => {
+  const icon = e.target.closest(".info-icon");
+  if (!icon) return;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  const wrap = icon.closest(".info-wrap");
+  if (wrap) wrap.classList.toggle("open");
+});
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".info-wrap")) {
+    document.querySelectorAll(".info-wrap.open").forEach(w => w.classList.remove("open"));
+  }
+});
