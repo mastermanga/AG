@@ -706,3 +706,26 @@ function showSuccessMessage() {
     launchFireworks();
   }
 }
+
+// ========== TOOLTIP AIDE (icône info) ==========
+// Optionnel mais recommandé: évite des clics qui déclenchent autre chose + support mobile (tap)
+
+document.addEventListener("click", (e) => {
+  const icon = e.target.closest(".info-icon");
+  if (!icon) return;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  // Toggle pour mobile (ouvre/ferme la bulle)
+  const wrap = icon.closest(".info-wrap");
+  if (wrap) wrap.classList.toggle("open");
+});
+
+// Clique ailleurs -> referme
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".info-wrap")) {
+    document.querySelectorAll(".info-wrap.open").forEach(w => w.classList.remove("open"));
+  }
+});
+
