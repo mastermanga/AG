@@ -597,6 +597,50 @@ h2, .section-title {
   }
 }
 
+/* =========================
+   INDICATEUR DE ROUND
+   ========================= */
+#round-indicator {
+  /* on réutilise l'effet main-block mais en version compacte */
+  max-width: 520px;
+  width: min(92vw, 520px);
+  padding: 0.9rem 1.2rem;
+  margin: -1rem auto 1.1rem auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 900;
+  font-size: 1.15rem;
+  letter-spacing: 0.6px;
+  text-align: center;
+
+  /* petit style "badge" */
+  background: linear-gradient(120deg, rgba(22, 30, 39, 0.92) 70%, rgba(0, 188, 212, 0.10) 100%);
+  border: 1.5px solid #00bcd455;
+  box-shadow: 0 0 22px 3px #00bcd433;
+
+  border-radius: 16px;
+  user-select: none;
+}
+
+/* Mode clair pour le round */
+body.light #round-indicator {
+  background: linear-gradient(120deg, #e0f7fa 80%, #1565c01a 100%);
+  border: 1.5px solid #42a5f577;
+  box-shadow: 0 2px 14px #42a5f54b;
+}
+
+/* Mobile : un peu plus petit */
+@media (max-width: 600px) {
+  #round-indicator {
+    font-size: 1.05rem;
+    padding: 0.75rem 1rem;
+    margin: -0.6rem auto 0.9rem auto;
+  }
+}
+
 
 @media (max-width: 500px) {
   .main-block {
