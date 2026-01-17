@@ -708,24 +708,20 @@ function showSuccessMessage() {
 }
 
 // ========== TOOLTIP AIDE (icône info) ==========
-// Optionnel mais recommandé: évite des clics qui déclenchent autre chose + support mobile (tap)
+// Support mobile : tap pour ouvrir/fermer, tap ailleurs pour fermer
 
-document.addEventListener("click", (e) => {
-  const icon = e.target.closest(".info-icon");
-  if (!icon) return;
+document.addEventListener("pointerdown", (e) => {
+  const wrap = e.target.closest(".info-wrap");
 
-  e.preventDefault();
-  e.stopPropagation();
-
-  // Toggle pour mobile (ouvre/ferme la bulle)
-  const wrap = icon.closest(".info-wrap");
-  if (wrap) wrap.classList.toggle("open");
-});
-
-// Clique ailleurs -> referme
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".info-wrap")) {
-    document.querySelectorAll(".info-wrap.open").forEach(w => w.classList.remove("open"));
+  // clic/tap sur une bulle -> toggle
+  if (wrap && e.target.closest(".info-icon")) {
+    e.preventDefault();
+    e.stopPropagation();
+    wrap.classList.toggle("open");
+    return;
   }
+
+  // clic/tap ailleurs -> ferme toutes les bulles
+  document.querySelectorAll(".info-wrap.open").forEach(w => w.classList.remove("open"));
 });
 
