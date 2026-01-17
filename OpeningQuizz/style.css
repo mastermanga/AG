@@ -170,6 +170,7 @@ body.light #listen-buttons button:disabled {
 
 /* ========== DAILY BANNER ========== */
 #daily-banner {
+  margin-top: 1rem;
   display: none;
   background: linear-gradient(90deg, #1565c0 40%, #00bcd4 100%);
   color: #fff;
