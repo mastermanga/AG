@@ -354,6 +354,145 @@ body.light footer {
   color: #888;
 }
 
+.header-right{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+
+/* ========== BOUTON AIDE (SVG) + TOOLTIP ========== */
+
+.info-wrap{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-icon{
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(18, 30, 39, 0.55);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow:
+    0 0 10px rgba(0, 234, 255, 0.55),
+    0 0 24px rgba(0, 188, 212, 0.35),
+    inset 0 0 0 1px rgba(0, 234, 255, 0.18);
+
+  color: #eaffff;
+  cursor: help;
+  user-select: none;
+
+  transition: transform 0.16s, box-shadow 0.16s, background 0.16s, border-color 0.16s;
+}
+
+.info-svg{
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.info-wrap:hover .info-icon,
+.info-icon:focus{
+  transform: scale(1.08) rotate(-6deg);
+  background: rgba(10, 18, 26, 0.72);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 0 12px rgba(0, 234, 255, 0.9),
+    0 0 32px rgba(0, 234, 255, 0.55),
+    inset 0 0 0 1px rgba(0, 234, 255, 0.25);
+  outline: none;
+}
+
+/* Tooltip : par défaut vers le bas (évite de sortir de l’écran en haut du header) */
+.info-tip{
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+
+  transform: translateY(-6px) scale(0.98);
+
+  width: 320px;
+  padding: 10px 12px;
+  border-radius: 14px;
+
+  background: linear-gradient(120deg, #233554f3 80%, #00bcd422 100%);
+  border: 1.5px solid #00bcd455;
+  box-shadow: 0 10px 34px rgba(0, 234, 255, 0.32), 0 2.5px 14px rgba(25, 118, 210, 0.25);
+
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0.1px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index: 999;
+}
+
+/* Flèche vers le haut (pointe vers l’icône) */
+.info-tip::after{
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: 18px;
+
+  border-width: 0 7px 7px 7px;
+  border-style: solid;
+  border-color: transparent transparent #233554f3 transparent;
+
+  filter: drop-shadow(0 2px 2px rgba(0, 234, 255, 0.18));
+}
+
+.info-wrap:hover .info-tip,
+.info-wrap:focus-within .info-tip,
+.info-wrap.open .info-tip{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Light mode */
+body.light .info-tip{
+  background: linear-gradient(120deg, #e0f7fa 90%, #1565c01a 100%);
+  border: 1.5px solid rgba(66, 165, 245, 0.45);
+  box-shadow: 0 10px 34px rgba(66, 165, 245, 0.35), 0 2.5px 14px rgba(25, 118, 210, 0.18);
+  color: #0b1a2a;
+}
+body.light .info-tip::after{
+  border-color: transparent transparent #e0f7fa transparent;
+}
+body.light .info-icon{
+  background: rgba(255, 255, 255, 0.75);
+  color: #1565c0;
+  border: 1.5px solid rgba(25, 118, 210, 0.35);
+  box-shadow:
+    0 0 10px rgba(66, 165, 245, 0.55),
+    0 0 22px rgba(66, 165, 245, 0.30),
+    inset 0 0 0 1px rgba(66, 165, 245, 0.18);
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  .info-tip{
+    width: min(320px, 86vw);
+    right: 0;
+  }
+}
+
+
 /* === Responsive === */
 @media (max-width: 1050px) {
   .split-layout {
