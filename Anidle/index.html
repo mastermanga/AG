@@ -4,18 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>🕵️‍♂️ Anidle</title>
+
   <link rel="icon" type="image/png" href="../images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
     <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
 
-    <!-- Titre + aide (SVG) -->
-    <div class="title-wrap">
-      <h1>🕵️‍♂️ Guess the Anime 🕵️‍♂️</h1>
+    <h1>🕵️‍♂️ Guess the Anime 🕵️‍♂️</h1>
 
-      <span class="info-wrap title-help">
+    <!-- Zone droite : thème + aide -->
+    <div class="header-right">
+      <button id="themeToggle" class="toggle-btn">🌓</button>
+
+      <span class="info-wrap header-help">
         <span class="info-icon" tabindex="0" aria-label="Aide">
           <svg class="info-svg" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor"
@@ -28,44 +33,76 @@
         </span>
       </span>
     </div>
-
-    <button id="themeToggle" class="toggle-btn">🌓</button>
   </header>
 
-  <!-- Bandeau Daily juste après le header -->
+  <!-- BANDEAU DAILY -->
   <div id="daily-banner">
     <span id="daily-status"></span>
     <span id="daily-score"></span>
-    <button id="switch-mode-btn" class="toggle-btn" style="margin-left: 1.4rem; font-size: 1rem; padding: 0.35rem 1rem;"></button>
+    <button
+      id="switch-mode-btn"
+      class="toggle-btn"
+      style="margin-left: 1.4rem; font-size: 1rem; padding: 0.35rem 1rem;">
+    </button>
   </div>
 
+  <!-- CONTENU PRINCIPAL -->
   <div id="container" class="main-container">
     <div style="display:flex; gap:20px; justify-content:center;">
+      
+      <!-- Suggestions / aide latérale -->
       <div id="aideContainer" style="width:300px;"></div>
+
+      <!-- Jeu -->
       <div style="flex:1;">
         <div id="successContainer" style="display:none;"></div>
+
         <div class="input-container">
-          <input type="text" id="animeInput" placeholder="Entrez le nom d'un anime..." autocomplete="off" />
+          <input
+            type="text"
+            id="animeInput"
+            placeholder="Entrez le nom d'un anime..."
+            autocomplete="off"
+          />
+
           <div id="suggestions" class="suggestions"></div>
+
           <div id="counter">Tentatives : 0 (-150)</div>
+
           <div id="score-bar-container">
-            <div id="score-bar"><span id="score-bar-label"></span></div>
+            <div id="score-bar">
+              <span id="score-bar-label"></span>
+            </div>
           </div>
 
-          <!-- BARRE D'INDICES -->
-          <div id="indices-bar" style="display: flex; gap: 10px; margin: 16px 0; flex-wrap:wrap; justify-content:center;">
-            <button id="btnIndiceStudio" class="indice-btn" disabled>Indice Studio (-300)</button>
-            <button id="btnIndiceSaison" class="indice-btn" disabled>Indice Année (-300)</button>
-            <button id="btnIndiceGenres" class="indice-btn" disabled>Indice Genres/Thèmes (-300)</button>
-            <button id="btnIndiceScore" class="indice-btn" disabled>Indice Score (-300)</button>
+          <!-- INDICES -->
+          <div
+            id="indices-bar"
+            style="display:flex; gap:10px; margin:16px 0; flex-wrap:wrap; justify-content:center;"
+          >
+            <button id="btnIndiceStudio" class="indice-btn" disabled>
+              Indice Studio (-300)
+            </button>
+            <button id="btnIndiceSaison" class="indice-btn" disabled>
+              Indice Année (-300)
+            </button>
+            <button id="btnIndiceGenres" class="indice-btn" disabled>
+              Indice Genres/Thèmes (-300)
+            </button>
+            <button id="btnIndiceScore" class="indice-btn" disabled>
+              Indice Score (-300)
+            </button>
           </div>
         </div>
+
         <div id="results"></div>
       </div>
     </div>
+
     <canvas id="fireworks"></canvas>
   </div>
 
+  <!-- FOOTER -->
   <footer>
     © 2025 mastermanga
   </footer>
@@ -73,3 +110,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
