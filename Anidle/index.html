@@ -10,7 +10,25 @@
 <body>
   <header>
     <button id="back-to-menu" class="menu-btn">⬅️ Menu</button>
-    <h1>🕵️‍♂️ Guess the Anime 🕵️‍♂️</h1>
+
+    <!-- Titre + aide (SVG) -->
+    <div class="title-wrap">
+      <h1>🕵️‍♂️ Guess the Anime 🕵️‍♂️</h1>
+
+      <span class="info-wrap title-help">
+        <span class="info-icon" tabindex="0" aria-label="Aide">
+          <svg class="info-svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M12 2a10 10 0 1 0 0 20a10 10 0 0 0 0-20Zm0 4.9a1.25 1.25 0 1 1 0 2.5a1.25 1.25 0 0 1 0-2.5ZM10.9 11a1 1 0 0 1 1-1h.2a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0v-6Z" />
+          </svg>
+        </span>
+
+        <span class="info-tip" role="tooltip">
+          Deviner l’anime mystère grâce aux indices (studio, année, genre…) et obtenir le meilleur score en un minimum d’essais.
+        </span>
+      </span>
+    </div>
+
     <button id="themeToggle" class="toggle-btn">🌓</button>
   </header>
 
@@ -33,6 +51,7 @@
           <div id="score-bar-container">
             <div id="score-bar"><span id="score-bar-label"></span></div>
           </div>
+
           <!-- BARRE D'INDICES -->
           <div id="indices-bar" style="display: flex; gap: 10px; margin: 16px 0; flex-wrap:wrap; justify-content:center;">
             <button id="btnIndiceStudio" class="indice-btn" disabled>Indice Studio (-300)</button>
